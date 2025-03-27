@@ -1,4 +1,16 @@
- /* @import "tailwindcss"; */
+@import "tailwindcss";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('/src/font/PlayfairDisplay-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  body{
+    font-family: "Playfair Display";
+    /* font-size: 1px; */
+  }
