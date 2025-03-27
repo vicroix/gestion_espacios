@@ -4,16 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario registro</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .form-registro{
+            width: 400px;
+            background: #FFFFFF;
+            padding: 30px;
+            margin: auto;
+            margin-top: 100px;
+            border-radius: 4px;
+            font-family: 'calibri';
+            color: black;
+        }
+        .form-registro h4{
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .controls{
+            width: 100%;
+            background:#FFFFFF ;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            border: 1px solid #000000;
+            font-family: 'calibri';
+            font-size: 18px;
+            color: #FFFFFF;
+            
+        }
+        ::placeholder{
+                color:#000000;
+            }
+        
+        .button{
+            color: #FFFFFF;
+            background-color: #990000;
+            margin-left: 140px;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+
+    </style>
+
 </head>
 <body>
-    <section>
-        <input type="text" name="nombre" id="nombre" placeholder="Nombre*">
-        <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos*">
-        <input type="text" name="Usuario" id="Usuario" placeholder="Usuario*">
-        <input type="password" name="password" id="password" placeholder="Contraseña*">
-        <input type="email" name="email" id="email" placeholder="Correo electrónico*">
-        <input type="text" name="telefono" id="telefono" placeholder="Teléfono*">
-        <input type="submit" value="Registrar">
+    <section class="form-registro">
+       <h4>Formulario de registro</h4> 
+        <input class="controls" type="text" name="nombre" id="nombre" placeholder="Nombre*">
+        <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Apellidos*">
+        <input class="controls" type="text" name="Usuario" id="Usuario" placeholder="Usuario*">
+        <input class="controls" type="password" name="password" id="password" placeholder="Contraseña*">
+        <input class="controls" type="email" name="email" id="email" placeholder="Correo electrónico*">
+        <input class="controls" type="text" name="telefono" id="telefono" placeholder="Teléfono*">
+        <input class="button" type="submit" value="Registrar">
     </section>
     
 </body>
