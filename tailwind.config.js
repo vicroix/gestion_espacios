@@ -1,3 +1,4 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./*.html",   // index.html
@@ -5,10 +6,15 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontSize: {
-        'custom': '16px' //Variable para meter en fuentes dinámicas cuando compile el css
+      colors: {
+        primary: {
+          red: "#990000"
+        },
+      },
+      fontSize:{
+        'custom': '16px'
       }
-    },
+    }
   },
   plugins: [],
 };

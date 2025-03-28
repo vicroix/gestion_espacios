@@ -1,16 +1,31 @@
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
+/* @tailwind base;
+@tailwind components; */
 @tailwind utilities;
 
 @font-face {
-    font-family: 'Playfair Display';
-    src: url('/src/font/PlayfairDisplay-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
+  font-family: "Playfair Display";
+  src: url("/src/font/PlayfairDisplay-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  line-height: 1px;
+  font-family: "Montserrat";
+  src: url("/src/font/Montserrat-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
-  body{
-    font-family: "Playfair Display";
-    /* font-size: 1px; */
-  }
+body {
+  font-family: "Playfair Display";
+  /* font-size: 1px; */
+}
+
+.font-montserrat {
+  font-family: "Montserrat";
+}
+
+.animation-scale{
+  @apply hover:scale-115 transition duration-150 ease-in-out
+}
