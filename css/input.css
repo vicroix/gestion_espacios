@@ -26,6 +26,3 @@ body {
   font-family: "Montserrat";
 }
 
-.animation-scale{
-  @apply hover:scale-115 transition duration-150 ease-in-out
-}
