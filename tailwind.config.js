@@ -2,18 +2,11 @@
 module.exports = {
   content: [
     "./*.html",   // index.html
-    "./js/*.js"
+    "./js/*.js",
+    "./html/*.html"
   ],
   theme: {
     extend: {
-      colors: {
-        primary: {
-          red: "#990000"
-        },
-      },
-      fontSize:{
-        'custom': '16px'
-      }
     }
   },
   plugins: [],
