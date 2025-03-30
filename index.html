@@ -11,15 +11,23 @@
 </head>
 
 <body>
-    <nav class="navbar w-full">
-        <!--Icono corporativo PENDIENTE DE ESTILARLO Y DARLE TAMAÑO ACORDE-->
-        <a href="index.html" id="logonav"><img src="img/Logo.png" alt="Logo"></a>
-        <!--FAQ-->
-        <a href="faq.html">FAQ</a>
-        <!--Botón a REGISTRO PENDIENTE ESTILAR-->
-        <a href="registro.html"><button class="redbutton">Registro</button></a>
-        <!--Botón a INICIO DE SESIÓN PENDIENTE ESTILAR-->
-        <a href="iniciosesion.html"><button class="redbutton">Iniciar sesión</button></a>
+    <nav class="fixed top-0 bg-white w-full shadow-md" >
+        <!--Imagen decorativa del nav-->
+        <div class="absolute inset-0 flex justify-center h-[100px]">
+            <img src="img/deco-nav.png" alt="Imagen decorativa del nav" class="h-[35px] w-auto">
+        </div>
+        <div class="relative flex items-center justify-between px-4">
+        <!--Logo a la izquierda del nav con un tamaño de 50px-->
+        <div><img src="img/logo.png" alt="Logo" class="self-start h-[50px]"></div>
+        <!--Enlaces y botones a la derecha-->
+        <div class="flex items-center self-end gap-4 ">
+        <!--Enlace a FAQ-->
+        <a href="FAQ" class="hover:text-[#990000]">FAQ</a>
+        <!--Botón a Iniciar sesión-->
+        <button class="bg-[#990000] hover:bg-[#a84848] text-white p-2 rounded-lg w-auto mx-auto my-8 cursor-pointer">Iniciar sesión</button>
+        <!--Botón a Registro-->
+        <button class="bg-black hover:bg-[#5d5d5d] text-white p-2 rounded-lg w-auto mx-auto my-8 cursor-pointer">Registro</button></div>
+    </div>
     </nav>
     <main class="">
         <h1>TeatroGest</h1>
