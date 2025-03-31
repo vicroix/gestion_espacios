@@ -1860,7 +1860,12 @@
   font-style: normal;
 }
 body {
+  font-family: "Montserrat";
+  font-size: 20px;
+}
+h1, h2 {
   font-family: "Playfair Display";
+  font-size: 36px;
 }
 .font-montserrat {
   font-family: "Montserrat";
