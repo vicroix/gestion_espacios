@@ -16,8 +16,13 @@
 }
 
 body {
+  font-family: "Montserrat";
+  font-size: 1px; /
+}
+
+h1, h2 {
   font-family: "Playfair Display";
-  /* font-size: 1px; */
+  font-size: 1px;
 }
 
 .font-montserrat {
