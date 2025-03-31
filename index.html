@@ -5,43 +5,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!--Enlace para iconos de Fontawesome-->
-    <script src="https://kit.fontawesome.com/9472653e95.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <nav class="navbar w-full">
-        <!--Icono corporativo PENDIENTE DE ESTILARLO Y DARLE TAMAÑO ACORDE-->
-        <a href="index.html" id="logonav"><img src="img/Logo.png" alt="Logo" width="150"></a>
-        <!--Decoración nav-bar-->
-        <img src="img/deco-nav.png" alt="decoración barra navegador">
-        <!--Enlace a nuestro HOME-->
-        <i class="fa-solid fa-house" style="color: #990000; cursor: pointer;"></i>
-        <!--Enlace a GESTIÓN DE SALAS-->
-        <a href="salas,html">Salas</a>
-        <!--Enlace a GESTIÓN DE RESERVAS DE SALAS-->
-        <a href="reservas.html">Reservas</a>
-        <!--Enlace a INICIO DE SESIÓN-->
-        <a href="iniciosesion.html"><button class="redbutton">Iniciar sesión</button></a>
+    <nav class="sticky top-0 bg-white w-full shadow-md" >
+        <!--Imagen decorativa del nav-->
+        <div class="absolute inset-0 flex justify-center h-[100px]">
+            <img src="img/deco-nav.png" alt="Imagen decorativa del nav" class="h-[35px] w-auto">
+        </div>
+        <div class="relative flex items-center justify-between px-4">
+            <!--Logo a la izquierda del nav con un tamaño de 50px-->
+            <div><img src="img/Logo.png" alt="Logo" class="self-start h-[50px]"></div>
+            <!--Enlaces y botones a la derecha-->
+            <div class="flex items-center self-end gap-12 ">
+                <!--Enlace a FAQ-->
+                <a href="/html/FAQ.html" class="hover:text-[#990000]">FAQ</a>
+                <!--Botón a Registro-->
+                <a href="/html/registro.html" class="bg-black hover:bg-[#5d5d5d] text-white p-2 rounded-lg w-auto mx-auto my-8 cursor-pointer">Registro</a>
+                <!--Botón a Iniciar sesión-->
+                <a href="/html/iniciosesion.html" class="bg-[#990000] hover:bg-[#a84848] text-white p-2 rounded-lg w-auto mx-auto my-8 cursor-pointer">Iniciar sesión</a>
+            </div>
+        </div>
     </nav>
-    <main class="">
-        <h1>TeatroGest</h1>
+    <main class="flex flex-col items-center mt-[50px] ml-4 mr-4">
+        <!--Título H1 - TEATROGEST-->
+        <h1 class="text-[#990000] self-start text-5xl">TeatroGest</h1>
+          
         <!--Sección principal de presentación de la aplicación-->
-        <section>
+        <section class="grid grid-cols-2 items-center mt-6 gap-6">
+            
             <!--Texto introductorio-->
-            <p>Bienvenidos a <b>TeatroGest</b> 🎭
+            
+            <p class="font-montserrat h-">Bienvenidos a <b>TeatroGest</b> 🎭
                 Aplicación para la gestión de reservas de espacios espacio teatrales, dedicado a la magia del
                 espectáculo, donde el arte y la cultura cobran vida. Con una arquitectura impresionante y tecnología de
                 vanguardia, nuestro teatro ofrece una experiencia única para cada espectador.
                 Desde obras de teatro clásicas y modernas hasta conciertos, danza y eventos especiales, celebramos el
                 talento y la creatividad en todas sus formas. Contamos con cómodas instalaciones, una acústica
                 excepcional y un ambiente acogedor que garantiza una experiencia inolvidable.
-                ¡Encuentra tu espacio para poder vivir el espectáculo con nosotros! 🎶✨</p>
+                ¡Encuentra tu espacio para poder vivir el espectáculo con nosotros! 🎶✨
+            </p>
+            
             <!--Imagen de sillones de teatro (se puede modificar por la que desee el cliente) pendiente de alinear con texto-->
-            <img src="img/sillones.jpg" alt="sillones teatro">
+            <div>
+                <img src="img/sillones.jpg" alt="sillones teatro" class="w-[450px]">
+            </div>
         </section>
-        <button class="blackbutton">Registro</button>
+        <!--Reseñas BUSCAR API-->
+        <section class="flex flex-col self-start">
+            <h2 class="text-[#990000] text-4xl">Reseñas</h2>
+            <hr class="text-[#990000]">
+            
+        </section >
+        <!--Calendario eventos-->
+        <section class="flex flex-col self-start">
+            <h2 class="text-[#990000] text-4xl">Próximos eventos</h2>
+            <hr class="text-[#990000]">
+        </section>
     </main>
     <footer class="bottom-0 w-full">
         <div class="w-full h-[264px] mx-auto relative min-w-[1380px] mt-[50px] border-t border-gray-300">
