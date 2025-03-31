@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <nav class="fixed top-0 bg-white w-full shadow-md" >
+    <nav class="sticky top-0 bg-white w-full shadow-md" >
         <!--Imagen decorativa del nav-->
         <div class="absolute inset-0 flex justify-center h-[100px]">
             <img src="img/deco-nav.png" alt="Imagen decorativa del nav" class="h-[35px] w-auto">
@@ -20,15 +20,15 @@
             <!--Enlaces y botones a la derecha-->
             <div class="flex items-center self-end gap-12 ">
                 <!--Enlace a FAQ-->
-                <a href="/html/FAQ.html" class="hover:text-[#990000] font-montserrat">FAQ</a>
+                <a href="/html/FAQ.html" class="hover:text-[#990000]">FAQ</a>
                 <!--Botón a Registro-->
-                <a href="/html/registro.html" class="bg-black hover:bg-[#5d5d5d] text-white p-2 rounded-lg w-auto mx-auto my-8 cursor-pointer font-montserrat">Registro</a>
+                <a href="/html/registro.html" class="bg-black hover:bg-[#5d5d5d] text-white p-2 rounded-lg w-auto mx-auto my-8 cursor-pointer">Registro</a>
                 <!--Botón a Iniciar sesión-->
-                <a href="/html/iniciosesion.html" class="bg-[#990000] hover:bg-[#a84848] text-white p-2 rounded-lg w-auto mx-auto my-8 cursor-pointer font-montserrat">Iniciar sesión</a>
+                <a href="/html/iniciosesion.html" class="bg-[#990000] hover:bg-[#a84848] text-white p-2 rounded-lg w-auto mx-auto my-8 cursor-pointer">Iniciar sesión</a>
             </div>
         </div>
     </nav>
-    <main class="flex flex-col items-center mt-[150px] ml-4 mr-4">
+    <main class="flex flex-col items-center mt-[50px] ml-4 mr-4">
         <!--Título H1 - TEATROGEST-->
         <h1 class="text-[#990000] self-start text-5xl">TeatroGest</h1>
           
@@ -53,10 +53,15 @@
             </div>
         </section>
         <!--Reseñas BUSCAR API-->
-        <section>
-        </section>
+        <section class="flex flex-col self-start">
+            <h2 class="text-[#990000] text-4xl">Reseñas</h2>
+            <hr class="text-[#990000]">
+            
+        </section >
         <!--Calendario eventos-->
-        <section>
+        <section class="flex flex-col self-start">
+            <h2 class="text-[#990000] text-4xl">Próximos eventos</h2>
+            <hr class="text-[#990000]">
         </section>
     </main>
     <footer class="fixed bottom-0 w-full">
