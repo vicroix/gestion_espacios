@@ -1,0 +1,16 @@
+{
+  "name": "teatrogest",
+  "version": "1.0.0",
+  "description": "Aplicación para la gestión de reservas de salas de teatro a nivel profesional.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev":"npx @tailwindcss/cli -i ./css/input.css -o ./css/style.css --watch" },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.0.17",
+    "tailwindcss": "^4.0.17"
+  }
+}
