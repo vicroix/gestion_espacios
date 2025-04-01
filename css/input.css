@@ -111,11 +111,3 @@ h3 {
 
 }
 
-/*Estilado mapa interactivo*/
-#map {
-  position: absolute;
-  /*top: 0;
-  bottom: 0;*/
-  width: 800px;
-  height: 500px;
-}
