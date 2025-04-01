@@ -4,19 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <title>Gestión reservas</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
     <nav class="sticky top-0 bg-white w-full shadow-md">
         <!--Imagen decorativa del nav-->
         <div class="absolute inset-0 flex justify-center h-[100px]">
-            <img src="img/deco-nav.png" alt="Imagen decorativa del nav" class="h-[35px] w-auto">
+            <img src="/img/deco-nav.png" alt="Imagen decorativa del nav" class="h-[35px] w-auto">
         </div>
         <div class="relative flex items-center justify-between px-4">
             <!--Logo a la izquierda del nav con un tamaño de 50px-->
-            <div><img src="img/Logo.png" alt="Logo" class="self-start h-[50px]"></div>
+            <div><img src="/img/Logo.png" alt="Logo" class="self-start h-[50px]"></div>
             <!--Enlaces y botones a la derecha-->
             <div class="flex items-center self-end gap-12 ">
                 <!--Enlace a FAQ-->
@@ -31,41 +31,33 @@
             </div>
         </div>
     </nav>
-    <main class="flex flex-col items-center mt-[50px] ml-4 mr-4">
-        <!--Título H1 - TEATROGEST-->
-        <h1 class="text-[#990000] self-start text-5xl">TeatroGest</h1>
-
-        <!--Sección principal de presentación de la aplicación-->
-        <section class="grid grid-cols-2 items-center mt-6 gap-6">
-
-            <!--Texto introductorio-->
-
-            <p class="font-montserrat h-">Bienvenidos a <b>TeatroGest</b> 🎭
-                Aplicación para la gestión de reservas de espacios espacio teatrales, dedicado a la magia del
-                espectáculo, donde el arte y la cultura cobran vida. Con una arquitectura impresionante y tecnología de
-                vanguardia, nuestro teatro ofrece una experiencia única para cada espectador.
-                Desde obras de teatro clásicas y modernas hasta conciertos, danza y eventos especiales, celebramos el
-                talento y la creatividad en todas sus formas. Contamos con cómodas instalaciones, una acústica
-                excepcional y un ambiente acogedor que garantiza una experiencia inolvidable.
-                ¡Encuentra tu espacio para poder vivir el espectáculo con nosotros! 🎶✨
-            </p>
-
-            <!--Imagen de sillones de teatro (se puede modificar por la que desee el cliente) pendiente de alinear con texto-->
-            <div>
-                <img src="img/sillones.jpg" alt="sillones teatro" class="w-[450px]">
-            </div>
-        </section>
-        <!--Reseñas BUSCAR API-->
-        <section class="flex flex-col self-start">
-            <h1 class="text-[#990000] text-4xl">Reseñas</h1>
-            <hr class="text-[#990000]">
-
-        </section>
-        <!--Calendario eventos-->
-        <section class="flex flex-col self-start">
-            <h1 class="text-[#990000] text-4xl">Próximos eventos</h1>
-            <hr class="text-[#990000]">
-        </section>
+    <main class="flex flex-col w-full items-center mt-[50px] gap-12 h-[59vh]">
+        <div class="flex justify-start border-b-1 w-320 mx-24">
+            <h3 class="px-10">PANEL DE GESTIÓN DE RESERVAS</h3>
+        </div>
+        <div class="flex justify-center">
+            <form action="" method="" class="flex gap-8">
+                <div class="flex flex-col gap-12">
+                    <div class="flex flex-col gap-6">
+                        <input type="text" class="inputs-text">
+                        <input type="text" class="inputs-text">    
+                    </div>
+                    <div class="text-center">
+                        <button type="button" class="buttom-primary w-35">Nueva reserva</button>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-6">
+                    <div class="flex gap-3">
+                        <button type="button" class="buttom-primary w-[120px]">Modificar</button>
+                        <button type="button" class="buttom-secundary w-[120px]">Anular</button>
+                    </div>
+                    <div class="flex gap-3">
+                        <button type="button" class="buttom-primary w-[120px]">Modificar</button>
+                        <button type="button" class="buttom-secundary w-[120px]">Anular</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </main>
     <footer class="bottom-0 w-full">
         <div class="w-full h-[264px] mx-auto relative min-w-[1380px] mt-[50px] border-t border-gray-300">
@@ -98,6 +90,7 @@
                             </svg></a>
                     </div>
                 </div>
+
                 <!-- Contenedor derecho footer - contactos y ubicación -->
                 <div class="flex items-center gap-12">
                     <div class="flex flex-col gap-2 ml-14 items-end font-montserrat">
@@ -109,13 +102,13 @@
                         </div>
                     </div>
                     <div>
-                        <img src="img/MapTemporal.png" alt="MapTemporal" width="242" height="192" class="items-center">
+                        <img src="/img/MapTemporal.png" alt="MapTemporal" width="242" height="192" class="items-center">
                     </div>
                 </div>
             </div>
             <!-- Logo central footer -->
             <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[15px]">
-                <img src="img/deco-footer.png" alt="footer-icon" width="400">
+                <img src="/img/deco-footer.png" alt="footer-icon" width="400">
             </div>
         </div>
     </footer>

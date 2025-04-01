@@ -7,12 +7,11 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --color-red-500: oklch(0.637 0.237 25.331);
-    --color-amber-200: oklch(0.924 0.12 95.746);
-    --color-amber-300: oklch(0.879 0.169 91.605);
     --color-gray-300: oklch(0.872 0.01 258.338);
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
+    --container-6xl: 72rem;
     --text-xl: 1.25rem;
     --text-xl--line-height: calc(1.75 / 1.25);
     --text-4xl: 2.25rem;
@@ -362,6 +361,9 @@
   .m-0 {
     margin: calc(var(--spacing) * 0);
   }
+  .mx-24 {
+    margin-inline: calc(var(--spacing) * 24);
+  }
   .mx-auto {
     margin-inline: auto;
   }
@@ -377,11 +379,17 @@
   .mr-4 {
     margin-right: calc(var(--spacing) * 4);
   }
+  .mr-25 {
+    margin-right: calc(var(--spacing) * 25);
+  }
   .ml-4 {
     margin-left: calc(var(--spacing) * 4);
   }
   .ml-14 {
     margin-left: calc(var(--spacing) * 14);
+  }
+  .ml-25 {
+    margin-left: calc(var(--spacing) * 25);
   }
   .box-border {
     box-sizing: border-box;
@@ -470,14 +478,41 @@
   .aspect-square {
     aspect-ratio: 1 / 1;
   }
+  .h-\[30vh\] {
+    height: 30vh;
+  }
   .h-\[35px\] {
     height: 35px;
   }
   .h-\[50px\] {
     height: 50px;
   }
+  .h-\[50vh\] {
+    height: 50vh;
+  }
+  .h-\[55vh\] {
+    height: 55vh;
+  }
+  .h-\[58vh\] {
+    height: 58vh;
+  }
+  .h-\[59vh\] {
+    height: 59vh;
+  }
+  .h-\[60vh\] {
+    height: 60vh;
+  }
+  .h-\[70vh\] {
+    height: 70vh;
+  }
+  .h-\[100\%\] {
+    height: 100%;
+  }
   .h-\[100px\] {
     height: 100px;
+  }
+  .h-\[100vh\] {
+    height: 100vh;
   }
   .h-\[264px\] {
     height: 264px;
@@ -506,8 +541,80 @@
   .w-10 {
     width: calc(var(--spacing) * 10);
   }
+  .w-23 {
+    width: calc(var(--spacing) * 23);
+  }
+  .w-35 {
+    width: calc(var(--spacing) * 35);
+  }
+  .w-40 {
+    width: calc(var(--spacing) * 40);
+  }
+  .w-50 {
+    width: calc(var(--spacing) * 50);
+  }
+  .w-100 {
+    width: calc(var(--spacing) * 100);
+  }
+  .w-200 {
+    width: calc(var(--spacing) * 200);
+  }
+  .w-250 {
+    width: calc(var(--spacing) * 250);
+  }
+  .w-300 {
+    width: calc(var(--spacing) * 300);
+  }
+  .w-320 {
+    width: calc(var(--spacing) * 320);
+  }
+  .w-350 {
+    width: calc(var(--spacing) * 350);
+  }
+  .w-400 {
+    width: calc(var(--spacing) * 400);
+  }
+  .w-\[50vh\] {
+    width: 50vh;
+  }
+  .w-\[80\%\] {
+    width: 80%;
+  }
+  .w-\[80vh\] {
+    width: 80vh;
+  }
+  .w-\[90\%\] {
+    width: 90%;
+  }
+  .w-\[100\%\] {
+    width: 100%;
+  }
+  .w-\[100vh\] {
+    width: 100vh;
+  }
+  .w-\[120px\] {
+    width: 120px;
+  }
+  .w-\[130px\] {
+    width: 130px;
+  }
+  .w-\[150px\] {
+    width: 150px;
+  }
+  .w-\[150vh\] {
+    width: 150vh;
+  }
+  .w-\[300px\] {
+    width: 300px;
+  }
+  .w-\[400px\] {
+    width: 400px;
+  }
   .w-\[450px\] {
     width: 450px;
+  }
+  .w-\[600px\] {
+    width: 600px;
   }
   .w-auto {
     width: auto;
@@ -517,6 +624,9 @@
   }
   .w-screen {
     width: 100vw;
+  }
+  .max-w-6xl {
+    max-width: var(--container-6xl);
   }
   .max-w-none {
     max-width: none;
@@ -924,11 +1034,23 @@
   .gap-2 {
     gap: calc(var(--spacing) * 2);
   }
+  .gap-3 {
+    gap: calc(var(--spacing) * 3);
+  }
+  .gap-5 {
+    gap: calc(var(--spacing) * 5);
+  }
   .gap-6 {
     gap: calc(var(--spacing) * 6);
   }
+  .gap-8 {
+    gap: calc(var(--spacing) * 8);
+  }
   .gap-12 {
     gap: calc(var(--spacing) * 12);
+  }
+  .gap-50 {
+    gap: calc(var(--spacing) * 50);
   }
   .gap-\[8px\] {
     gap: 8px;
@@ -1114,6 +1236,10 @@
     border-right-width: 1px;
   }
   .border-b {
+    border-bottom-style: var(--tw-border-style);
+    border-bottom-width: 1px;
+  }
+  .border-b-1 {
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 1px;
   }
@@ -1350,8 +1476,26 @@
   .p-2 {
     padding: calc(var(--spacing) * 2);
   }
+  .p-3 {
+    padding: calc(var(--spacing) * 3);
+  }
+  .p-4 {
+    padding: calc(var(--spacing) * 4);
+  }
+  .px-3 {
+    padding-inline: calc(var(--spacing) * 3);
+  }
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
+  }
+  .px-5 {
+    padding-inline: calc(var(--spacing) * 5);
+  }
+  .px-10 {
+    padding-inline: calc(var(--spacing) * 10);
+  }
+  .px-12 {
+    padding-inline: calc(var(--spacing) * 12);
   }
   .px-\[70px\] {
     padding-inline: 70px;
@@ -1494,20 +1638,11 @@
   .\[color\:red\]\/50\! {
     color: color-mix(in oklab, red 50%, transparent) !important;
   }
-  .text-\[\#001799\] {
-    color: #001799;
+  .text-\[\#000000\] {
+    color: #000000;
   }
   .text-\[\#990000\] {
     color: #990000;
-  }
-  .text-amber-300 {
-    color: var(--color-amber-300);
-  }
-  .text-black {
-    color: var(--color-black);
-  }
-  .text-transparent {
-    color: transparent;
   }
   .text-white {
     color: var(--color-white);
@@ -1968,27 +2103,6 @@
       }
     }
   }
-  .hover\:bg-\[a84848\] {
-    &:hover {
-      @media (hover: hover) {
-        background-color: a84848;
-      }
-    }
-  }
-  .hover\:bg-black {
-    &:hover {
-      @media (hover: hover) {
-        background-color: var(--color-black);
-      }
-    }
-  }
-  .hover\:text-\[\#000000\] {
-    &:hover {
-      @media (hover: hover) {
-        color: #000000;
-      }
-    }
-  }
   .hover\:text-\[\#990000\] {
     &:hover {
       @media (hover: hover) {
@@ -2000,27 +2114,6 @@
     &:hover {
       @media (hover: hover) {
         color: #a84848;
-      }
-    }
-  }
-  .hover\:text-amber-200 {
-    &:hover {
-      @media (hover: hover) {
-        color: var(--color-amber-200);
-      }
-    }
-  }
-  .hover\:text-black {
-    &:hover {
-      @media (hover: hover) {
-        color: var(--color-black);
-      }
-    }
-  }
-  .hover\:text-transparent {
-    &:hover {
-      @media (hover: hover) {
-        color: transparent;
       }
     }
   }
@@ -2040,8 +2133,17 @@
 }
 body {
   font-family: "Montserrat";
+  font-size: 16px;
 }
-h1, h2 {
+h1 {
+  font-size: 48px;
+}
+h2 {
+  font-size: 36px;
+  font-family: "Playfair Display";
+}
+h3 {
+  font-size: 24px;
   font-family: "Playfair Display";
 }
 .font-montserrat {
@@ -2063,6 +2165,26 @@ h1, h2 {
       scale: var(--tw-scale-x) var(--tw-scale-y);
     }
   }
+}
+.inputs-text {
+  border: solid 1px black;
+  border-radius: 8px;
+  padding: 4px;
+  width: 500px;
+  height: 45px;
+  padding: 10px;
+}
+.buttom-primary {
+  background-color: #990000;
+  color: white;
+  border-radius: 8px;
+  height: 45px;
+}
+.buttom-secundary {
+  background-color: black;
+  color: white;
+  border-radius: 8px;
+  height: 45px;
 }
 @property --tw-translate-x {
   syntax: "*";
