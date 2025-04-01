@@ -44,23 +44,23 @@ h3 {
   height: 45px;
   padding: 10px;
 }
-.buttom-primary {
+.button-primary {
   background-color: #990000;
   color: white;
   border-radius: 8px;
   height: 45px;
 }
-.buttom-secundary {
+.button-secundary {
   background-color: black;
   color: white;
   border-radius: 8px;
   height: 45px;
 }
 /*Style formregistro*/
-* {
+/* * {
   padding: 0;
   box-sizing: border-box;
-}
+} */
 
 .form-registro {
 
@@ -109,4 +109,13 @@ h3 {
   font-size: 36px;
   border-bottom: #000000 1px solid;
 
+}
+
+/*Estilado mapa interactivo*/
+#map {
+  position: absolute;
+  /*top: 0;
+  bottom: 0;*/
+  width: 800px;
+  height: 500px;
 }
