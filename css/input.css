@@ -56,3 +56,57 @@ h3 {
   border-radius: 8px;
   height: 45px;
 }
+/*Style formregistro*/
+* {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.form-registro {
+
+  background: #FFFFFF;
+  
+  margin-top: 25px;
+  border-radius: 4px;
+  color: black;
+
+}
+
+.form-registro h4 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.controls {
+
+  background: #FFFFFF;
+  padding: 10px;
+  border-radius: 4px;
+
+  border: 1px solid #000000;
+  font-size: 18px;
+  color: #000000;
+
+}
+
+::placeholder {
+  color: #000000;
+}
+
+.button {
+  color: #FFFFFF;
+  background-color: #990000;
+  align-items: center;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  width: 200px;
+  margin-left: 33%;
+}
+
+.titulo_pagina {
+  color: #000000;
+  font-size: 36px;
+  border-bottom: #000000 1px solid;
+
+}
