@@ -38,18 +38,29 @@
         </div>
     </nav>
     <main>
-        <section>
-            <h1>PAGO</h1>
+        <section class="flex flex-col">
+            <div class="flex-justify-start w-320 mx-24">
+            <h2 class="px-10">PAGO</h2>
             <hr>
+            </div>
             <!--inputs para el pago-->
-                <form>
-                    <input type="text" name="nombre titular" id="nombre titular" placeholder="Nombre titular*">
-                    <input type="text" name="número tarjeta" id="número tarjeta" placeholder="Número tarjeta*">
-                    <input type="text" name="MM/AA" id="MM/AA" placeholder="MM/AA*">
-                    <input type="text" name="cvv" id="cvv" placeholder="CVV">
+            <div class="flex">
+                <form action="" class="bg-white w-80 mt-8 rounded-lg p-6 flex-col flex gap-3 justify-center">
+                    <input  class="border border-gray-300 w-117 px-3 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
+                    invalid:focus:ring-red-400 peer" type="text" name="nombre titular" id="nombre titular" placeholder="Nombre titular*">
+                    <input  class="border border-gray-300 w-117 px-3 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
+                    invalid:focus:ring-red-400 peer" type="text" name="número tarjeta" id="número tarjeta" placeholder="Número tarjeta*">
+                    <div class="flex-row flex gap-2">
+                    <input  class="border border-gray-300 w-auto px-3 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
+                    invalid:focus:ring-red-400 peer" type="text" name="MM/AA" id="MM/AA" placeholder="MM/AA*">
+                    <input  class="border border-gray-300 w-auto px-3 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
+                    invalid:focus:ring-red-400 peer" type="text" name="cvv" id="cvv" placeholder="CVV">
+                </div>
+
             <!--botón para pagar-->
-                    <button type="submit" placeholder="Pagar"> Pagar </button>
+                    <button class="bg-[#990000] w-full py-2 text-white rounded-md cursor-pointer hover:bg-[#a84848]" type="submit" placeholder="Pagar"> Pagar </button>
                 </form>
+            </div>
         </section>
     </main>
 </body>
