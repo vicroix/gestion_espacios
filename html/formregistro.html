@@ -1,19 +1,180 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario registro</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        * {
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .form-registro {
+
+            background: #FFFFFF;
+            /* padding: 30px;*/
+            /* margin-left: 100px;*/
+            margin-top: 25px;
+            border-radius: 4px;
+            color: black;
+        }
+
+        .form-registro h4 {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .controls {
+
+            background: #FFFFFF;
+            padding: 10px;
+            border-radius: 4px;
+
+            border: 1px solid #000000;
+            font-size: 18px;
+            color: #000000;
+
+        }
+
+        ::placeholder {
+            color: #000000;
+        }
+
+        .button {
+            color: #FFFFFF;
+            background-color: #990000;
+            align-items: center;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            width: 200px;
+            margin-left: 33%;
+        }
+
+        .titulo_pagina {
+            color: #000000;
+            font-size: 36px;
+            border-bottom: #000000 1px solid;
+
+        }
+    </style>
+
 </head>
+
 <body>
-    <section>
-        <input type="text" name="nombre" id="nombre" placeholder="Nombre*">
-        <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos*">
-        <input type="text" name="Usuario" id="Usuario" placeholder="Usuario*">
-        <input type="password" name="password" id="password" placeholder="Contraseña*">
-        <input type="email" name="email" id="email" placeholder="Correo electrónico*">
-        <input type="text" name="telefono" id="telefono" placeholder="Teléfono*">
-        <input type="submit" value="Registrar">
-    </section>
+    <nav class="sticky top-0 bg-white w-full shadow-md">
+        <!--Imagen decorativa del nav-->
+        <div class="absolute inset-0 flex justify-center h-[100px]">
+            <img src="/img/deco-nav.png" alt="Imagen decorativa del nav" class="h-[35px] w-auto">
+        </div>
+        <div class="relative flex items-center justify-between px-4">
+            <!--Logo a la izquierda del nav con un tamaño de 50px-->
+            <div><img src="/img/Logo.png" alt="Logo" class="self-start h-[50px]"></div>
+            <!--Enlaces y botones a la derecha-->
+            <div class="flex items-center self-end gap-12 ">
+                <!--Enlace a FAQ-->
+                <a href="/html/FAQ.html" class="hover:text-[#990000]">FAQ</a>
+                <!--Enlace a Home (index)-->
+                <a href="/index.html" class="animation-scale"><svg xmlns="http://www.w3.org/2000/svg" width="42"
+                        height="36" viewBox="0 0 42 36" class="text-[#990000] hover:text-[#a84848]">
+                        <path
+                            d="M16.6667 35.4167V22.9167H25V35.4167H35.4167V18.75H41.6667L20.8333 0L0 18.75H6.25V35.4167H16.6667Z"
+                            fill="currentColor" />
+                    </svg></a>
+                <!--Botón a Iniciar sesión-->
+                <a href="/html/iniciosesion.html"
+                    class="bg-[#990000] hover:bg-[#a84848] text-white p-2 rounded-lg w-auto mx-auto my-8 cursor-pointer">Iniciar
+                    sesión</a>
+            </div>
+        </div>
+    </nav>
+
+    <!--Formulario basico registro play-->
+    <main class="ml-25 mr-25">
+        <h2 class="titulo_pagina">REGISTRO DE USUARIO</h2>
+        <section class="form-registro">
+            <div class="flex gap-50">
+                <div class="flex flex-col">
+                    <svg class="text-[#000000]" width="45" height="45" viewBox="0 0 45 45" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M37.5 39.375V35.625C37.5 33.6359 36.7098 31.7282 35.3033 30.3217C33.8968 28.9152 31.9891 28.125 30 28.125H15C13.0109 28.125 11.1032 28.9152 9.6967 30.3217C8.29018 31.7282 7.5 33.6359 7.5 35.625V39.375M30 13.125C30 17.2671 26.6421 20.625 22.5 20.625C18.3579 20.625 15 17.2671 15 13.125C15 8.98286 18.3579 5.625 22.5 5.625C26.6421 5.625 30 8.98286 30 13.125Z"
+                            stroke="#1E1E1E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+
+                </div>
+                <div class="flex flex-col w-[600px] gap-5">
+                    <h2>Formulario de registro</h2>
+                    <input class="controls" type="text" name="nombre" id="nombre" placeholder="Nombre*">
+                    <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Apellidos*">
+                    <input class="controls" type="text" name="Usuario" id="Usuario" placeholder="Usuario*">
+                    <input class="controls" type="password" name="password" id="password" placeholder="Contraseña*">
+                    <input class="controls" type="email" name="email" id="email" placeholder="Correo electrónico*">
+                    <input class="controls" type="text" name="telefono" id="telefono" placeholder="Teléfono*">
+                    <p>*Campo obligatorio</p>
+                    <input class="button" type="submit" value="Registrar">
+                </div>
+
+                <div>
+                    <img src="/img/FOCO.jpg" width="437">
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer class="bottom-0 w-full">
+        <div class="w-full h-[264px] mx-auto relative min-w-[1380px] mt-[50px] border-t border-gray-300">
+            <div class="flex justify-between items-center h-full px-[70px]">
+                <div class="space-y-3">
+                    <h1 class="text-[#990000] text- text-[48px]">TeatroGest</h1>
+                    <p class="font-montserrat">Redes sociales</p>
+                    <div class="flex gap-[8px]">
+                        <a href="" class="animation-scale"><svg xmlns="http://www.w3.org/2000/svg" width="40"
+                                height="40" viewBox="0 0 24 24" class="text-[#990000]">
+                                <path fill="currentColor"
+                                    d="M12 2.04c-5.5 0-10 4.49-10 10.02c0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89c1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02" />
+                            </svg></a>
+                        <a href="" class="animation-scale"><svg xmlns="http://www.w3.org/2000/svg" width="40"
+                                height="40" viewBox="0 0 24 24" class="text-[#990000]">
+                                <path fill="currentColor"
+                                    d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z" />
+                            </svg></a>
+                        <a href="" class="animation-scale"><svg xmlns="http://www.w3.org/2000/svg" width="40"
+                                height="40" viewBox="0 0 24 24" class="text-[#990000]">
+                                <path fill="currentColor"
+                                    d="m10 15l5.19-3L10 9zm11.56-7.83c.13.47.22 1.1.28 1.9c.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83c-.25.9-.83 1.48-1.73 1.73c-.47.13-1.33.22-2.65.28c-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44c-.9-.25-1.48-.83-1.73-1.73c-.13-.47-.22-1.1-.28-1.9c-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83c.25-.9.83-1.48 1.73-1.73c.47-.13 1.33-.22 2.65-.28c1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44c.9.25 1.48.83 1.73 1.73" />
+                            </svg></a>
+                        <a href="" class="animation-scale"><svg xmlns="http://www.w3.org/2000/svg" width="40"
+                                height="40" viewBox="0 0 24 24" class="text-[#990000]">
+                                <path fill="currentColor"
+                                    d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3" />
+                            </svg></a>
+                    </div>
+                </div>
+                <div class="flex items-center gap-12">
+                    <div class="flex flex-col gap-2 ml-14 items-end font-montserrat">
+                        <p class="font-semibold text-xl text-[#990000]">Contacto</p>
+                        <div class="flex flex-col items-end">
+                            <p class="m-0">956666666</p>
+                            <p class="m-0">appteatro@teatro.com</p>
+                            <p class="m-0">Av. de la paz 6, Sevilla, 41018</p>
+                        </div>
+                    </div>
+                    <div class="">
+                        <img src="/img/MapTemporal.png" alt="MapTemporal" width="242" height="192" class="items-center">
+                    </div>
+                </div>
+            </div>
+            <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[15px]">
+                <img src="/img/deco-footer.png" alt="footer-icon" width="400">
+            </div>
+        </div>
+    </footer>
+
 </body>
+
 </html>
