@@ -110,3 +110,12 @@ h3 {
   border-bottom: #000000 1px solid;
 
 }
+
+/*Estilado mapa interactivo*/
+#map {
+  position: absolute;
+  /*top: 0;
+  bottom: 0;*/
+  width: 800px;
+  height: 500px;
+}
