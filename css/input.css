@@ -17,19 +17,42 @@
 
 body {
   font-family: "Montserrat";
-  font-size: 20px;
+  font-size: 16px;
 }
-
-h1, h2 {
-  font-family: "Playfair Display";
+h1 {
+  font-size: 48px;
+}
+h2 {
   font-size: 36px;
+  font-family: "Playfair Display";
 }
-
+h3 {
+  font-size: 24px;
+  font-family: "Playfair Display";
+}
 .font-montserrat {
   font-family: "Montserrat";
 }
-
-.animation-scale{
-  @apply hover:scale-115 transition duration-150 ease-in-out
+.animation-scale {
+  @apply hover:scale-115 transition duration-150 ease-in-out;
 }
-
+.inputs-text {
+  border: solid 1px black;
+  border-radius: 8px;
+  padding: 4px;
+  width: 500px;
+  height: 45px;
+  padding: 10px;
+}
+.buttom-primary {
+  background-color: #990000;
+  color: white;
+  border-radius: 8px;
+  height: 45px;
+}
+.buttom-secundary {
+  background-color: black;
+  color: white;
+  border-radius: 8px;
+  height: 45px;
+}
