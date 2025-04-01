@@ -44,13 +44,13 @@ h3 {
   height: 45px;
   padding: 10px;
 }
-.buttom-primary {
+.button-primary {
   background-color: #990000;
   color: white;
   border-radius: 8px;
   height: 45px;
 }
-.buttom-secundary {
+.button-secundary {
   background-color: black;
   color: white;
   border-radius: 8px;
