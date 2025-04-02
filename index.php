@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="min-h-screen flex flex-col">
+<body>
     <nav class="sticky top-0 bg-white w-full shadow-md">
         <!-- Sí el id de la session es null, es que no se inicio sesión correctamente y muestra esta vista -->
         <?php
@@ -127,12 +127,13 @@
                             <p class="m-0">Av. de la paz 6, Sevilla, 41018</p>
                         </div>
                     </div>
-                    <!-- Logo central footer -->
+                    
                     <div class="">
                         <img src="img/MapTemporal.png" alt="MapTemporal" width="242" height="192" class="items-center">
                     </div>
                 </div>
             </div>
+            <!-- Logo central footer -->
             <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[15px]">
                 <img src="img/deco-footer.png" alt="footer-icon" width="400">
             </div>

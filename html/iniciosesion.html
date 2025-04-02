@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
@@ -13,25 +13,25 @@
     <nav class="sticky top-0 bg-white w-full shadow-md">
         <!--Imagen decorativa del nav-->
         <div class="absolute inset-0 flex justify-center h-[100px]">
-            <img src="/img/deco-nav.png" alt="Imagen decorativa del nav" class="h-[35px] w-auto">
+            <img src="../img/deco-nav.png" alt="Imagen decorativa del nav" class="h-[35px] w-auto">
         </div>
         <div class="relative flex items-center justify-between px-4">
             <!--Logo a la izquierda del nav con un tamaño de 50px-->
-            <div><img src="/img/Logo.png" alt="Logo" class="self-start h-[50px]"></div>
+            <div><img src="../img/Logo.png" alt="Logo" class="self-start h-[50px]"></div>
             <!--Enlaces y botones a la derecha-->
             <div class="flex items-center self-end gap-12 ">
                 <!--Enlace a home-->
-                <a href="/index.html" class="animation-scale"><svg xmlns="http://www.w3.org/2000/svg"
+                <a href="../index.php" class="animation-scale"><svg xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 42 36" class="w-10 text-[#990000] hover:text-[#a84848]">
                         <path
                             d="M16.6667 35.4167V22.9167H25V35.4167H35.4167V18.75H41.6667L20.8333 0L0 18.75H6.25V35.4167H16.6667Z"
                             fill="currentColor" />
                     </svg></a>
                 <!--Botón a Registro-->
-                <a href="/html/registro.html"
+                <a href="formregistro.html"
                     class="bg-black hover:bg-[#5d5d5d] text-white p-2 rounded-lg w-auto mx-auto my-8 cursor-pointer font-montserrat">Registro</a>
                 <!--Botón a Iniciar sesión-->
-                <a href="/html/iniciosesion.html"
+                <a href="iniciosesion.html"
                     class="bg-[#990000] hover:bg-[#a84848] text-white p-2 rounded-lg w-auto mx-auto my-8 cursor-pointer font-montserrat">Iniciar
                     sesión</a>
             </div>
@@ -61,9 +61,11 @@
 <footer class="w-full bg-white">
     <div class="w-full h-[264px] mx-auto relative min-w-[1380px] mt-[50px] border-t border-gray-300">
         <div class="flex justify-between items-center h-full px-[70px]">
+            <!-- Contenedor izquierdo footer -->
             <div class="space-y-3">
                 <h1 class="text-[#990000] text- text-[48px]">TeatroGest</h1>
                 <p class="font-montserrat">Redes sociales</p>
+                <!-- Iconos de redes sociales -->
                 <div class="flex gap-[8px]">
                     <a href="" class="animation-scale"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
                             viewBox="0 0 24 24" class="text-[#990000]">
@@ -87,6 +89,7 @@
                         </svg></a>
                 </div>
             </div>
+             <!-- Contenedor derecho footer - contactos y ubicación -->
             <div class="flex items-center gap-12">
                 <div class="flex flex-col gap-2 ml-14 items-end font-montserrat">
                     <p class="font-semibold text-xl text-[#990000]">Contacto</p>
@@ -97,12 +100,13 @@
                     </div>
                 </div>
                 <div class="">
-                    <img src="/img/MapTemporal.png" alt="MapTemporal" width="242" height="192" class="items-center">
+                    <img src="../img/MapTemporal.png" alt="MapTemporal" width="242" height="192" class="items-center">
                 </div>
             </div>
         </div>
+        <!-- Logo central footer -->
         <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[15px]">
-            <img src="/img/deco-footer.png" alt="footer-icon" width="400">
+            <img src="../img/deco-footer.png" alt="footer-icon" width="400">
         </div>
     </div>
 </footer>

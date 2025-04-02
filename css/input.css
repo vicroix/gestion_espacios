@@ -18,6 +18,12 @@
 body {
   font-family: "Montserrat";
   font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+footer{
+  margin-top: auto;
 }
 h1 {
   font-size: 48px;
