@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
+<body class="h-screen flex flex-col">
     <nav class="sticky top-0 bg-white w-full shadow-md">
         <!--Imagen decorativa del nav-->
         <div class="absolute inset-0 flex justify-center h-[100px]">
@@ -38,33 +38,34 @@
         </div>
     </nav>
     <main>
-        <section class="flex flex-col">
-            <div class="flex-justify-start w-320 mx-24">
+        <section class="flex flex-col w-full">
+            <div class="flex-justify-center self-center border-b-1 mx-24 w-320">
             <h2 class="px-10">PAGO</h2>
-            <hr>
             </div>
             <!--inputs para el pago-->
-            <div class="flex">
-                <form action="" class="bg-white w-80 mt-8 rounded-lg p-6 flex-col flex gap-3 justify-center">
-                    <input  class="border border-gray-300 w-117 px-3 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
+            <div class="flex justify-center w-full">
+                <form action="" class="bg-white w-[746px] mt-8 rounded-lg flex-col flex gap-3 justify-center">
+                    <input  class="border border-gray-300  px-3 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
                     invalid:focus:ring-red-400 peer" type="text" name="nombre titular" id="nombre titular" placeholder="Nombre titular*">
-                    <input  class="border border-gray-300 w-117 px-3 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
+                    <input  class="border border-gray-300  px-3 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
                     invalid:focus:ring-red-400 peer" type="text" name="número tarjeta" id="número tarjeta" placeholder="Número tarjeta*">
-                    <div class="flex-row flex gap-2">
-                    <input  class="border border-gray-300 w-auto px-3 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
+                <div class="flex justify-center gap-3 w-full">
+                    <input  class="border border-gray-300 w-[367.57px]  px-3 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-[#725a5a]
                     invalid:focus:ring-red-400 peer" type="text" name="MM/AA" id="MM/AA" placeholder="MM/AA*">
-                    <input  class="border border-gray-300 w-auto px-3 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
+                    <input  class="border border-gray-300 w-[367.57px] px-3 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
                     invalid:focus:ring-red-400 peer" type="text" name="cvv" id="cvv" placeholder="CVV">
                 </div>
-
             <!--botón para pagar-->
-                    <button class="bg-[#990000] w-full py-2 text-white rounded-md cursor-pointer hover:bg-[#a84848]" type="submit" placeholder="Pagar"> Pagar </button>
+            <div class="flex justify-center">
+                    <button class="bg-[#990000] w-[250px] py-2 text-white rounded-md cursor-pointer hover:bg-[#a84848]" 
+                    type="submit" placeholder="Pagar"> Pagar </button>
+            </div>
                 </form>
             </div>
         </section>
     </main>
 </body>
-<footer class="w-full bg-white">
+<footer class="w-full bg-white mt-auto">
     <div class="w-full h-[264px] mx-auto relative min-w-[1380px] mt-[50px] border-t border-gray-300">
         <div class="flex justify-between items-center h-full px-[70px]">
             <div class="space-y-3">
