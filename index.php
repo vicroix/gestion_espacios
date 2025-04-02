@@ -8,6 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="libs/fullCalendar/index.global.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/calendario.js"></script>
 </head>
 
 <body>
@@ -50,7 +53,7 @@
         <?php endif; ?>
 
     </nav>
-    <main class="flex flex-col items-center mt-[50px] ml-4 mr-4">
+    <main class="flex flex-col min-h-screen items-center mt-[50px] ml-4 mr-4">
         <!--Título H1 - TEATROGEST-->
         <h1 class="text-[#990000] self-start text-5xl">TeatroGest</h1>
 
@@ -81,9 +84,11 @@
 
         </section>
         <!--Calendario eventos-->
-        <section class="flex flex-col self-start">
+        <section class="flex w-full flex-col self-start">
             <h1 class="text-[#990000] text-4xl">Próximos eventos</h1>
             <hr class="text-[#990000]">
+            <!--Documentación del calendario: https://fullcalendar.io/docs -->
+            <div id="calendario" class="flex align-center"></div>
         </section>
     </main>
     <footer class="w-full bg-white mt-auto">
