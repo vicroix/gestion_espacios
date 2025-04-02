@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevas reservas</title>   
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/input.css">
+</head>
+<body class=" flex justify-center items-center h-screen bg-white">
+    <!-- ¿Hay que poner action para conectarlo a la base de datos o que te mande a los resultados?/metodo get/query-->
+    <form class="flex flex-col justify-center max-w-lg w-full p-6 "> <!--flex-col para que se ponga cada div uno debajo del otro-->
+        <div class="flex items-center mb-4">
+        <label for="Nombre de teatro" class="w-48 mr-2 font-montserrat">Nombre del teatro</label>
+        <input type="text" id="nombreTeatro" name="nombreTeatro" placeholder="Escriba el nombre del teatro"
+        class="flex-1 w-full px-3 py-2 border border-gray-300 rounded-md text-black placeholder-gray-500 focus:outline-1">
+        </div>
+
+        <div class="flex items-center mb-4">
+        <label for="Localidad" class="w-48 mr-2">Localidad del teatro</label>
+        <input type="text" id="LocalidadTeatro" name="LocalidadTeatro" placeholder="Escriba la localidad"
+        class="flex-1 w-full px-3 py-2 border border-gray-300 rounded-md text-black placeholder-gray-500 focus:outline-1">
+        </div>
+
+        <div class="flex items-center mb-4">
+        <label for="Código Postal" class="w-48 mr-2 font-montserrat">Código postal del teatro</label>
+        <!-- input type="number" sirve como validación para que no deje escribir algo que no sea número-->
+        <input type="number" id="codigoPostal" name="codigoPostal" placeholder="Escriba el código postal"
+        class="flex-1 w-full px-3 py-2 border border-gray-300 rounded-md text-black placeholder-gray-500 focus:outline-1">
+        </div>
+
+        <div class="flex items-center mb-4">
+        <label for="Tipo de sala" class="w-48 mr-2">Tipo de sala</label>
+        <!-- Desplegable con las opciones -->
+        <select id="tipoSala" name="tipoSala" 
+        class="flex-1 w-full px-3 py-2 border border-gray-300 rounded-md text-black placeholder-gray-500 focus:outline-1">
+            <option value="selected"></option> <!--Para que no salga seleccionada ninguna de las opciones default-->
+            <option value="ensayo">Ensayo</option>
+            <option value="publico">Con público</option>
+        </select>
+        </div>
+
+        <div class="flex items-center mb-4">
+            <!--desplegable aforo opciones-->
+        <label for="Aforo" class="w-48 mr-2 font-montserrat">Aforo</label>
+        <select id="aforo" name = "aforo"
+        class="flex-1 w-full px-3 py-2 border border-gray-300 rounded-md text-black placeholder-gray-500 focus:outline-1">
+            <option value="selected"></option>
+            <option value="pequeña">hasta 10 personas</option>
+            <option value="mediana">hasta 20 personas</option>
+            <option value="grande">hasta 50 personas</option>
+            <option value="aforoEspecifico">Especifico</option>
+        </select>
+        </div>
+       <!-- <div class="flex items-center mb-4 w-48 mr-2 font-montserrat">
+        <input type="number" id="aforo" name="aforo" placeholder="Escriba el aforo de la sala">
+        </div> -->
+        
+        
+        <button type="submit" 
+        class="flex justify-center items-center m-auto w-30 py-2 bg-red-900 text-white focusfont-playfair rounded-md  hover:bg-white hover:text-red-900 hover:cursor-pointer shadow-md">
+        Buscar</button>
+    </form>
+    
+</body>
+</html>
