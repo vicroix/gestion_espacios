@@ -12,7 +12,7 @@
     <!-- ¿Hay que poner action para conectarlo a la base de datos o que te mande a los resultados?/metodo get/query-->
     <form class="flex flex-col justify-center max-w-lg w-full p-6 "> <!--flex-col para que se ponga cada div uno debajo del otro-->
         <div class="flex items-center mb-4">
-        <label for="Nombre de teatro" class="w-48 mr-2 font-montserrat">Nombre del teatro</label>
+        <label for="Nombre de teatro" class="w-48 mr-2">Nombre del teatro</label>
         <input type="text" id="nombreTeatro" name="nombreTeatro" placeholder="Escriba el nombre del teatro"
         class="flex-1 w-full px-3 py-2 border border-gray-300 rounded-md text-black placeholder-gray-500 focus:outline-1">
         </div>
@@ -24,7 +24,7 @@
         </div>
 
         <div class="flex items-center mb-4">
-        <label for="Código Postal" class="w-48 mr-2 font-montserrat">Código postal del teatro</label>
+        <label for="Código Postal" class="w-48 mr-2">Código postal del teatro</label>
         <!-- input type="number" sirve como validación para que no deje escribir algo que no sea número-->
         <input type="number" id="codigoPostal" name="codigoPostal" placeholder="Escriba el código postal"
         class="flex-1 w-full px-3 py-2 border border-gray-300 rounded-md text-black placeholder-gray-500 focus:outline-1">
@@ -43,7 +43,7 @@
 
         <div class="flex items-center mb-4">
             <!--desplegable aforo opciones-->
-        <label for="Aforo" class="w-48 mr-2 font-montserrat">Aforo</label>
+        <label for="Aforo" class="w-48 mr-2">Aforo</label>
         <select id="aforo" name = "aforo"
         class="flex-1 w-full px-3 py-2 border border-gray-300 rounded-md text-black placeholder-gray-500 focus:outline-1">
             <option value="selected"></option>
@@ -53,13 +53,9 @@
             <option value="aforoEspecifico">Especifico</option>
         </select>
         </div>
-       <!-- <div class="flex items-center mb-4 w-48 mr-2 font-montserrat">
-        <input type="number" id="aforo" name="aforo" placeholder="Escriba el aforo de la sala">
-        </div> -->
-        
-        
+    
         <button type="submit" 
-        class="flex justify-center items-center m-auto w-30 py-2 bg-red-900 text-white focusfont-playfair rounded-md  hover:bg-white hover:text-red-900 hover:cursor-pointer shadow-md">
+        class="flex justify-center items-center m-auto w-30 py-2 bg-[#990000] text-white rounded-md  hover:bg-white hover:text-[#990000] hover:cursor-pointer shadow-md">
         Buscar</button>
     </form>
     
