@@ -91,7 +91,7 @@
             <div id="calendario" class="flex align-center"></div>
         </section>
     </main>
-    <footer class="w-full bg-white mt-auto">
+    <footer class="w-full bg-white">
         <div class="w-full h-[264px] mx-auto relative min-w-[1380px] mt-[50px] border-t border-gray-300">
             <div class="flex justify-between items-center h-full px-[70px]">
                 <!-- Contenedor izquierdo footer -->

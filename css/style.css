@@ -2185,6 +2185,10 @@ body {
   font-size: 16px;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+}
+main {
+  flex: 1;
 }
 h1 {
   font-size: 48px;
@@ -2196,6 +2200,9 @@ h2 {
 h3 {
   font-size: 24px;
   font-family: "Playfair Display";
+}
+footer {
+  margin-top: auto;
 }
 .font-montserrat {
   font-family: "Montserrat";
