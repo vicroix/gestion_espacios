@@ -1,6 +1,6 @@
 //Función para asegurar que esta cargado el DOM
 document.addEventListener("DOMContentLoaded", function () {
-  //
+  //Obtiene el elemento div del calendario en divCalendario e instanciamos y definimos el constructor de FullCalendar
   var divCalendario = document.getElementById("calendario");
   var calendario = new FullCalendar.Calendar(divCalendario, {
     initialView: "dayGridMonth",
