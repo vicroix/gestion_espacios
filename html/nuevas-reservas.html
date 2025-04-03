@@ -36,32 +36,32 @@
     <h3 class="text-[#000000] ml-10 mt-10 self-start">NUEVAS RESERVAS</h3>
         <hr class="mt-2 m-10 text-[#000000]">
         <!--flex-grow empuja el footer hacia abajo-->
-    <main class="flex-grow flex flex-col items-center ml-80 mr-80 bg-white">
+    <main class="flex-grow flex flex-col items-center ml-150 mr-150 bg-white">
         <form class="flex flex-col justify-center w-full p-6 "> <!--flex-col para que se ponga cada div uno debajo del otro-->
         <div class="flex items-center mb-4">
         <label for="Nombre de teatro" class="w-48 mr-2">Nombre del teatro</label>
         <input type="text" id="nombreTeatro" name="nombreTeatro" placeholder="Escriba el nombre del teatro"
-        class="flex-1 w-full px-3 py-2 border border-gray-300 rounded-md text-black placeholder-gray-500 focus:outline-1">
+        class="flex-1 w-full px-3 py-2 border border-[#990000] rounded-md text-black placeholder-gray-500 focus:outline-1">
         </div>
 
         <div class="flex items-center mb-4">
         <label for="Localidad" class="w-48 mr-2">Localidad del teatro</label>
         <input type="text" id="LocalidadTeatro" name="LocalidadTeatro" placeholder="Escriba la localidad"
-        class="flex-1 w-full px-3 py-2 border border-gray-300 rounded-md text-black placeholder-gray-500 focus:outline-1">
+        class="flex-1 w-full px-3 py-2 border border-[#990000] rounded-md text-black placeholder-gray-500 focus:outline-1">
         </div>
 
         <div class="flex items-center mb-4">
         <label for="Código Postal" class="w-48 mr-2">Código postal del teatro</label>
         <!-- input type="number" sirve como validación para que no deje escribir algo que no sea número-->
         <input type="number" id="codigoPostal" name="codigoPostal" placeholder="Escriba el código postal"
-        class="flex-1 w-full px-3 py-2 border border-gray-300 rounded-md text-black placeholder-gray-500 focus:outline-1">
+        class="flex-1 w-full px-3 py-2 border border-[#990000] rounded-md text-black placeholder-gray-500 focus:outline-1">
         </div>
 
         <div class="flex items-center mb-4">
         <label for="Tipo de sala" class="w-48 mr-2">Tipo de sala</label>
         <!-- Desplegable con las opciones -->
         <select id="tipoSala" name="tipoSala" 
-        class="flex-1 w-full px-3 py-2 border border-gray-300 rounded-md text-black placeholder-gray-500 focus:outline-1">
+        class="flex-1 w-full px-3 py-2 border border-[#990000] rounded-md text-black placeholder-gray-500 focus:outline-1">
             <option value="selected"></option> <!--Para que no salga seleccionada ninguna de las opciones default-->
             <option value="ensayo">Ensayo</option>
             <option value="publico">Con público</option>
@@ -72,7 +72,7 @@
             <!--desplegable aforo opciones-->
         <label for="Aforo" class="w-48 mr-2">Aforo</label>
         <select id="aforo" name = "aforo"
-        class="flex-1 w-full px-3 py-2 border border-gray-300 rounded-md text-black placeholder-gray-500 focus:outline-1">
+        class="flex-1 w-full px-3 py-2 border border-[#990000] rounded-md text-black placeholder-gray-500 focus:outline-1">
             <option value="selected"></option>
             <option value="pequeña">hasta 10 personas</option>
             <option value="mediana">hasta 20 personas</option>
@@ -81,6 +81,15 @@
         </select>
         </div>
     
+        <div class=" mb-4">
+        <label  for="fecha" name="fecha">Fecha</label>
+        <input type="date" id="fecha"
+        class="ml-37 mr-20 px-3 py-2 rounded-md border border-[#990000] rounded-mdfocus:outline-1">
+        <label for="hora" name="hora">Hora</label>
+        <input type="time" id="hora"
+        class="ml-13 px-3 py-2 rounded-md border border-[#990000] rounded-mdfocus:outline-1">
+        </div>
+
         <button type="submit" 
         class="flex justify-center items-center rounded-md m-auto w-30 h-auto scale-75 py-2 bg-[#990000] hover:cursor-pointer shadow-md">
         <img src="/img/logo-lupa.png">
