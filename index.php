@@ -8,9 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="libs/fullCalendar/index.global.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/calendario.js"></script>
 </head>
 
-<body class="min-h-screen flex flex-col">
+<body>
     <nav class="sticky top-0 bg-white w-full shadow-md">
         <!-- Sí el id de la session es null, es que no se inicio sesión correctamente y muestra esta vista -->
         <?php
@@ -81,12 +84,14 @@
 
         </section>
         <!--Calendario eventos-->
-        <section class="flex flex-col self-start">
+        <section class="flex w-full flex-col self-start">
             <h1 class="text-[#990000] text-4xl">Próximos eventos</h1>
             <hr class="text-[#990000]">
+            <!--Documentación del calendario: https://fullcalendar.io/docs -->
+            <div id="calendario" class="flex align-center"></div>
         </section>
     </main>
-    <footer class="w-full bg-white mt-auto">
+    <footer class="w-full bg-white">
         <div class="w-full h-[264px] mx-auto relative min-w-[1380px] mt-[50px] border-t border-gray-300">
             <div class="flex justify-between items-center h-full px-[70px]">
                 <!-- Contenedor izquierdo footer -->
@@ -127,12 +132,13 @@
                             <p class="m-0">Av. de la paz 6, Sevilla, 41018</p>
                         </div>
                     </div>
-                    <!-- Logo central footer -->
+                    
                     <div class="">
                         <img src="img/MapTemporal.png" alt="MapTemporal" width="242" height="192" class="items-center">
                     </div>
                 </div>
             </div>
+            <!-- Logo central footer -->
             <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[15px]">
                 <img src="img/deco-footer.png" alt="footer-icon" width="400">
             </div>

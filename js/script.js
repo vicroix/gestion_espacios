@@ -1,7 +1,9 @@
+// Mapa interactivo MAPBOX
+mapboxgl.accessToken =
+  "pk.eyJ1IjoicGFwYWZyaXRhODgiLCJhIjoiY204eWM0eDFuMGF2dzJxc2dmZTBsYXB6cCJ9.wQb_QXDpZ7isAWBnoi14FQ";
 
 //Mapa interactivo MAPBOX
 mapboxgl.accessToken = 'pk.eyJ1IjoicGFwYWZyaXRhODgiLCJhIjoiY204eWM0eDFuMGF2dzJxc2dmZTBsYXB6cCJ9.wQb_QXDpZ7isAWBnoi14FQ';
-
 
 const geojson = {
     type: 'FeatureCollection',
@@ -10,7 +12,7 @@ const geojson = {
             type: 'Feature',
             geometry: {
                 type: 'Point',
-                coordinates: [-5.986877284246261, 37.37712091007239]
+                coordinates: [-5.986877284246261, 37.37712091007239] //Coordenadas para mostrar predeterminadas
             },
             properties: {
                 title: 'TeatroGest',
@@ -22,10 +24,10 @@ const geojson = {
 };
 
 const map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/light-v11',
-    center: [-5.986877284246261, 37.37712091007239],
-    zoom: 15
+  container: "map",
+  style: "mapbox://styles/mapbox/light-v11",
+  center: [-5.986877284246261, 37.37712091007239],
+  zoom: 15,
 });
 
 
