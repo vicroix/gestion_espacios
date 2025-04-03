@@ -398,9 +398,6 @@
   .mt-\[50px\] {
     margin-top: 50px;
   }
-  .mt-auto {
-    margin-top: auto;
-  }
   .mr-2 {
     margin-right: calc(var(--spacing) * 2);
   }
