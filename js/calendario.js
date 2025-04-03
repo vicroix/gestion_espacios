@@ -1,27 +1,24 @@
 //Función para asegurar que esta cargado el DOM
 document.addEventListener("DOMContentLoaded", function () {
-    //
-    var divCalendario = document.getElementById("calendario");
-    var calendario = new FullCalendar.Calendar(divCalendario, {
-      initialView: "dayGridMonth",
-      locale: "es",
-      events: [
-        {
-          title: "Evento 1",
-          start: "2025-04-05",
-          border: "none",
-        },
-        {
-          title: "Evento 2",
-          start: "2025-04-10",
-        },
-        {
-          title: "Día festivo",
-          start: "2025-04-13",
-          end: "2025-04-20",
-          classNames: ["dia-festivo"],
-        }
-      ],
-    });
-    calendario.render();
+  //
+  var divCalendario = document.getElementById("calendario");
+  var calendario = new FullCalendar.Calendar(divCalendario, {
+    initialView: "dayGridMonth",
+    locale: "es"
   });
+  //Función para leer archivo JSON
+  function cargarEventosDesdeJSON(urlArchivoJSON, calendario) {
+    fetch(urlArchivoJSON)
+      .then((response) => response.json())
+      .then((eventos) => {
+        eventos.forEach((evento) => {
+          calendario.addEvent(evento);
+        });
+      })
+      .catch((error) => {
+        console.error("Error al cargar eventos desde JSON:", error);
+      });
+  }
+  calendario.render();
+  cargarEventosDesdeJSON('libs/fullCalendar/calendario-2025.json', calendario);
+});
