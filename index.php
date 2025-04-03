@@ -53,7 +53,7 @@
         <?php endif; ?>
 
     </nav>
-    <main class="flex flex-col min-h-screen items-center mt-[50px] ml-4 mr-4">
+    <main class="flex flex-col items-center mt-[50px] ml-4 mr-4">
         <!--Título H1 - TEATROGEST-->
         <h1 class="text-[#990000] self-start text-5xl">TeatroGest</h1>
 
