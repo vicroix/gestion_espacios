@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var divCalendario = document.getElementById("calendario");
   var calendario = new FullCalendar.Calendar(divCalendario, {
     initialView: "dayGridMonth",
-    locale: "es"
+    locale: "es",
   });
   //Función para leer archivo JSON
   function cargarEventosDesdeJSON(urlArchivoJSON, calendario) {
@@ -19,6 +19,9 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("Error al cargar eventos desde JSON:", error);
       });
   }
-  cargarEventosDesdeJSON('../libs/fullCalendar/calendario-2025.json', calendario);
+  cargarEventosDesdeJSON(
+    "../libs/fullCalendar/calendario-2025.json",
+    calendario
+  );
   calendario.render();
 });
