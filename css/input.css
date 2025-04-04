@@ -113,11 +113,6 @@ h3 {
   border-bottom: #000000 1px solid;
 }
 
-#calendario {
-  width: 600px;
-  margin: 30px auto;
-  flex-wrap: 1;
-}
 /* Viewport en pantallas menores a 850px */
 @media (max-width: 450px) {
   h2 {
@@ -126,20 +121,7 @@ h3 {
   body {
     font-size: 12px;
   }
-  .contenedor-logo-footer {
-    display: flex;
-    visibility: hidden;
-  }
-  .contenedor-contacto-redes-footer {
-    flex-direction: column-reverse;
-    gap: 1rem;
-  }
-  .contenedor-contacto,
-  .contenedor-redes {
-    align-items: center;
-    margin-left: 0;
-    text-align: center;
-  }
+  
 }
 
 /* Footer */
