@@ -19,6 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("Error al cargar eventos desde JSON:", error);
       });
   }
+  cargarEventosDesdeJSON('../libs/fullCalendar/calendario-2025.json', calendario);
   calendario.render();
-  cargarEventosDesdeJSON('libs/fullCalendar/calendario-2025.json', calendario);
 });

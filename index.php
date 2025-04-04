@@ -16,6 +16,7 @@
 <body>
     <nav class="sticky top-0 bg-white w-full shadow-md">
         <!-- Sí el id de la session es null, es que no se inicio sesión correctamente y muestra esta vista -->
+
         <?php
         if (!isset($_SESSION["id"])): ?>
             <!--Imagen decorativa del nav-->
@@ -24,10 +25,11 @@
             </div>
             <div class="relative flex items-center justify-between px-4">
                 <!--Logo a la izquierda del nav con un tamaño de 50px-->
-                <div><img src="img/Logo.png" alt="Logo" class="self-start h-[50px]"></div>
+                <div class="flex"><img src="img/Logo.png" alt="Logo" class="self-start h-[50px]"></div>
                 <!--Enlaces y botones a la derecha-->
                 <div class="flex items-center self-end gap-12 ">
                     <!--Enlace a FAQ-->
+                    <a href="html/proximos-eventos.html" class="hover:text-[#990000]">Próximos eventos</a>
                     <a href="html/FAQ.html" class="hover:text-[#990000]">FAQ</a>
                     <!--Botón a Registro-->
                     <a href="html/formregistro.html"
@@ -87,8 +89,6 @@
         <section class="flex w-full flex-col self-start">
             <h1 class="text-[#990000] text-4xl">Próximos eventos</h1>
             <hr class="text-[#990000]">
-            <!--Documentación del calendario: https://fullcalendar.io/docs -->
-            <div id="calendario" class="flex align-center"></div>
         </section>
     </main>
     <footer class="w-full bg-white">
@@ -132,7 +132,7 @@
                             <p class="m-0">Av. de la paz 6, Sevilla, 41018</p>
                         </div>
                     </div>
-                    
+
                     <div class="">
                         <img src="img/MapTemporal.png" alt="MapTemporal" width="242" height="192" class="items-center">
                     </div>
