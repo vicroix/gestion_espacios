@@ -2217,11 +2217,6 @@
       display: block;
     }
   }
-  .md\:flex-none {
-    @media (width >= 48rem) {
-      flex: none;
-    }
-  }
   .lg\:mx-24 {
     @media (width >= 64rem) {
       margin-inline: calc(var(--spacing) * 24);
@@ -2255,11 +2250,6 @@
   .lg\:w-full {
     @media (width >= 64rem) {
       width: 100%;
-    }
-  }
-  .lg\:flex-none {
-    @media (width >= 64rem) {
-      flex: none;
     }
   }
   .lg\:flex-row {
