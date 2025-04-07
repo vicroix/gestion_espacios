@@ -4,12 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ</title>
+    <title>Gestión de salas</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/responsive.css">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
 </head>
-
 <body>
     <nav class="sticky top-0 bg-white w-full shadow-md">
         <!--Imagen decorativa del nav-->
@@ -22,8 +21,11 @@
             <!--Enlaces y botones a la derecha-->
             <div class="flex items-center self-end gap-12 ">
                 <!--Enlace a home-->
-                <a href="../index.php" class="animation-scale"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 36" class="w-10 text-[#990000] hover:text-[#a84848]" >
-                    <path d="M16.6667 35.4167V22.9167H25V35.4167H35.4167V18.75H41.6667L20.8333 0L0 18.75H6.25V35.4167H16.6667Z" fill="currentColor"/>
+                <a href="../index.php" class="animation-scale"><svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 42 36" class="w-10 text-[#990000] hover:text-[#a84848]">
+                        <path
+                            d="M16.6667 35.4167V22.9167H25V35.4167H35.4167V18.75H41.6667L20.8333 0L0 18.75H6.25V35.4167H16.6667Z"
+                            fill="currentColor" />
                     </svg></a>
                 <!--Botón a Registro-->
                 <a href="formregistro.html"
@@ -35,67 +37,58 @@
             </div>
         </div>
     </nav>
-    <main class="flex flex-col mt-[50px] ml-4 mr-4 lg:w-full">
-    <div class="lg:flex-justify-center lg:self-center border-b-[1px] lg:border-b-1 lg:mx-24 lg:w-320">
-        <h2 class="text-[20px]">Preguntas Frecuentes</h2>  
-    </div>
-        <!--preguntas-->
-    <div class="lg:flex-justify-center lg:self-center lg:w-320 mt-5">
-        <details>
-            <summary>¿Qué es esta plataforma?</summary>
-            <p>Esta es una plataforma en línea que permite la gestión y reserva de salas para ensayos y funciones de
-                teatro.
-                Facilita la organización de espacios y horarios para grupos teatrales, academias y artistas
-                independientes.</p>
-        </details>
+<main>
+    <section class="flex mt-5 flex-col lg:w-full">
+        <div class="lg:flex-justify-center lg:self-center border-b-[0.5px] lg:border-b-1 mx-10 lg:mx-24 lg:w-320">
+        <h2 class="text-[20px]">GESTIÓN DE SALAS</h2>
+        </div>
+        <!--inputs de gestión de salas-->
+        <div class="lg:flex lg:justify-center min-w-[400px] lg:w-full item-center">
+            <form action="" class="bg-white lg:w-[746px] m-8 rounded-lg flex-col flex gap-4 justify-center">
+            <!--nombre teatro-->
+                <div><label><span>Nombre teatro</span></label>
+                <input  class="border border-gray-300  px-3 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
+                 invalid:focus:ring-red-400 peer" type="text" name="nombre teatro" id="nombre teatro" placeholder="Nombre del teatro"></div>
+            <!--localidad-->
+                 <div><label><span>Localidad</span></label>
+                <input  class="border border-gray-300  px-3 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
+                 invalid:focus:ring-red-400 peer" type="text" name="localidad" id="localidad" placeholder="Localidad"></div>
+            <!--CP-->
+                 <div><label><span>Código postal</span></label>
+                <input  class="border border-gray-300  px-3 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
+                 invalid:focus:ring-red-400 peer" type="text" name="cp" id="cp" placeholder="Código postal"></div>
+            <!--dirreción-->
+                 <div><label><span>Dirección</span></label>
+                <input  class="border border-gray-300  px-3 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
+                 invalid:focus:ring-red-400 peer" type="text" name="Dirección" id="Dirección" placeholder="dirección"></div>
+            <!--gmail-->
+                 <div><label><span>Correo electrónico</span></label>
+                <input  class="border border-gray-300  px-3 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
+                 invalid:focus:ring-red-400 peer" type="text" name="gmail" id="gmail" placeholder="Correo electrónico"></div>
+            <!--tel-->
+                 <div><label><span>Teléfono</span></label>
+                <input  class="border border-gray-300  px-3 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
+                 invalid:focus:ring-red-400 peer" type="text" name="tel" id="tel" placeholder="Teléfono"></div>
+            <!--tipo-->
+            <div><label><span>Tipo</span></label>
+                <select  class="border border-gray-300  px-3 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
+                 invalid:focus:ring-red-400 peer" type="text" name="tipoSala" id="tipoSala">
+                 <option value="selected"></option>
+                 <option value="Público">Público</option>
+                 <option value="Ensayo">Ensayo</option>
+                </select>
+                </div>
+             <!--aforo-->
+             <div><label><span>Aforo</span></label>
+             <input  class="border border-gray-300  px-3 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
+             invalid:focus:ring-red-400 peer" type="number" name="aforo" id="aforo" placeholder=""></div>
+              
 
-        <details>
-            <summary>¿Cómo hago una reserva?</summary>
-            <p>Debes iniciar sesión, seleccionar la sala deseada, elegir la fecha y horario disponible, y confirmar la
-                reserva.</p>
-        </details>
-
-        <details>
-            <summary>¿Hay costos asociados a la reserva de salas?</summary>
-            <p>Dependiendo del tipo de sala y horario, algunas reservas pueden tener costos.
-                Puedes consultar los precios en la sección de tarifas antes de confirmar tu reserva.</p>
-        </details>
-
-        <details>
-            <summary>¿Puedo cancelar o modificar una reserva?</summary>
-            <p>Sí, puedes cancelar o modificar tu reserva desde tu perfil en la sección "Mis reservas".
-                Ten en cuenta que algunas modificaciones pueden estar sujetas a políticas de cancelación.</p>
-        </details>
-
-        <details>
-            <summary>¿Las salas tienen equipamiento disponible?</summary>
-            <p>Sí, cada sala cuenta con un equipamiento básico.
-                Puedes consultar los detalles del equipamiento de cada sala en la descripción antes de hacer la reserva.
-            </p>
-        </details>
-
-        <details>
-            <summary>¿Qué sucede si llego tarde a mi reserva?</summary>
-            <p>El tiempo de uso de la sala comienza en el horario reservado.
-                Si llegas tarde, no se extenderá el tiempo de uso, y podría aplicarse una penalización si la ausencia es
-                total.</p>
-        </details>
-
-        <details>
-            <summary>¿Puedo reservar varias salas al mismo tiempo?</summary>
-            <p>Dependiendo de la disponibilidad y las políticas del sistema, es posible realizar múltiples reservas.
-                Verifica en la plataforma las restricciones aplicables.</p>
-        </details>
-
-        <details>
-            <summary>¿Se pueden hacer reservas recurrentes?</summary>
-            <p>Sí, puedes configurar una reserva recurrente si necesitas la sala con regularidad.
-                Consulta la opción "Reservas recurrentes" al realizar la reserva.</p>
-        </details>
-    </div>
+            </form>
+        </div>
         </section>
+</main>
 
-    </main>
 </body>
 <footer>
     <div class="w-full mx-auto relative">
@@ -139,5 +132,4 @@
         </div>
     </div>
 </footer>
-
 </html>
