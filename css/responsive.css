@@ -1,0 +1,34 @@
+/* Viewport en pantallas menores a 850px */
+@media (max-width: 850px) {
+  .contenedor-logo-footer {
+    transition: opacity 0.2s ease-in-out;
+    opacity: 0;
+  }
+  #calendario {
+    display: flex;
+  }
+}
+/* Viewport en pantallas menores a 450px */
+@media (max-width: 450px) {
+  .contenedor-logo-footer {
+    display: flex;
+    visibility: hidden;
+  }
+  .contenedor-contacto-redes-footer {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+  .contenedor-contacto,
+  .contenedor-redes,
+  .contenedor-svg,
+  .contenedor-svg {
+    align-items: center;
+    margin-left: 0;
+    text-align: center;
+    justify-content: center;
+  }
+  .contenedor-contacto-redes-footer {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+}
