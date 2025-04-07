@@ -50,23 +50,30 @@ h3 {
   border: solid 1px black;
   border-radius: 8px;
   padding: 4px;
-  width: 500px;
   height: 35px;
   padding: 10px;
+}
+.gestion-reservas-select {
+  border: solid 1px black;
+  border-radius: 8px;
+  height: 35px;
+  padding-inline: 5px;
 }
 .button-primary-auto {
   background-color: #990000;
   color: white;
   border-radius: 8px;
-  padding: 5px;
+  padding: 8px;
   height: 35px;
+  text-align: center;
 }
 .button-secundary-auto {
   background-color: black;
   color: white;
   border-radius: 8px;
-  padding: 5px;
+  padding: 8px;
   height: 35px;
+  text-align: center;
 }
 /*Style formregistro*/
 /* * {
@@ -126,6 +133,14 @@ h3 {
   body {
     font-size: 12px;
   }
+}
+/* Gestión reservas */
+.titulo-gestion-reservas{
+  border-bottom: solid 1px;
+  width: 800px;
+}
+.gestion-reservas-contenedor-time {
+  width: 89px;
 }
 
 /* Footer */

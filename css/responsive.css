@@ -1,104 +1,76 @@
 /* Viewport en pantallas menores a 850px */
 @media (max-width: 850px) {
-/* General */
-body {
-  font-size: 14px;
-}
-main{
-  margin-top: 20%;
-}
-h3 {
-  font-size: 22px;
-}
+  /* General */
+  body {
+    font-size: 14px;
+  }
+  main {
+    margin-top: 20%;
+  }
+  h3 {
+    font-size: 22px;
+  }
   /* Proximos eventos */
   #calendario {
     display: flex;
   }
-  
+  .gestion-reservas-contenedor-date{
+    width: 60%;
+  }
   /* Gestión reservas */
-  .titulo-gestion-reservas {
-    min-width: 300px;
+  .gestion-reservas-contenedor-time {
+    width: 89px;
   }
-
-  .inputs-text {
-    width: 300px;
-    height: 35px;
+  /* Footer */
+  .contenedor-logo-footer {
+    display: flex;
+    visibility: hidden;
   }
-  .button-primary-auto{
-    background-color: #990000;
-    color: white;
-    border-radius: 8px;
-    padding: 5px;
-    width: auto;
-    height: 35px;
+  .contenedor-contacto-redes-footer {
+    flex-direction: column-reverse;
+    gap: 1rem;
   }
-  .button-secundary-auto{
-    background-color: black;
-    color: white;
-    border-radius: 8px;
-    padding: 5px;
-    width: auto;
-    height: 35px;
+  .contenedor-contacto,
+  .contenedor-redes,
+  .contenedor-svg,
+  .contenedor-svg {
+    align-items: center;
+    margin-left: 0;
+    text-align: center;
+    justify-content: center;
   }
-    /* Footer */
-    .contenedor-logo-footer {
-      display: flex;
-      visibility: hidden;
-    }
-    .contenedor-contacto-redes-footer {
-      flex-direction: column-reverse;
-      gap: 1rem;
-    }
-    .contenedor-contacto,
-    .contenedor-redes,
-    .contenedor-svg,
-    .contenedor-svg {
-      align-items: center;
-      margin-left: 0;
-      text-align: center;
-      justify-content: center;
-    }
-    .contenedor-contacto-redes-footer {
-      flex-direction: column-reverse;
-      gap: 1rem;
-    }
-    .contenedor-logo-footer {
-      transition: opacity 0.2s ease-in-out;
-      opacity: 0;
-    }
+  .contenedor-contacto-redes-footer {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+  .contenedor-logo-footer {
+    transition: opacity 0.2s ease-in-out;
+    opacity: 0;
+  }
 }
+
 /* Viewport en pantallas menores a 450px */
 @media (max-width: 450px) {
   /* General */
   body {
     font-size: 12px;
   }
-  main{
-    margin-top: 20%;
+  main {
+    margin-top: 10%;
   }
   h3 {
     font-size: 16px;
   }
-  /* Gestion-reservas */
-  .inputs-text {
-    width: 200px;
-    height: 30px;
-  }
-  .button-primary-auto{
-    background-color: #990000;
-    color: white;
-    border-radius: 8px;
-    padding: 5px;
+  /* Gestión reservas */
+  .titulo-gestion-reservas{
     width: auto;
-    height: 30px;
+    min-width: 320px;
   }
-  .button-secundary-auto {
-    background-color: black;
-    color: white;
-    border-radius: 8px;
-    padding: 5px;
-    width: auto;
-    height: 30px;
+  .gestion-reservas-contenedor-date{
+    width: 140px;
+  }
+  .gestion-reservas-contenedor-time {
+    width: 80px;
   }
   /* Footer */
   .contenedor-logo-footer {

@@ -240,9 +240,6 @@
   .bottom-\[2px\] {
     bottom: 2px;
   }
-  .left-1 {
-    left: calc(var(--spacing) * 1);
-  }
   .left-1\/2 {
     left: calc(1/2 * 100%);
   }
@@ -585,9 +582,6 @@
   .min-h-screen {
     min-height: 100vh;
   }
-  .w-1 {
-    width: calc(var(--spacing) * 1);
-  }
   .w-1\/2 {
     width: calc(1/2 * 100%);
   }
@@ -605,6 +599,9 @@
   }
   .w-\[60px\] {
     width: 60px;
+  }
+  .w-\[100px\] {
+    width: 100px;
   }
   .w-\[450px\] {
     width: 450px;
@@ -722,10 +719,6 @@
   .translate-full {
     --tw-translate-x: 100%;
     --tw-translate-y: 100%;
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
-  .-translate-x-1 {
-    --tw-translate-x: calc(var(--spacing) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .-translate-x-1\/2 {
@@ -1039,6 +1032,12 @@
   .justify-items-stretch {
     justify-items: stretch;
   }
+  .gap-1 {
+    gap: calc(var(--spacing) * 1);
+  }
+  .gap-2 {
+    gap: calc(var(--spacing) * 2);
+  }
   .gap-3 {
     gap: calc(var(--spacing) * 3);
   }
@@ -1050,6 +1049,9 @@
   }
   .gap-6 {
     gap: calc(var(--spacing) * 6);
+  }
+  .gap-8 {
+    gap: calc(var(--spacing) * 8);
   }
   .gap-9 {
     gap: calc(var(--spacing) * 9);
@@ -1248,10 +1250,6 @@
     border-right-width: 1px;
   }
   .border-b {
-    border-bottom-style: var(--tw-border-style);
-    border-bottom-width: 1px;
-  }
-  .border-b-1 {
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 1px;
   }
@@ -1507,8 +1505,8 @@
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
   }
-  .px-10 {
-    padding-inline: calc(var(--spacing) * 10);
+  .px-8 {
+    padding-inline: calc(var(--spacing) * 8);
   }
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
@@ -2194,9 +2192,24 @@
       }
     }
   }
-  .sm\:w-\[100px\] {
+  .sm\:mt-\[50px\] {
     @media (width >= 40rem) {
-      width: 100px;
+      margin-top: 50px;
+    }
+  }
+  .sm\:flex {
+    @media (width >= 40rem) {
+      display: flex;
+    }
+  }
+  .sm\:flex-row {
+    @media (width >= 40rem) {
+      flex-direction: row;
+    }
+  }
+  .sm\:self-center {
+    @media (width >= 40rem) {
+      align-self: center;
     }
   }
   .md\:block {
@@ -2214,34 +2227,19 @@
       display: flex;
     }
   }
+  .lg\:w-200 {
+    @media (width >= 64rem) {
+      width: calc(var(--spacing) * 200);
+    }
+  }
   .lg\:w-320 {
     @media (width >= 64rem) {
       width: calc(var(--spacing) * 320);
     }
   }
-  .lg\:w-\[100px\] {
-    @media (width >= 64rem) {
-      width: 100px;
-    }
-  }
-  .lg\:w-\[120px\] {
-    @media (width >= 64rem) {
-      width: 120px;
-    }
-  }
-  .lg\:w-\[130px\] {
-    @media (width >= 64rem) {
-      width: 130px;
-    }
-  }
   .lg\:w-\[150px\] {
     @media (width >= 64rem) {
       width: 150px;
-    }
-  }
-  .lg\:w-\[190px\] {
-    @media (width >= 64rem) {
-      width: 190px;
     }
   }
   .lg\:w-\[367\.57px\] {
@@ -2267,16 +2265,6 @@
   .lg\:justify-center {
     @media (width >= 64rem) {
       justify-content: center;
-    }
-  }
-  .lg\:gap-6 {
-    @media (width >= 64rem) {
-      gap: calc(var(--spacing) * 6);
-    }
-  }
-  .lg\:gap-8 {
-    @media (width >= 64rem) {
-      gap: calc(var(--spacing) * 8);
     }
   }
   .lg\:gap-12 {
@@ -2337,23 +2325,30 @@ h3 {
   border: solid 1px black;
   border-radius: 8px;
   padding: 4px;
-  width: 500px;
   height: 35px;
   padding: 10px;
+}
+.gestion-reservas-select {
+  border: solid 1px black;
+  border-radius: 8px;
+  height: 35px;
+  padding-inline: 5px;
 }
 .button-primary-auto {
   background-color: #990000;
   color: white;
   border-radius: 8px;
-  padding: 5px;
+  padding: 8px;
   height: 35px;
+  text-align: center;
 }
 .button-secundary-auto {
   background-color: black;
   color: white;
   border-radius: 8px;
-  padding: 5px;
+  padding: 8px;
   height: 35px;
+  text-align: center;
 }
 .form-registro {
   background: #ffffff;
@@ -2398,6 +2393,13 @@ h3 {
   body {
     font-size: 12px;
   }
+}
+.titulo-gestion-reservas {
+  border-bottom: solid 1px;
+  width: 800px;
+}
+.gestion-reservas-contenedor-time {
+  width: 89px;
 }
 footer {
   padding-inline: 3rem;
