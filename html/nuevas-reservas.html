@@ -11,99 +11,112 @@
 <!--flex en el body para que el footer esté justo debajo-->
 <!--min-h-screen: minimo la altura completa de la pantalla-->
 <body class="flex flex-col min-h-screen">
-    <nav class="sticky top-0 bg-white w-full shadow-md z-50 pb-5">
-        <!--Imagen decorativa del nav-->
+    <!-- <nav class="sticky top-0 bg-white w-full shadow-md z-50 pb-5">
+        <!--Imagen decorativa del nav >
         <div class="absolute mt-1 w-full inset-0 flex justify-center h-[100px]">
             <img src="/img/deco-nav.png" alt="Imagen decorativa del nav" class="h-[35px] w-auto">
         </div>
         <div class="relative flex items-center justify-between px-4">
-            <!--Logo a la izquierda del nav con un tamaño de 50px-->
+            <!--Logo a la izquierda del nav con un tamaño de 50px >
             <div>
                 <img src="/img/Logo.png" alt="Logo" class="flex items-center self-end gap-12 h-[50px]">
             </div>
-            <!--Enlaces y botones a la derecha-->
+            <!--Enlaces y botones a la derecha >
             <div class="flex items-center self-end gap-12 ">
-                <!--Enlace a FAQ-->
+                <!--Enlace a FAQ >
                 <a href="/html/FAQ.html" class="hover:text-[#990000]">FAQ</a>
-                <!--Enlace a home-->
+                <!--Enlace a home >
                 <a href="/index.html" class="animation-scale"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 36" class="w-10 text-[#990000] hover:text-[#a84848]" >
                     <path d="M16.6667 35.4167V22.9167H25V35.4167H35.4167V18.75H41.6667L20.8333 0L0 18.75H6.25V35.4167H16.6667Z" fill="currentColor"/>
                     </svg></a>
-                
             </div>
         </div>
-    </nav>
+    </nav> -->
     <h3 class="text-[#000000] ml-10 mt-10 self-start">NUEVAS RESERVAS</h3>
         <hr class="mt-2 m-10 text-[#000000]">
         <!--flex-grow empuja el footer hacia abajo-->
-    <main class="flex-grow flex flex-col items-center ml-150 mr-150 bg-white">
-        <form class="flex flex-col justify-center w-full p-6 "> <!--flex-col para que se ponga cada div uno debajo del otro-->
-        <div class="flex items-center mb-4">
-        <label for="Nombre de teatro" class="w-48 mr-2">Nombre del teatro</label>
-        <input type="text" id="nombreTeatro" name="nombreTeatro" placeholder="Escriba el nombre del teatro"
-        class="flex-1 w-full px-3 py-2 border border-[#990000] rounded-md text-black placeholder-gray-500 focus:outline-1">
-        </div>
+        <!-- sin prefijo (movil) sm(tablet) md(medio) lg(grande)-->
+    <main class="flex-grow flex flex-col items-center bg-white">
+        <!--flex-col para que se ponga cada div uno debajo del otro-->
+        <!--max-w-3xl no será mas grande que 3xl, para que no se estire con el w-full -->
+        <form class="w-full max-w-3xl flex flex-col justify-center p-6"> 
+            <div class="flex items-center mb-4">
+                <!-- w-full en móviles → ocupa todo el ancho  sm:w-48 en pantallas medianas hacia arriba   mb-1 agrega separación vertical en móviles-->
+                <label for="Nombre de teatro" class="w-full sm:w-32 mb-1 sm:mb-0 mr-2">Nombre del teatro</label>
+                <input type="text" id="nombreTeatro" name="nombreTeatro" placeholder="Escriba el nombre del teatro"
+                    class="w-full px-3 py-2 border border-[#000000] rounded-md text-black placeholder-gray-500 focus:outline-none focus:bor focus:border-[#990000]">
+            </div>
 
-        <div class="flex items-center mb-4">
-        <label for="Localidad" class="w-48 mr-2">Localidad del teatro</label>
-        <input type="text" id="LocalidadTeatro" name="LocalidadTeatro" placeholder="Escriba la localidad"
-        class="flex-1 w-full px-3 py-2 border border-[#990000] rounded-md text-black placeholder-gray-500 focus:outline-1">
-        </div>
+            <div class="flex items-center sm:flex-row sm:items-center mb-4">
+                <label for="Localidad" class="w-full sm:w-32 mb-1 sm:mb-0 mr-2">Localidad del teatro</label>
+                <input type="text" id="LocalidadTeatro" name="LocalidadTeatro" placeholder="Escriba la localidad"
+                 class="w-full px-3 py-2 border border-[#000000] rounded-md text-black placeholder-gray-500 focus:outline-none  focus:border-[#990000]">
+            </div>
 
-        <div class="flex items-center mb-4">
-        <label for="Código Postal" class="w-48 mr-2">Código postal del teatro</label>
-        <!-- input type="number" sirve como validación para que no deje escribir algo que no sea número-->
-        <input type="number" id="codigoPostal" name="codigoPostal" placeholder="Escriba el código postal"
-        class="flex-1 w-full px-3 py-2 border border-[#990000] rounded-md text-black placeholder-gray-500 focus:outline-1">
-        </div>
+            <div class="flex items-center sm:flex-row sm:items-center mb-4">
+                <label for="Código Postal" class="w-full sm:w-32 mb-1 sm:mb-0 mr-2">Código postal del teatro</label>
+                <!-- input type="number" sirve como validación para que no deje escribir algo que no sea número-->
+                <input type="number" id="codigoPostal" name="codigoPostal" placeholder="Escriba el código postal"
+                    class="w-full px-3 py-2 border border-[#000000] rounded-md text-black placeholder-gray-500 focus:outline-none  focus:border-[#990000]">
+                </div>
 
-        <div class="flex items-center mb-4">
-        <label for="Tipo de sala" class="w-48 mr-2">Tipo de sala</label>
-        <!-- Desplegable con las opciones -->
-        <select id="tipoSala" name="tipoSala" 
-        class="flex-1 w-full px-3 py-2 border border-[#990000] rounded-md text-black placeholder-gray-500 focus:outline-1">
-            <option value="selected"></option> <!--Para que no salga seleccionada ninguna de las opciones default-->
-            <option value="ensayo">Ensayo</option>
-            <option value="publico">Con público</option>
-        </select>
-        </div>
+            <div class="flex items-center sm:flex-row sm:items-center mb-4">
+                <label for="Tipo de sala" class="w-full sm:w-32 mb-1 sm:mb-0 mr-2">Tipo de sala</label>
+                <!-- Desplegable con las opciones -->
+                <select id="tipoSala" name="tipoSala" 
+                    class="w-full px-3 py-2 border border-[#000000] rounded-md text-black placeholder-gray-500 focus:outline-none  focus:border-[#990000]">
+                    <option value="selected"></option> <!--Para que no salga seleccionada ninguna de las opciones default-->
+                    <option value="ensayo">Ensayo</option>
+                    <option value="publico">Con público</option>
+                </select>
+            </div>
 
-        <div class="flex items-center mb-4">
+            <div class="flex items-center sm:flex-row sm:items-center mb-4">
             <!--desplegable aforo opciones-->
-        <label for="Aforo" class="w-48 mr-2">Aforo</label>
-        <select id="aforo" name = "aforo"
-        class="flex-1 w-full px-3 py-2 border border-[#990000] rounded-md text-black placeholder-gray-500 focus:outline-1">
-            <option value="selected"></option>
-            <option value="pequeña">hasta 10 personas</option>
-            <option value="mediana">hasta 20 personas</option>
-            <option value="grande">hasta 50 personas</option>
-            <option value="aforoEspecifico">Especifico</option>
-        </select>
-        </div>
+                <label for="Aforo" class="w-full sm:w-32 mb-1 sm:mb-0 mr-2">Aforo</label>
+                    <select id="aforo" name = "aforo"
+                        class="w-full px-3 py-2 border border-[#000000] rounded-md text-black placeholder-gray-500 focus:outline-none  focus:border-[#990000]">
+                        <option value="selected"></option>
+                        <option value="pequeña">hasta 10 personas</option>
+                        <option value="mediana">hasta 20 personas</option>
+                        <option value="grande">hasta 50 personas</option>
+                        <option value="aforoEspecifico">Especifico</option>
+                    </select>
+            </div>
     
-        <div class=" mb-4">
-        <label  for="fecha" name="fecha">Fecha</label>
-        <input type="date" id="fecha"
-        class="ml-37 mr-20 px-3 py-2 rounded-md border border-[#990000] rounded-mdfocus:outline-1">
-        <label for="hora" name="hora">Hora</label>
-        <input type="time" id="hora"
-        class="ml-13 px-3 py-2 rounded-md border border-[#990000] rounded-mdfocus:outline-1">
-        </div>
+            <!-- flex-wrap sm:flex-nowrap: permite que los bloques se apilen si no caben, pero mantengan fila en pantallas medianas hacia arriba -->
+            <div class="flex flex-wrap sm:flex-nowrap justify-between items-center gap-4 mb-4">
+            <!-- flex-1 en ambos bloques: divide el espacio disponible uniformemente-->
+            <div class="flex items-center flex-1 min-w-[250px]">
+              <label for="fecha" class="w-24 mr-2">Fecha</label>
+              <input type="date" id="fecha"
+                class="flex-1 px-3 py-2 border border-[#000000] rounded-md text-black focus:outline-none focus:border-[#990000]" />
+            </div>
+          
+           
+            <div class="flex items-center flex-1 min-w-[250px]">
+              <label for="hora" class="w-24 mr-2">Hora</label>
+              <input type="time" id="hora"
+                class="flex-1 px-3 py-2 border border-[#000000] rounded-md text-black focus:outline-none focus:border-[#990000]" />
+            </div>
+          </div>
 
-        <button type="submit" 
-        class="flex justify-center items-center rounded-md m-auto w-30 h-auto scale-75 py-2 bg-[#990000] hover:cursor-pointer shadow-md">
-        <img src="/img/logo-lupa.png">
-        </button>
+            <div class="flex justify-center">
+                <button type="submit"
+                class="w-24 h-10 bg-[#990000] rounded-md flex justify-center items-center shadow-md hover:cursor-pointer hover:scale-105 transition-transform duration-200">
+                <img src="/img/logo-lupa.png" class="w-6 h-6" alt="Buscar" />
+                </button>
+            </div>
     </form>
     </main>
-    <footer class="w-full overflow-hidden bg-white">
+    <!-- <footer class="w-full overflow-hidden bg-white">
         <div class="w-full h-[264px] mx-auto relative min-w-[1380px] mt-[50px] border-t border-gray-300">
             <div class="flex justify-between items-center h-full px-[70px]">
-                <!-- Contenedor izquierdo footer -->
+                <!-- Contenedor izquierdo footer
                 <div class="space-y-3">
-                    <h1 class="text-[#990000] text- text-[48px]">TeatroGest</h1>
+                    <h3 class="text-[#990000]">TeatroGest</h3>
                     <p class="font-montserrat">Redes sociales</p>
-                    <!-- Iconos de redes sociales -->
+                    <!-- Iconos de redes sociales
                     <div class="flex gap-[8px]">
                         <a href="" class="animation-scale">
                             <svg xmlns="http://www.w3.org/2000/svg" width="40"
@@ -128,7 +141,7 @@
                             </svg></a>
                     </div>
                 </div>
-                <!-- Contenedor derecho footer - contactos y ubicación -->
+                <!-- Contenedor derecho footer - contactos y ubicación
                 <div class="flex items-center gap-12">
                     <div class="flex flex-col gap-2 ml-14 items-end font-montserrat">
                         <p class="font-semibold text-xl text-[#990000]">Contacto</p>
@@ -143,11 +156,11 @@
                     </div>
                 </div>
             </div>
-            <!-- Logo central footer -->
-            <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[15px]">
-                <img src="/img/deco-footer.png" alt="footer-icon" class="max-w-full h-auto">
+            <!-- Logo central footer
+            <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[1px]">
+                <img src="/img/deco-footer.png" alt="footer-icon" class="max-w-full h-auto scale-75">
             </div>
         </div>
-    </footer>
+    </footer> -->
 </body>
 </html>
