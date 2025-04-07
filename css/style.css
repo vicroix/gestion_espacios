@@ -381,9 +381,6 @@
   .mx-10 {
     margin-inline: calc(var(--spacing) * 10);
   }
-  .mx-24 {
-    margin-inline: calc(var(--spacing) * 24);
-  }
   .mx-auto {
     margin-inline: auto;
   }
@@ -600,23 +597,14 @@
   .w-30 {
     width: calc(var(--spacing) * 30);
   }
-  .w-35 {
-    width: calc(var(--spacing) * 35);
-  }
   .w-48 {
     width: calc(var(--spacing) * 48);
   }
   .w-80 {
     width: calc(var(--spacing) * 80);
   }
-  .w-320 {
-    width: calc(var(--spacing) * 320);
-  }
   .w-\[60px\] {
     width: 60px;
-  }
-  .w-\[120px\] {
-    width: 120px;
   }
   .w-\[450px\] {
     width: 450px;
@@ -1062,9 +1050,6 @@
   }
   .gap-6 {
     gap: calc(var(--spacing) * 6);
-  }
-  .gap-8 {
-    gap: calc(var(--spacing) * 8);
   }
   .gap-9 {
     gap: calc(var(--spacing) * 9);
@@ -1521,9 +1506,6 @@
   }
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
-  }
-  .px-5 {
-    padding-inline: calc(var(--spacing) * 5);
   }
   .px-10 {
     padding-inline: calc(var(--spacing) * 10);
@@ -2212,6 +2194,11 @@
       }
     }
   }
+  .sm\:w-\[100px\] {
+    @media (width >= 40rem) {
+      width: 100px;
+    }
+  }
   .md\:block {
     @media (width >= 48rem) {
       display: block;
@@ -2232,9 +2219,29 @@
       width: calc(var(--spacing) * 320);
     }
   }
+  .lg\:w-\[100px\] {
+    @media (width >= 64rem) {
+      width: 100px;
+    }
+  }
+  .lg\:w-\[120px\] {
+    @media (width >= 64rem) {
+      width: 120px;
+    }
+  }
+  .lg\:w-\[130px\] {
+    @media (width >= 64rem) {
+      width: 130px;
+    }
+  }
   .lg\:w-\[150px\] {
     @media (width >= 64rem) {
       width: 150px;
+    }
+  }
+  .lg\:w-\[190px\] {
+    @media (width >= 64rem) {
+      width: 190px;
     }
   }
   .lg\:w-\[367\.57px\] {
@@ -2262,6 +2269,21 @@
       justify-content: center;
     }
   }
+  .lg\:gap-6 {
+    @media (width >= 64rem) {
+      gap: calc(var(--spacing) * 6);
+    }
+  }
+  .lg\:gap-8 {
+    @media (width >= 64rem) {
+      gap: calc(var(--spacing) * 8);
+    }
+  }
+  .lg\:gap-12 {
+    @media (width >= 64rem) {
+      gap: calc(var(--spacing) * 12);
+    }
+  }
   .lg\:self-center {
     @media (width >= 64rem) {
       align-self: center;
@@ -2271,11 +2293,6 @@
     @media (width >= 64rem) {
       border-bottom-style: var(--tw-border-style);
       border-bottom-width: 1px;
-    }
-  }
-  .lg\:px-10 {
-    @media (width >= 64rem) {
-      padding-inline: calc(var(--spacing) * 10);
     }
   }
 }
@@ -2321,20 +2338,22 @@ h3 {
   border-radius: 8px;
   padding: 4px;
   width: 500px;
-  height: 45px;
+  height: 35px;
   padding: 10px;
 }
-.button-primary {
+.button-primary-auto {
   background-color: #990000;
   color: white;
   border-radius: 8px;
-  height: 45px;
+  padding: 5px;
+  height: 35px;
 }
-.button-secundary {
+.button-secundary-auto {
   background-color: black;
   color: white;
   border-radius: 8px;
-  height: 45px;
+  padding: 5px;
+  height: 35px;
 }
 .form-registro {
   background: #ffffff;
