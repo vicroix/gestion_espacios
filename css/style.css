@@ -8,7 +8,6 @@
       "Courier New", monospace;
     --color-red-400: oklch(0.704 0.191 22.216);
     --color-red-500: oklch(0.637 0.237 25.331);
-    --color-amber-100: oklch(0.962 0.059 95.617);
     --color-gray-300: oklch(0.872 0.01 258.338);
     --color-gray-500: oklch(0.551 0.027 264.364);
     --color-black: #000;
@@ -21,6 +20,7 @@
     --text-5xl: 3rem;
     --text-5xl--line-height: 1;
     --font-weight-semibold: 600;
+    --leading-relaxed: 1.625;
     --radius-md: 0.375rem;
     --radius-lg: 0.5rem;
     --ease-in: cubic-bezier(0.4, 0, 1, 1);
@@ -240,9 +240,6 @@
   }
   .bottom-\[2px\] {
     bottom: 2px;
-  }
-  .left-1 {
-    left: calc(var(--spacing) * 1);
   }
   .left-1\/2 {
     left: calc(1/2 * 100%);
@@ -586,9 +583,6 @@
   .min-h-screen {
     min-height: 100vh;
   }
-  .w-1 {
-    width: calc(var(--spacing) * 1);
-  }
   .w-1\/2 {
     width: calc(1/2 * 100%);
   }
@@ -604,17 +598,11 @@
   .w-80 {
     width: calc(var(--spacing) * 80);
   }
-  .w-200 {
-    width: calc(var(--spacing) * 200);
-  }
   .w-\[60px\] {
     width: 60px;
   }
   .w-\[100px\] {
     width: 100px;
-  }
-  .w-\[450px\] {
-    width: 450px;
   }
   .w-\[600px\] {
     width: 600px;
@@ -729,10 +717,6 @@
   .translate-full {
     --tw-translate-x: 100%;
     --tw-translate-y: 100%;
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
-  .-translate-x-1 {
-    --tw-translate-x: calc(var(--spacing) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .-translate-x-1\/2 {
@@ -886,9 +870,6 @@
   }
   .auto-rows-min {
     grid-auto-rows: min-content;
-  }
-  .grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .grid-cols-none {
     grid-template-columns: none;
@@ -1060,9 +1041,6 @@
   }
   .gap-5 {
     gap: calc(var(--spacing) * 5);
-  }
-  .gap-6 {
-    gap: calc(var(--spacing) * 6);
   }
   .gap-8 {
     gap: calc(var(--spacing) * 8);
@@ -1330,9 +1308,6 @@
   .bg-\[var\(--my_variable\)\] {
     background-color: var(--my_variable);
   }
-  .bg-amber-100 {
-    background-color: var(--color-amber-100);
-  }
   .bg-black {
     background-color: var(--color-black);
   }
@@ -1529,9 +1504,6 @@
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
   }
-  .px-8 {
-    padding-inline: calc(var(--spacing) * 8);
-  }
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
   }
@@ -1598,6 +1570,10 @@
   .leading-none {
     --tw-leading: 1;
     line-height: 1;
+  }
+  .leading-relaxed {
+    --tw-leading: var(--leading-relaxed);
+    line-height: var(--leading-relaxed);
   }
   .font-semibold {
     --tw-font-weight: var(--font-weight-semibold);
@@ -2216,6 +2192,11 @@
       }
     }
   }
+  .sm\:mx-24 {
+    @media (width >= 40rem) {
+      margin-inline: calc(var(--spacing) * 24);
+    }
+  }
   .sm\:mt-\[50px\] {
     @media (width >= 40rem) {
       margin-top: 50px;
@@ -2241,21 +2222,6 @@
       display: block;
     }
   }
-  .md\:w-100 {
-    @media (width >= 48rem) {
-      width: calc(var(--spacing) * 100);
-    }
-  }
-  .md\:w-200 {
-    @media (width >= 48rem) {
-      width: calc(var(--spacing) * 200);
-    }
-  }
-  .md\:w-300 {
-    @media (width >= 48rem) {
-      width: calc(var(--spacing) * 300);
-    }
-  }
   .lg\:mx-24 {
     @media (width >= 64rem) {
       margin-inline: calc(var(--spacing) * 24);
@@ -2266,34 +2232,9 @@
       display: flex;
     }
   }
-  .lg\:w-200 {
-    @media (width >= 64rem) {
-      width: calc(var(--spacing) * 200);
-    }
-  }
-  .lg\:w-250 {
-    @media (width >= 64rem) {
-      width: calc(var(--spacing) * 250);
-    }
-  }
-  .lg\:w-300 {
-    @media (width >= 64rem) {
-      width: calc(var(--spacing) * 300);
-    }
-  }
   .lg\:w-320 {
     @media (width >= 64rem) {
       width: calc(var(--spacing) * 320);
-    }
-  }
-  .lg\:w-400 {
-    @media (width >= 64rem) {
-      width: calc(var(--spacing) * 400);
-    }
-  }
-  .lg\:w-600 {
-    @media (width >= 64rem) {
-      width: calc(var(--spacing) * 600);
     }
   }
   .lg\:w-\[150px\] {
@@ -2384,6 +2325,14 @@ h3 {
 }
 .font-montserrat {
   font-family: "Montserrat";
+}
+.home-texto-bienvenida {
+  line-height: 1.6rem;
+}
+.home-img-bienvenida {
+  margin-left: 12px;
+  width: 400px;
+  float: right;
 }
 .inputs-text {
   border: solid 1px black;
