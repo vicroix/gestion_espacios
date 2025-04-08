@@ -10,15 +10,23 @@
   h3 {
     font-size: 22px;
   }
+  /* Home */
+  .home-texto-bienvenida {
+    line-height: 1.6rem;
+  }
+  .home-img-bienvenida {
+    width: 300px;
+    float: right;
+  }
   /* Proximos eventos */
   #calendario {
     display: flex;
   }
-  .gestion-reservas-contenedor-date{
+  .gestion-reservas-contenedor-date {
     width: 60%;
   }
   /* Gestión reservas */
-  .titulo-gestion-reservas{
+  .titulo-gestion-reservas {
     width: 650px;
   }
   .gestion-reservas-contenedor-time {
@@ -51,17 +59,26 @@
     opacity: 0;
   }
 }
+
+/* Viewport en pantallas menores a 640px */
 @media (max-width: 640px) {
+  /* Home */
+  .home-texto-bienvenida {
+    line-height: 1.6rem;
+  }
+  .home-img-bienvenida {
+    width: 250px;
+    float: right;
+  }
   /* Gestión reservas */
-  .titulo-gestion-reservas{
+  .titulo-gestion-reservas {
     width: 600px;
   }
   .gestion-reservas-contenedor-time {
     width: 89px;
   }
-
 }
-/* Viewport en pantallas menores a 450px */
+/* Viewport en pantallas menores a 550px */
 @media (max-width: 550px) {
   /* General */
   body {
@@ -70,14 +87,26 @@
   main {
     margin-top: 10%;
   }
+  h1 {
+    font-size: 24px;
+  }
   h3 {
     font-size: 16px;
   }
+  /* Home */
+  .home-texto-bienvenida {
+    min-width: 280px;
+    line-height: 1.6rem;
+  }
+  .home-img-bienvenida {
+    width: 150px;
+    float: right;
+  }
   /* Gestión reservas */
-  .titulo-gestion-reservas{
+  .titulo-gestion-reservas {
     width: 300px;
   }
-  .gestion-reservas-contenedor-date{
+  .gestion-reservas-contenedor-date {
     width: 140px;
   }
   .gestion-reservas-contenedor-time {

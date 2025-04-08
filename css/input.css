@@ -46,6 +46,26 @@ h3 {
   font-family: "Montserrat";
 }
 
+/* Home */
+/* .home-texto-bienvenida {
+  max-width: 600px;
+  min-width: 300px;
+}
+.home-imagen-bienvenida {
+  max-width: 524px;
+  min-width: 324px;
+} */
+
+.home-texto-bienvenida {
+  line-height: 1.6rem;
+}
+.home-img-bienvenida {
+  margin-left: 12px;
+  width: 400px;
+  float: right;
+}
+
+
 .inputs-text {
   border: solid 1px black;
   border-radius: 8px;
@@ -135,7 +155,7 @@ h3 {
   }
 }
 /* Gestión reservas */
-.titulo-gestion-reservas{
+.titulo-gestion-reservas {
   border-bottom: solid 1px;
   width: 800px;
 }
