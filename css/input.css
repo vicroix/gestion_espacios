@@ -24,9 +24,12 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
+/* Main ocupe todo el espacio y empuje al Footer hacia abajo */
 main {
   flex: 1;
 }
+
+/* Estilos titulos */
 h1 {
   font-size: 48px;
 }
@@ -47,21 +50,30 @@ h3 {
   border: solid 1px black;
   border-radius: 8px;
   padding: 4px;
-  width: 500px;
-  height: 45px;
+  height: 35px;
   padding: 10px;
 }
-.button-primary {
+.gestion-reservas-select {
+  border: solid 1px black;
+  border-radius: 8px;
+  height: 35px;
+  padding-inline: 5px;
+}
+.button-primary-auto {
   background-color: #990000;
   color: white;
   border-radius: 8px;
-  height: 45px;
+  padding: 8px;
+  height: 35px;
+  text-align: center;
 }
-.button-secundary {
+.button-secundary-auto {
   background-color: black;
   color: white;
   border-radius: 8px;
-  height: 45px;
+  padding: 8px;
+  height: 35px;
+  text-align: center;
 }
 /*Style formregistro*/
 /* * {
@@ -121,7 +133,14 @@ h3 {
   body {
     font-size: 12px;
   }
-  
+}
+/* Gestión reservas */
+.titulo-gestion-reservas{
+  border-bottom: solid 1px;
+  width: 800px;
+}
+.gestion-reservas-contenedor-time {
+  width: 89px;
 }
 
 /* Footer */
@@ -131,12 +150,11 @@ footer {
   background-color: white;
   border-top: 1px solid #d1d5dc;
 }
-.svg-redes{
+.svg-redes {
   width: 25px;
 }
 
 /* Footer - animación iconos Redes sociales */
 .animation-scale {
-
   @apply hover:scale-115 transition duration-150 ease-in-out;
 }
