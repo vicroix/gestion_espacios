@@ -51,6 +51,7 @@
     opacity: 0;
   }
 }
+
 @media (max-width: 640px) {
   /* Gestión reservas */
   .titulo-gestion-reservas{
