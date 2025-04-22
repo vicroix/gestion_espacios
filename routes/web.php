@@ -13,7 +13,7 @@ use App\Http\Controllers\AuthController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//
+
 Route::get('/', [App\Http\Controllers\PaginasController::class, 'inicio'])->name('inicio');
 Route::get('/proximos-eventos', [App\Http\Controllers\PaginasController::class, 'proximosEventos'])->name('proximos-eventos');
 Route::get('/pago', [App\Http\Controllers\PaginasController::class, 'pago'])->name('pago');
