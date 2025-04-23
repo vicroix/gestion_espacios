@@ -14,3 +14,4 @@ $homeSvg = file_get_contents(resource_path('svg/home.svg'))
     @include('layouts.navbars.navbar-admin')
     @endif
 </nav>
+<!--  -->
