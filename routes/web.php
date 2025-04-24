@@ -22,6 +22,7 @@ Route::get('/gestion-reservas', [App\Http\Controllers\PaginasController::class, 
 Route::get('/form-registro', [App\Http\Controllers\PaginasController::class, 'formRegistro'])->name('form-registro');
 Route::get('/faq', [App\Http\Controllers\PaginasController::class, 'faq'])->name('faq');
 Route::get('/busquedas-salas', [App\Http\Controllers\PaginasController::class, 'busquedasSalas'])->name('busquedas-salas');
+
 //Rutas con acceso de solo Admin
 Route::middleware(['admin'])->group(function () {
     Route::get('/nuevas-reservas', [App\Http\Controllers\PaginasController::class, 'nuevasReservas'])->name('nuevas-reservas');
@@ -31,6 +32,7 @@ Route::middleware(['admin'])->group(function () {
 //Rutas con método POST para datos sensibles
 Route::post('/iniciar-sesion', [AuthController::class, 'login'])->name('login');
 Route::post('form-registro', action: [AuthController::class, 'registro'])->name('registro');
+Route::post('gestion-espacio', action: [AuthController::class, 'gestionEspacio'])->name('gestion-espacio');
 
 //Cierra sesión del usuario
 Route::get('/cerrar-sesion', function () {

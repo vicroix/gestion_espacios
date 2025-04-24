@@ -14,4 +14,5 @@ $homeSvg = file_get_contents(resource_path('svg/home.svg'))
     <?php echo $__env->make('layouts.navbars.navbar-admin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <?php endif; ?>
 </nav>
+<!--  -->
 <?php /**PATH C:\Users\Victor\Documents\GitHub\TeatroGest\resources\views/layouts/navbars/navbar.blade.php ENDPATH**/ ?>

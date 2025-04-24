@@ -14,9 +14,9 @@
             <div class="flex gap-4">
                 <div class="flex flex-col gap-2 sm:flex sm:flex-row">
                     <div class="flex flex-row-reverse sm:flex sm:flex-row items-end gap-3">
-                        <div class="flex items-end gap-2">
-                            <button class="button-secundary-auto">Anular</button>
-                            <button class="button-primary-auto">Modificar</button>
+                        <div class="flex gap-2">
+                            <button class="button-secundary-auto flex items-center">Anular</button>
+                            <button class="button-primary-auto flex items-center">Modificar</button>
                         </div>
                         <select id="sala" name="sala" class="gestion-reservas-select">
                             <option value="sala1">Sala 1</option>
