@@ -86,7 +86,7 @@
                 <div class="flex flex-col pl-4">
                     <a href="<?php echo e(url('busquedas-salas')); ?>" class="hover:text-[#990000] py-1 list-style-circle">Búsquedas Salas</a>
                     <a href="<?php echo e(url('modificar-salas')); ?>" class="hover:text-[#990000] py-1 pr-3 list-style-circle">Modificar Salas</a>
-                    <a href="<?php echo e(url('gestion-sala')); ?>" class="hover:text-[#990000] py-1 list-style-circle">Creación Sala</a>
+                    <a href="<?php echo e(url('gestion-salas')); ?>" class="hover:text-[#990000] py-1 list-style-circle">Creación Sala</a>
                 </div>
             </details>
         </div>

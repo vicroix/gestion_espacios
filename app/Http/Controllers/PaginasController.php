@@ -50,4 +50,7 @@ class PaginasController extends Controller
     {
         return view('busquedas-salas');
     }
+    public function buscarEspacios(){
+        return view('nuevas-reservas');
+    }
 }
