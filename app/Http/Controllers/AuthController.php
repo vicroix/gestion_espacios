@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -55,5 +56,4 @@ class AuthController extends Controller
             return redirect()->route('form-registro')->with('error', 'Error al registrar. Posible usuario o email ya existentes.');
         }
     }
-
 }

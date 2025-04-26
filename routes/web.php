@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\GestionReservas;
+use App\Http\Controllers\GestionSalas;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,15 +28,16 @@ Route::get('/faq', [App\Http\Controllers\PaginasController::class, 'faq'])->name
 
 //Rutas con acceso de solo Admin
 Route::middleware(['admin'])->group(function () {
-    Route::get('/buscar-salas', [App\Http\Controllers\GestionSalas::class, 'buscarEspacios'])->name('buscar-sala');
     Route::get('/nuevas-reservas', [App\Http\Controllers\PaginasController::class, 'nuevasReservas'])->name('nuevas-reservas');
+    Route::get('/buscar-salas', [App\Http\Controllers\GestionSalas::class, 'buscarEspacios'])->name('buscar-sala');
     Route::get('/modificar-salas', [App\Http\Controllers\PaginasController::class, 'modificarSalas'])->name('modificar-salas');
     Route::get('/gestion-salas', [App\Http\Controllers\PaginasController::class, 'gestionSalas'])->name('gestion-salas');
 });
 //Rutas con método POST para datos sensibles
 Route::post('/iniciar-sesion', [AuthController::class, 'login'])->name('login');
 Route::post('form-registro', action: [AuthController::class, 'registro'])->name('registro');
-Route::post('gestion-espacio', action: [AuthController::class, 'gestionEspacio'])->name('gestion-espacio');
+Route::post('gestion-espacio', action: [GestionSalas::class, 'gestionEspacio'])->name('gestion-espacio');
+Route::post('reservar', action: [GestionReservas::class, 'realizarReserva'])->name('reservar');
 
 //Cierra sesión del usuario
 Route::get('/cerrar-sesion', function () {

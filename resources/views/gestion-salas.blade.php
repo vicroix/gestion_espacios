@@ -1,6 +1,6 @@
 @extends("layouts.plantilla")
 
-@vite('resources/css/app.css')
+<!-- @vite('resources/css/app.css') -->
 @section('title', 'Proximos eventos')
 <!-- http://localhost/TeatroGest/public/gestion-salas -->
 
@@ -98,7 +98,7 @@
                 <!--botones-->
                 <div class="mt-4 mb-5 flex justify-center gap-4">
                     <button type="submit" class="bg-[#990000] w-[60px] lg:w-[150px] py-1.5
-                 text-white rounded-md cursor-pointer hover:bg-[#a84848]" href="{{ url('/nuevas-reservas') }}">Añadir sala</button>
+                 text-white rounded-md cursor-pointer hover:bg-[#a84848]">Añadir sala</button>
                     <!-- <button type="submit" class="bg-black w-[60px] lg:w-[150px] py-1.5
                  text-white rounded-md cursor-pointer hover:bg-[#5d5d5d]">Modificar salas</button> -->
                 </div>
@@ -106,5 +106,5 @@
         </div>
     </section>
 </main>
+<!-- <script src="{{ mix('js/app.js') }}"></script> -->
 @endsection
-<script src="{{ mix('js/app.js') }}"></script>

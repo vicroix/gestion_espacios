@@ -16,13 +16,13 @@ class GestionSalas extends Controller
             $validar = $respuesta->validate([
                 'nombre_teatro' => 'required|string|max:255',
                 'localidad' => 'required|string|max:255',
-                'codigo_postal' => 'required|digits:5',
+                'codigo_postal' => 'required|string|max:5',
                 'direccion' => 'required|string|max:255',
                 'email' => 'required|string|max:255',
                 'telefono' => 'required|digits:9',
                 'nombre_sala' => 'required|string|max:255',
-                'equipamiento' => 'required|string|max:1200',
-                'tipo_sala' => 'required|string|max:255',
+                'equipamiento' => 'required|string|max:2000',
+                'tipo_sala' => 'required|string|max:50',
                 'aforo' => 'required|integer|min:1|max:1000',
             ]);
             // dd($validar);
@@ -76,7 +76,7 @@ class GestionSalas extends Controller
         if (!$filtroAplicado) {
             $espacios = collect(); // o puedes usar Espacio::limit(1)->get() si quieres mostrar algo por defecto
         } else {
-            $espacios = $espacio->limit(5)->get();
+            $espacios = $espacio->limit(3)->get();
         }
 
         return view('nuevas-reservas', compact('espacios'));
