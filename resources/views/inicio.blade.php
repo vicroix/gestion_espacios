@@ -5,6 +5,7 @@
 <!-- http://localhost/teatrogest/public -->
 
 @section("main")
+<!-- Comentario de prueba -->
 <main class="flex flex-col w-full justify-center mt-10% sm:mt-[50px] gap-4 md:lg-9 lg:gap-12 h-[59vh]">
     <!--Título H1 - TEATROGEST-->
     <div class="flex justify-start mx-10 sm:mx-24">
