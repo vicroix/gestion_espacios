@@ -57,7 +57,7 @@
                 <a href="{{ url('proximos-eventos') }}" class="hover:bg-[#990000] border border-white hover:text-white rounded-xl p-2 transition-all duration-300 ease-out">Próximos eventos</a>
                 <a href="{{ url('faq') }}" class="hover:bg-[#990000] border border-white hover:text-white rounded-xl p-2 transition-all duration-300 ease-out">FAQ</a>
             </div>
-            <a href="{{ route('salir') }}" class="bg-[#990000] hover:bg-[#a84848] text-white px-2 py-2.5 rounded-lg cursor-pointer md:text-base">Cerrar sesión</a>
+            <a href="{{ route('salir') }}" class="button-primary-auto cursor-pointer md:text-base">Cerrar sesión</a>
         </div>
     </div>
 

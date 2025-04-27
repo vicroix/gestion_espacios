@@ -28,6 +28,7 @@ window.rellenarFormulario = function (
     }
 };
 
+// Restringe si la reserva es ese mismo día, seleccionar una hora. Mínimo una hora posterior a la actual.
 document.addEventListener("DOMContentLoaded", function () {
     const fechaInput = document.getElementById("fecha");
     const horaInput = document.getElementById("hora");
@@ -44,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const horaMinima = `${horas}:${minutos}`;
             horaInput.min = horaMinima;
 
-            // Si ya hay una hora puesta que es anterior a la mínima, la borramos
+            // Si ya hay una hora puesta que es anterior a la minima, la borramos
             if (horaInput.value && horaInput.value < horaMinima) {
                 horaInput.value = "";
             }

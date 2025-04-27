@@ -1,5 +1,3 @@
-
-
 <?php echo app('Illuminate\Foundation\Vite')('resources/css/app.css'); ?>
 <?php $__env->startSection('title', 'Proximos eventos'); ?>
 <!-- http://localhost/teatrogest/public/proximos-eventos -->

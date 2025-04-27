@@ -42,7 +42,7 @@
                     </div> -->
             </div>
         </div>
-        <button class="button-primary-auto flex items-center justify-center align-center self-center w-[100px]">
+        <button class="button-primary-auto flex items-center justify-center align-center self-center">
             Reservar
         </button>
     </form>

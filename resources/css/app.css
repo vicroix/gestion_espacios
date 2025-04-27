@@ -65,16 +65,6 @@ h3 {
     font-family: "Montserrat";
 }
 
-/* Home */
-/* .home-texto-bienvenida {
-    max-width: 600px;
-    min-width: 300px;
-  }
-  .home-imagen-bienvenida {
-    max-width: 524px;
-    min-width: 324px;
-  } */
-
 .home-texto-bienvenida {
     line-height: 1.6rem;
 }
@@ -91,34 +81,69 @@ h3 {
     height: 35px;
     padding: 10px;
 }
+.inputs-text:hover {
+    border-color: black;
+    box-shadow: 0 0 1.8px 0.2px black;
+}
+.inputs-text-disabled {
+    border: solid 1px black;
+    border-radius: 8px;
+    padding: 4px;
+    height: 35px;
+    padding: 10px;
+}
 .gestion-reservas-select {
     border: solid 1px black;
     border-radius: 8px;
     height: 35px;
     padding-inline: 5px;
 }
+.gestion-reservas-select:hover {
+    border-color: black;
+    box-shadow: 0 0 1.8px 0.2px black;
+}
+/* BOTONES */
+/* BOTON PRIMARY */
 .button-primary-auto {
     background-color: #990000;
     color: white;
-    border-radius: 8px;
     padding: 8px;
-    height: 35px;
-    text-align: center;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
+.button-primary-auto:hover {
+    background-color: #b30000;
+    box-shadow: 0px 0px 1.8px 0.2px black;
+}
+.button-primary-auto:focus {
+    background-color: #9d0101;
+    box-shadow: 0px 0px 2px 0.5px black;
+}
+/* BOTON SECUNDARY */
 .button-secundary-auto {
-    background-color: black;
+    background-color: #000000;
     color: white;
-    border-radius: 8px;
     padding: 8px;
-    height: 35px;
-    text-align: center;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
-/*Style formregistro*/
-/* * {
-    padding: 0;
-    box-sizing: border-box;
-  } */
-
+.button-secundary-auto:hover {
+    background-color: #333333;
+    box-shadow: 0px 0px 1.8px 0.2px black;
+}
+.button-secundary-auto:focus {
+    background-color: #1a1a1a;
+    box-shadow: 0px 0px 2px 0.5px black;
+}
+/* FORMULARIO DE REGISTRO EN FORM-REGISTRO */
 .form-registro {
     background: #ffffff;
     margin-top: 45px;
@@ -145,7 +170,7 @@ h3 {
     color: #000000;
 }
 
-.button {
+/* .button {
     color: #ffffff;
     background-color: #990000;
     align-items: center;
@@ -154,7 +179,7 @@ h3 {
     text-align: center;
     width: 200px;
     margin-left: 33%;
-}
+} */
 
 .titulo_pagina {
     border-bottom: #000000 1px solid;
@@ -162,12 +187,6 @@ h3 {
 
 /* Viewport en pantallas menores a 850px */
 @media (max-width: 450px) {
-    h2 {
-        font-size: 20px;
-    }
-    body {
-        font-size: 12px;
-    }
 }
 /* Gestión reservas */
 .titulo-gestion-reservas {
@@ -178,7 +197,7 @@ h3 {
     width: 89px;
 }
 
-/* Footer */
+/* FOOTER */
 footer {
     padding-inline: 3rem;
     padding-block: 0.8rem;
@@ -211,12 +230,14 @@ footer {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
     transition: background 0.3s;
 }
+/* PROXIMOS-EVENTOS */
 #calendario {
     width: 90%;
-    max-width: 600px;
+    max-width: 520px;
     min-width: 320px;
     margin: 20px auto; /* Centrar el calendario */
 }
+
 /* RESPONSIVE */
 /* Viewport en pantallas menores a 850px */
 @media (max-width: 850px) {
@@ -313,6 +334,9 @@ footer {
     }
     h3 {
         font-size: 16px;
+    }
+    h2 {
+        font-size: 20px;
     }
     /* Home */
     .home-texto-bienvenida {

@@ -1,7 +1,7 @@
 <?php
 
+// use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GestionReservas;
 use App\Http\Controllers\GestionSalas;
@@ -24,7 +24,7 @@ Route::get('/inicio-sesion', [App\Http\Controllers\PaginasController::class, 'in
 Route::get('/gestion-reservas', [App\Http\Controllers\PaginasController::class, 'gestionReservas'])->name('gestion-reservas');
 Route::get('/form-registro', [App\Http\Controllers\PaginasController::class, 'formRegistro'])->name('form-registro');
 Route::get('/faq', [App\Http\Controllers\PaginasController::class, 'faq'])->name('faq');
-// Route::get('/busquedas-salas', [App\Http\Controllers\PaginasController::class, 'busquedasSalas'])->name('busquedas-salas');
+Route::get('/busquedas-salas', [App\Http\Controllers\PaginasController::class, 'busquedasSalas'])->name('busquedas-salas');
 
 //Rutas con acceso de solo Admin
 Route::middleware(['admin'])->group(function () {

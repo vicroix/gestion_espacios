@@ -65,22 +65,22 @@
                     <div class="flex gap-1">
                         <div class="flex items-center">
                             <!-- SELECT TIPO (Obra / Ensayo) -->
-                            <select class="border border-gray-300  px-3 py-1 rounded-md focus:outline-none focus:ring-1  focus:ring-[#990000]
+                            <select class="border border-gray-300 text-gray-500 px-3 py-1 rounded-md focus:outline-none focus:ring-1  focus:ring-[#990000]
                          invalid:focus:ring-red-400 peer w-full" type="text" name="tipo_sala" id="tipo_sala">
                                 <option value="" disabled selected hidden>Tipo</option>
-                                <option value="Obra">Con público</option>
-                                <option value="Ensayo">Ensayo</option>
+                                <option value="Obra" class="text-black">Con público</option>
+                                <option value="Ensayo" class="text-black">Ensayo</option>
                             </select>
                         </div>
 
                         <div class="flex items-center">
                             <!-- INPUT Aforo (10 / 20 / 50 personas) -->
-                            <select class="border border-gray-300  px-3 py-1 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
+                            <select class="border border-gray-300 text-gray-500  px-3 py-1 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
                      invalid:focus:ring-red-400 peer w-full" type="text" name="aforo" id="aforo">
                                 <option value="" disabled selected hidden>Aforo</option>
-                                <option value="10">Hasta 10 personas</option>
-                                <option value="20">Hasta 20 personas</option>
-                                <option value="50">Hasta 50 personas</option>
+                                <option value="10" class="text-black">Hasta 10 personas</option>
+                                <option value="20" class="text-black">Hasta 20 personas</option>
+                                <option value="50" class="text-black">Hasta 50 personas</option>
                             </select>
                         </div>
                     </div>
@@ -97,8 +97,7 @@
                 @endif
                 <!--botones-->
                 <div class="mt-4 mb-5 flex justify-center gap-4">
-                    <button type="submit" class="bg-[#990000] w-[60px] lg:w-[150px] py-1.5
-                 text-white rounded-md cursor-pointer hover:bg-[#a84848]">Añadir sala</button>
+                    <button type="submit" class="button-primary-auto lg:w-[108.85px] cursor-pointer">Añadir sala</button>
                     <!-- <button type="submit" class="bg-black w-[60px] lg:w-[150px] py-1.5
                  text-white rounded-md cursor-pointer hover:bg-[#5d5d5d]">Modificar salas</button> -->
                 </div>

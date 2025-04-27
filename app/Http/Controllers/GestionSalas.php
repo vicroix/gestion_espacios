@@ -76,7 +76,7 @@ class GestionSalas extends Controller
         if (!$filtroAplicado) {
             $espacios = collect(); // o puedes usar Espacio::limit(1)->get() si quieres mostrar algo por defecto
         } else {
-            $espacios = $espacio->limit(3)->get();
+            $espacios = $espacio->limit(10)->get();
         }
 
         return view('nuevas-reservas', compact('espacios'));
