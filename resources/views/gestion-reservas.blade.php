@@ -29,6 +29,8 @@
             </li>
             @endforeach
         </ul>
+        @else
+        <p class="">No se encontraron reservas</p>
         @endif
     </div>
 
@@ -36,7 +38,6 @@
         @if (session('correcto'))
         <p class="text-green-500">{{ session('correcto') }}</p>
         @elseif (session('sinDatos'))
-        <p class="">{{ session('sinDatos') }}</p>
         @else
         <p class="text-red-500">{{ session('error') }}</p>
         @endif

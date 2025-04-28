@@ -34,10 +34,6 @@ class PaginasController extends Controller
     {
         return view('gestion-salas');
     }
-    // public function gestionReservas()
-    // {
-    //     return view('gestion-reservas');
-    // }
     public function formRegistro()
     {
         return view('form-registro');

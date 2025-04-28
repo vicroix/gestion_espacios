@@ -27,6 +27,8 @@
             </li>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </ul>
+        <?php else: ?>
+        <p class="">No se encontraron reservas</p>
         <?php endif; ?>
     </div>
 
@@ -34,7 +36,6 @@
         <?php if(session('correcto')): ?>
         <p class="text-green-500"><?php echo e(session('correcto')); ?></p>
         <?php elseif(session('sinDatos')): ?>
-        <p class=""><?php echo e(session('sinDatos')); ?></p>
         <?php else: ?>
         <p class="text-red-500"><?php echo e(session('error')); ?></p>
         <?php endif; ?>
