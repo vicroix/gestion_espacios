@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use App\Models\Usuario;
 
+// Registro y Login de usuarios
 class AuthController extends Controller
 {
     public function login(Request $respuesta)

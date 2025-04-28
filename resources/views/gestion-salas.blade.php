@@ -1,6 +1,6 @@
 @extends("layouts.plantilla")
 
-@vite('resources/css/app.css')
+<!-- @vite('resources/css/app.css') -->
 @section('title', 'Proximos eventos')
 <!-- http://localhost/TeatroGest/public/gestion-salas -->
 
@@ -12,74 +12,98 @@
         </div>
         <!--inputs de gestión de salas-->
         <div class="flex justify-center min-w-[400px] w-full mt-5">
-            <form action="" class="bg-white lg:w-[746px] m-8 rounded-lg flex-col flex gap-1 justify-center">
-                <!--nombre teatro-->
-                <div class="flex items-center mb-4">
-                    <label class="w-full mb-1 sm:mb-0 mr-2">Nombre teatro</label>
-                    <input class="border border-gray-300  px-3 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
-                 invalid:focus:ring-red-400 peer w-full" type="text" name="nombre teatro" id="nombre teatro" placeholder="Nombre del teatro">
+            <form action="{{ route('gestion-espacio') }}" method="POST" class="bg-white lg:w-[300px] m-8 rounded-lg flex-col flex gap-2 justify-center">
+                @csrf
+                <div class="w-[300px] flex flex-col gap-2">
+                    <!--nombre teatro-->
+                    <div class="flex items-center">
+                        <!-- INPUT NOMBRE TEATRO -->
+                        <input class="border border-gray-300 px-3 py-1 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000] invalid:focus:ring-red-400 peer w-full"
+                            type="text" name="nombre_teatro" id="nombre_teatro" placeholder="Nombre del teatro">
+                    </div>
+
+                    <div class="flex items-center">
+                        <!-- INPUT NOMBRE SALA -->
+                        <input class="border border-gray-300  px-3 py-1 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
+                     invalid:focus:ring-red-400 peer w-full" type="text" name="nombre_sala" id="nombre_sala" placeholder="Nombre Sala">
+                    </div>
+                    <div class="flex gap-1">
+                        <div class="w-[70%]">
+                            <!-- INPUT TELEFONO -->
+                            <input class="border border-gray-300  px-3 py-1 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
+                            invalid:focus:ring-red-400 peer w-full" type="text" maxlength="9" name="telefono" id="telefono" placeholder="Teléfono">
+                        </div>
+                        <div  class="w-full">
+                            <!-- INPUT LOCALIDAD -->
+                            <input class="border border-gray-300 px-3 py-1 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000] invalid:focus:ring-red-400 peer w-full"
+                                type="text" name="localidad" id="localidad" placeholder="Localidad">
+                        </div>
+                    </div>
+
+                    <div class="flex gap-1">
+                        <div class="w-[35%]">
+                            <!-- INPUT CODIGO POSTAL -->
+                            <input class="border border-gray-300 px-3 py-1 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000] invalid:focus:ring-red-400 peer w-full"
+                                type="text" name="codigo_postal" id="codigo_postal" placeholder="C.P.">
+                        </div>
+
+                        <div class="w-full">
+                            <!-- INPUT DIRECCION -->
+                            <input class="border border-gray-300 px-3 py-1 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000] invalid:focus:ring-red-400 peer w-full"
+                                type="text" name="direccion" id="direccion" placeholder="Dirección">
+                        </div>
+                    </div>
+                    <!--gmail-->
+                    <div class="flex items-center">
+                        <!-- INPUT EMAIL -->
+                        <input class="border border-gray-300  px-3 py-1 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
+                     invalid:focus:ring-red-400 peer w-full" type="email" name="email" id="email" placeholder="Correo electrónico">
+                    </div>
+                    <!--tel-->
+
+
+                    <div class="flex gap-1">
+                        <div class="flex items-center">
+                            <!-- SELECT TIPO (Obra / Ensayo) -->
+                            <select class="border border-gray-300 text-gray-500 px-3 py-1 rounded-md focus:outline-none focus:ring-1  focus:ring-[#990000]
+                         invalid:focus:ring-red-400 peer w-full" type="text" name="tipo_sala" id="tipo_sala">
+                                <option value="" disabled selected hidden>Tipo</option>
+                                <option value="Obra" class="text-black">Con público</option>
+                                <option value="Ensayo" class="text-black">Ensayo</option>
+                            </select>
+                        </div>
+
+                        <div class="flex items-center">
+                            <!-- INPUT Aforo (10 / 20 / 50 personas) -->
+                            <select class="border border-gray-300 text-gray-500  px-3 py-1 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
+                     invalid:focus:ring-red-400 peer w-full" type="text" name="aforo" id="aforo">
+                                <option value="" disabled selected hidden>Aforo</option>
+                                <option value="10" class="text-black">Hasta 10 personas</option>
+                                <option value="20" class="text-black">Hasta 20 personas</option>
+                                <option value="50" class="text-black">Hasta 50 personas</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
-                <!--localidad-->
-                <div class="flex items-center mb-4">
-                    <label class="w-full mb-1 mr-2">Localidad</label>
-                    <input class="border border-gray-300  px-3 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
-                 invalid:focus:ring-red-400 peer w-full" type="text" name="localidad" id="localidad" placeholder="Localidad">
+                <div class="flex items-center">
+                    <!-- TEXTAREA EQUIPAMIENTO -->
+                    <textarea class="border border-gray-300 px-3 min-h-[60px] rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
+                 invalid:focus:ring-red-400 peer w-full" rows="3" name="equipamiento" id="equipamiento" placeholder="Equipamiento"></textarea>
                 </div>
-                <!--CP-->
-                <div class="flex items-center mb-4">
-                    <label class="w-full mb-1 mr-2">Código postal</label>
-                    <input class="border border-gray-300  px-3 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
-                 invalid:focus:ring-red-400 peer w-full" type="text" name="cp" id="cp" placeholder="Código postal">
-                </div>
-                <!--dirreción-->
-                <div class="flex items-center mb-4">
-                    <label class="w-full mb-1 mr-2">Dirección</label>
-                    <input class="border border-gray-300  px-3 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
-                 invalid:focus:ring-red-400 peer w-full" type="text" name="Dirección" id="Dirección" placeholder="dirección">
-                </div>
-                <!--gmail-->
-                <div class="flex items-center mb-4">
-                    <label class="w-full mb-1 mr-2">Correo electrónico</label>
-                    <input class="border border-gray-300  px-3 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
-                 invalid:focus:ring-red-400 peer w-full" type="email" name="gmail" id="gmail" placeholder="Correo electrónico">
-                </div>
-                <!--tel-->
-                <div class="flex items-center mb-4">
-                    <label class="w-full mb-1 mr-2">Teléfono</label>
-                    <input class="border border-gray-300  px-3 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
-                 invalid:focus:ring-red-400 peer w-full" type="tel" name="tel" id="tel" placeholder="Teléfono">
-                </div>
-                <!--tipo-->
-                <div class="flex items-center mb-4 w-full">
-                    <label class="w-full mb-1 mr-2">Tipo</label>
-                    <select class="border border-gray-300  px-3 py-2 rounded-md focus:outline-none focus:ring-1  focus:ring-[#990000]
-                 invalid:focus:ring-red-400 peer w-full" type="text" name="tipoSala" id="tipoSala">
-                        <option value="selected"></option>
-                        <option value="Público">Con público</option>
-                        <option value="Ensayo">Ensayo</option>
-                    </select>
-                </div>
-                <!--aforo-->
-                <div class="flex items-center mb-4">
-                    <label class="w-full mb-1 mr-2">Aforo</label>
-                    <select class="border border-gray-300  px-3 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
-             invalid:focus:ring-red-400 peer w-full" type="text" name="aforo" id="aforo" placeholder="">
-                        <option value="selected"></option>
-                        <option value="pequeña">hasta 10 personas</option>
-                        <option value="mediana">hasta 20 personas</option>
-                        <option value="grande">hasta 50 personas</option>
-                        <option value="aforoEspecifico">Especifico</option>
-                    </select>
-                </div>
+                @if (session('correcto'))
+                <p class="text-green-500">{{ session('correcto') }}</p>
+                @else
+                <p class="text-red-500">{{ session('error') }}</p>
+                @endif
                 <!--botones-->
                 <div class="mt-4 mb-5 flex justify-center gap-4">
-                    <button type="submit" class="bg-[#990000] w-[60px] lg:w-[150px] py-2
-                 text-white rounded-md cursor-pointer hover:bg-[#a84848]">Añadir sala</button>
-                    <button type="submit" class="bg-black w-[60px] lg:w-[150px] py-2
-                 text-white rounded-md cursor-pointer hover:bg-[#5d5d5d]">Modificar salas</button>
+                    <button type="submit" class="button-primary-auto lg:w-[108.85px] cursor-pointer">Añadir sala</button>
+                    <!-- <button type="submit" class="bg-black w-[60px] lg:w-[150px] py-1.5
+                 text-white rounded-md cursor-pointer hover:bg-[#5d5d5d]">Modificar salas</button> -->
                 </div>
             </form>
         </div>
     </section>
 </main>
+<!-- <script src="{{ mix('js/app.js') }}"></script> -->
 @endsection

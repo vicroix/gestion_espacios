@@ -1,8 +1,6 @@
-
-
 <?php echo app('Illuminate\Foundation\Vite')('resources/css/app.css'); ?>
 <?php $__env->startSection('title', 'Proximos eventos'); ?>
-<!-- http://localhost/prueba-laravel/public -->
+<!-- http://localhost/teatrogest/public/proximos-eventos -->
 
 <?php $__env->startSection("main"); ?>
 <main class="flex content-center md:block">

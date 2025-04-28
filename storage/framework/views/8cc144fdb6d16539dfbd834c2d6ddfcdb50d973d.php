@@ -1,5 +1,3 @@
-
-
 <?php echo app('Illuminate\Foundation\Vite')('resources/css/app.css'); ?>
 <?php $__env->startSection('title', 'Inicio'); ?>
 <!-- http://localhost/teatrogest/public -->
