@@ -32,20 +32,25 @@ Route::middleware(['admin'])->group(function () {
     //Rutas de acceso
     Route::get('/modificar-salas', [App\Http\Controllers\PaginasController::class, 'modificarSalas'])->name('modificar-salas');
     Route::get('/gestion-salas', [App\Http\Controllers\PaginasController::class, 'gestionSalas'])->name('gestion-salas');
+    //Ruta que carga las reservas realizadas automáticamente al acceder a ella
+    Route::get('buscar-reservas', action: [GestionReservas::class, 'buscarReservas'])->name('buscar-reservas');
 });
 //Rutas con acceso solo de Profe y Admin
 Route::middleware(['profe'])->group(function () {
     // Ruta encargada del registro espacios en gestion-salas y en nuevas-reservas, del filtro de búsqueda de espacios
     Route::get('/buscar-salas', [App\Http\Controllers\GestionSalas::class, 'buscarEspacios'])->name('buscar-sala');
     //Rutas de acceso
-    Route::get('/gestion-reservas', [App\Http\Controllers\PaginasController::class, 'gestionReservas'])->name('gestion-reservas');
+    // Route::get('/gestion-reservas', [App\Http\Controllers\PaginasController::class, 'gestionReservas'])->name('gestion-reservas');
     Route::get('/nuevas-reservas', [App\Http\Controllers\PaginasController::class, 'nuevasReservas'])->name('nuevas-reservas');
+    //Ruta que carga las reservas realizadas automáticamente al acceder a ella
+    Route::get('buscar-reservas', action: [GestionReservas::class, 'buscarReservas'])->name('buscar-reservas');
 });
 //Rutas con método POST para datos sensibles
 Route::post('/iniciar-sesion', [AuthController::class, 'login'])->name('login');
 Route::post('form-registro', action: [AuthController::class, 'registro'])->name('registro');
 Route::post('gestion-espacio', action: [GestionSalas::class, 'gestionEspacio'])->name('gestion-espacio');
 Route::post('reservar', action: [GestionReservas::class, 'realizarReserva'])->name('reservar');
+
 
 //Cierra sesión del usuario
 Route::get('/cerrar-sesion', function () {

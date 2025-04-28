@@ -37,4 +37,15 @@ class GestionReservas extends Controller
             return redirect()->route('nuevas-reservas')->with('error', 'Error al reservar');
         }
     }
+
+    public function buscarReservas(Request $respuesta)
+    {
+        $id_usuario = session('idusuarios');
+
+        if (!$id_usuario) {
+            return redirect()->back()->with('error', 'No tienes reservas registradas');
+        }
+        $reservas = Reserva::where('id_usuario', $id_usuario)->get();
+            return view('gestion-reservas', compact('reservas'));
+    }
 }

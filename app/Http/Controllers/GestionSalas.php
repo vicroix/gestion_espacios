@@ -53,7 +53,7 @@ class GestionSalas extends Controller
         }
     }
 
-    public function buscarEspacios(Request $request)
+    public function buscarEspacios(Request $respuesta)
     {
 
         $espacio = Espacio::query();
@@ -62,13 +62,13 @@ class GestionSalas extends Controller
         $filtroAplicado = false;
 
         // Si la localidad está llena, aplicar filtro
-        if ($request->filled('localidad')) {
-            $espacio->where('localidad', 'like', '%' . $request->localidad . '%');
+        if ($respuesta->filled('localidad')) {
+            $espacio->where('localidad', 'like', '%' . $respuesta->localidad . '%');
             $filtroAplicado = true;
         }
 
-        if ($request->filled('nombre')) {
-            $espacio->where('nombre', 'like', '%' . $request->nombre . '%');
+        if ($respuesta->filled('nombre')) {
+            $espacio->where('nombre', 'like', '%' . $respuesta->nombre . '%');
             $filtroAplicado = true;
         }
 
