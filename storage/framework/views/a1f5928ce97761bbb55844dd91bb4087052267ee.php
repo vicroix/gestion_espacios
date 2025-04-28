@@ -37,8 +37,9 @@
                     <button class="px-4 py-2 hover:bg-[#990000] border border-white group-hover:bg-[#990000] group-hover:text-white rounded-xl transition-all duration-300 ease-out">
                         Reservas
                     </button>
-                    <div x-show="showDropdown" x-transition class="absolute bg-white border border-[#990000] left-0 w-full rounded-xl mt-1 z-10">
-                        <a href="<?php echo e(url('gestion-reservas')); ?>" class="block px-4 py-2 hover:bg-[#990000] hover:text-white transition rounded-b-xl">Gestión reservas</a>
+                    <div class="absolute hidden bg-white border border-[#990000] left-0 w-[154.67px] rounded-xl group-hover:flex flex-col">
+                        <a href="<?php echo e(url('nuevas-reservas')); ?>" class="hover:bg-[#990000] border border-white hover:text-white rounded-xl p-2 transition-all duration-300 ease-out">Nuevas Reservas</a>
+                        <a href="<?php echo e(url('gestion-reservas')); ?>" class="hover:bg-[#990000] border border-white hover:text-white rounded-xl p-2 transition-all duration-300 ease-out">Gestión reservas</a>
                     </div>
                 </div>
 

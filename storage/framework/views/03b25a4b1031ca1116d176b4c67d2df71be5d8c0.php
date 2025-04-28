@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('title', 'Proximos eventos'); ?>
 <!-- http://localhost/TeatroGest/public/nuevas-reservas -->
 
