@@ -170,7 +170,7 @@ h3 {
     color: #000000;
 }
 
-/* .button {
+.button {
     color: #ffffff;
     background-color: #990000;
     align-items: center;
@@ -179,7 +179,7 @@ h3 {
     text-align: center;
     width: 200px;
     margin-left: 33%;
-} */
+}
 
 .titulo_pagina {
     border-bottom: #000000 1px solid;
