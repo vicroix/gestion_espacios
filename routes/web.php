@@ -44,6 +44,9 @@ Route::middleware(['profe'])->group(function () {
     Route::get('/nuevas-reservas', [App\Http\Controllers\PaginasController::class, 'nuevasReservas'])->name('nuevas-reservas');
     //Ruta que carga las reservas realizadas automáticamente al acceder a ella
     Route::get('buscar-reservas', action: [GestionReservas::class, 'buscarReservas'])->name('buscar-reservas');
+    //Ruta que permite editar y actualizar las reservas
+    Route::get('/editar-reserva/{id}', [GestionReservas::class, 'editarReserva'])->name('editar-reserva');
+    Route::post('/actualizar-reserva/{id}', [GestionReservas::class, 'actualizarReserva'])->name('actualizar-reserva');
 });
 //Rutas con método POST para datos sensibles
 Route::post('/iniciar-sesion', [AuthController::class, 'login'])->name('login');

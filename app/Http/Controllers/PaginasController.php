@@ -59,4 +59,10 @@ class PaginasController extends Controller
     public function buscarReservas(){
         return view('gestion-reservas');
     }
+    public function editarReserva(){
+        return view('editar-reservas');
+    }
+    public function actualizarReserva(){
+        return view('editar-reservas');
+    }
 }
