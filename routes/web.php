@@ -16,7 +16,7 @@ use App\Http\Controllers\GestionSalas;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//Rutas de acceso
 Route::get('/', [App\Http\Controllers\PaginasController::class, 'inicio'])->name('inicio');
 Route::get('/proximos-eventos', [App\Http\Controllers\PaginasController::class, 'proximosEventos'])->name('proximos-eventos');
 Route::get('/pago', [App\Http\Controllers\PaginasController::class, 'pago'])->name('pago');
@@ -29,12 +29,15 @@ Route::get('/busquedas-salas', [App\Http\Controllers\PaginasController::class, '
 
 //Rutas con acceso de solo Admin
 Route::middleware(['admin'])->group(function () {
+    //Rutas de acceso
     Route::get('/modificar-salas', [App\Http\Controllers\PaginasController::class, 'modificarSalas'])->name('modificar-salas');
     Route::get('/gestion-salas', [App\Http\Controllers\PaginasController::class, 'gestionSalas'])->name('gestion-salas');
 });
 //Rutas con acceso solo de Profe y Admin
 Route::middleware(['profe'])->group(function () {
+    // Ruta encargada del registro espacios en gestion-salas y en nuevas-reservas, del filtro de búsqueda de espacios
     Route::get('/buscar-salas', [App\Http\Controllers\GestionSalas::class, 'buscarEspacios'])->name('buscar-sala');
+    //Rutas de acceso
     Route::get('/gestion-reservas', [App\Http\Controllers\PaginasController::class, 'gestionReservas'])->name('gestion-reservas');
     Route::get('/nuevas-reservas', [App\Http\Controllers\PaginasController::class, 'nuevasReservas'])->name('nuevas-reservas');
 });

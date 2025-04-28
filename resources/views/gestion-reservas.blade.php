@@ -38,10 +38,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="flex items-end gap-2">
-                        <button class="button-primary-auto">Modificar</button>
-                        <button class="button-secundary-auto">Anular</button>
-                    </div> -->
             </div>
         </div>
         <button class="button-primary-auto flex items-center justify-center align-center self-center">
