@@ -1,6 +1,6 @@
 @extends("layouts.plantilla")
 
-<!-- @vite('resources/css/app.css') -->
+
 @section('title', 'Proximos eventos')
 <!-- http://localhost/TeatroGest/public/gestion-salas -->
 
@@ -106,5 +106,4 @@
     </section>
 </main>
 <!-- <script src="{{ mix('js/app.js') }}"></script> -->
- 
 @endsection
