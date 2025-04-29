@@ -56,7 +56,8 @@
                     <p>*Campo obligatorio</p>
                     <!--Botón submit-->
                     <div>
-                        <input class="button" type="submit" value="Registrar">
+                    <input class="bg-[#990000] w-20 py-1 mt-3 text-white rounded-md cursor-pointer hover:bg-[#a84848]"
+                    type="submit">
                     </div>
                 </div>
             </form>
