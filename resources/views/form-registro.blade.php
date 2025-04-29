@@ -7,7 +7,7 @@
     <h2 class="titulo_pagina ml-12">REGISTRO DE USUARIO</h2>
     <section class="form-registro m-20">
         <div class="flex">
-            <div class="flex flex-col self-center gap-10 ml-20 mt-[70px] mr-2">
+            <div class="flex flex-col self-center gap-10  mt-[70px] mr-2">
                 <!--Icono user-->
                 <svg class="text-[#FFFFFF]" width="45" height="48.6" viewBox="0 0 45 45" fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg">
@@ -38,7 +38,7 @@
             <!--Formulario registro-->
             <form id="formRegistro" action="{{ route('registro') }}" method="POST">
                 @csrf
-                <div class="flex flex-col w-[600px] gap-5 mr-20">
+                <div class="flex flex-col md:w-[600px] gap-5 md:mr-20">
                     @if (session('success'))
                     <p class="text-green-500">{{ session('success') }}</p>
                     @else
@@ -55,7 +55,7 @@
                     <input class="controls" type="text" name="telefono" id="telefono" placeholder="Teléfono">
                     <p>*Campo obligatorio</p>
                     <!--Botón submit-->
-                    <div>
+                    <div class="">
                         <input class="button" type="submit" value="Registrar">
                     </div>
                 </div>
