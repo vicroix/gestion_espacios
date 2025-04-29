@@ -36,6 +36,12 @@
                         </div>
 
                         <div class="flex flex-col sm:flex-row sm:items-center mb-4">
+                            <label for="LocalidadTeatro" class="w-32 mb-1 sm:mb-0 mr-2">Direccion</label>
+                            <input type="text" id="direccion" name="direccion" readonly
+                                class="inputs-text-disabled flex-1 px-3 py-2 border border-[#000000] rounded-md text-black placeholder-gray-500 bg-gray-100 cursor-not-allowed focus:outline-none">
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row sm:items-center mb-4">
                             <label for="codigoPostal" class="w-32 mb-1 sm:mb-0 mr-2">Código postal del teatro</label>
                             <!-- input type="number" sirve como validación para que no deje escribir algo que no sea número-->
                             <input type="string" id="codigoPostal" name="codigoPostal" readonly
@@ -146,6 +152,7 @@
                     '{{ $espacio->capacidad }}',
                     '{{ $espacio->tipo }}',
                     '{{ $espacio->idespacios }}',
+                    '{{ $espacio->direccion }}',
                 )"
                                 class="button-primary-auto">
                                 Seleccionar

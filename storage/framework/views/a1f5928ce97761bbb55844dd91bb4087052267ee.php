@@ -39,7 +39,7 @@
                     </button>
                     <div class="absolute hidden bg-white border border-[#990000] left-0 w-[154.67px] rounded-xl group-hover:flex flex-col">
                         <a href="<?php echo e(url('nuevas-reservas')); ?>" class="hover:bg-[#990000] border border-white hover:text-white rounded-xl p-2 transition-all duration-300 ease-out">Nuevas Reservas</a>
-                        <a href="<?php echo e(url('gestion-reservas')); ?>" class="hover:bg-[#990000] border border-white hover:text-white rounded-xl p-2 transition-all duration-300 ease-out">Gestión reservas</a>
+                        <a href="<?php echo e(url('buscar-reservas')); ?>" class="hover:bg-[#990000] border border-white hover:text-white rounded-xl p-2 transition-all duration-300 ease-out">Gestión reservas</a>
                     </div>
                 </div>
 

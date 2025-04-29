@@ -16,7 +16,7 @@ use App\Http\Controllers\GestionSalas;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//Rutas de acceso
 Route::get('/', [App\Http\Controllers\PaginasController::class, 'inicio'])->name('inicio');
 Route::get('/proximos-eventos', [App\Http\Controllers\PaginasController::class, 'proximosEventos'])->name('proximos-eventos');
 Route::get('/pago', [App\Http\Controllers\PaginasController::class, 'pago'])->name('pago');
@@ -25,18 +25,25 @@ Route::get('/form-registro', [App\Http\Controllers\PaginasController::class, 'fo
 Route::get('/faq', [App\Http\Controllers\PaginasController::class, 'faq'])->name('faq');
 Route::get('/busquedas-salas', [App\Http\Controllers\PaginasController::class, 'busquedasSalas'])->name('busquedas-salas');
 
-
-
 //Rutas con acceso de solo Admin
 Route::middleware(['admin'])->group(function () {
+    //Rutas de acceso
     Route::get('/modificar-salas', [App\Http\Controllers\PaginasController::class, 'modificarSalas'])->name('modificar-salas');
     Route::get('/gestion-salas', [App\Http\Controllers\PaginasController::class, 'gestionSalas'])->name('gestion-salas');
+    //Ruta que carga las reservas realizadas automáticamente al acceder a ella
+    Route::get('buscar-reservas', action: [GestionReservas::class, 'buscarReservas'])->name('buscar-reservas');
 });
 //Rutas con acceso solo de Profe y Admin
 Route::middleware(['profe'])->group(function () {
+    // Ruta encargada del registro espacios en gestion-salas y en nuevas-reservas, del filtro de búsqueda de espacios
     Route::get('/buscar-salas', [App\Http\Controllers\GestionSalas::class, 'buscarEspacios'])->name('buscar-sala');
-    Route::get('/gestion-reservas', [App\Http\Controllers\PaginasController::class, 'gestionReservas'])->name('gestion-reservas');
+    //Rutas de acceso
     Route::get('/nuevas-reservas', [App\Http\Controllers\PaginasController::class, 'nuevasReservas'])->name('nuevas-reservas');
+    //Ruta que carga las reservas realizadas automáticamente al acceder a ella
+    Route::get('buscar-reservas', action: [GestionReservas::class, 'buscarReservas'])->name('buscar-reservas');
+    //Ruta que permite editar y actualizar las reservas
+    Route::get('/editar-reserva/{id}', [GestionReservas::class, 'editarReserva'])->name('editar-reserva');
+    Route::post('/actualizar-reserva/{id}', [GestionReservas::class, 'actualizarReserva'])->name('actualizar-reserva');
 });
 //Rutas con método POST para datos sensibles
 Route::post('/iniciar-sesion', [AuthController::class, 'login'])->name('login');

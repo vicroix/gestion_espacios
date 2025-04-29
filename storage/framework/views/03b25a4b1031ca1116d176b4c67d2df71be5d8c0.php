@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('title', 'Proximos eventos'); ?>
 <!-- http://localhost/TeatroGest/public/nuevas-reservas -->
 
@@ -32,6 +30,12 @@
                         <div class="flex flex-col sm:flex-row sm:items-center mb-4">
                             <label for="LocalidadTeatro" class="w-32 mb-1 sm:mb-0 mr-2">Localidad del teatro</label>
                             <input type="text" id="LocalidadTeatro" name="LocalidadTeatro" readonly
+                                class="inputs-text-disabled flex-1 px-3 py-2 border border-[#000000] rounded-md text-black placeholder-gray-500 bg-gray-100 cursor-not-allowed focus:outline-none">
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row sm:items-center mb-4">
+                            <label for="LocalidadTeatro" class="w-32 mb-1 sm:mb-0 mr-2">Direccion</label>
+                            <input type="text" id="direccion" name="direccion" readonly
                                 class="inputs-text-disabled flex-1 px-3 py-2 border border-[#000000] rounded-md text-black placeholder-gray-500 bg-gray-100 cursor-not-allowed focus:outline-none">
                         </div>
 
@@ -146,6 +150,7 @@
                     '<?php echo e($espacio->capacidad); ?>',
                     '<?php echo e($espacio->tipo); ?>',
                     '<?php echo e($espacio->idespacios); ?>',
+                    '<?php echo e($espacio->direccion); ?>',
                 )"
                                 class="button-primary-auto">
                                 Seleccionar

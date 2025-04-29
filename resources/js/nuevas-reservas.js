@@ -4,12 +4,15 @@ window.rellenarFormulario = function (
     codigopostal,
     capacidad,
     tipo,
-    idespacios
+    idespacios,
+    direccion,
 ) {
     document.getElementById("nombreTeatro").value = nombre;
     document.getElementById("LocalidadTeatro").value = localidad;
     document.getElementById("codigoPostal").value = codigopostal;
     document.getElementById("id_espacio").value = idespacios;
+    document.getElementById('direccion').value = direccion;
+    document.getElementById('nombreTeatro').value = nombre;
 
     // Insertar los datos en el selected de Tipo de Sala
     if (tipo.toLowerCase() === "ensayo") {
