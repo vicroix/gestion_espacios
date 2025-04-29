@@ -25,7 +25,7 @@
             @endif
             <!--Botón iniciar sesión-->
             <input class="bg-[#990000] w-20 py-1 mt-3 text-white rounded-md cursor-pointer hover:bg-[#a84848]"
-                type="submit" placeholder="Ingresar">
+                type="submit">
         </form>
     </section>
 </main>

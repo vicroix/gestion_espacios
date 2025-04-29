@@ -52,11 +52,12 @@
                         required>
                     <input class="controls" type="email" name="email" id="email" placeholder="Correo electrónico*"
                         required>
-                    <input class="controls" type="text" name="telefono" id="telefono" placeholder="Teléfono">
+                    <input class="controls" type="text" name="telefono" id="telefono" placeholder="Teléfono" maxlength="9">
                     <p>*Campo obligatorio</p>
                     <!--Botón submit-->
                     <div>
-                        <input class="button" type="submit" value="Registrar">
+                    <input class="bg-[#990000] w-20 py-1 mt-3 text-white rounded-md cursor-pointer hover:bg-[#a84848]"
+                    type="submit" value="Registrar">
                     </div>
                 </div>
             </form>
