@@ -18,10 +18,10 @@ class RolAdmin
     {
         // Comentar bloque if si quieres deshabilitar las restricciones de las páginas
 
-       /* if (session('id_rol') != 1) {
+        if (session('id_rol') != 1) {
             return redirect('/');
         }
-*/
+
         return $next($request);
     }
 }
