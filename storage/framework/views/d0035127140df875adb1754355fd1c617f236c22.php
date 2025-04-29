@@ -76,7 +76,7 @@
                 <summary class="cursor-pointer text-[#990000] font-semibold py-2">Reservas</summary>
                 <div class="flex flex-col items-center pl-4">
                     <a href="<?php echo e(url('nuevas-reservas')); ?>" class="hover:text-[#990000] py-1 list-style-circle">Nuevas Reservas</a>
-                    <a href="<?php echo e(url('gestion-reservas')); ?>" class="hover:text-[#990000] py-1 list-style-circle">Gestión reservas</a>
+                    <a href="<?php echo e(url('buscar-reservas')); ?>" class="hover:text-[#990000] py-1 list-style-circle">Gestión reservas</a>
                 </div>
             </details>
 

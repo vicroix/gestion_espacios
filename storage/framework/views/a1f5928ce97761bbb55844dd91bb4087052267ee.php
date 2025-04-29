@@ -64,7 +64,7 @@
             <span class="block">Bienvenido <span class="font-semibold"><?php echo e(session('nombre_rol')); ?></span></span>
             <span class="block text-[#990000]"><?php echo e(session('usuario')); ?></span>
         </span>
-        <a href="<?php echo e(url('gestion-reservas')); ?>" class="text-[#990000] font-semibold">Gestión reservas</a>
+        <a href="<?php echo e(url('buscar-reservas')); ?>" class="text-[#990000] font-semibold">Gestión reservas</a>
         <a href="<?php echo e(url('proximos-eventos')); ?>" class="text-[#990000] font-semibold">Próximos eventos</a>
         <a href="<?php echo e(url('faq')); ?>" class="text-[#990000] font-semibold">FAQ</a>
         <a href="<?php echo e(route('salir')); ?>" class="bg-[#990000] text-white px-4 py-2 rounded-lg w-full text-center">Cerrar sesión</a>

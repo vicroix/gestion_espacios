@@ -1,12 +1,14 @@
-
-
 <?php echo app('Illuminate\Foundation\Vite')('resources/css/app.css'); ?>
 <?php $__env->startSection('title', 'Proximos eventos'); ?>
 <!-- http://localhost/teatrogest/public/modificar-salas -->
 
 <?php $__env->startSection("main"); ?>
 <main class="ml-25 mr-25">
-    <h2 class="titulo_pagina">MODIFICAR SALA</h2>
+    <div class="flex justify-center">
+        <div class="titulo-main w-full flex justify-center md:mx-[70px]">
+            <h3 class="md:text-4xl text-2xl">Modificar salas</h3>
+        </div>
+    </div>
     <div>
         <form class="flex  w-80 mt-6 h-[50px]">
             <input class="rounded-md border-1 border-black" type="text" name="buscadorSala" id="buscadorSala"
