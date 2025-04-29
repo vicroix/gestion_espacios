@@ -7,7 +7,7 @@
     <h2 class="titulo_pagina ml-12">REGISTRO DE USUARIO</h2>
     <section class="form-registro m-20">
         <div class="flex">
-            <div class="flex flex-col self-center gap-10 ml-20 mt-[70px] mr-2">
+            <div class="flex flex-col self-center gap-10  mt-[70px] mr-2">
                 <!--Icono user-->
                 <svg class="text-[#FFFFFF]" width="45" height="48.6" viewBox="0 0 45 45" fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg">
@@ -36,9 +36,9 @@
 
             </div>
             <!--Formulario registro-->
-            <form action="<?php echo e(route('registro')); ?>" method="POST">
+            <form id="formRegistro" action="<?php echo e(route('registro')); ?>" method="POST">
                 <?php echo csrf_field(); ?>
-                <div class="flex flex-col w-[600px] gap-5 mr-20">
+                <div class="flex flex-col md:w-[600px] gap-5">
                     <?php if(session('success')): ?>
                     <p class="text-green-500"><?php echo e(session('success')); ?></p>
                     <?php else: ?>
@@ -52,11 +52,12 @@
                         required>
                     <input class="controls" type="email" name="email" id="email" placeholder="Correo electrónico*"
                         required>
-                    <input class="controls" type="text" name="telefono" id="telefono" placeholder="Teléfono">
+                    <input class="controls" type="text" name="telefono" id="telefono" placeholder="Teléfono" maxlength="9">
                     <p>*Campo obligatorio</p>
                     <!--Botón submit-->
                     <div>
-                        <input class="button" type="submit" value="Registrar">
+                    <input class="bg-[#990000] w-20 py-1 mt-3 text-white rounded-md cursor-pointer hover:bg-[#a84848]"
+                    type="submit">
                     </div>
                 </div>
             </form>
@@ -66,7 +67,8 @@
             </div>
         </div>
     </section>
+  
 </main>
 <?php $__env->stopSection(); ?>
-
+<?php echo app('Illuminate\Foundation\Vite')("resources/js/form-registro.js"); ?>
 <?php echo $__env->make("layouts.plantilla", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Victor\Documents\GitHub\TeatroGest\resources\views/form-registro.blade.php ENDPATH**/ ?>

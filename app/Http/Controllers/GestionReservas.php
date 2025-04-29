@@ -74,4 +74,15 @@ class GestionReservas extends Controller
 
         return redirect()->route('buscar-reservas')->with('correcto', 'Reserva actualizada correctamente.');
     }
+    public function eliminarReserva($id)
+    {
+        $reserva = Reserva::find($id);
+
+        if ($reserva) {
+            $reserva->delete();
+            return redirect()->back()->with('eliminado', 'Reserva eliminada correctamente.');
+        } else {
+            return redirect()->back()->with('error', 'Reserva no encontrada.');
+        }
+    }
 }

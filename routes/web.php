@@ -16,6 +16,7 @@ use App\Http\Controllers\GestionSalas;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 //Rutas de acceso
 Route::get('/', [App\Http\Controllers\PaginasController::class, 'inicio'])->name('inicio');
 Route::get('/proximos-eventos', [App\Http\Controllers\PaginasController::class, 'proximosEventos'])->name('proximos-eventos');
@@ -44,6 +45,9 @@ Route::middleware(['profe'])->group(function () {
     //Ruta que permite editar y actualizar las reservas
     Route::get('/editar-reserva/{id}', [GestionReservas::class, 'editarReserva'])->name('editar-reserva');
     Route::post('/actualizar-reserva/{id}', [GestionReservas::class, 'actualizarReserva'])->name('actualizar-reserva');
+    //Ruta que borra las reservas
+    Route::delete('/eliminar-reserva/{id}', [GestionReservas::class, 'eliminarReserva'])->name('eliminar-reserva');
+
 });
 //Rutas con método POST para datos sensibles
 Route::post('/iniciar-sesion', [AuthController::class, 'login'])->name('login');

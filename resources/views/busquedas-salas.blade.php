@@ -1,14 +1,17 @@
 @extends("layouts.plantilla")
 <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
-<link href="https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet"/>
+<link href="https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet" />
 @vite('resources/css/app.css')
 @section('title', 'Proximos eventos')
 <!-- http://localhost/TeatroGest/public/busquedas-salas -->
 
 @section("main")
 <main class="m-4">
-    <h1 class="text-[#990000] self-start">Búsqueda de sala</h1>
-    <hr class="text-[#990000]">
+    <div class="flex justify-center">
+        <div class="titulo-main w-full flex justify-center md:mx-[70px]">
+            <h3 class="md:text-4xl text-2xl">Búsqueda de salas</h3>
+        </div>
+    </div>
 
     <section class="flex flex-col items-center justify-center gap-9">
         <!--Listado este listado hay que conectarlo con la BBDD para conectarlo-->

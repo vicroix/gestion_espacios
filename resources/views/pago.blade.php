@@ -7,8 +7,10 @@
 @section("main")
 <main>
     <section class="flex mt-5 flex-col lg:w-full">
-        <div class="lg:flex-justify-center lg:self-center border-b-[0.5px] lg:border-b-1 mx-10 lg:mx-24 lg:w-320">
-            <h2 class="text-[20px]">PAGO</h2>
+        <div class="flex justify-center">
+            <div class="titulo-main w-full flex justify-center md:mx-[70px]">
+                <h3 class="md:text-4xl text-2xl">Pago</h3>
+            </div>
         </div>
         <!--inputs para el pago-->
         <div class="lg:flex lg:justify-center min-w-[400px] lg:w-full">

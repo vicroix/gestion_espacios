@@ -6,8 +6,10 @@
 
 @section("main")
 <main class="flex flex-col w-full items-center sm:mt-[50px] gap-4 md:lg-9 lg:gap-12 h-[59vh]">
-    <div class="titulo-gestion-reservas flex justify-start lg:mx-24">
-        <h3 class="px-2 lg:px-8">PANEL DE GESTIÓN DE RESERVAS</h3>
+    <div class="flex justify-center">
+        <div class="titulo-main w-full flex justify-center md:mx-[70px]">
+            <h3 class="md:text-4xl text-2xl">Gestión de reservas</h3>
+        </div>
     </div>
     <div class="flex justify-center overflow-auto mb-10">
         @if(isset($reservas) && !$reservas->isEmpty())
@@ -21,10 +23,21 @@
                 <p>Hora: {{ $reserva->hora }}</p>
                 <p>Fecha: {{ $reserva->fecha }}</p>
                 <p hidden>{{ $reserva->idespacios }}</p>
-                <div class="w-full flex mt-3 justify-center">
-                    <a href="{{ route('editar-reserva', ['id' => $reserva->idreservas]) }}" class="button-primary-auto">
-                        Editar
-                    </a>
+                <div class="w-full flex gap-3 mt-3 items-end justify-center">
+                    <div class="w-full flex gap-3 mt-3 justify-center items-center">
+                        <form action="{{ route('editar-reserva', ['id' => $reserva->idreservas]) }}" method="GET" class="m-0">
+                            <button type="submit" class="button-primary-auto">
+                                Editar
+                            </button>
+                        </form>
+                        <form method="POST" action="{{ route('eliminar-reserva', ['id' => $reserva->idreservas]) }}" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta reserva?')" class="m-0">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="button-secundary-auto">
+                                Anular
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </li>
             @endforeach

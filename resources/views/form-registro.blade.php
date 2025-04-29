@@ -4,7 +4,11 @@
 <!-- http://localhost/prueba-laravel/public/form-registro -->
 @section("main")
 <main class="w-full flex flex-col">
-    <h2 class="titulo_pagina ml-12">REGISTRO DE USUARIO</h2>
+    <div class="flex justify-center">
+        <div class="titulo-main w-full flex justify-center md:mx-[70px]">
+            <h3 class="md:text-4xl text-2xl">Registro de usuarios</h3>
+        </div>
+    </div>
     <section class="form-registro m-20">
         <div class="flex">
             <div class="flex flex-col self-center gap-10  mt-[70px] mr-2">
@@ -56,8 +60,8 @@
                     <p>*Campo obligatorio</p>
                     <!--Botón submit-->
                     <div>
-                    <input class="bg-[#990000] w-20 py-1 mt-3 text-white rounded-md cursor-pointer hover:bg-[#a84848]"
-                    type="submit">
+                        <input class="bg-[#990000] w-20 py-1 mt-3 text-white rounded-md cursor-pointer hover:bg-[#a84848]"
+                            type="submit">
                     </div>
                 </div>
             </form>
@@ -67,7 +71,7 @@
             </div>
         </div>
     </section>
-  
+
 </main>
 @endsection
 @vite("resources/js/form-registro.js")
