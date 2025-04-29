@@ -7,8 +7,10 @@
 @section("main")
 <main>
     <section class="flex mt-5 flex-col lg:w-full">
-        <div class="lg:flex-justify-center lg:self-center border-b-[0.5px] lg:border-b-1 mx-10 lg:mx-24 lg:w-320">
-            <h2 class="text-[20px]">GESTIÓN DE SALAS</h2>
+        <div class="flex justify-center">
+            <div class="titulo-main w-full flex justify-center md:mx-[70px]">
+                <h3 class="md:text-4xl text-2xl">Gestión de salas</h3>
+            </div>
         </div>
         <!--inputs de gestión de salas-->
         <div class="flex justify-center min-w-[400px] w-full mt-5">
@@ -33,7 +35,7 @@
                             <input class="border border-gray-300  px-3 py-1 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
                             invalid:focus:ring-red-400 peer w-full" type="text" maxlength="9" name="telefono" id="telefono" placeholder="Teléfono">
                         </div>
-                        <div  class="w-full">
+                        <div class="w-full">
                             <!-- INPUT LOCALIDAD -->
                             <input class="border border-gray-300 px-3 py-1 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000] invalid:focus:ring-red-400 peer w-full"
                                 type="text" name="localidad" id="localidad" placeholder="Localidad">

@@ -6,13 +6,14 @@
 @section("main")
 
 <!--flex-grow empuja el footer hacia abajo-->
-<main class="flex-grow bg-white">
+<main class="flex-grow bg-white mt-5">
+    <div class="flex justify-center">
+        <div class="titulo-main w-full flex justify-center md:mx-[70px]">
+            <h3 class="md:text-4xl text-2xl">Nuevas reservas</h3>
+        </div>
+    </div>
     <div class="max-w-3xl flex mx-auto px-1">
         <div>
-            <!-- Encabezado con margen vertical responsivo: menor en móviles y mayor en pantallas grandes -->
-            <h3 class="text-[#000000] mt-3 sm:mt-10">NUEVAS RESERVAS</h3>
-            <!-- Línea separatoria: sin clases de ancho completo y sin padding, se adapta al ancho del contenedor -->
-            <div class="border-b border-black mt-1"></div>
             <!-- sin prefijo (móvil) sm(tablet) md(medio) lg(grande)-->
             <!--flex-col para que se ponga cada div uno debajo del otro-->
             <!--max-w-3xl no será más grande que 3xl, para que no se estire con el w-full -->

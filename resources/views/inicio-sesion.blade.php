@@ -7,8 +7,11 @@
 @section("main")
 <main>
     <section class="m-4">
-        <h2 class="text-4xl">Inicio de Sesión</h2>
-        <hr>
+        <div class="flex justify-center">
+            <div class="titulo-main w-full flex justify-center md:mx-[70px]">
+                <h3 class="md:text-4xl text-2xl">Inicio de Sesión</h3>
+            </div>
+        </div>
         <!--Formulario-->
         <form action="{{ route('login') }}" method="POST" class="bg-white w-80 gap-3a mx-auto mt-8 rounded-lg p-6 flex flex-col items-center">
             @csrf
