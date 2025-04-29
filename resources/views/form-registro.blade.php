@@ -37,8 +37,8 @@
             </div>
             <!--Formulario registro-->
             <form id="formRegistro" action="{{ route('registro') }}" method="POST">
-                @csrf
-                <div class="flex flex-col w-[600px] gap-5 mr-20">
+                @csrfs
+                <div class="flex flex-col md:w-[600px] gap-5 ">
                     @if (session('success'))
                     <p class="text-green-500">{{ session('success') }}</p>
                     @else
