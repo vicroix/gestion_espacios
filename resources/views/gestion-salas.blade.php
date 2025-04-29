@@ -12,7 +12,7 @@
         </div>
         <!--inputs de gestión de salas-->
         <div class="flex justify-center min-w-[400px] w-full mt-5">
-            <form action="{{ route('gestion-espacio') }}" method="POST" class="bg-white lg:w-[300px] m-8 rounded-lg flex-col flex gap-2 justify-center">
+            <form id="formGestionSalas" action="{{ route('gestion-espacio') }}" method="POST" class="bg-white lg:w-[300px] m-8 rounded-lg flex-col flex gap-2 justify-center">
                 @csrf
                 <div class="w-[300px] flex flex-col gap-2">
                     <!--nombre teatro-->
@@ -44,7 +44,7 @@
                         <div class="w-[35%]">
                             <!-- INPUT CODIGO POSTAL -->
                             <input class="border border-gray-300 px-3 py-1 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000] invalid:focus:ring-red-400 peer w-full"
-                                type="text" name="codigo_postal" id="codigo_postal" placeholder="C.P.">
+                                type="text" name="codigo_postal" id="codigo_postal" placeholder="C.P." maxlength="5">
                         </div>
 
                         <div class="w-full">
@@ -106,4 +106,5 @@
     </section>
 </main>
 <!-- <script src="{{ mix('js/app.js') }}"></script> -->
+ @vite('resources/js/gestion-salas.js')
 @endsection
