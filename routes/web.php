@@ -37,9 +37,10 @@ Route::middleware(['admin'])->group(function () {
 //Rutas con acceso solo de Profe y Admin
 Route::middleware(['profe'])->group(function () {
     // Ruta encargada del registro espacios en gestion-salas y en nuevas-reservas, del filtro de búsqueda de espacios
-    Route::get('/buscar-salas', [App\Http\Controllers\GestionSalas::class, 'buscarEspacios'])->name('buscar-sala');
+    Route::get('/buscar-sala', [App\Http\Controllers\GestionSalas::class, 'buscarEspacios'])->name('buscar-sala');
+    Route::get('/detalle-espacio/{id}', [App\Http\Controllers\GestionSalas::class, 'detalleEspacio'])->name('detalle-espacio');
     //Rutas de acceso
-    Route::get('/nuevas-reservas', [App\Http\Controllers\PaginasController::class, 'nuevasReservas'])->name('nuevas-reservas');
+    // Route::get('/nuevas-reservas', [App\Http\Controllers\PaginasController::class, 'nuevasReservas'])->name('nuevas-reservas');
     //Ruta que carga las reservas realizadas automáticamente al acceder a ella
     Route::get('buscar-reservas', action: [GestionReservas::class, 'buscarReservas'])->name('buscar-reservas');
     //Ruta que permite editar y actualizar las reservas

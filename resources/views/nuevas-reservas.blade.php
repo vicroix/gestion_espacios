@@ -6,166 +6,139 @@
 @section("main")
 
 <!--flex-grow empuja el footer hacia abajo-->
-<main class="flex-grow bg-white mt-5">
-    <div class="flex justify-center">
-        <div class="titulo-main w-full flex justify-center md:mx-[70px]">
-            <h3 class="md:text-4xl text-2xl">Nuevas reservas</h3>
-        </div>
-    </div>
-    <div class="max-w-3xl flex mx-auto px-1">
-        <div>
-            <!-- sin prefijo (móvil) sm(tablet) md(medio) lg(grande)-->
-            <!--flex-col para que se ponga cada div uno debajo del otro-->
-            <!--max-w-3xl no será más grande que 3xl, para que no se estire con el w-full -->
-            <div class="flex justify-end">
-                <form class="flex flex-col justify-center mt-5 p-6" method="POST" action="{{ route('reservar') }}">
-                    @csrf
-                    <div class="flex flex-col items-center border-2 p-4 m-3">
-                        <h3 class="text-center mb-3 text-gray-500">Rellenar campos seleccionando al filtrar</h3>
-                        <input type="hidden" id="id_espacio" name="id_espacio" readonly hidden>
-                        <div class="flex flex-col sm:flex-row sm:items-center mb-4">
-                            <!-- w-32 fijo en todas las etiquetas para alinear -->
-                            <label for="nombreTeatro" class="w-32 mb-1 sm:mb-0 mr-2">Nombre del teatro</label>
-                            <input type="text" id="nombreTeatro" name="nombreTeatro" readonly
-                                class="inputs-text-disabled placeholder-gray-500 bg-gray-100 cursor-not-allowed focus:outline-none">
+<main class="flex-grow bg-white my-5 mx-2">
+    <div x-data="{ openCiudades: false, openTipo: false, openFiltros: false, openAforo: false }" class="flex flex-col md:flex-row">
+        <!-- Sidebar de filtros -->
+        <aside class="md:w-64 w-full bg-gray-100 p-4 rounded-xl shadow-md">
+            <h2 class="text-lg font-semibold mb-4 flex items-center gap-2 cursor-pointer" onclick="toggleFilters()">
+                <svg id="filtros-icono" class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2H3V4zM3 8h18M3 12h18M3 16h18M3 20h18" />
+                </svg>
+                Filtros
+            </h2>
+
+            <form method="GET" action="{{ route('buscar-sala') }}" class="space-y-6">
+                <!-- CIUDADES -->
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-700 mb-2 cursor-pointer" @click="openCiudades = !openCiudades">
+                        Ciudades
+                        <span x-show="!openCiudades">+</span>
+                        <span x-show="openCiudades">-</span>
+                    </h3>
+                    <div x-show="openCiudades" x-transition>
+                        @foreach (['Madrid', 'Barcelona', 'Sevilla', 'Málaga', 'Granada', 'Huelva', 'Valencia'] as $ciudad)
+                        <label class="block text-sm text-gray-600">
+                            <input type="checkbox" name="ciudades[]" value="{{ $ciudad }}" class="mr-2">
+                            {{ $ciudad }}
+                        </label>
+                        @endforeach
+                    </div>
+                </div>
+
+                <!-- TIPO DE SALA -->
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-700 mb-2 cursor-pointer" @click="openTipo = !openTipo">
+                        Tipo de sala
+                        <span x-show="!openTipo">+</span>
+                        <span x-show="openTipo">-</span>
+                    </h3>
+                    <div x-show="openTipo" x-transition>
+                        @foreach (['Obra', 'Ensayo'] as $tipo)
+                        <label class="block text-sm text-gray-600">
+                            <input type="radio" name="tipo" value="{{ strtolower($tipo) }}" class="mr-2">
+                            {{ $tipo }}
+                        </label>
+                        @endforeach
+                    </div>
+                </div>
+
+                <!-- CAPACIDAD (AFORO) -->
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-700 mb-2" @click="openAforo = !openAforo">
+                        Aforo
+                        <span x-show="!openAforo">+</span>
+                        <span x-show="openAforo">-</span>
+                    </h3>
+                    @foreach (['10' => 'Hasta 10 personas', '20' => 'Hasta 20 personas', '30' => 'Hasta 30 personas'] as $valor => $label)
+                    <label class="block text-sm text-gray-600" x-show="openAforo">
+                        <input type="radio" name="capacidad" value="{{ $valor }}" class="mr-2">
+                        {{ $label }}
+                    </label>
+                    @endforeach
+                </div>
+
+                <!-- + Filtros -->
+                <div class="mt-4">
+                    <h3 class="text-sm font-semibold text-gray-700 mb-2 cursor-pointer" @click="openFiltros = !openFiltros">
+                        Filtros
+                        <span x-show="!openFiltros">+</span>
+                        <span x-show="openFiltros">-</span>
+                    </h3>
+                    <div x-show="openFiltros" x-transition>
+                        <!-- Equipamiento -->
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-700 mb-2">Equipamiento</h3>
+                            <input type="text" name="equipamiento" value="{{ request()->input('equipamiento') }}" class="w-full border rounded p-2">
                         </div>
 
-                        <div class="flex flex-col sm:flex-row sm:items-center mb-4">
-                            <label for="LocalidadTeatro" class="w-32 mb-1 sm:mb-0 mr-2">Localidad del teatro</label>
-                            <input type="text" id="LocalidadTeatro" name="LocalidadTeatro" readonly
-                                class="inputs-text-disabled flex-1 px-3 py-2 border border-[#000000] rounded-md text-black placeholder-gray-500 bg-gray-100 cursor-not-allowed focus:outline-none">
+                        <!-- Nombre del teatro -->
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-700 mb-2">Nombre del teatro</h3>
+                            <input type="text" name="nombre" value="{{ request()->input('nombre') }}" class="w-full border rounded p-2">
                         </div>
 
-                        <div class="flex flex-col sm:flex-row sm:items-center mb-4">
-                            <label for="LocalidadTeatro" class="w-32 mb-1 sm:mb-0 mr-2">Direccion</label>
-                            <input type="text" id="direccion" name="direccion" readonly
-                                class="inputs-text-disabled flex-1 px-3 py-2 border border-[#000000] rounded-md text-black placeholder-gray-500 bg-gray-100 cursor-not-allowed focus:outline-none">
+                        <!-- Dirección -->
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-700 mb-2">Dirección</h3>
+                            <input type="text" name="direccion" value="{{ request()->input('direccion') }}" class="w-full border rounded p-2">
                         </div>
 
-                        <div class="flex flex-col sm:flex-row sm:items-center mb-4">
-                            <label for="codigoPostal" class="w-32 mb-1 sm:mb-0 mr-2">Código postal del teatro</label>
-                            <!-- input type="number" sirve como validación para que no deje escribir algo que no sea número-->
-                            <input type="string" id="codigoPostal" name="codigoPostal" readonly
-                                class="inputs-text-disabled flex-1 px-3 py-2 border border-[#000000] rounded-md text-black placeholder-gray-500 bg-gray-100 cursor-not-allowed focus:outline-none">
-                        </div>
-
-                        <div class="flex flex-col sm:flex-row sm:items-center mb-4">
-                            <label for="tipoSala" class="w-32 mb-1 sm:mb-0 mr-2">Tipo de sala</label>
-                            <!-- Desplegable con las opciones -->
-                            <select id="tipoSala" name="tipoSala" disabled
-                                class="flex-1 px-3 py-1.5 border border-[#000000] rounded-md text-black placeholder-gray-500 bg-gray-100 cursor-not-allowed focus:outline-none">
-                                <option value="" disabled selected hidden>Tipo de Sala</option> <!--Para que no salga seleccionada ninguna de las opciones default-->
-                                <option value="Ensayo">Ensayo</option>
-                                <option value="Obra">Con público</option>
-                            </select>
-                        </div>
-
-                        <div class="flex flex-col sm:flex-row sm:items-center mb-4">
-                            <!--desplegable aforo opciones-->
-                            <label for="aforo" class="w-32 mb-1 sm:mb-0 mr-2">Aforo</label>
-                            <select id="aforo" name="aforo" disabled
-                                class="flex-1 px-3 py-1.5 border border-[#000000] rounded-md text-black placeholder-gray-500 bg-gray-100 cursor-not-allowed focus:outline-none">
-                                <option value="" disabled selected hidden>Aforo</option>
-                                <option value="10">Hasta 10 personas</option>
-                                <option value="20">Hasta 20 personas</option>
-                                <option value="50">Hasta 50 personas</option>
-                            </select>
+                        <!-- Nombre de sala -->
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-700 mb-2">Nombre de sala</h3>
+                            <input type="text" name="nombre_sala" value="{{ request()->input('nombre_sala') }}" class="w-full border rounded p-2">
                         </div>
                     </div>
+                </div>
 
-                    <!-- flex-wrap sm:flex-nowrap: permite que los bloques se apilen si no caben, pero mantengan fila en pantallas medianas hacia arriba -->
-                    <div>
-
-                    </div>
-                    <div class="flex flex-col m-3">
-                        <div class="flex gap-2">
-                            <!-- flex-1 en ambos bloques: divide el espacio disponible uniformemente-->
-                            <div class="flex sm:flex-row sm:items-center">
-                                <p for="fecha" class="w-[150px] mb-1 sm:mb-0 mr-2">Elige fecha y hora</p>
-                                <input type="date" id="fecha" name="fecha" min="{{ date('Y-m-d') }}"
-                                    class="inputs-text" />
-                            </div>
-
-                            <div class="flex sm:flex-row sm:items-center">
-                                <input type="time" id="hora" name="hora"
-                                    class="inputs-text w-auto flex-shrink-0" />
-                            </div>
-                        </div>
-                        <div class="flex justify-center p-2">
-                            @if (session('correcto'))
-                            <p class="text-green-500">{{ session('correcto') }}</p>
-                            @else
-                            <p class="text-red-500">{{ session('error') }}</p>
-                            @endif
-                        </div>
-                        <div class="flex gap-4 justify-center">
-                            <button type="submit"
-                                class="button-primary-auto flex justify-center items-center hover:cursor-pointer">
-                                Reservar
-                            </button>
-                            <button type="reset"
-                                class="button-secundary-auto flex justify-center items-center hover:cursor-pointer">
-                                Borrar
-                            </button>
-                        </div>
-                    </div>
-
-                </form>
-            </div>
-
-
-        </div>
-        <!-- Filtro para buscar Espacios en la BBDD -->
-        <div class="h-[80%] justify-center items-center align-center mt-10 ml-10">
-            <form method="GET" class="border rounded-xl flex flex-col gap-1 m-0 p-2 items-center" action="{{ route('buscar-sala') }}">
-                @csrf
-                <h4 class="text-center">Buscar por:</h4>
-                <input type="text" name="nombre" placeholder="Nombre teatro" class="inputs-text">
-                <input type="text" name="localidad" placeholder="Localidad" class="inputs-text">
-                <button type="submit"
-                    class="button-primary-auto flex justify-center items-center hover:cursor-pointer m-2">
-                    Filtrar
+                <!-- Botón de búsqueda -->
+                <button type="submit" class="button-primary-auto w-full">
+                    Buscar
                 </button>
             </form>
-            <h4 class="text-center my-1">Resultados</h4>
-            <div class="flex justify-center overflow-auto mb-10 flex-1 max-h-[470px]">
-                <!-- Si $espaci  os que viene Controllers/GestionSalas es distinto de null o vacío, muestra los registros  -->
-                @if(isset($espacios) && !$espacios->isEmpty())
-                <ul class="list-none">
-                    @foreach($espacios as $espacio)
-                    <li class="border rounded-xl p-2 mb-2">
-                        <h5 class="font-semibold">{{ $espacio->nombre }}</h5>
-                        <p>Localidad: {{ $espacio->localidad }}</p>
-                        <p>Dirección: {{ $espacio->direccion }}</p>
-                        <p>Código Postal: {{ $espacio->codigopostal }}</p>
-                        <p>Capacidad: {{ $espacio->capacidad }}</p>
-                        <p>Tipo: {{ $espacio->tipo }}</p>
-                        <p>Sala: {{ $espacio->nombre_sala }}</p>
-                        <p hidden>{{ $espacio->idespacios }}</p>
-                        <div class="w-full flex mt-2 justify-center">
-                            <!-- Enviar datos de vuelta por parámetro a js/nuevas-reservas.js -->
-                            <button
-                                type="button"
-                                onclick="rellenarFormulario(
-                    '{{ $espacio->nombre }}',
-                    '{{ $espacio->localidad }}',
-                    '{{ $espacio->codigopostal }}',
-                    '{{ $espacio->capacidad }}',
-                    '{{ $espacio->tipo }}',
-                    '{{ $espacio->idespacios }}',
-                    '{{ $espacio->direccion }}',
-                )"
-                                class="button-primary-auto">
-                                Seleccionar
-                            </button>
-                        </div>
-                    </li>
-                    @endforeach
-                </ul>
-                @endif
+        </aside>
+
+        <!-- Resultados -->
+        <section class="p-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 gap-6">
+            @foreach ($espacios as $espacio)
+            <div class="bg-white rounded-xl shadow p-3 border-t-4 border-[#990000] lg:h-[250px] lg:w-[300px]">
+                <h4 class="text-lg font-semibold text-[#990000]">{{ $espacio->nombre }}</h4>
+                <p class="text-sm text-gray-700">Localidad: {{ $espacio->localidad }}</p>
+                <p class="text-sm text-gray-700 truncate" title="Dirección: {{ $espacio->direccion }}">Dirección: {{ $espacio->direccion }}</p>
+                <p class="text-sm text-gray-700">Teléfono: {{ $espacio->telefono }}</p>
+                <p class="text-sm text-gray-700">Tipo: {{ ucfirst($espacio->tipo) }}</p>
+                <p class="text-sm text-gray-700">Aforo: {{ $espacio->capacidad }}</p>
+                <div class="h-[30px] overflow-hidden">
+                    <p class="text-sm text-gray-700 truncate" title="Equipamiento: {{ $espacio->equipamiento }}">
+                        Equipamiento: {{ $espacio->equipamiento }}
+                    </p>
+                </div>
+
+                <div class="mt-3">
+                    <a href="{{ route('detalle-espacio', $espacio->idespacios) }}" class="inline-flex items-center button-ver-buscarSala">
+                        Ver
+                        <svg class="ml-2 w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
             </div>
-        </div>
+            @endforeach
+        </section>
     </div>
+
+
+
 </main>
 @vite('resources/js/nuevas-reservas.js')
 @endsection

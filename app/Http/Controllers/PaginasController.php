@@ -49,9 +49,9 @@ class PaginasController extends Controller
     public function buscarEspacios(){
         return view('nuevas-reservas');
     }
-    public function realizarReserva(){
-        return view('nuevas-reservas');
-    }
+    // public function realizarReserva(){
+    //     return view('nuevas-reservas');
+    // }
     public function buscarReservas(){
         return view('gestion-reservas');
     }

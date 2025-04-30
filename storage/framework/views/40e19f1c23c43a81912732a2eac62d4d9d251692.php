@@ -36,7 +36,7 @@
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </ul>
         <?php else: ?>
-        <p class="">No tienes ninguna reserva pendiente, ve a <a href="<?php echo e(url('nuevas-reservas')); ?>" class="hover:text-[#990000] font-semibold">nuevas reservas</a></p>
+        <p class="">No tienes ninguna reserva pendiente, ve a <a href="<?php echo e(url('buscar-sala')); ?>" class="hover:text-[#990000] font-semibold">nuevas reservas</a></p>
         <?php endif; ?>
     </div>
 

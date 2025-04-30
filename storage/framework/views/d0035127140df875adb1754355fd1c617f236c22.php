@@ -39,7 +39,7 @@
                         Reservas
                     </button>
                     <div class="absolute hidden bg-white border border-[#990000] left-0 w-[154.67px] rounded-xl group-hover:flex flex-col">
-                        <a href="<?php echo e(url('nuevas-reservas')); ?>" class="hover:bg-[#990000] border border-white hover:text-white rounded-xl p-2 transition-all duration-300 ease-out">Nuevas Reservas</a>
+                        <a href="<?php echo e(url('buscar-sala')); ?>" class="hover:bg-[#990000] border border-white hover:text-white rounded-xl p-2 transition-all duration-300 ease-out">Nuevas Reservas</a>
                         <a href="<?php echo e(url('buscar-reservas')); ?>" class="hover:bg-[#990000] border border-white hover:text-white rounded-xl p-2 transition-all duration-300 ease-out">Gestión reservas</a>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
             <details class="w-full text-center">
                 <summary class="cursor-pointer text-[#990000] font-semibold py-2">Reservas</summary>
                 <div class="flex flex-col items-center pl-4">
-                    <a href="<?php echo e(url('nuevas-reservas')); ?>" class="hover:text-[#990000] py-1 list-style-circle">Nuevas Reservas</a>
+                    <a href="<?php echo e(url('buscar-sala')); ?>" class="hover:text-[#990000] py-1 list-style-circle">Nuevas Reservas</a>
                     <a href="<?php echo e(url('buscar-reservas')); ?>" class="hover:text-[#990000] py-1 list-style-circle">Gestión reservas</a>
                 </div>
             </details>

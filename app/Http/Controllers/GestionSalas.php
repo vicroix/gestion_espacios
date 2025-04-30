@@ -55,30 +55,51 @@ class GestionSalas extends Controller
 
     public function buscarEspacios(Request $respuesta)
     {
+        $query = Espacio::query();
 
-        $espacio = Espacio::query();
-
-        // Verificar si al menos uno de los filtros está lleno
-        $filtroAplicado = false;
-
-        // Si la localidad está llena, aplicar filtro
-        if ($respuesta->filled('localidad')) {
-            $espacio->where('localidad', 'like', '%' . $respuesta->localidad . '%');
-            $filtroAplicado = true;
+        // Localidades (checkbox)
+        if ($respuesta->filled('ciudades')) {
+            $query->whereIn('localidad', $respuesta->input('ciudades'));
         }
 
+        // Tipo (radio)
+        if ($respuesta->filled('tipo')) {
+            $query->where('tipo', $respuesta->input('tipo')); // tipo = 'ensayo' o 'obra'
+        }
+
+        // Capacidad (radio)
+        if ($respuesta->filled('capacidad')) {
+            $query->where('capacidad', '<=', (int) $respuesta->input('capacidad'));
+        }
+
+        // Equipamiento (texto completo, opcional)
+        if ($respuesta->filled('equipamiento')) {
+            $query->where('equipamiento', 'like', '%' . $respuesta->input('equipamiento') . '%');
+        }
+
+        // Nombre teatro
         if ($respuesta->filled('nombre')) {
-            $espacio->where('nombre', 'like', '%' . $respuesta->nombre . '%');
-            $filtroAplicado = true;
+            $query->where('nombre', 'like', '%' . $respuesta->input('nombre') . '%');
         }
 
-        // Obtener resultados dependiendo si hay filtros o no
-        if (!$filtroAplicado) {
-            $espacios = collect(); // o puedes usar Espacio::limit(1)->get() si quieres mostrar algo por defecto
-        } else {
-            $espacios = $espacio->limit(10)->get();
+        // Dirección
+        if ($respuesta->filled('direccion')) {
+            $query->where('direccion', 'like', '%' . $respuesta->input('direccion') . '%');
         }
+
+        // Sala
+        if ($respuesta->filled('nombre_sala')) {
+            $query->where('nombre_sala', 'like', '%' . $respuesta->input('nombre_sala') . '%');
+        }
+
+        // Ejecutar query (si hay algún filtro aplicado, o traer todos si no)
+        $espacios = $query->limit(10)->get();
 
         return view('nuevas-reservas', compact('espacios'));
+    }
+    public function detalleEspacio($id)
+    {
+        $espacio = Espacio::findOrFail($id);
+        return view('busquedas-salas', compact('espacio'));
     }
 }
