@@ -25,7 +25,7 @@
             <h3 class="font-semibold text-[#990000]">Contacto</h3>
             <p class="m-0">956666666</p>
             <p class="m-0">appteatro@teatro.com</p>
-            <p class="m-0">Av. de la paz 6, Sevilla, 41018</p>
+            <p class="m-0">C. Canal, 20, 41006 Sevilla</p>
         </div>
     </div>
     <!-- Logo central footer -->
