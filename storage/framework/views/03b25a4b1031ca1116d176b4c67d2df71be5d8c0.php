@@ -24,7 +24,7 @@
                         <span x-show="openCiudades">-</span>
                     </h3>
                     <div x-show="openCiudades" x-transition>
-                        <?php $__currentLoopData = ['Madrid', 'Barcelona', 'Sevilla', 'Málaga', 'Granada', 'Huelva', 'Valencia']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ciudad): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php $__currentLoopData = ['Madrid', 'Barcelona', 'Sevilla', 'Málaga', 'Granada', 'Huelva', 'Valencia', 'Cádiz', 'Tarragona', 'Cádiz', 'Salamanca', 'León']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ciudad): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <label class="block text-sm text-gray-600">
                             <input type="checkbox" name="ciudades[]" value="<?php echo e($ciudad); ?>" class="mr-2">
                             <?php echo e($ciudad); ?>

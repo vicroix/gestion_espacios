@@ -26,7 +26,7 @@
                         <span x-show="openCiudades">-</span>
                     </h3>
                     <div x-show="openCiudades" x-transition>
-                        @foreach (['Madrid', 'Barcelona', 'Sevilla', 'Málaga', 'Granada', 'Huelva', 'Valencia'] as $ciudad)
+                        @foreach (['Madrid', 'Barcelona', 'Sevilla', 'Málaga', 'Granada', 'Huelva', 'Valencia', 'Cádiz', 'Tarragona', 'Cádiz', 'Salamanca', 'León'] as $ciudad)
                         <label class="block text-sm text-gray-600">
                             <input type="checkbox" name="ciudades[]" value="{{ $ciudad }}" class="mr-2">
                             {{ $ciudad }}
