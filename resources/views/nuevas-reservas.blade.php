@@ -9,8 +9,8 @@
 <main class="flex-grow bg-white my-5 mx-2">
     <div x-data="{ openCiudades: false, openTipo: false, openFiltros: false, openAforo: false }" class="flex flex-col md:flex-row">
         <!-- Sidebar de filtros -->
-        <aside class="md:w-64 w-full bg-gray-100 p-4 rounded-xl shadow-md">
-            <h2 class="text-lg font-semibold mb-4 flex items-center gap-2 cursor-pointer" onclick="toggleFilters()">
+        <aside class="md:w-64 h-full w-full bg-gray-100 p-4 rounded-xl shadow-md">
+            <h2 class="text-lg font-semibold mb-4 flex items-center gap-2 cursor-pointer" @click="openFiltros = !openFiltros">
                 <svg id="filtros-icono" class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2H3V4zM3 8h18M3 12h18M3 16h18M3 20h18" />
                 </svg>
@@ -137,9 +137,6 @@
             @endforeach
         </section>
     </div>
-
-
-
 </main>
 @vite('resources/js/nuevas-reservas.js')
 @endsection
