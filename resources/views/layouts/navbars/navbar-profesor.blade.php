@@ -51,7 +51,7 @@
                 </a>
             </div>
 
-            <a href="{{ route('salir') }}" class="bg-[#990000] hover:bg-[#a84848] text-white px-2 py-2.5 rounded-lg cursor-pointer">
+            <a href="{{ route('salir') }}" class="button-primary-auto cursor-pointer">
                 Cerrar sesión
             </a>
         </div>

@@ -38,7 +38,7 @@
             @endforeach
         </ul>
         @else
-        <p class="">No se encontraron reservas</p>
+        <p class="">No tienes ninguna reserva pendiente, ve a <a href="{{ url('nuevas-reservas') }}" class="hover:text-[#990000] font-semibold">nuevas reservas</a></p>
         @endif
     </div>
 

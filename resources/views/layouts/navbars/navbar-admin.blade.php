@@ -93,6 +93,6 @@
 
         <a href="{{ url('proximos-eventos') }}" class="text-[#990000] font-semibold">Próximos eventos</a>
         <a href="{{ url('faq') }}" class="text-[#990000] font-semibold">FAQ</a>
-        <a href="{{ route('salir') }}" class="bg-[#990000] text-white px-4 py-2 rounded-lg w-full text-center">Cerrar sesión</a>
+        <a href="{{ route('salir') }}" class="button-primary-auto w-full text-center">Cerrar sesión</a>
     </div>
 </div>

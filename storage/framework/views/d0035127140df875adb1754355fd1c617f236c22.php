@@ -93,7 +93,7 @@
 
         <a href="<?php echo e(url('proximos-eventos')); ?>" class="text-[#990000] font-semibold">Próximos eventos</a>
         <a href="<?php echo e(url('faq')); ?>" class="text-[#990000] font-semibold">FAQ</a>
-        <a href="<?php echo e(route('salir')); ?>" class="bg-[#990000] text-white px-4 py-2 rounded-lg w-full text-center">Cerrar sesión</a>
+        <a href="<?php echo e(route('salir')); ?>" class="button-primary-auto w-full text-center">Cerrar sesión</a>
     </div>
 </div>
 <?php /**PATH C:\Users\Victor\Documents\GitHub\TeatroGest\resources\views/layouts/navbars/navbar-admin.blade.php ENDPATH**/ ?>
