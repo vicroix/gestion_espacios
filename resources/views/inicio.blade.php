@@ -5,7 +5,7 @@
 <!-- http://localhost/teatrogest/public -->
 
 @section('main')
-    <main class="flex flex-col w-full justify-center mt-10% sm:mt-[50px] gap-4 md:lg-9 lg:gap-12 h-[59vh]">
+    <main class="flex flex-col w-full justify-center mt-10% sm:mt-[50px] gap-4 md:lg-9 lg:gap-12">
         <!--Título H1 - TEATROGEST-->
         <div class="flex justify-start mx-10 sm:mx-24">
             <h1 class="text-[#990000]">TeatroGest</h1>
@@ -35,7 +35,7 @@
             <h1 class="text-[#990000]">Reseñas</h1>
         </div>
         <!-- Elfsight Google Reviews | Untitled Google Reviews -->
-        <section class="sm:mx-24">
+        <section class="sm:mx-24 flex">
             <script src="https://static.elfsight.com/platform/platform.js" async></script>
             <div class="elfsight-app-950d3ce1-1b66-4612-9a4c-0ff6b225647f" data-elfsight-app-lazy></div>
         </section>
