@@ -2,15 +2,15 @@
 
 @section('title', 'Proximos eventos')
 <!-- http://localhost/TeatroGest/public/nuevas-reservas -->
-
+@vite('resources/css/nuevas-reservas.css')
 @section("main")
 
 <!--flex-grow empuja el footer hacia abajo-->
-<main class="flex-grow bg-white my-5 mx-2">
+<main class="flex-grow bg-white">
     <div x-data="{ openCiudades: false, openTipo: false, openFiltros: false, openAforo: false }" class="flex flex-col md:flex-row">
         <!-- Sidebar de filtros -->
-        <aside class="md:w-64 h-full w-full bg-gray-100 p-4 rounded-xl shadow-md">
-            <h2 class="text-lg font-semibold mb-4 flex items-center gap-2 cursor-pointer" @click="openFiltros = !openFiltros">
+        <aside class="md:w-64 shadow-md">
+            <h2 id="h2" @click="openFiltros = !openFiltros">
                 <svg id="filtros-icono" class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2H3V4zM3 8h18M3 12h18M3 16h18M3 20h18" />
                 </svg>
@@ -20,7 +20,7 @@
             <form method="GET" action="{{ route('buscar-sala') }}" class="space-y-6">
                 <!-- CIUDADES -->
                 <div>
-                    <h3 class="text-sm font-semibold text-gray-700 mb-2 cursor-pointer" @click="openCiudades = !openCiudades">
+                    <h3 id="h3" @click="openCiudades = !openCiudades">
                         Ciudades
                         <span x-show="!openCiudades">+</span>
                         <span x-show="openCiudades">-</span>
@@ -37,7 +37,7 @@
 
                 <!-- TIPO DE SALA -->
                 <div>
-                    <h3 class="text-sm font-semibold text-gray-700 mb-2 cursor-pointer" @click="openTipo = !openTipo">
+                    <h3 id="h3" @click="openTipo = !openTipo">
                         Tipo de sala
                         <span x-show="!openTipo">+</span>
                         <span x-show="openTipo">-</span>
@@ -54,7 +54,7 @@
 
                 <!-- CAPACIDAD (AFORO) -->
                 <div>
-                    <h3 class="text-sm font-semibold text-gray-700 mb-2" @click="openAforo = !openAforo">
+                    <h3 id="h3" @click="openAforo = !openAforo">
                         Aforo
                         <span x-show="!openAforo">+</span>
                         <span x-show="openAforo">-</span>
@@ -69,7 +69,7 @@
 
                 <!-- + Filtros -->
                 <div class="mt-4">
-                    <h3 class="text-sm font-semibold text-gray-700 mb-2 cursor-pointer" @click="openFiltros = !openFiltros">
+                    <h3 id="h3" @click="openFiltros = !openFiltros">
                         Filtros
                         <span x-show="!openFiltros">+</span>
                         <span x-show="openFiltros">-</span>
@@ -77,25 +77,25 @@
                     <div x-show="openFiltros" x-transition>
                         <!-- Equipamiento -->
                         <div>
-                            <h3 class="text-sm font-semibold text-gray-700 mb-2">Equipamiento</h3>
+                            <h3 id="h3">Equipamiento</h3>
                             <input type="text" name="equipamiento" value="{{ request()->input('equipamiento') }}" class="w-full border rounded p-2">
                         </div>
 
                         <!-- Nombre del teatro -->
                         <div>
-                            <h3 class="text-sm font-semibold text-gray-700 mb-2">Nombre del teatro</h3>
+                            <h3 id="h3">Nombre del teatro</h3>
                             <input type="text" name="nombre" value="{{ request()->input('nombre') }}" class="w-full border rounded p-2">
                         </div>
 
                         <!-- Dirección -->
                         <div>
-                            <h3 class="text-sm font-semibold text-gray-700 mb-2">Dirección</h3>
+                            <h3 id="h3">Dirección</h3>
                             <input type="text" name="direccion" value="{{ request()->input('direccion') }}" class="w-full border rounded p-2">
                         </div>
 
                         <!-- Nombre de sala -->
                         <div>
-                            <h3 class="text-sm font-semibold text-gray-700 mb-2">Nombre de sala</h3>
+                            <h3 id="h3">Nombre de sala</h3>
                             <input type="text" name="nombre_sala" value="{{ request()->input('nombre_sala') }}" class="w-full border rounded p-2">
                         </div>
                     </div>
@@ -109,14 +109,16 @@
         </aside>
 
         <!-- Resultados -->
-        <section class="p-4 grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 3xl:grid-cols-4 gap-6">
+        <section class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5">
             @foreach ($espacios as $espacio)
-            <div class="relative group cursor-pointer" tabindex="0">
+            <div class="relative h-[150px] md:h-[180px] group cursor-pointer" tabindex="0">
 
-                <div class="bg-white rounded-xl shadow p-3 border-t-4 border-[#990000] lg:h-[150px] lg:w-[400px]">
-                    <h4 class="text-lg font-semibold text-[#990000]">{{ $espacio->nombre }}</h4>
-                    <p class="text-sm text-gray-700">Localidad: {{ $espacio->localidad }}</p>
-                    <p class="text-sm text-gray-700 truncate">Dirección: {{ $espacio->direccion }}</p>
+                <div class="bg-white rounded-xl shadow p-3 border-t-4 border-[#990000] lg:h-[180px] lg:w-[300px]">
+                    <div class="lg:h-[100px]">
+                        <h4 class="text-lg font-semibold text-[#990000]">{{ $espacio->nombre }}</h4>
+                        <p class="text-sm text-gray-700">Localidad: {{ $espacio->localidad }}</p>
+                        <p class="text-sm text-gray-700 truncate">Dirección: {{ $espacio->direccion }}</p>
+                    </div>
                     <div class="mt-3">
                         <a href="{{ route('detalle-espacio', $espacio->idespacios) }}" class="inline-flex items-center button-ver-buscarSala">
                             Ver
@@ -126,7 +128,9 @@
                         </a>
                     </div>
                 </div>
-                <div class="absolute left-[100px] -translate-y-[65px] sm:left-1/2 sm:-translate-x-1/2 sm:top-1/2 sm:translate-y-[10px] w-64 bg-gray-100 text-gray-800 text-sm p-2 rounded shadow-lg opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 z-10 pointer-events-none">
+
+                <!-- DETALLE APARECE ABAJO, LIGERAMENTE A LA DERECHA -->
+                <div class="contenedor-mas-detalles top-[100px] left-[180px] -translate-x-1/4 mt-2 shadow-lg group-hover:opacity-100 group-focus-within:opacity-100">
                     <p><strong>Tel:</strong> {{ $espacio->telefono }}</p>
                     <p><strong>Tipo:</strong> {{ $espacio->tipo }}</p>
                     <p><strong>Capacidad:</strong> {{ $espacio->capacidad }}</p>
@@ -136,6 +140,8 @@
             </div>
             @endforeach
         </section>
+
+
     </div>
 </main>
 @vite('resources/js/nuevas-reservas.js')
