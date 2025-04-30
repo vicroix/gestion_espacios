@@ -3,7 +3,7 @@
 <!-- http://localhost/teatrogest/public -->
 
 <?php $__env->startSection('main'); ?>
-    <main class="flex flex-col w-full justify-center mt-10% sm:mt-[50px] gap-4 md:lg-9 lg:gap-12">
+    <main class="flex flex-col w-full justify-center mt-10% sm:mt-[50px] gap-4 md:lg-9 lg:gap-12 ">
         <!--Título H1 - TEATROGEST-->
         <div class="flex justify-start mx-10 sm:mx-24">
             <h1 class="text-[#990000]">TeatroGest</h1>
@@ -38,6 +38,6 @@
             <div class="elfsight-app-950d3ce1-1b66-4612-9a4c-0ff6b225647f" data-elfsight-app-lazy></div>
         </section>
     </main>
-    <?php $__env->stopSection(); ?>
+<?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.plantilla', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Victor\Documents\GitHub\TeatroGest\resources\views/inicio.blade.php ENDPATH**/ ?>

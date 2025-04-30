@@ -107,6 +107,5 @@
         </div>
     </section>
 </main>
-<!-- <script src="{{ mix('js/app.js') }}"></script> -->
  @vite('resources/js/gestion-salas.js')
 @endsection
