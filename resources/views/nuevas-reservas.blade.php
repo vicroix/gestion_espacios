@@ -109,29 +109,30 @@
         </aside>
 
         <!-- Resultados -->
-        <section class="p-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 gap-6">
+        <section class="p-4 grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 3xl:grid-cols-4 gap-6">
             @foreach ($espacios as $espacio)
-            <div class="bg-white rounded-xl shadow p-3 border-t-4 border-[#990000] lg:h-[250px] lg:w-[300px]">
-                <h4 class="text-lg font-semibold text-[#990000]">{{ $espacio->nombre }}</h4>
-                <p class="text-sm text-gray-700">Localidad: {{ $espacio->localidad }}</p>
-                <p class="text-sm text-gray-700 truncate" title="Dirección: {{ $espacio->direccion }}">Dirección: {{ $espacio->direccion }}</p>
-                <p class="text-sm text-gray-700">Teléfono: {{ $espacio->telefono }}</p>
-                <p class="text-sm text-gray-700">Tipo: {{ ucfirst($espacio->tipo) }}</p>
-                <p class="text-sm text-gray-700">Aforo: {{ $espacio->capacidad }}</p>
-                <div class="h-[30px] overflow-hidden">
-                    <p class="text-sm text-gray-700 truncate" title="Equipamiento: {{ $espacio->equipamiento }}">
-                        Equipamiento: {{ $espacio->equipamiento }}
-                    </p>
+            <div class="relative group cursor-pointer" tabindex="0">
+
+                <div class="bg-white rounded-xl shadow p-3 border-t-4 border-[#990000] lg:h-[150px] lg:w-[400px]">
+                    <h4 class="text-lg font-semibold text-[#990000]">{{ $espacio->nombre }}</h4>
+                    <p class="text-sm text-gray-700">Localidad: {{ $espacio->localidad }}</p>
+                    <p class="text-sm text-gray-700 truncate">Dirección: {{ $espacio->direccion }}</p>
+                    <div class="mt-3">
+                        <a href="{{ route('detalle-espacio', $espacio->idespacios) }}" class="inline-flex items-center button-ver-buscarSala">
+                            Ver
+                            <svg class="ml-2 w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="absolute left-[100px] -translate-y-[65px] sm:left-1/2 sm:-translate-x-1/2 sm:top-1/2 sm:translate-y-[10px] w-64 bg-gray-100 text-gray-800 text-sm p-2 rounded shadow-lg opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 z-10 pointer-events-none">
+                    <p><strong>Tel:</strong> {{ $espacio->telefono }}</p>
+                    <p><strong>Tipo:</strong> {{ $espacio->tipo }}</p>
+                    <p><strong>Capacidad:</strong> {{ $espacio->capacidad }}</p>
+                    <p><strong>Equipamiento:</strong> {{ $espacio->equipamiento }}</p>
                 </div>
 
-                <div class="mt-3">
-                    <a href="{{ route('detalle-espacio', $espacio->idespacios) }}" class="inline-flex items-center button-ver-buscarSala">
-                        Ver
-                        <svg class="ml-2 w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                    </a>
-                </div>
             </div>
             @endforeach
         </section>
