@@ -121,7 +121,7 @@
                         <p class="text-sm text-gray-700 truncate">Dirección: <?php echo e($espacio->direccion); ?></p>
                     </div>
                     <div class="mt-3">
-                        <a href="<?php echo e(route('detalle-espacio', $espacio->idespacios)); ?>" class="inline-flex items-center button-ver-buscarSala">
+                        <a href="<?php echo e(route('detalle-espacio',['id'=> $espacio->idespacios] )); ?>" class="inline-flex items-center button-ver-buscarSala">
                             Ver
                             <svg class="ml-2 w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />

@@ -1,7 +1,8 @@
 mapboxgl.accessToken = "pk.eyJ1IjoicGFwYWZyaXRhODgiLCJhIjoiY204eWM0eDFuMGF2dzJxc2dmZTBsYXB6cCJ9.wQb_QXDpZ7isAWBnoi14FQ"
 const apiKey = "zqVfiojTFXFJtmVndyEOu8luVqE7LQqWskiQt_ysWDM"
 //La dirección que se inserta a continuación es la que se muestra <--ENLAZAR AQUI CON LA BBDD
-const direccion = "P.º de Cristóbal Colón, 22, Casco Antiguo, 41001 Sevilla"
+const contenedorMapa = document.getElementById("contenedor-del-mapa");
+const direccion = contenedorMapa.dataset.direccion;
 
 fetch(`https://geocode.search.hereapi.com/v1/geocode?q=${direccion}&apiKey=${apiKey}`)
     .then((response) => response.json())

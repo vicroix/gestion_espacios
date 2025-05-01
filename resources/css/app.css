@@ -206,13 +206,11 @@ h3 {
     border-bottom: #000000 1px solid;
 }
 
-/* Viewport en pantallas menores a 850px */
-@media (max-width: 450px) {
-}
 /* Gestión reservas */
 .titulo-main {
     border-bottom: gray solid 1px;
     width: 800px;
+    margin-bottom: 20px;
 }
 .gestion-reservas-contenedor-time {
     width: 89px;

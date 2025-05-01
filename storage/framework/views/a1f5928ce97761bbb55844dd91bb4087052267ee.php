@@ -38,7 +38,7 @@
                         Reservas
                     </button>
                     <div class="absolute hidden bg-white border border-[#990000] left-0 w-[154.67px] rounded-xl group-hover:flex flex-col">
-                        <a href="<?php echo e(url('nuevas-reservas')); ?>" class="hover:bg-[#990000] border border-white hover:text-white rounded-xl p-2 transition-all duration-300 ease-out">Nuevas Reservas</a>
+                        <a href="<?php echo e(url('buscar-sala')); ?>" class="hover:bg-[#990000] border border-white hover:text-white rounded-xl p-2 transition-all duration-300 ease-out">Nuevas Reservas</a>
                         <a href="<?php echo e(url('buscar-reservas')); ?>" class="hover:bg-[#990000] border border-white hover:text-white rounded-xl p-2 transition-all duration-300 ease-out">Gestión reservas</a>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
             <span class="block">Bienvenido <span class="font-semibold"><?php echo e(session('nombre_rol')); ?></span></span>
             <span class="block text-[#990000]"><?php echo e(session('usuario')); ?></span>
         </span>
-        <a href="<?php echo e(url('buscar-reservas')); ?>" class="text-[#990000] font-semibold">Gestión reservas</a>
+        <a href="<?php echo e(url('buscar-sala')); ?>" class="text-[#990000] font-semibold">Gestión reservas</a>
         <a href="<?php echo e(url('proximos-eventos')); ?>" class="text-[#990000] font-semibold">Próximos eventos</a>
         <a href="<?php echo e(url('faq')); ?>" class="text-[#990000] font-semibold">FAQ</a>
         <a href="<?php echo e(route('salir')); ?>" class="bg-[#990000] text-white px-4 py-2 rounded-lg w-full text-center">Cerrar sesión</a>

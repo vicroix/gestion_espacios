@@ -5,40 +5,53 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use App\Models\Reserva;
+use Illuminate\Support\Facades\Validator;
 
 class GestionReservas extends Controller
 {
     public function realizarReserva(Request $respuesta)
     {
+        // dd($respuesta->all());
+        $validator = Validator::make($respuesta->all(), [
+            'nombre_teatro' => 'required|string|max:100',
+            'localidad' => 'required|string',
+            'codigo_postal' => 'required|string|max:5',
+            'direccion' => 'required|string|max:255',
+            'fecha' => 'required|date|after_or_equal:today',
+            'hora' => 'required|date_format:H:i',
+            'id_espacio' => 'required|integer',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->route('detalle-espacio', ['id' => $respuesta->input('id_espacio')])
+                ->withErrors($validator)
+                ->withInput()
+                ->with('error', 'Hubo un problema al realizar la reserva. Inténtalo de nuevo.');
+        }
+        $validar = $validator->validated();
         try {
-            $validar = $respuesta->validate([
-                'direccion' => 'required|string|max:255',
-                'nombreTeatro' => 'required|string|max:100',
-                'fecha' => 'required|date|after_or_equal:today',
-                'hora' => 'required|date_format:H:i',
-                'id_espacio' => 'required|integer',
-                'LocalidadTeatro' => 'required|string',
-                'codigoPostal' => 'required|string|max:5',
-            ]);
             $idUsuario = session('idusuarios');
-            //Creo la reserva
+
+            // Creo la reserva
             $reserva = new Reserva();
-            $reserva->nombre = $validar['nombreTeatro'];
+            $reserva->nombre = $validar['nombre_teatro'];
+            $reserva->localidad = $validar['localidad'];
+            $reserva->codigopostal = $validar['codigo_postal'];
             $reserva->direccion = $validar['direccion'];
             $reserva->fecha = $validar['fecha'];
             $reserva->hora = $validar['hora'];
-            $reserva->localidad = $validar['LocalidadTeatro'];
-            $reserva->codigopostal = $validar['codigoPostal'];
-            $reserva->id_usuario = $idUsuario;
             $reserva->id_espacio = $validar['id_espacio'];
+            $reserva->id_usuario = $idUsuario;
             $reserva->save();
-
-            return redirect()->route('nuevas-reservas')->with('correcto', '¡Reserva realizada correctamente!');
+            // dd($reserva);
+            Log::info('Reserva:', ['reserva' => $reserva]);
+            return redirect()->route('buscar-reservas')->with('correcto', 'Reserva realizada correctamente.');
         } catch (\Exception $ex) {
             Log::error('Error al registrar en la base de datos: ' . $ex->getMessage(), [
                 'exception' => $ex
             ]);
-            return redirect()->route('nuevas-reservas')->with('error', 'Error al reservar');
+            // Si hay un error en la BD, redirige a detalle-espacio
+            return redirect()->route('detalle-espacio', ['id' => $validar['id_espacio']])
+                ->with('error', 'Hubo un problema al realizar la reserva. Inténtalo de nuevo.');
         }
     }
 

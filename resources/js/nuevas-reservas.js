@@ -1,35 +1,3 @@
-window.rellenarFormulario = function (
-    nombre,
-    localidad,
-    codigopostal,
-    capacidad,
-    tipo,
-    idespacios,
-    direccion
-) {
-    document.getElementById("nombreTeatro").value = nombre;
-    document.getElementById("LocalidadTeatro").value = localidad;
-    document.getElementById("codigoPostal").value = codigopostal;
-    document.getElementById("id_espacio").value = idespacios;
-    document.getElementById("direccion").value = direccion;
-    document.getElementById("nombreTeatro").value = nombre;
-
-    // Insertar los datos en el selected de Tipo de Sala
-    if (tipo.toLowerCase() === "ensayo") {
-        document.getElementById("tipoSala").value = "Ensayo";
-    } else if (tipo.toLowerCase() === "obra") {
-        document.getElementById("tipoSala").value = "Obra";
-    }
-
-    // Insertar los datos en el selected de Aforo
-    if (capacidad === "10") {
-        document.getElementById("aforo").value = "10";
-    } else if (capacidad === "20") {
-        document.getElementById("aforo").value = "20";
-    } else if (capacidad === "50") {
-        document.getElementById("aforo").value = "50";
-    }
-};
 
 // Restringe si la reserva es ese mismo día, seleccionar una hora. Mínimo una hora posterior a la actual.
 document.addEventListener("DOMContentLoaded", function () {
