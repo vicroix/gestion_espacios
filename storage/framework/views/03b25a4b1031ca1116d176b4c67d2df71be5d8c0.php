@@ -132,6 +132,7 @@
 
                 <!-- DETALLE APARECE ABAJO, LIGERAMENTE A LA DERECHA -->
                 <div class="contenedor-mas-detalles top-[100px] left-[180px] -translate-x-1/4 mt-2 shadow-lg group-hover:opacity-100 group-focus-within:opacity-100">
+                    <p><strong>Direccion:</strong> <?php echo e($espacio->direccion); ?></p>
                     <p><strong>Tel:</strong> <?php echo e($espacio->telefono); ?></p>
                     <p><strong>Tipo:</strong> <?php echo e($espacio->tipo); ?></p>
                     <p><strong>Capacidad:</strong> <?php echo e($espacio->capacidad); ?></p>

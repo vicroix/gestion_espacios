@@ -92,8 +92,8 @@ class GestionSalas extends Controller
             $query->where('nombre_sala', 'like', '%' . $respuesta->input('nombre_sala') . '%');
         }
 
-        // Ejecutar query (si hay algún filtro aplicado, o traer todos si no)
-        $espacios = $query->limit(8)->get();
+        // Ejecutar query (si hay algún filtro aplicado, o traer todos si no) y en limit() pon el número de datos que quieres traer de máximo
+        $espacios = $query->limit(10)->get();
 
         return view('nuevas-reservas', compact('espacios'));
     }

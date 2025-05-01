@@ -77,9 +77,10 @@ h3 {
 .inputs-text {
     border: solid 1px black;
     border-radius: 8px;
-    padding: 4px;
     height: 35px;
-    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 1px;
 }
 .inputs-text:hover {
     border-color: black;
@@ -214,6 +215,11 @@ h3 {
 }
 .gestion-reservas-contenedor-time {
     width: 89px;
+}
+
+#svg-flecha-a-izquierda{
+    transform: rotate(180deg) !important;
+
 }
 
 /* FOOTER */

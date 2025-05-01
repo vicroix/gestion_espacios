@@ -47,9 +47,9 @@
                 <!-- Contenedor BOTONES -->
                 <div class="flex gap-4 items-center">
                     <div>
-                        <a href="{{ route('buscar-sala',['id'=> $espacio->idespacios] )}}" class="inline-flex items-center  button-secundary-auto">
-                            <svg class="mr-2 w-3 h-3 text-white rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 5l7 7-7 7" />
+                        <a href="{{ route('buscar-sala',['id'=> $espacio->idespacios] )}}" class="inline-flex items-center button-secundary-auto">
+                            <svg class="mr-2 w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                             </svg>
                             Atrás
                         </a>
@@ -66,7 +66,7 @@
         </div>
     </section>
     @else
-    <p>No seleccionaste un espacio en busqueda de salas: <a href="{{ url('buscar-sala') }}" class="hover:text-[#990000] font-semibold">nuevas reservas</a></p>
+    <p class="text-center">No seleccionaste un espacio en busqueda de salas: <a href="{{ url('buscar-sala') }}" class="hover:text-[#990000] font-semibold">nuevas reservas</a></p>
     @endif
 
 </main>

@@ -20,24 +20,24 @@
                     <!--nombre teatro-->
                     <div class="flex items-center">
                         <!-- INPUT NOMBRE TEATRO -->
-                        <input class="border border-gray-300 px-3 py-1 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000] invalid:focus:ring-red-400 peer w-full"
+                        <input class="inputs-text border border-gray-300 focus:outline-none invalid:focus:ring-red-400 peer w-full"
                             type="text" name="nombre_teatro" id="nombre_teatro" placeholder="Nombre del teatro">
                     </div>
 
                     <div class="flex items-center">
                         <!-- INPUT NOMBRE SALA -->
-                        <input class="border border-gray-300  px-3 py-1 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
+                        <input class="inputs-text border border-gray-300 focus:outline-none
                      invalid:focus:ring-red-400 peer w-full" type="text" name="nombre_sala" id="nombre_sala" placeholder="Nombre Sala">
                     </div>
                     <div class="flex gap-1">
                         <div class="w-[70%]">
                             <!-- INPUT TELEFONO -->
-                            <input class="border border-gray-300  px-3 py-1 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
+                            <input class="inputs-text border border-gray-300 focus:outline-none
                             invalid:focus:ring-red-400 peer w-full" type="text" maxlength="9" name="telefono" id="telefono" placeholder="Teléfono">
                         </div>
                         <div class="w-full">
                             <!-- INPUT LOCALIDAD -->
-                            <input class="border border-gray-300 px-3 py-1 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000] invalid:focus:ring-red-400 peer w-full"
+                            <input class="inputs-text border border-gray-300 focus:outline-none invalid:focus:ring-red-400 peer w-full"
                                 type="text" name="localidad" id="localidad" placeholder="Localidad">
                         </div>
                     </div>
@@ -45,20 +45,20 @@
                     <div class="flex gap-1">
                         <div class="w-[35%]">
                             <!-- INPUT CODIGO POSTAL -->
-                            <input class="border border-gray-300 px-3 py-1 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000] invalid:focus:ring-red-400 peer w-full"
+                            <input class="inputs-text border border-gray-300 focus:outline-none invalid:focus:ring-red-400 peer w-full"
                                 type="text" name="codigo_postal" id="codigo_postal" placeholder="C.P." maxlength="5">
                         </div>
 
                         <div class="w-full">
                             <!-- INPUT DIRECCION -->
-                            <input class="border border-gray-300 px-3 py-1 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000] invalid:focus:ring-red-400 peer w-full"
+                            <input class="inputs-text border border-gray-300 focus:outline-none invalid:focus:ring-red-400 peer w-full"
                                 type="text" name="direccion" id="direccion" placeholder="Dirección">
                         </div>
                     </div>
                     <!--gmail-->
                     <div class="flex items-center">
                         <!-- INPUT EMAIL -->
-                        <input class="border border-gray-300  px-3 py-1 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
+                        <input class="inputs-text border border-gray-300 focus:outline-none
                      invalid:focus:ring-red-400 peer w-full" type="email" name="email" id="email" placeholder="Correo electrónico">
                     </div>
                     <!--tel-->
@@ -67,7 +67,7 @@
                     <div class="flex gap-1">
                         <div class="flex items-center">
                             <!-- SELECT TIPO (Obra / Ensayo) -->
-                            <select class="border border-gray-300 text-gray-500 px-3 py-1 rounded-md focus:outline-none focus:ring-1  focus:ring-[#990000]
+                            <select class="inputs-text border border-gray-300 text-gray-500 focus:outline-none
                          invalid:focus:ring-red-400 peer w-full" type="text" name="tipo_sala" id="tipo_sala">
                                 <option value="" disabled selected hidden>Tipo</option>
                                 <option value="Obra" class="text-black">Con público</option>
@@ -77,7 +77,7 @@
 
                         <div class="flex items-center">
                             <!-- INPUT Aforo (10 / 20 / 50 personas) -->
-                            <select class="border border-gray-300 text-gray-500  px-3 py-1 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
+                            <select class="inputs-text border border-gray-300 text-gray-500 focus:outline-none
                      invalid:focus:ring-red-400 peer w-full" type="text" name="aforo" id="aforo">
                                 <option value="" disabled selected hidden>Aforo</option>
                                 <option value="10" class="text-black">Hasta 10 personas</option>
@@ -89,7 +89,7 @@
                 </div>
                 <div class="flex items-center">
                     <!-- TEXTAREA EQUIPAMIENTO -->
-                    <textarea class="border border-gray-300 px-3 min-h-[60px] rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
+                    <textarea class="inputs-text border border-gray-300 min-h-[60px] focus:outline-none
                  invalid:focus:ring-red-400 peer w-full" rows="3" name="equipamiento" id="equipamiento" placeholder="Equipamiento"></textarea>
                 </div>
                 @if (session('correcto'))
