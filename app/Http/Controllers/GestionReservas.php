@@ -54,7 +54,7 @@ class GestionReservas extends Controller
                 ->with('error', 'Hubo un problema al realizar la reserva. Inténtalo de nuevo.');
         }
     }
-
+    // función que busca si tiene reservas realizadas el usuario en view "gestion-reservas.blade.php"
     public function buscarReservas(Request $respuesta)
     {
         $id_usuario = session('idusuarios');
@@ -63,13 +63,15 @@ class GestionReservas extends Controller
 
         return view('gestion-reservas', compact('reservas'));
     }
-
+    // Función que permite editar una reserva existente en view "gestion-reservas.blade.php" con botón Editar, y envía
+    // el id al view "editar-reservas.blade.php"
     public function editarReserva($id)
     {
         $reserva = Reserva::findOrFail($id);
         return view('editar-reservas', compact('reserva'));
     }
-
+    // Función para actualizar una reserva existente desde el view "editar-reservas.blade.php" y redirige a
+    // el view "gestion-reservas.blade.php"
     public function actualizarReserva(Request $request, $id)
     {
         $reserva = Reserva::findOrFail($id);
@@ -77,16 +79,17 @@ class GestionReservas extends Controller
         $request->validate([
             'fecha' => 'required|date|after_or_equal:today',
             'hora' => 'required|date_format:H:i',
-            // 'hora_fin' => 'required|date_format:H:i|after:hora',
+            // 'hora_fin' => 'required|date_format:H:i|after:hora', *** Añadirlo más adelante para limitar nuevas reservas sobre ese rango ***
         ]);
 
         $reserva->fecha = $request->fecha;
         $reserva->hora = $request->hora;
-        // $reserva->hora_fin = $request->hora_fin;
+        // $reserva->hora_fin = $request->hora_fin; *** Añadirlo más adelante para limitar nuevas reservas sobre ese rango ***
         $reserva->save();
 
         return redirect()->route('buscar-reservas')->with('correcto', 'Reserva actualizada correctamente.');
     }
+    //Función para eliminar una reserva desde "gestion-reservas.blade.php" con el botón Anular
     public function eliminarReserva($id)
     {
         $reserva = Reserva::find($id);

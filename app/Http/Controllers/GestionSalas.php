@@ -8,7 +8,7 @@ use App\Models\Espacio;
 
 class GestionSalas extends Controller
 {
-    // Crear una sala/espacio nuevos en tabla espacios
+    // Crear una sala/espacio nuevos desde la view "gestion-salas.blade.php" por el botón Añadir Sala
     public function gestionEspacio(Request $respuesta)
     {
         try {
@@ -52,7 +52,7 @@ class GestionSalas extends Controller
             return redirect()->route('gestion-salas')->with('error', 'Error al registrar sala');
         }
     }
-
+    // Función para buscar los resultados de los filtros del view "nuevas-reservas.blade.php"
     public function buscarEspacios(Request $respuesta)
     {
         $query = Espacio::query();
@@ -97,6 +97,8 @@ class GestionSalas extends Controller
 
         return view('nuevas-reservas', compact('espacios'));
     }
+    // Función para enviar por id un espacio selecionado desde el botón Ver de la view "nuevas-reservas.blade.php"
+    // a la view de "busquedas-salas.blade.php"
     public function detalleEspacio($id)
     {
         $espacio = Espacio::findOrFail($id);

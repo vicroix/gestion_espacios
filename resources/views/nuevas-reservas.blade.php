@@ -5,7 +5,6 @@
 @vite('resources/css/nuevas-reservas.css')
 @section("main")
 
-<!--flex-grow empuja el footer hacia abajo-->
 <main class="flex-grow bg-white">
     <div x-data="{ openCiudades: false, openTipo: false, openFiltros: false, openAforo: false }" class="flex flex-col md:flex-row">
         <!-- Sidebar de filtros -->
@@ -18,7 +17,7 @@
             </h2>
 
             <form method="GET" action="{{ route('buscar-sala') }}" class="space-y-6">
-                <!-- CIUDADES -->
+                <!-- Ciudades -->
                 <div>
                     <h3 id="h3" @click="openCiudades = !openCiudades">
                         Ciudades
@@ -35,7 +34,7 @@
                     </div>
                 </div>
 
-                <!-- TIPO DE SALA -->
+                <!-- Tipo de sala -->
                 <div>
                     <h3 id="h3" @click="openTipo = !openTipo">
                         Tipo de sala
@@ -52,7 +51,7 @@
                     </div>
                 </div>
 
-                <!-- CAPACIDAD (AFORO) -->
+                <!-- Capacidad (AFORO) -->
                 <div>
                     <h3 id="h3" @click="openAforo = !openAforo">
                         Aforo
@@ -129,7 +128,7 @@
                     </div>
                 </div>
 
-                <!-- DETALLE APARECE ABAJO, LIGERAMENTE A LA DERECHA -->
+                <!-- Detalle aparece abajo, ligeramente a la derecha -->
                 <div class="contenedor-mas-detalles top-[100px] left-[180px] -translate-x-1/4 mt-2 shadow-lg group-hover:opacity-100 group-focus-within:opacity-100">
                     <p><strong>Direccion:</strong> {{ $espacio->direccion }}</p>
                     <p><strong>Tel:</strong> {{ $espacio->telefono }}</p>

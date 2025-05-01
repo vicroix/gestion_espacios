@@ -11,7 +11,9 @@ class AuthController extends Controller
 {
     public function login(Request $respuesta)
     {
+        // Comprueba que el email escrito en el login coincide con el email de la BBDD
         $usuario = Usuario::with('rol')->where('email', $respuesta->email)->first();
+        // Comprueba que la contraseña escrita en el login coincide con la de la BBDD
         if ($usuario && password_verify($respuesta->password, $usuario->password)) {
             session([
                 'idusuarios' => $usuario->idusuarios,
@@ -28,7 +30,7 @@ class AuthController extends Controller
     public function registro(Request $respuesta)
     {
         try {
-            // Validación de los campos
+            // Validación de los campos del registro de usuarios
             $validar = $respuesta->validate([
                 'nombre' => 'required|string|max:255',
                 'apellidos' => 'required|string|max:255',
@@ -49,10 +51,8 @@ class AuthController extends Controller
             $usuario->password = bcrypt($validar['password']);
             $usuario->save();
 
-            // Redirigir con mensaje de éxito
             return redirect()->route('form-registro')->with('success', 'Usuario registrado con éxito');
         } catch (\Exception $e) {
-            // Manejo de otras excepciones
             return redirect()->route('form-registro')->with('error', 'Error al registrar. Posible usuario o email ya existentes.');
         }
     }

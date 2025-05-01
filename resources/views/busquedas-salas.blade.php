@@ -28,6 +28,7 @@
                 <input type="hidden" name="codigo_postal" value="{{ $espacio->codigopostal }}">
                 <input type="hidden" name="direccion" value="{{ $espacio->direccion }}">
                 <input type="hidden" name="id_espacio" value="{{ $espacio->idespacios }}">
+                <!-- Información de espacio seleccionado de "nuevas-reservas.blade.php" -->
                 <div>
                     <h4 class="text-lg font-semibold text-[#990000]">{{ $espacio->nombre }}</h4>
                     <p>Sala: {{ $espacio->nombre_sala }}</p>
