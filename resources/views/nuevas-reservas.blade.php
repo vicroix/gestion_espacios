@@ -1,8 +1,8 @@
 @extends("layouts.plantilla")
 
 @section('title', 'Proximos eventos')
-<!-- http://localhost/TeatroGest/public/nuevas-reservas -->
 @vite('resources/css/nuevas-reservas.css')
+<!-- http://localhost/TeatroGest/public/nuevas-reservas -->
 @section("main")
 
 <main class="flex-grow bg-white">

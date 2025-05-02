@@ -391,10 +391,6 @@ footer {
         display: flex;
         visibility: hidden;
     }
-    .contenedor-contacto-redes-footer {
-        flex-direction: column-reverse;
-        gap: 1rem;
-    }
     .contenedor-contacto,
     .contenedor-redes,
     .contenedor-svg,
@@ -405,8 +401,9 @@ footer {
         justify-content: center;
     }
     .contenedor-contacto-redes-footer {
-        flex-direction: column-reverse;
-        gap: 1rem;
+        display: flex;
+        flex-direction: row;
+        gap: 1.5rem;
     }
     .contenedor-logo-footer {
         transition: opacity 0.2s ease-in-out;

@@ -1,0 +1,26 @@
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.section-presentacion{
+    display: flex;
+    flex-direction: column;
+    border-left-width: 10px;
+    border-top-width: 1px;
+    border-bottom-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-color: #990000;
+}
+.contenedor-reseñas{
+    border-right-width: 10px;
+    border-bottom-width: 1px;
+    border-bottom-left-radius: 1rem /* 16px */;
+    border-top-right-radius: 1rem /* 16px */;
+    border-color: #990000;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}

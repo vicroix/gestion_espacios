@@ -1,6 +1,6 @@
 <?php $__env->startSection('title', 'Proximos eventos'); ?>
-<!-- http://localhost/TeatroGest/public/nuevas-reservas -->
 <?php echo app('Illuminate\Foundation\Vite')('resources/css/nuevas-reservas.css'); ?>
+<!-- http://localhost/TeatroGest/public/nuevas-reservas -->
 <?php $__env->startSection("main"); ?>
 
 <main class="flex-grow bg-white">
