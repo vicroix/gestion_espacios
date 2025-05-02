@@ -2,14 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-svg {
+.svg-home-navbar {
     width: 25px;
     height: 25px;
     color: #990000;
 }
-svg:hover {
+.svg-home-navbar:hover {
     transform: scale(1.15); /* Escala al 115% */
     transition: transform 0.15s ease-in-out;
+}
+.svg-botones {
+    width: 18px;
+    height: 18px;
+    color: #ffffff;
 }
 @font-face {
     font-family: "Playfair Display";
@@ -145,7 +150,7 @@ h3 {
     box-shadow: 0px 0px 2px 0.5px black;
 }
 /* BOTON VER de NUEVAS RESERVAS */
-.button-ver-buscarSala {
+.button-filtro-a-reserva {
     background-color: #990000;
     color: white;
     padding: 10px;
@@ -156,15 +161,52 @@ h3 {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
-.button-ver-buscarSala:hover {
+.button-filtro-a-reserva:hover {
     background-color: #b30000;
     box-shadow: 0px 0px 1.8px 0.2px black;
 }
-.button-ver-buscarSala:active {
+.button-filtro-a-reserva:active {
     background-color: #9d0101;
     box-shadow: 0px 0px 2px 0.5px black;
 }
-
+.button-reserva-a-filtro {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.button-reserva-a-filtro:hover {
+    background-color: black;
+    box-shadow: 0px 0px 1.8px 0.2px black;
+}
+.button-reserva-a-filtro:active {
+    background-color: black;
+    box-shadow: 0px 0px 2px 0.5px black;
+}
+.button-confirmar-reserva {
+    background-color: #990000;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.button-confirmar-reserva:hover {
+    background-color: #b30000;
+    box-shadow: 0px 0px 1.8px 0.2px black;
+}
+.button-confirmar-reserva:active {
+    background-color: #9d0101;
+    box-shadow: 0px 0px 2px 0.5px black;
+}
 /* FORMULARIO DE REGISTRO EN FORM-REGISTRO */
 .form-registro {
     background: #ffffff;
@@ -217,9 +259,8 @@ h3 {
     width: 89px;
 }
 
-#svg-flecha-a-izquierda{
+#svg-flecha-a-izquierda {
     transform: rotate(180deg) !important;
-
 }
 
 /* FOOTER */
@@ -230,9 +271,13 @@ footer {
     border-top: 1px solid #d1d5dc;
 }
 .svg-redes {
+    color: #990000;
     width: 25px;
 }
-
+.svg-redes:hover {
+    transform: scale(1.15); /* Escala al 115% */
+    transition: transform 0.15s ease-in-out;
+}
 /*Modificar sala*/
 .slider {
     -webkit-appearance: none;

@@ -13,7 +13,7 @@
     <!-- Botón hamburguesa para móviles -->
     <div class="md:hidden z-20">
         <button @click="abrir = !abrir" class="text-[#990000] focus:outline-none">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none"
+            <svg xmlns="http://www.w3.org/2000/svg" class="svg-home-navbar" fill="currentColor"
                 viewBox="0 0 24 24" stroke="currentColor">
                 <path :class="{ 'hidden': abrir, 'block': !abrir }" class="block" stroke-linecap="round"
                     stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -31,7 +31,10 @@
                 <span class="mx-2 font-semibold"><?php echo e(session('nombre_rol')); ?></span>
                 <span class="text-[#990000]"><?php echo e(session('usuario')); ?></span>
             </span>
-            <a href="<?php echo e(url('/')); ?>" class="animation-scale"><?php echo $homeSvg; ?></a>
+            <a href="<?php echo e(url('/')); ?>" class="animation-scale"><svg width="20" class="svg-home-navbar" height="20" viewBox="0 0 42 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.6667 35.4167V22.9167H25V35.4167H35.4167V18.75H41.6667L20.8333 0L0 18.75H6.25V35.4167H16.6667Z" fill="#990000" />
+                </svg>
+            </a>
             <div class="flex gap-3 border-2 border-[#990000] rounded-xl">
                 <!-- Reservas -->
                 <div class="relative group">
@@ -65,7 +68,10 @@
     <div x-show="abrir"
         x-transition
         class="absolute top-full left-0 w-full bg-white shadow-md rounded-b-xl md:hidden flex flex-col items-center gap-4 pb-4 px-8 z-10">
-        <a href="<?php echo e(url('/')); ?>" class="animation-scale"><?php echo $homeSvg; ?></a>
+        <a href="<?php echo e(url('/')); ?>" class="animation-scale"><svg width="20" height="20" class="svg-home-navbar" viewBox="0 0 42 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16.6667 35.4167V22.9167H25V35.4167H35.4167V18.75H41.6667L20.8333 0L0 18.75H6.25V35.4167H16.6667Z" fill="#990000" />
+            </svg>
+        </a>
         <span class="navbar-text text-center">
             <span class="block">Bienvenido <span class="font-semibold"><?php echo e(session('nombre_rol')); ?></span></span>
             <span class="block text-[#990000]"><?php echo e(session('usuario')); ?></span>

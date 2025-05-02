@@ -13,7 +13,7 @@
     <!-- Botón hamburguesa para móviles -->
     <div class="md:hidden z-20">
         <button @click="open = !open" class="text-[#990000] focus:outline-none">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" class="svg-home-navbar" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor">
                 <path :class="{'hidden': open, 'block': !open}" class="block" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 <path :class="{'block': open, 'hidden': !open}" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
@@ -29,10 +29,12 @@
                 <span class="mx-2 font-semibold">{{ session('nombre_rol') }}</span>
                 <span class="text-[#990000]">{{ session('usuario') }}</span>
             </span>
-            <a href="{{ url('/') }}" class="animation-scale">{!! $homeSvg !!}</a>
+            <a href="{{ url('/') }}" class="animation-scale svg-home-navbar"><svg width="20" height="20" viewBox="0 0 42 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.6667 35.4167V22.9167H25V35.4167H35.4167V18.75H41.6667L20.8333 0L0 18.75H6.25V35.4167H16.6667Z" fill="#990000" />
+                </svg>
+            </a>
 
             <div class="flex gap-3 border-2 border-[#990000] rounded-xl relative">
-                <!-- Dropdown -->
                 <div class="relative group" @mouseenter="showDropdown = true" @mouseleave="showDropdown = false">
                     <button class="px-4 py-2 hover:bg-[#990000] border border-white group-hover:bg-[#990000] group-hover:text-white rounded-xl transition-all duration-300 ease-out">
                         Reservas
@@ -59,7 +61,10 @@
 
     <!-- Menú desplegable para móvil -->
     <div x-show="open" x-transition class="absolute top-full left-0 w-full bg-white shadow-md rounded-b-xl md:hidden flex flex-col items-center gap-4 py-4 px-8 z-10">
-        <a href="{{ url('/') }}" class="animation-scale">{!! $homeSvg !!}</a>
+        <a href="{{ url('/') }}" class="animation-scale"><svg width="20" height="20" class="svg-home-navbar" viewBox="0 0 42 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16.6667 35.4167V22.9167H25V35.4167H35.4167V18.75H41.6667L20.8333 0L0 18.75H6.25V35.4167H16.6667Z" fill="#990000" />
+            </svg>
+        </a>
         <span class="navbar-text text-center">
             <span class="block">Bienvenido <span class="font-semibold">{{ session('nombre_rol') }}</span></span>
             <span class="block text-[#990000]">{{ session('usuario') }}</span>
