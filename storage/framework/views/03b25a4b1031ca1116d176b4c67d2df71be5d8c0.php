@@ -19,7 +19,7 @@
                 <div>
                     <h3 id="h3" @click="openCiudades = !openCiudades">
                         Ciudades
-                        <span x-show="!openCiudades">+</span>
+                        <span x-show="!openCiudades" class="text-[#990000]">+</span>
                         <span x-show="openCiudades">-</span>
                     </h3>
                     <div x-show="openCiudades" x-transition>
@@ -37,7 +37,7 @@
                 <div>
                     <h3 id="h3" @click="openTipo = !openTipo">
                         Tipo de sala
-                        <span x-show="!openTipo">+</span>
+                        <span x-show="!openTipo" class="text-[#990000]">+</span>
                         <span x-show="openTipo">-</span>
                     </h3>
                     <div x-show="openTipo" x-transition>
@@ -55,7 +55,7 @@
                 <div>
                     <h3 id="h3" @click="openAforo = !openAforo">
                         Aforo
-                        <span x-show="!openAforo">+</span>
+                        <span x-show="!openAforo" class="text-[#990000]">+</span>
                         <span x-show="openAforo">-</span>
                     </h3>
                     <?php $__currentLoopData = ['10' => 'Hasta 10 personas', '20' => 'Hasta 20 personas', '30' => 'Hasta 30 personas']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $valor => $label): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -71,8 +71,8 @@
                 <div class="mt-4">
                     <h3 id="h3" @click="openFiltros = !openFiltros">
                         Filtros
-                        <span x-show="!openFiltros">+</span>
-                        <span x-show="openFiltros">-</span>
+                        <span x-show="!openFiltros" class="text-[#990000]">+</span>
+                        <span x-show="openFiltros" class="text-[#990000]">-</span>
                     </h3>
                     <div x-show="openFiltros" x-transition>
                         <!-- Equipamiento -->
@@ -119,11 +119,19 @@
             <div class="relative h-[150px] md:h-[180px] group cursor-pointer" tabindex="0">
                 <div class="bg-white rounded-xl shadow p-3 border-t-4 border-[#990000] lg:h-[180px] lg:w-[280px]">
                     <div class="lg:h-[100px]">
-                        <h4 class="text-lg font-semibold text-[#990000]"><?php echo e($espacio->nombre); ?></h4>
+                        <h4 class="text-lg font-semibold text-[#990000] flex items-center justify-between"><?php echo e($espacio->nombre); ?>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="text-gray-800 group-hover:hidden" viewBox="0 0 24 24">
+                                <path fill="currentColor" d="m16.577 20l-5.767-5.766a5.035 5.035 0 0 1-6.336-7.76a5.035 5.035 0 0 1 7.761 6.335L18 18.576L16.577 20ZM8.034 7.014a3.02 3.02 0 1 0-.004 6.04a3.02 3.02 0 0 0 .004-6.04ZM19 11h-2V9h-2V7h2V5h2v2h2v2h-2v2Z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="text-gray-500 hidden group-hover:block" viewBox="0 0 24 24">
+                                <path fill="currentColor" d="m16.577 20l-5.767-5.766a5.035 5.035 0 0 1-6.336-7.76a5.035 5.035 0 0 1 7.761 6.335L18 18.576L16.577 20ZM8.034 7.014a3.02 3.02 0 1 0-.004 6.04a3.02 3.02 0 0 0 .004-6.04ZM21 9h-6V7h6v2Z" />
+                            </svg>
+                        </h4>
                         <p class="text-sm text-gray-700">Localidad: <?php echo e($espacio->localidad); ?></p>
                         <p class="text-sm text-gray-700 truncate">Dirección: <?php echo e($espacio->direccion); ?></p>
                     </div>
-                    <div class="mt-3">
+                    <div class="mt-3 flex items-center justify-between">
                         <!-- Botón con Mapa y Flecha -->
                         <a href="<?php echo e(route('detalle-espacio',['id'=> $espacio->idespacios] )); ?>" class="inline-flex items-center button-filtro-a-reserva">
                             <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 100 100" class="svg-botones">
