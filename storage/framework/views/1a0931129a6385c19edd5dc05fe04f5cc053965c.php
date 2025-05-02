@@ -11,21 +11,20 @@
             </div>
         </div>
         <!--Formulario-->
-        <form action="<?php echo e(route('login')); ?>" method="POST" class="bg-white w-80 gap-3a mx-auto mt-8 rounded-lg p-6 flex flex-col items-center">
+        <form action="<?php echo e(route('login')); ?>" method="POST" class="bg-white w-80 gap-3 mx-auto mt-8 rounded-lg p-6 flex flex-col items-center">
             <?php echo csrf_field(); ?>
             <!--Correo electrónico-->
-            <input class="border border-gray-300 w-full px-3 py-1 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]
-     invalid:focus:ring-red-400 peer" type="email" name="email" placeholder="Correo">
+            <input class="inputs-text" type="email" name="email" placeholder="Correo">
             <!--Mensaje de error en formato de correo electrónico-->
             <p class="text-red-500 hidden peer-invalid:block">El formato de correo es incorrecto</p>
             <!--Contraseña-->
-            <input class="border border-gray-300 w-full px-3 py-1 mt-3 mb-3 rounded-md focus:outline-none focus:ring-1 focus:ring-[#990000]" type="password" name="password"
+            <input class="inputs-text" type="password" name="password"
                 placeholder="Contraseña">
             <?php if(session('error')): ?>
             <p class="text-red-500"><?php echo e(session('error')); ?></p>
             <?php endif; ?>
             <!--Botón iniciar sesión-->
-            <input class="button-primary-auto mt-7"
+            <input class="button-primary-auto mt-6"
                 type="submit">
         </form>
     </section>

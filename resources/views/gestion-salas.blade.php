@@ -64,7 +64,7 @@
                     <!--tel-->
 
 
-                    <div class="flex gap-1">
+                    <div class="flex justify-between">
                         <div class="flex items-center">
                             <!-- SELECT TIPO (Obra / Ensayo) -->
                             <select class="inputs-text border border-gray-300 text-gray-500 focus:outline-none
@@ -98,7 +98,7 @@
                 <p class="text-red-500">{{ session('error') }}</p>
                 @endif
                 <!--botones-->
-                <div class="mt-4 mb-5 flex justify-center gap-4">
+                <div class="mt-6 mb-5 flex justify-center gap-4">
                     <button type="submit" class="button-primary-auto lg:w-[108.85px] cursor-pointer">Añadir sala</button>
                     <!-- <button type="submit" class="bg-black w-[60px] lg:w-[150px] py-1.5
                  text-white rounded-md cursor-pointer hover:bg-[#5d5d5d]">Modificar salas</button> -->

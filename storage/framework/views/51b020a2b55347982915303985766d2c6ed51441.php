@@ -1,13 +1,13 @@
-
-
 <?php echo app('Illuminate\Foundation\Vite')('resources/css/app.css'); ?>
 <?php $__env->startSection('title', 'Proximos eventos'); ?>
 <!-- http://localhost/TeatroGest/public/faq -->
 
 <?php $__env->startSection("main"); ?>
 <main class="flex flex-col mt-[50px] ml-4 mr-4 lg:w-full">
-    <div class="lg:flex-justify-center lg:self-center border-b-[1px] lg:border-b-1 lg:mx-24 lg:w-[1280px]">
-        <h2>Preguntas Frecuentes</h2>
+    <div class="flex justify-center">
+        <div class="titulo-main w-full flex justify-center md:mx-[70px]">
+            <h3 class="md:text-4xl text-2xl">Preguntas frecuentes</h3>
+        </div>
     </div>
     <!--preguntas-->
     <div class="lg:flex-justify-center lg:self-center lg:w-[1280px] mt-5">

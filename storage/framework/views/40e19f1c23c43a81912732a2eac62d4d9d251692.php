@@ -35,7 +35,7 @@
                 <label class="flex gap-1 text-[#990000]">Fecha:<p class="text-black"><?php echo e($reserva->fecha); ?></p></label>
                 <p hidden><?php echo e($reserva->idespacios); ?></p>
                 <!-- Contenedor Botónes Editar y Anular -->
-                <div class="w-full flex gap-3 mt-7 justify-center">
+                <div class="w-full flex gap-3 mt-6 justify-center">
                     <form action="<?php echo e(route('editar-reserva', ['id' => $reserva->idreservas])); ?>" method="GET" class="m-0">
                         <button type="submit" class="button-primary-auto">Editar</button>
                     </form>
