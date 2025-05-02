@@ -4,8 +4,8 @@
                         Reservas
                     </button>
                     <div class="absolute hidden bg-white border border-[#990000] left-0 w-[154.67px] rounded-3xl group-hover:flex flex-col">
-                        <a href="{{ url('buscar-sala') }}" class="hover:bg-[#990000] border border-white hover:text-white rounded-t-3xl p-1 transition-all duration-300 ease-out">Nuevas Reservas</a>
-                        <a href="{{ url('buscar-reservas') }}" class="hover:bg-[#990000] border border-white hover:text-white rounded-b-3xl p-1 transition-all duration-300 ease-out">Gestión reservas</a>
+                        <a href="{{ url('buscar-sala') }}" class="hover:bg-[#990000] border border-white hover:text-white rounded-t-3xl p-1 pl-3 transition-all duration-300 ease-out">Nuevas Reservas</a>
+                        <a href="{{ url('buscar-reservas') }}" class="hover:bg-[#990000] border border-white hover:text-white rounded-b-3xl p-1 pl-3 transition-all duration-300 ease-out">Gestión reservas</a>
                     </div>
                 </div>
 
