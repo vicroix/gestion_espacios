@@ -372,10 +372,6 @@ footer {
     .home-texto-bienvenida {
         line-height: 1.6rem;
     }
-    .home-img-bienvenida {
-        width: 300px;
-        float: right;
-    }
     /* Proximos eventos */
     #calendario {
         display: flex;

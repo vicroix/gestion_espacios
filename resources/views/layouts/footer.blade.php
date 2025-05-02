@@ -1,4 +1,4 @@
-<footer class="w-full mx-auto relative">
+<footer class="w-full mx-auto relative mt-5">
     <div class="contenedor-contacto-redes-footer flex justify-between items-center h-full">
         <!-- Contenedor izquierdo footer -->
         <div class="contenedor-redes space-y-3">
