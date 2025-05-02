@@ -1,7 +1,7 @@
 <!-- Imagen decorativa del nav -->
-<!-- <div class="absolute inset-0 flex justify-center pointer-events-none z-0 h-[100px] contenedor-decoration-navbar">
+<div class="absolute inset-0 flex justify-center pointer-events-none z-0 h-[100px] contenedor-decoration-navbar">
     <img src="{{ asset('img/deco-nav.png') }}" alt="img nav" class="h-[35px] hidden md:block w-auto">
-</div> -->
+</div>
 
 <!-- Navbar principal -->
 <div x-data="{ abrir: false }" class="relative z-10 px-4 md:mt-10 flex items-center justify-between">
