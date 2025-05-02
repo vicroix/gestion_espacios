@@ -2,11 +2,9 @@ aside {
     height: 100%;
     width: 100%;
     margin-top: 16px;
-    margin-bottom: 1.25rem;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
     border-radius: 0.75rem;
-    padding: 0.4rem;
     background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
 }
 #h2 {

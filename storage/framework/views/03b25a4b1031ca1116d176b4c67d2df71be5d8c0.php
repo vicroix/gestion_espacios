@@ -14,7 +14,7 @@
                 Filtros
             </h2>
 
-            <form method="GET" action="<?php echo e(route('buscar-sala')); ?>" class="space-y-2">
+            <form method="GET" action="<?php echo e(route('buscar-sala')); ?>" class="space-y-0 mb-2">
                 <!-- Ciudades -->
                 <div>
                     <h3 id="h3" @click="openCiudades = !openCiudades">
@@ -102,11 +102,12 @@
                 </div>
                 <div class="w-full text-center">
                     <!-- Botón de búsqueda -->
-                    <button type="submit" class="button-primary-auto">
-                        <svg width="50" height="18" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M35 35L27.75 27.75M31.6667 18.3333C31.6667 25.6971 25.6971 31.6667 18.3333 31.6667C10.9695 31.6667 5 25.6971 5 18.3333C5 10.9695 10.9695 5 18.3333 5C25.6971 5 31.6667 10.9695 31.6667 18.3333Z" stroke="white" stroke-width="2.56" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-
+                    <button type="submit" class="button-primary-auto mt-2 w-[61.97]">
+                        <div class="flex justify-center">
+                            <svg width="50" height="18" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M35 35L27.75 27.75M31.6667 18.3333C31.6667 25.6971 25.6971 31.6667 18.3333 31.6667C10.9695 31.6667 5 25.6971 5 18.3333C5 10.9695 10.9695 5 18.3333 5C25.6971 5 31.6667 10.9695 31.6667 18.3333Z" stroke="white" stroke-width="2.56" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
                     </button>
                 </div>
             </form>
