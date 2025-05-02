@@ -13,7 +13,7 @@
     <!-- Botón hamburguesa para móviles -->
     <div class="md:hidden z-20">
         <button @click="open = !open" class="text-[#990000] focus:outline-none">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none"
+            <svg xmlns="http://www.w3.org/2000/svg" class="svg-home-navbar" fill="currentColor"
                 viewBox="0 0 24 24" stroke="currentColor">
                 <path :class="{'hidden': open, 'block': !open}" class="block" stroke-linecap="round"
                     stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -25,18 +25,12 @@
 
     <!-- Menú Escritorio -->
     <div class="hidden md:flex gap-4 items-center">
-        <a href="<?php echo e(url('/')); ?>" class="animation-scale"><?php echo $homeSvg; ?></a>
-        <!-- Proximos eventos y FAQ -->
-        <div class="flex gap-1 border-2 border-[#990000] rounded-xl">
-            <a href="<?php echo e(url('proximos-eventos')); ?>"
-                class="hover:bg-[#990000] border border-white hover:text-white rounded-xl p-2 transition-all duration-300 ease-out">
-                Próximos eventos
-            </a>
-            <a href="<?php echo e(url('faq')); ?>"
-                class="hover:bg-[#990000] border border-white hover:text-white rounded-xl p-2 transition-all duration-300 ease-out">
-                FAQ
-            </a>
-        </div>
+        <a href="<?php echo e(url('/')); ?>" class="animation-scale"><svg width="20" height="20" class="svg-home-navbar" viewBox="0 0 42 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16.6667 35.4167V22.9167H25V35.4167H35.4167V18.75H41.6667L20.8333 0L0 18.75H6.25V35.4167H16.6667Z" fill="#990000" />
+            </svg>
+        </a>
+        <!-- Menú próximos eventos y FAQ -->
+        <?php echo $__env->make('layouts.navbars.navbars-menu.navbars-menu-visiante.navbar-menu-escritorio-visitante', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <!-- Registro e inicio sesión -->
         <div class="flex gap-3">
             <a href="<?php echo e(url('form-registro')); ?>"
@@ -47,14 +41,6 @@
     </div>
 
     <!-- Menú desplegable para móviles -->
-    <div x-show="open"
-        x-transition
-        class="absolute top-full left-0 w-full bg-white shadow-md rounded-b-xl md:hidden flex flex-col items-center gap-4 pb-3 px-8 z-10">
-        <a href="<?php echo e(url('/')); ?>" class="animation-scale"><?php echo $homeSvg; ?></a>
-        <a href="<?php echo e(url('proximos-eventos')); ?>" class="text-[#990000] font-semibold">Próximos eventos</a>
-        <a href="<?php echo e(url('faq')); ?>" class="text-[#990000] font-semibold">FAQ</a>
-        <a href="<?php echo e(url('form-registro')); ?>" class="bg-black text-white px-3 py-2 rounded-lg w-full text-center">Registro</a>
-        <a href="<?php echo e(url('inicio-sesion')); ?>" class="bg-[#990000] text-white px-3 py-2 rounded-lg w-full text-center">Iniciar sesión</a>
-    </div>
+     <?php echo $__env->make('layouts.navbars.navbars-menu.navbars-menu-visiante.navbar-menu-movil-visitante', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </div>
 <?php /**PATH C:\Users\Victor\Documents\GitHub\TeatroGest\resources\views/layouts/navbars/navbar-visitante.blade.php ENDPATH**/ ?>
