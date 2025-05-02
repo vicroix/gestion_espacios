@@ -133,9 +133,9 @@ h3 {
 .button-secundary-auto {
     background-color: #000000;
     color: white;
-    padding: 8px;
+    padding: 10px;
     border: none;
-    border-radius: 0.5rem;
+    border-radius: 2rem;
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;

@@ -16,16 +16,18 @@
         @if(isset($reservas) && !$reservas->isEmpty())
         <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 justify-center gap-4 list-none sm:overflow-y-auto sm:scroll-smooth">
             @foreach($reservas as $reserva)
-            <li x-data="{openDetalles: false}" class="p-4 flex-shrink-0 min-w-[236.12px] max-w-[236.12px] border-t-4 shadow rounded-xl border-[#990000]">
-                <h4 @click="openDetalles = !openDetalles" class="text-lg flex items-center font-semibold text-[#990000] cursor-pointer">{{ $reserva->nombre }}
-                    <span x-show="!openDetalles" class="rotate-90 -translate-y-[5px]"> <svg class="ml-2 w-4 h-4 text-[#990000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <li x-data="{openDetalles_{{ $reserva->idreservas }}: false}" class="p-2 m-1 flex-shrink-0 min-w-[236.12px] max-w-[236.12px] border-t-4 rounded-xl border-[#990000]">
+                <h4 @click="openDetalles_{{ $reserva->idreservas }} = !openDetalles_{{ $reserva->idreservas }}" class="text-lg flex items-center font-semibold text-[#990000] cursor-pointer">{{ $reserva->nombre }}
+                    <!-- Flecha abajo -->
+                    <span x-show="!openDetalles_{{ $reserva->idreservas }}" class="rotate-90 -translate-y-[5px]"> <svg class="ml-2 w-4 h-4 text-[#990000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                         </svg></span>
-                    <span x-show="openDetalles" class="-rotate-90 translate-y-[5px]"> <svg class="ml-2 w-4 h-4 text-[#990000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <!-- Flecha arriba -->
+                    <span x-show="openDetalles_{{ $reserva->idreservas }}" class="-rotate-90 translate-y-[5px]"> <svg class="ml-2 w-4 h-4 text-[#990000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                         </svg></span>
                 </h4>
-                <div x-show="openDetalles">
+                <div x-show="openDetalles_{{ $reserva->idreservas }}">
                     <p>Localidad: {{ $reserva->localidad }}</p>
                     <p>Dirección: {{ $reserva->direccion }}</p>
                     <p>Código Postal: {{ $reserva->codigopostal }}</p>
@@ -33,7 +35,8 @@
                 <label class="flex gap-1 text-[#990000]">Hora:<p class="text-black">{{ $reserva->hora }}</p></label>
                 <label class="flex gap-1 text-[#990000]">Fecha:<p class="text-black">{{ $reserva->fecha }}</p></label>
                 <p hidden>{{ $reserva->idespacios }}</p>
-                <div class="w-full flex gap-3 mt-3 justify-center">
+                <!-- Contenedor Botónes Editar y Anular -->
+                <div class="w-full flex gap-3 mt-7 justify-center">
                     <form action="{{ route('editar-reserva', ['id' => $reserva->idreservas]) }}" method="GET" class="m-0">
                         <button type="submit" class="button-primary-auto">Editar</button>
                     </form>
