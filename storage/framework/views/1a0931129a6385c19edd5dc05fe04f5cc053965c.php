@@ -25,7 +25,7 @@
             <p class="text-red-500"><?php echo e(session('error')); ?></p>
             <?php endif; ?>
             <!--Botón iniciar sesión-->
-            <input class="bg-[#990000] w-20 py-1 mt-3 text-white rounded-md cursor-pointer hover:bg-[#a84848]"
+            <input class="button-primary-auto mt-7"
                 type="submit">
         </form>
     </section>

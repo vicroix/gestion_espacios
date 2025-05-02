@@ -25,22 +25,32 @@
 
     <!-- Menú Escritorio -->
     <div class="hidden md:flex gap-4 items-center">
-        <a href="<?php echo e(url('/')); ?>" class="animation-scale"><svg width="20" height="20" class="svg-home-navbar" viewBox="0 0 42 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <a href="<?php echo e(url('/')); ?>" class="animation-scale svg-home-navbar">
+            <svg width="25" height="25" viewBox="0 0 42 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M16.6667 35.4167V22.9167H25V35.4167H35.4167V18.75H41.6667L20.8333 0L0 18.75H6.25V35.4167H16.6667Z" fill="#990000" />
             </svg>
         </a>
         <!-- Menú próximos eventos y FAQ -->
         <?php echo $__env->make('layouts.navbars.navbars-menu.navbars-menu-visiante.navbar-menu-escritorio-visitante', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-        <!-- Registro e inicio sesión -->
-        <div class="flex gap-3">
+
+        <div class="flex items-center gap-3">
+            <!-- Botón registro -->
             <a href="<?php echo e(url('form-registro')); ?>"
-                class="bg-black hover:bg-[#5d5d5d] text-white px-2 py-2 rounded-lg">Registro</a>
+                class="button-secundary-auto">Registro
+            </a>
+            <!-- Botón inicio sesión -->
             <a href="<?php echo e(url('inicio-sesion')); ?>"
-                class="bg-[#990000] hover:bg-[#a84848] text-white px-2 py-2 rounded-lg">Iniciar sesión</a>
+                class="button-primary-login flex items-center">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M23 12c0 3.345-1.493 6.342-3.85 8.36A10.96 10.96 0 0 1 12 23c-2.73 0-5.227-.994-7.15-2.64A10.98 10.98 0 0 1 1 12C1 5.925 5.925 1 12 1s11 4.925 11 11m-7-3.5a4 4 0 1 0-8 0a4 4 0 0 0 8 0m2.5 9.725V18a4 4 0 0 0-4-4h-5a4 4 0 0 0-4 4v.225q.31.323.65.615A8.96 8.96 0 0 0 12 21a8.96 8.96 0 0 0 6.5-2.775" />
+                    </svg>
+                </div>
+            </a>
         </div>
     </div>
 
     <!-- Menú desplegable para móviles -->
-     <?php echo $__env->make('layouts.navbars.navbars-menu.navbars-menu-visiante.navbar-menu-movil-visitante', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('layouts.navbars.navbars-menu.navbars-menu-visiante.navbar-menu-movil-visitante', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </div>
 <?php /**PATH C:\Users\Victor\Documents\GitHub\TeatroGest\resources\views/layouts/navbars/navbar-visitante.blade.php ENDPATH**/ ?>

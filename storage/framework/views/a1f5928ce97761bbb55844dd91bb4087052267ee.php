@@ -28,14 +28,18 @@
                 <span class="mx-2 font-semibold"><?php echo e(session('nombre_rol')); ?></span>
                 <span class="text-[#990000]"><?php echo e(session('usuario')); ?></span>
             </span>
-            <a href="<?php echo e(url('/')); ?>" class="animation-scale svg-home-navbar"><svg width="20" height="20" viewBox="0 0 42 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M16.6667 35.4167V22.9167H25V35.4167H35.4167V18.75H41.6667L20.8333 0L0 18.75H6.25V35.4167H16.6667Z" fill="#990000" />
-                </svg>
-            </a>
+            <a href="<?php echo e(url('/')); ?>" class="animation-scale svg-home-navbar">
+            <svg width="25" height="25" viewBox="0 0 42 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16.6667 35.4167V22.9167H25V35.4167H35.4167V18.75H41.6667L20.8333 0L0 18.75H6.25V35.4167H16.6667Z" fill="#990000" />
+            </svg>
+        </a>
             <!-- Reservas, Próximos eventos y Faq -->
             <?php echo $__env->make('layouts.navbars.navbars-menu.navbars-menu-profe.navbar-menu-escritorio-profe', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-            <a href="<?php echo e(route('salir')); ?>" class="button-primary-auto cursor-pointer">
-                Cerrar sesión
+            <!-- Botón cerrar sesión -->
+            <a href="<?php echo e(route('salir')); ?>" class="button-logout cursor-pointer md:text-base">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" class="pr-[2px]" viewBox="0 0 24 24">
+                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m12 15l3-3m0 0l-3-3m3 3H4m5-4.751V7.2c0-1.12 0-1.68.218-2.108c.192-.377.497-.682.874-.874C10.52 4 11.08 4 12.2 4h4.6c1.12 0 1.68 0 2.107.218c.377.192.683.497.875.874c.218.427.218.987.218 2.105v9.607c0 1.118 0 1.677-.218 2.104a2 2 0 0 1-.875.874c-.427.218-.986.218-2.104.218h-4.606c-1.118 0-1.678 0-2.105-.218a2 2 0 0 1-.874-.874C9 18.48 9 17.92 9 16.8v-.05" />
+                </svg>
             </a>
         </div>
     </div>

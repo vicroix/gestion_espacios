@@ -3,8 +3,10 @@
 @tailwind utilities;
 
 .svg-home-navbar {
-    width: 25px;
-    height: 25px;
+    display: flex;
+    align-items: center;
+    width: 30px;
+    height: 30px;
     color: #990000;
 }
 .svg-home-navbar:hover {
@@ -113,7 +115,10 @@ h3 {
 .button-primary-auto {
     background-color: #990000;
     color: white;
-    padding: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 9px;
+    padding-right: 9px;
     border: none;
     border-radius: 2rem;
     font-size: 0.9rem;
@@ -133,7 +138,10 @@ h3 {
 .button-secundary-auto {
     background-color: #000000;
     color: white;
-    padding: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 9px;
+    padding-right: 9px;
     border: none;
     border-radius: 2rem;
     font-size: 0.9rem;
@@ -148,6 +156,45 @@ h3 {
 .button-secundary-auto:active {
     background-color: #1a1a1a;
     box-shadow: 0px 0px 2px 0.5px black;
+}
+
+.button-primary-login {
+    color: #990000;
+    border: none;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.button-primary-login:hover {
+    transform: scale(1.05); /* Escala al 115% */
+    transition: transform 0.15s ease-in-out;
+}
+.button-primary-login:active {
+    color: #9d0101;
+    -webkit-text-stroke-color: 0px 0px 1.8px 0.2px black;
+}
+.button-logout {
+    background-color: #000000;
+    color: white;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 9px;
+    padding-right: 9px;
+    border: none;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.button-logout:hover {
+    transform: scale(1.05); /* Escala al 115% */
+    transition: transform 0.15s ease-in-out;
+}
+.button-logout:active {
+    -webkit-text-stroke-color: 0px 0px 1.8px 0.2px black;
 }
 /* BOTON VER de NUEVAS RESERVAS */
 .button-filtro-a-reserva {

@@ -2,7 +2,7 @@
 <?php
 $homeSvg = file_get_contents(resource_path('svg/home.svg'))
 ?>
-<nav class="sticky bg-white w-full shadow-md md:h-[100px]">
+<nav class="sticky bg-white w-full shadow-sm shadow-[#990000] rounded-b-3xl md:h-[100px]">
      <!-- Navbar vista rol visitante -->
     <?php if(!session('idusuarios')): ?>
     <?php echo $__env->make('layouts.navbars.navbar-visitante', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
