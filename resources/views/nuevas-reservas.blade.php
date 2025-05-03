@@ -89,29 +89,29 @@
                                 <path fill="currentColor" d="M2 15.99c0-1.69 1.38-3.06 3.06-3.06h21.85c1.69 0 3.06 1.38 3.06 3.06c0 1.69-1.38 3.06-3.06 3.06H5.06C3.38 19.05 2 17.67 2 15.99" />
                             </svg></span>
                     </h3>
-                    <div x-show="openFiltros" x-transition class="pl">
+                    <div x-show="openFiltros" x-transition class="pl flex flex-col gap-1">
                         <!-- Equipamiento -->
                         <div>
-                            <h3 id="h3">Equipamiento</h3>
-                            <input type="text" name="equipamiento" value="{{ request()->input('equipamiento') }}" class="w-full border rounded p-1 mr-2">
+                            <!-- <h3 id="h3">Equipamiento</h3> -->
+                            <input type="text" name="equipamiento" value="{{ request()->input('equipamiento') }}" class="w-full border rounded p-1 mr-2" placeholder="Equipamiento">
                         </div>
 
                         <!-- Nombre del teatro -->
                         <div>
-                            <h3 id="h3">Nombre del teatro</h3>
-                            <input type="text" name="nombre" value="{{ request()->input('nombre') }}" class="w-full border rounded p-1">
+                            <!-- <h3 id="h3">Nombre del teatro</h3> -->
+                            <input type="text" name="nombre" value="{{ request()->input('nombre') }}" class="w-full border rounded p-1" placeholder="Nombre del teatro">
                         </div>
 
                         <!-- Dirección -->
                         <div>
-                            <h3 id="h3">Dirección</h3>
-                            <input type="text" name="direccion" value="{{ request()->input('direccion') }}" class="w-full border rounded p-1">
+                            <!-- <h3 id="h3">Dirección</h3> -->
+                            <input type="text" name="direccion" value="{{ request()->input('direccion') }}" class="w-full border rounded p-1" placeholder="Dirección">
                         </div>
 
                         <!-- Nombre de sala -->
                         <div>
-                            <h3 id="h3">Nombre de sala</h3>
-                            <input type="text" name="nombre_sala" value="{{ request()->input('nombre_sala') }}" class="w-full border rounded p-1">
+                            <!-- <h3 id="h3">Nombre de sala</h3> -->
+                            <input type="text" name="nombre_sala" value="{{ request()->input('nombre_sala') }}" class="w-full border rounded p-1" placeholder="Nombre de sala">
                         </div>
                     </div>
                 </div>
@@ -163,7 +163,8 @@
 
                 <!-- Detalle aparece abajo, ligeramente a la derecha -->
                 <div class="contenedor-mas-detalles top-[100px] left-[140px] -translate-x-1/4 mt-2 shadow-lg group-hover:opacity-100 group-focus-within:opacity-100">
-                    <p><strong>Direccion:</strong> {{ $espacio->nombre }}</p>
+                    <p><strong>Nombre:</strong> {{ $espacio->nombre }}</p>
+                    <p><strong>Sala:</strong> {{ $espacio->nombre_sala }}</p>
                     <p><strong>Direccion:</strong> {{ $espacio->direccion }}</p>
                     <p><strong>Tel:</strong> {{ $espacio->telefono }}</p>
                     <p><strong>Tipo:</strong> {{ $espacio->tipo }}</p>
