@@ -163,6 +163,7 @@
 
                 <!-- Detalle aparece abajo, ligeramente a la derecha -->
                 <div class="contenedor-mas-detalles top-[100px] left-[140px] -translate-x-1/4 mt-2 shadow-lg group-hover:opacity-100 group-focus-within:opacity-100">
+                    <p><strong>Direccion:</strong> <?php echo e($espacio->nombre); ?></p>
                     <p><strong>Direccion:</strong> <?php echo e($espacio->direccion); ?></p>
                     <p><strong>Tel:</strong> <?php echo e($espacio->telefono); ?></p>
                     <p><strong>Tipo:</strong> <?php echo e($espacio->tipo); ?></p>

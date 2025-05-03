@@ -93,7 +93,7 @@ class GestionSalas extends Controller
         }
 
         // Ejecutar query (si hay algún filtro aplicado, o traer todos si no) y en limit() pon el número de datos que quieres traer de máximo
-        $espacios = $query->limit(10)->get();
+        $espacios = $query->limit(12)->get();
 
         return view('nuevas-reservas', compact('espacios'));
     }

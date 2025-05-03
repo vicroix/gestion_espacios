@@ -11,23 +11,43 @@ class GestionReservas extends Controller
 {
     public function realizarReserva(Request $respuesta)
     {
-        // dd($respuesta->all());
+        // Validar lo que llega del formulario
         $validator = Validator::make($respuesta->all(), [
             'nombre_teatro' => 'required|string|max:100',
             'localidad' => 'required|string',
             'codigo_postal' => 'required|string|max:5',
             'direccion' => 'required|string|max:255',
             'fecha' => 'required|date|after_or_equal:today',
-            'hora' => 'required|date_format:H:i',
+            'hora_inicio' => 'required|date_format:H:i',
+            'hora_fin' => 'required|date_format:H:i',
             'id_espacio' => 'required|integer',
         ]);
         if ($validator->fails()) {
             return redirect()->route('detalle-espacio', ['id' => $respuesta->input('id_espacio')])
                 ->withErrors($validator)
                 ->withInput()
-                ->with('error', 'Hubo un problema al realizar la reserva. Inténtalo de nuevo.');
+                ->with('error', 'Hubo un problema al realizar la reserva. Datos incorrectos.');
         }
         $validar = $validator->validated();
+
+        // Comprobar si la hora es la misma que un idreservas
+        $reservaExistente = Reserva::where('id_espacio', $validar['id_espacio']) //Selecciona de la base de datos el idespacios que sea igual al introducido
+        ->where('fecha', $validar['fecha']) //y donde fecha sea igual a la introducida también
+        ->where(function($consulta) use ($validar) { //ahora ejecuta una función que crea una $consulta y usa la variable $validar del exterior de la función anónima
+            $consulta->where(function($subConsulta) use ($validar) {
+                $subConsulta->where('hora', '<', $validar['hora_fin'])
+                  ->where('hora_fin', '>', $validar['hora_inicio']);
+            });
+        })
+        ->exists();
+
+    if ($reservaExistente) {
+        return redirect()->route('detalle-espacio', ['id' => $validar['id_espacio']])
+            ->with('error', 'Hora no disponible.');
+    }
+
+
+        // Insertar datos en la tabla reserva
         try {
             $idUsuario = session('idusuarios');
 
@@ -38,7 +58,8 @@ class GestionReservas extends Controller
             $reserva->codigopostal = $validar['codigo_postal'];
             $reserva->direccion = $validar['direccion'];
             $reserva->fecha = $validar['fecha'];
-            $reserva->hora = $validar['hora'];
+            $reserva->hora = $validar['hora_inicio'];
+            $reserva->hora_fin = $validar['hora_fin'];
             $reserva->id_espacio = $validar['id_espacio'];
             $reserva->id_usuario = $idUsuario;
             $reserva->save();

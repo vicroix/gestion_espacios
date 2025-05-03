@@ -20,7 +20,7 @@
             <div id="contenedor-del-mapa" class="absolute lg:w-[500px] lg:h-[400px]" data-direccion="<?php echo e($espacio->direccion); ?>"></div>
         </div>
         <div class="flex flex-col gap-6">
-            <form action="<?php echo e(route('reservar')); ?>" method="POST" class="flex flex-col gap-8">
+            <form action="<?php echo e(route('reservar')); ?>" method="POST" class="flex flex-col gap-1">
                 <?php echo csrf_field(); ?>
                 <input type="hidden" name="nombre_teatro" value="<?php echo e($espacio->nombre); ?>">
                 <input type="hidden" name="localidad" value="<?php echo e($espacio->localidad); ?>">
@@ -39,13 +39,22 @@
                     <p>Equipamiento: <?php echo e($espacio->equipamiento); ?></p>
                 </div>
                 <!-- Contenedor selección FECHA y HORA -->
-                <div>
+                <div class="flex flex-col gap-1">
                     <h4 class="py-2">Selecciona hora y día:</h4>
-                    <input type="date" name="fecha" id="fecha" min="<?php echo e(date('Y-m-d')); ?>" class="inputs-text">
-                    <input type="time" name="hora" id="hora" class="inputs-text">
+                    <div>
+                        <input type="date" name="fecha" id="fecha" min="<?php echo e(date('Y-m-d')); ?>" class="inputs-text">
+                    </div>
+                    <div class="flex gap-2">
+                        <div>
+                            <p>Hora Inicio: </p><input type="time" name="hora_inicio" id="horaInicio" class="inputs-text">
+                        </div>
+                        <div>
+                            <p>Hora Fin: </p><input type="time" name="hora_fin" id="horaFin" class="inputs-text">
+                        </div>
+                    </div>
                 </div>
                 <!-- Contenedor BOTONES -->
-                <div class="flex gap-4 ml-4 items-center">
+                <div class="flex gap-4 ml-4 mt-2 items-center">
                     <div>
                         <a href="<?php echo e(route('buscar-sala',['id'=> $espacio->idespacios] )); ?>" class="inline-flex items-center button-reserva-a-filtro">
                             <svg class="mr-2 w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -29,7 +29,8 @@
                             </svg>
                          </h4>
                          <p class="text-sm text-gray-700 truncate">Fecha: {{ $reserva->fecha }}</p>
-                         <p class="text-sm text-gray-700">Hora: {{ $reserva->hora }}</p>
+                         <p class="text-sm text-gray-700">Hora inicio: {{ $reserva->hora }}</p>
+                         <p class="text-sm text-gray-700">Hora fin: {{ $reserva->hora_fin }}</p>
                      </div>
                      <div class="mt-3 flex gap-2">
                          <form action="{{ route('editar-reserva', ['id' => $reserva->idreservas]) }}" method="GET">
@@ -46,11 +47,13 @@
                  <!-- Detalle aparece al hover/focus -->
                  <div
                      class="contenedor-mas-detalles absolute top-[50px] left-[205px] -translate-x-1/4 mt-2 bg-white p-3 rounded-xl shadow-lg opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity">
+                     <p><strong>Localidad:</strong> {{ $reserva->nombre }}</p>
                      <p><strong>Localidad:</strong> {{ $reserva->localidad }}</p>
                      <p><strong>Dirección:</strong> {{ $reserva->direccion }}</p>
                      <p><strong>Código Postal:</strong> {{ $reserva->codigopostal }}</p>
-                     <p><strong>Hora:</strong> {{ $reserva->hora }}</p>
                      <p><strong>Fecha:</strong> {{ $reserva->fecha }}</p>
+                     <p><strong>Hora Inicio:</strong> {{ $reserva->hora }}</p>
+                     <p><strong>Hora Fin:</strong> {{ $reserva->hora_fin }}</p>
                  </div>
              </div>
              @endforeach
