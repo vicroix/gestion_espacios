@@ -12,7 +12,7 @@
         </div>
     </div>
     <!-- Reservas -->
-    <div class="flex justify-start w-full">
+    <div class="flex justify-center w-full">
         <section class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 4xl:grid-cols-6 gap-4">
             @if(isset($reservas) && $reservas->isNotEmpty())
             @foreach($reservas as $reserva)
@@ -60,7 +60,11 @@
             </div>
             @endforeach
             @else
-            <p class="col-span-full text-center">No tienes ninguna reserva pendiente, ve a <a href="{{ url('buscar-sala') }}" class="hover:text-[#990000] font-semibold">nuevas reservas</a></p>
+            <div class="col-span-full">
+                <p class="flex gap-[6px]">No tienes ninguna reserva pendiente, ve a <a href="{{ url('buscar-sala') }}" class="hover:text-[#990000] font-semibold flex hover:scale-105">nuevas reservas <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="-translate-y-[8px]" viewBox="0 0 20 20">
+                            <path fill="currentColor" d="m16.89 1.2l1.41 1.41c.39.39.39 1.02 0 1.41L14 8.33V18H3V3h10.67l1.8-1.8c.4-.39 1.03-.4 1.42 0m-5.66 8.48l5.37-5.36l-1.42-1.42l-5.36 5.37l-.71 2.12z" />
+                        </svg></a></p>
+            </div>
             @endif
         </section>
     </div>
