@@ -314,7 +314,7 @@ h3 {
 footer {
     padding-inline: 3rem;
     padding-block: 0.8rem;
-    background-color: white;
+    background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
     border-top: 1px solid #d1d5dc;
 }
 .svg-redes {

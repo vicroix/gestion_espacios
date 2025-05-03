@@ -17,10 +17,14 @@
             <form method="GET" action="<?php echo e(route('buscar-sala')); ?>" class="space-y-0 mb-2 pl-1">
                 <!-- Ciudades -->
                 <div>
-                    <h3 id="h3" @click="openCiudades = !openCiudades">
+                    <h3 id="h3" class="flex gap-1 items-center" @click="openCiudades = !openCiudades">
                         Ciudades
-                        <span x-show="!openCiudades" class="text-[#990000]">+</span>
-                        <span x-show="openCiudades">-</span>
+                        <span x-show="!openCiudades" class="text-[#990000]"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M18 10h-4V6a2 2 0 0 0-4 0l.071 4H6a2 2 0 0 0 0 4l4.071-.071L10 18a2 2 0 0 0 4 0v-4.071L18 14a2 2 0 0 0 0-4" />
+                            </svg></span>
+                        <span x-show="openCiudades"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 32 32">
+                                <path fill="currentColor" d="M2 15.99c0-1.69 1.38-3.06 3.06-3.06h21.85c1.69 0 3.06 1.38 3.06 3.06c0 1.69-1.38 3.06-3.06 3.06H5.06C3.38 19.05 2 17.67 2 15.99" />
+                            </svg></span>
                     </h3>
                     <div x-show="openCiudades" x-transition>
                         <?php $__currentLoopData = ['Madrid', 'Barcelona', 'Sevilla', 'Málaga', 'Granada', 'Huelva', 'Valencia', 'Cádiz', 'Tarragona', 'Cádiz', 'Salamanca', 'León']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ciudad): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -35,10 +39,14 @@
 
                 <!-- Tipo de sala -->
                 <div>
-                    <h3 id="h3" @click="openTipo = !openTipo">
+                    <h3 id="h3" class="flex gap-1 items-center" @click="openTipo = !openTipo">
                         Tipo de sala
-                        <span x-show="!openTipo" class="text-[#990000]">+</span>
-                        <span x-show="openTipo">-</span>
+                        <span x-show="!openTipo" class="text-[#990000]"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M18 10h-4V6a2 2 0 0 0-4 0l.071 4H6a2 2 0 0 0 0 4l4.071-.071L10 18a2 2 0 0 0 4 0v-4.071L18 14a2 2 0 0 0 0-4" />
+                            </svg></span>
+                        <span x-show="openTipo"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 32 32">
+                                <path fill="currentColor" d="M2 15.99c0-1.69 1.38-3.06 3.06-3.06h21.85c1.69 0 3.06 1.38 3.06 3.06c0 1.69-1.38 3.06-3.06 3.06H5.06C3.38 19.05 2 17.67 2 15.99" />
+                            </svg></span>
                     </h3>
                     <div x-show="openTipo" x-transition>
                         <?php $__currentLoopData = ['Obra', 'Ensayo']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tipo): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -53,10 +61,14 @@
 
                 <!-- Capacidad (AFORO) -->
                 <div>
-                    <h3 id="h3" @click="openAforo = !openAforo">
+                    <h3 id="h3" class="flex gap-1 items-center" @click="openAforo = !openAforo">
                         Aforo
-                        <span x-show="!openAforo" class="text-[#990000]">+</span>
-                        <span x-show="openAforo">-</span>
+                        <span x-show="!openAforo" class="text-[#990000]"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M18 10h-4V6a2 2 0 0 0-4 0l.071 4H6a2 2 0 0 0 0 4l4.071-.071L10 18a2 2 0 0 0 4 0v-4.071L18 14a2 2 0 0 0 0-4" />
+                            </svg></span>
+                        <span x-show="openAforo"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 32 32">
+                                <path fill="currentColor" d="M2 15.99c0-1.69 1.38-3.06 3.06-3.06h21.85c1.69 0 3.06 1.38 3.06 3.06c0 1.69-1.38 3.06-3.06 3.06H5.06C3.38 19.05 2 17.67 2 15.99" />
+                            </svg></span>
                     </h3>
                     <?php $__currentLoopData = ['10' => 'Hasta 10 personas', '20' => 'Hasta 20 personas', '30' => 'Hasta 30 personas']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $valor => $label): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <label class="block text-sm text-gray-600" x-show="openAforo">
@@ -69,10 +81,14 @@
 
                 <!-- + Filtros -->
                 <div class="mt-4">
-                    <h3 id="h3" @click="openFiltros = !openFiltros">
+                    <h3 id="h3" class="flex gap-1 items-center" @click="openFiltros = !openFiltros">
                         Filtros
-                        <span x-show="!openFiltros" class="text-[#990000]">+</span>
-                        <span x-show="openFiltros" class="text-[#990000]">-</span>
+                        <span x-show="!openFiltros" class="text-[#990000]"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M18 10h-4V6a2 2 0 0 0-4 0l.071 4H6a2 2 0 0 0 0 4l4.071-.071L10 18a2 2 0 0 0 4 0v-4.071L18 14a2 2 0 0 0 0-4" />
+                            </svg></span>
+                        <span x-show="openFiltros"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 32 32">
+                                <path fill="currentColor" d="M2 15.99c0-1.69 1.38-3.06 3.06-3.06h21.85c1.69 0 3.06 1.38 3.06 3.06c0 1.69-1.38 3.06-3.06 3.06H5.06C3.38 19.05 2 17.67 2 15.99" />
+                            </svg></span>
                     </h3>
                     <div x-show="openFiltros" x-transition>
                         <!-- Equipamiento -->
