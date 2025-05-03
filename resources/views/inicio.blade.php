@@ -29,7 +29,7 @@
             </div>
         </section>
     </div>
-    <div class="contenedor-reseñas mt-[20px] w-[90%] 2xl:mt-10 xl:w-[1200px]">
+    <div class="contenedor-reseñas mt-[20px] w-[90%] 2xl:mt-10 xl:w-[1000px]">
         <div>
             <!--Reseñas BUSCAR API-->
             <div class="flex items-start ml-5">

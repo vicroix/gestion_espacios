@@ -4,9 +4,9 @@
 <?php $__env->startSection("main"); ?>
 
 <main class="flex-grow bg-white">
-    <div x-data="{ openCiudades: false, openTipo: false, openFiltros: false, openAforo: false }" class="flex flex-col gap-4 md:flex-row">
+    <div x-data="{ openCiudades: false, openTipo: false, openFiltros: false, openAforo: false }" class="flex flex-col items-center min-w-[320px] gap-4 lg:items-start lg:flex-row">
         <!-- Sidebar de filtros -->
-        <aside class="md:w-64 pl-2 shadow-md">
+        <aside class="w-64 pl-2 shadow-md">
             <h2 id="h2" @click="openFiltros = !openFiltros">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
                     <path fill="currentColor" d="M9 5a1 1 0 1 0 0 2a1 1 0 0 0 0-2M6.17 5a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-7.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 0 1 0-2zM15 11a1 1 0 1 0 0 2a1 1 0 0 0 0-2m-2.83 0a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-1.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 1 1 0-2zM9 17a1 1 0 1 0 0 2a1 1 0 0 0 0-2m-2.83 0a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-7.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 1 1 0-2z" />
@@ -114,7 +114,7 @@
         </aside>
 
         <!-- Resultados -->
-        <section class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5">
+        <section class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 4xl:grid-cols-6">
             <?php $__currentLoopData = $espacios; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $espacio): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="relative h-[150px] md:h-[180px] group cursor-pointer" tabindex="0">
                 <div class="bg-white rounded-xl shadow p-3 border-t-4 border-[#990000] lg:h-[180px] lg:w-[280px]">
@@ -146,7 +146,7 @@
                 </div>
 
                 <!-- Detalle aparece abajo, ligeramente a la derecha -->
-                <div class="contenedor-mas-detalles top-[100px] left-[180px] -translate-x-1/4 mt-2 shadow-lg group-hover:opacity-100 group-focus-within:opacity-100">
+                <div class="contenedor-mas-detalles top-[100px] left-[140px] -translate-x-1/4 mt-2 shadow-lg group-hover:opacity-100 group-focus-within:opacity-100">
                     <p><strong>Direccion:</strong> <?php echo e($espacio->direccion); ?></p>
                     <p><strong>Tel:</strong> <?php echo e($espacio->telefono); ?></p>
                     <p><strong>Tipo:</strong> <?php echo e($espacio->tipo); ?></p>

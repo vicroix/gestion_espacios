@@ -1,59 +1,64 @@
-<?php echo app('Illuminate\Foundation\Vite')('resources/css/app.css'); ?>
+<?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/css/gestion-reservas.css']); ?>
 <?php $__env->startSection('title', 'Proximos eventos'); ?>
 <!-- http://localhost/TeatroGest/public/gestion-reservas -->
 
 <?php $__env->startSection("main"); ?>
-<main class="flex flex-col w-full items-center sm:mt-[50px] gap-4 lg:gap-12 px-4 lg:px-[150px] h-[59vh]">
+<main class="flex flex-col justify-start w-full items-center sm:mt-[50px] gap-4 lg:gap-12 px-4 lg:px-[150px]">
     <div class="flex justify-center">
         <div class="titulo-main w-full flex justify-center md:mx-[70px]">
             <h3 class="md:text-4xl text-2xl">Gestión de reservas</h3>
         </div>
     </div>
-    <div class="flex justify-center mb-10 overflow-y-auto w-full">
-        <!-- Si  $reservas esta definida y no es null, crea la vista con los datos de la reserva del usuario -->
-        <?php if(isset($reservas) && !$reservas->isEmpty()): ?>
-        <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 justify-center gap-4 list-none sm:overflow-y-auto sm:scroll-smooth">
-            <?php $__currentLoopData = $reservas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $reserva): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <li x-data="{openDetalles_<?php echo e($reserva->idreservas); ?>: false}" class="p-2 m-1 flex-shrink-0 min-w-[236.12px] max-w-[236.12px] border-t-4 rounded-xl border-[#990000]">
-                <h4 @click="openDetalles_<?php echo e($reserva->idreservas); ?> = !openDetalles_<?php echo e($reserva->idreservas); ?>" class="text-lg flex items-center font-semibold text-[#990000] cursor-pointer"><?php echo e($reserva->nombre); ?>
+<!-- Reservas -->
+ <div class="flex justify-start w-full">
+     <section class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 4xl:grid-cols-6 gap-4">
+         <?php if(isset($reservas) && $reservas->isNotEmpty()): ?>
+             <?php $__currentLoopData = $reservas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $reserva): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+             <div class="relative md:h-[180px] group cursor-pointer" tabindex="0">
+                 <div class="bg-white rounded-xl shadow p-3 border-t-4 border-[#990000] lg:h-[180px] lg:w-[280px] flex flex-col justify-between">
+                     <div>
+                         <h4 class="text-lg font-semibold text-[#990000] gap-2 flex items-center justify-between">
+                             <?php echo e($reserva->nombre); ?>
 
-                    <!-- Flecha abajo -->
-                    <span x-show="!openDetalles_<?php echo e($reserva->idreservas); ?>" class="rotate-90 -translate-y-[5px]"> <svg class="ml-2 w-4 h-4 text-[#990000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg></span>
-                    <!-- Flecha arriba -->
-                    <span x-show="openDetalles_<?php echo e($reserva->idreservas); ?>" class="-rotate-90 translate-y-[5px]"> <svg class="ml-2 w-4 h-4 text-[#990000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg></span>
-                </h4>
-                <div x-show="openDetalles_<?php echo e($reserva->idreservas); ?>">
-                    <p>Localidad: <?php echo e($reserva->localidad); ?></p>
-                    <p>Dirección: <?php echo e($reserva->direccion); ?></p>
-                    <p>Código Postal: <?php echo e($reserva->codigopostal); ?></p>
-                </div>
-                <label class="flex gap-1 text-[#990000]">Hora:<p class="text-black"><?php echo e($reserva->hora); ?></p></label>
-                <label class="flex gap-1 text-[#990000]">Fecha:<p class="text-black"><?php echo e($reserva->fecha); ?></p></label>
-                <p hidden><?php echo e($reserva->idespacios); ?></p>
-                <!-- Contenedor Botónes Editar y Anular -->
-                <div class="w-full flex gap-3 mt-6 justify-center">
-                    <form action="<?php echo e(route('editar-reserva', ['id' => $reserva->idreservas])); ?>" method="GET" class="m-0">
-                        <button type="submit" class="button-primary-auto">Editar</button>
-                    </form>
-                    <!--   -->
-                    <form method="POST" action="<?php echo e(route('eliminar-reserva', ['id' => $reserva->idreservas])); ?>" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta reserva?')" class="m-0">
-                        <?php echo csrf_field(); ?>
-                        <?php echo method_field('DELETE'); ?>
-                        <button type="submit" class="button-secundary-auto">Anular</button>
-                    </form>
-                </div>
-            </li>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-        </ul>
-        <?php else: ?>
-        <p class="">No tienes ninguna reserva pendiente, ve a <a href="<?php echo e(url('buscar-sala')); ?>" class="hover:text-[#990000] font-semibold">nuevas reservas</a></p>
-        <?php endif; ?>
-    </div>
+                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="text-gray-800 group-hover:hidden" viewBox="0 0 24 24">
+                                <path fill="currentColor" d="m16.577 20l-5.767-5.766a5.035 5.035 0 0 1-6.336-7.76a5.035 5.035 0 0 1 7.761 6.335L18 18.576L16.577 20ZM8.034 7.014a3.02 3.02 0 1 0-.004 6.04a3.02 3.02 0 0 0 .004-6.04ZM19 11h-2V9h-2V7h2V5h2v2h2v2h-2v2Z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="text-gray-500 hidden group-hover:block" viewBox="0 0 24 24">
+                                <path fill="currentColor" d="m16.577 20l-5.767-5.766a5.035 5.035 0 0 1-6.336-7.76a5.035 5.035 0 0 1 7.761 6.335L18 18.576L16.577 20ZM8.034 7.014a3.02 3.02 0 1 0-.004 6.04a3.02 3.02 0 0 0 .004-6.04ZM21 9h-6V7h6v2Z" />
+                            </svg>
+                         </h4>
+                         <p class="text-sm text-gray-700 truncate">Fecha: <?php echo e($reserva->fecha); ?></p>
+                         <p class="text-sm text-gray-700">Hora: <?php echo e($reserva->hora); ?></p>
+                     </div>
+                     <div class="mt-3 flex gap-2">
+                         <form action="<?php echo e(route('editar-reserva', ['id' => $reserva->idreservas])); ?>" method="GET">
+                             <button type="submit" class="button-primary-auto">Editar</button>
+                         </form>
+                         <form method="POST" action="<?php echo e(route('eliminar-reserva', ['id' => $reserva->idreservas])); ?>" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta reserva?')">
+                             <?php echo csrf_field(); ?>
+                             <?php echo method_field('DELETE'); ?>
+                             <button type="submit" class="button-secundary-auto">Anular</button>
+                         </form>
+                     </div>
+                 </div>
 
+                 <!-- Detalle aparece al hover/focus -->
+                 <div
+                     class="contenedor-mas-detalles absolute top-[50px] left-[205px] -translate-x-1/4 mt-2 bg-white p-3 rounded-xl shadow-lg opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity">
+                     <p><strong>Localidad:</strong> <?php echo e($reserva->localidad); ?></p>
+                     <p><strong>Dirección:</strong> <?php echo e($reserva->direccion); ?></p>
+                     <p><strong>Código Postal:</strong> <?php echo e($reserva->codigopostal); ?></p>
+                     <p><strong>Hora:</strong> <?php echo e($reserva->hora); ?></p>
+                     <p><strong>Fecha:</strong> <?php echo e($reserva->fecha); ?></p>
+                 </div>
+             </div>
+             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+         <?php else: ?>
+             <p class="col-span-full text-center">No tienes ninguna reserva pendiente, ve a <a href="<?php echo e(url('buscar-sala')); ?>" class="hover:text-[#990000] font-semibold">nuevas reservas</a></p>
+         <?php endif; ?>
+     </section>
+ </div>
+    <!-- Mensaje de error o ok si funciona -->
     <div class="text-center mb-10">
         <?php if(session('correcto')): ?>
         <p class="text-green-500"><?php echo e(session('correcto')); ?></p>

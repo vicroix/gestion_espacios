@@ -1,0 +1,16 @@
+.contenedor-mas-detalles{
+    position: absolute;
+    width: 12rem;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0; /* :hover = 1 */
+    transition-property: opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+    border-radius: 0.75rem;
+    padding: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: rgb(31 41 55 / var(--tw-text-opacity, 1)); /* #1f2937 */
+    background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1)); /* #f3f4f6 */
+}
