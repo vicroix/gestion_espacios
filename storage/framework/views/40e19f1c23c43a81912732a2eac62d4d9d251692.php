@@ -30,8 +30,11 @@
                             </svg>
                         </div>
                         <p class="text-sm text-gray-700 truncate">Fecha: <?php echo e($reserva->fecha); ?></p>
-                        <p class="text-sm text-gray-700">Hora inicio: <?php echo e($reserva->hora); ?></p>
-                        <p class="text-sm text-gray-700">Hora fin: <?php echo e($reserva->hora_fin); ?></p>
+                        <p class="text-sm text-gray-700">
+                            Hora:   <?php echo e(\Carbon\Carbon::createFromFormat('H:i:s', $reserva->hora)->format('H:i')); ?> -
+                            <?php echo e(\Carbon\Carbon::createFromFormat('H:i:s', $reserva->hora_fin)->format('H:i')); ?>
+
+                        </p>
                     </div>
                     <div class="mt-3 flex gap-2">
                         <form action="<?php echo e(route('editar-reserva', ['id' => $reserva->idreservas])); ?>" method="GET">
@@ -52,9 +55,6 @@
                     <p><strong>Localidad:</strong> <?php echo e($reserva->localidad); ?></p>
                     <p><strong>Dirección:</strong> <?php echo e($reserva->direccion); ?></p>
                     <p><strong>Código Postal:</strong> <?php echo e($reserva->codigopostal); ?></p>
-                    <p><strong>Fecha:</strong> <?php echo e($reserva->fecha); ?></p>
-                    <p><strong>Hora Inicio:</strong> <?php echo e($reserva->hora); ?></p>
-                    <p><strong>Hora Fin:</strong> <?php echo e($reserva->hora_fin); ?></p>
                 </div>
             </div>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

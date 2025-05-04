@@ -31,8 +31,10 @@
                             </svg>
                         </div>
                         <p class="text-sm text-gray-700 truncate">Fecha: {{ $reserva->fecha }}</p>
-                        <p class="text-sm text-gray-700">Hora inicio: {{ $reserva->hora }}</p>
-                        <p class="text-sm text-gray-700">Hora fin: {{ $reserva->hora_fin }}</p>
+                        <p class="text-sm text-gray-700">
+                            Hora:   {{ \Carbon\Carbon::createFromFormat('H:i:s', $reserva->hora)->format('H:i') }} -
+                            {{ \Carbon\Carbon::createFromFormat('H:i:s', $reserva->hora_fin)->format('H:i') }}
+                        </p>
                     </div>
                     <div class="mt-3 flex gap-2">
                         <form action="{{ route('editar-reserva', ['id' => $reserva->idreservas]) }}" method="GET">
@@ -53,9 +55,6 @@
                     <p><strong>Localidad:</strong> {{ $reserva->localidad }}</p>
                     <p><strong>Dirección:</strong> {{ $reserva->direccion }}</p>
                     <p><strong>Código Postal:</strong> {{ $reserva->codigopostal }}</p>
-                    <p><strong>Fecha:</strong> {{ $reserva->fecha }}</p>
-                    <p><strong>Hora Inicio:</strong> {{ $reserva->hora }}</p>
-                    <p><strong>Hora Fin:</strong> {{ $reserva->hora_fin }}</p>
                 </div>
             </div>
             @endforeach

@@ -27,8 +27,14 @@ window.onload = function () {
             console.log(info.event);
             // Obtener la información del evento
             var title = info.event.title;
-            var hora = "Hora inicio: " + info.event.extendedProps.hora; // Asegurándonos de acceder a las propiedades correctamente
-            var horaFin = "Hora fin: " + info.event.extendedProps.horaFin;
+            var horaInicio = info.event.extendedProps.hora;
+            var horaFin = info.event.extendedProps.horaFin;
+            // console.log(horaInicio);
+
+            var hora = horaInicio + horaFin; //19:00:0020:00:00
+            var horaInicioSeparada = hora.substring(0, 5);
+            var horaFinSeparada = hora.substring(8, 13);
+            var horaFormateadas = horaInicioSeparada + " - " + horaFinSeparada;
             var direccion = "Direccion: " + info.event.extendedProps.direccion;
             var localidad = "Localidad: " + info.event.extendedProps.localidad;
 
@@ -37,14 +43,12 @@ window.onload = function () {
                 document.getElementById("detallesTitulo").innerText = title;
                 document.getElementById("x-cerrar").style.backgroundColor = "#990000";
                 document.getElementById("hora").innerText = "";
-                document.getElementById("horaFin").innerText = "";
                 document.getElementById("direccion").innerText = "";
                 document.getElementById("localidad").innerText = "";
             } else {
                 document.getElementById("detallesTitulo").innerText = title;
                 document.getElementById("x-cerrar").style.backgroundColor = "#e1b12c";
-                document.getElementById("hora").innerText = hora;
-                document.getElementById("horaFin").innerText = horaFin;
+                document.getElementById("hora").innerText = horaFormateadas;
                 document.getElementById("direccion").innerText = direccion;
                 document.getElementById("localidad").innerText = localidad;
             }
