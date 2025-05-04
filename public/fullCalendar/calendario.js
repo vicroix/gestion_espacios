@@ -29,12 +29,9 @@ window.onload = function () {
             var title = info.event.title;
             var horaInicio = info.event.extendedProps.hora;
             var horaFin = info.event.extendedProps.horaFin;
-            // console.log(horaInicio);
 
-            var hora = horaInicio + horaFin; //19:00:0020:00:00
-            var horaInicioSeparada = hora.substring(0, 5);
-            var horaFinSeparada = hora.substring(8, 13);
-            var horaFormateadas = horaInicioSeparada + " - " + horaFinSeparada;
+
+
             var direccion = "Direccion: " + info.event.extendedProps.direccion;
             var localidad = "Localidad: " + info.event.extendedProps.localidad;
 
@@ -46,15 +43,20 @@ window.onload = function () {
                 document.getElementById("direccion").innerText = "";
                 document.getElementById("localidad").innerText = "";
             } else {
+                var horaInicioSeparada = horaInicio.substring(0, 5);
+                var horaFinSeparada = horaFin.substring(0, 5);
+                var horaFormateadas = horaInicioSeparada + " - " + horaFinSeparada;
                 document.getElementById("detallesTitulo").innerText = title;
                 document.getElementById("x-cerrar").style.backgroundColor = "#e1b12c";
                 document.getElementById("hora").innerText = horaFormateadas;
                 document.getElementById("direccion").innerText = direccion;
                 document.getElementById("localidad").innerText = localidad;
             }
+
             // Mostrar contenedor detalles
             document.getElementById("detalles").style.display = "block";
         },
+
     });
 
     calendario.render();

@@ -18,7 +18,6 @@
         <p id="localidad"></p>
         <p id="direccion"></p>
         <p id="hora"></p>
-        <p id="horaFin"></p>
     </div>
 </main>
 <script>
