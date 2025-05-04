@@ -19,7 +19,8 @@ class ReservaController extends Controller
             'reservas.localidad as localidad',
             'reservas.direccion as direccion',
             'reservas.hora as hora',
-            'reservas.hora_fin as horaFin'
+            'reservas.hora_fin as horaFin',
+            'espacios.nombre_sala as sala',
         )
         ->get();
         Log::info('Eventos obtenidos:', $reservas->toArray());

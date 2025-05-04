@@ -30,8 +30,7 @@ window.onload = function () {
             var horaInicio = info.event.extendedProps.hora;
             var horaFin = info.event.extendedProps.horaFin;
 
-
-
+            var sala = info.event.extendedProps.sala;
             var direccion = "Direccion: " + info.event.extendedProps.direccion;
             var localidad = "Localidad: " + info.event.extendedProps.localidad;
 
@@ -39,6 +38,7 @@ window.onload = function () {
             if (title === "Festivo") {
                 document.getElementById("detallesTitulo").innerText = title;
                 document.getElementById("x-cerrar").style.backgroundColor = "#990000";
+                document.getElementById("sala").innerText = "";
                 document.getElementById("hora").innerText = "";
                 document.getElementById("direccion").innerText = "";
                 document.getElementById("localidad").innerText = "";
@@ -47,6 +47,7 @@ window.onload = function () {
                 var horaFinSeparada = horaFin.substring(0, 5);
                 var horaFormateadas = horaInicioSeparada + " - " + horaFinSeparada;
                 document.getElementById("detallesTitulo").innerText = title;
+                document.getElementById("sala").innerText = sala;
                 document.getElementById("x-cerrar").style.backgroundColor = "#e1b12c";
                 document.getElementById("hora").innerText = horaFormateadas;
                 document.getElementById("direccion").innerText = direccion;

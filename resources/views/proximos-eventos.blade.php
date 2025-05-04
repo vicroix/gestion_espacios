@@ -15,6 +15,7 @@
                 </svg></button>
         </div>
         <h3 id="detallesTitulo"></h3>
+        <p id="sala"></p>
         <p id="localidad"></p>
         <p id="direccion"></p>
         <p id="hora"></p>
