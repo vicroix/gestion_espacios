@@ -1,22 +1,59 @@
-//Obtiene el elemento div del calendario en divCalendario e instanciamos y definimos el constructor de FullCalendar
-var divCalendario = document.getElementById("calendario");
-var calendario = new FullCalendar.Calendar(divCalendario, {
-    initialView: "dayGridMonth",
-    locale: "es",
-});
-var ruta = "fullCalendar/calendario-2025.json";
-//Función para leer archivo JSON
-function cargarEventosDesdeJSON(urlArchivoJSON, calendario) {
-    fetch(urlArchivoJSON)
-        .then((response) => response.json())
-        .then((eventos) => {
-            eventos.forEach((evento) => {
-                calendario.addEvent(evento);
-            });
-        })
-        .catch((error) => {
-            console.error("Error al cargar eventos desde JSON:", error);
-        });
+window.onload = function () {
+    //Obtiene el elemento div del calendario en divCalendario e instanciamos y definimos el constructor de FullCalendar
+    var contenedorCalendario = document.getElementById("calendario");
+    // Cargar los eventos desde las fuentes
+    var rutaFestivos = window.rutaFestivos;
+    var rutaReservas = window.rutaReservas;
+    var calendario = new FullCalendar.Calendar(contenedorCalendario, {
+        initialView: "dayGridMonth",
+        locale: "es",
+
+        // Configuración de eventos
+        eventSources: [
+            {
+                url: window.rutaFestivos,
+                color: "#990000",
+                textColor: "white",
+            },
+            {
+                url: window.rutaReservas,
+                color: "#e1b12c",
+                textColor: "black",
+            },
+        ],
+
+        // Al hacer clic en un evento, se muestra el popup con la información del evento
+        eventClick: function (info) {
+            console.log(info.event);
+            // Obtener la información del evento
+            var title = info.event.title;
+            var hora = "Hora inicio: " + info.event.extendedProps.hora; // Asegurándonos de acceder a las propiedades correctamente
+            var horaFin = "Hora fin: " + info.event.extendedProps.horaFin;
+            var direccion = "Direccion: " + info.event.extendedProps.direccion;
+            var localidad = "Localidad: " + info.event.extendedProps.localidad;
+
+            // Asignar la información a detalles
+            if (title === "Festivo") {
+                document.getElementById("detallesTitulo").innerText = title;
+                document.getElementById("hora").innerText = "";
+                document.getElementById("horaFin").innerText = "";
+                document.getElementById("direccion").innerText = "";
+                document.getElementById("localidad").innerText = "";
+            } else {
+                document.getElementById("detallesTitulo").innerText = title;
+                document.getElementById("hora").innerText = hora;
+                document.getElementById("horaFin").innerText = horaFin;
+                document.getElementById("direccion").innerText = direccion;
+                document.getElementById("localidad").innerText = localidad;
+            }
+            // Mostrar contenedor detalles
+            document.getElementById("detalles").style.display = "block";
+        },
+    });
+
+    calendario.render();
+};
+// Función para cerrar contenedor detalles
+function cerrarPopup() {
+    document.getElementById("detalles").style.display = "none";
 }
-cargarEventosDesdeJSON(ruta, calendario);
-calendario.render();
