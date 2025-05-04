@@ -22,7 +22,7 @@ window.onload = function () {
             },
         ],
 
-        // Al hacer clic en un evento, se muestra el popup con la información del evento
+        // Al hacer clic en un evento, se muestra la ventana detalles con la información del evento
         eventClick: function (info) {
             console.log(info.event);
             // Obtener la información del evento
@@ -35,12 +35,14 @@ window.onload = function () {
             // Asignar la información a detalles
             if (title === "Festivo") {
                 document.getElementById("detallesTitulo").innerText = title;
+                document.getElementById("x-cerrar").style.backgroundColor = "#990000";
                 document.getElementById("hora").innerText = "";
                 document.getElementById("horaFin").innerText = "";
                 document.getElementById("direccion").innerText = "";
                 document.getElementById("localidad").innerText = "";
             } else {
                 document.getElementById("detallesTitulo").innerText = title;
+                document.getElementById("x-cerrar").style.backgroundColor = "#e1b12c";
                 document.getElementById("hora").innerText = hora;
                 document.getElementById("horaFin").innerText = horaFin;
                 document.getElementById("direccion").innerText = direccion;

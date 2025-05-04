@@ -1,6 +1,6 @@
 @extends("layouts.plantilla")
 
-@vite('resources/css/app.css')
+@vite(['resources/css/app.css', 'resources/css/proximos-eventos.css'])
 @section('title', 'Proximos eventos')
 <!-- http://localhost/teatrogest/public/proximos-eventos -->
 
@@ -8,13 +8,17 @@
 <main class="flex content-center md:block">
     <!--Documentación del calendario: https://fullcalendar.io/docs -->
     <div id="calendario" class="flex align-center"></div>
-    <div id="detalles" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.8); color: white; padding: 20px; z-index: 9999; border-radius: 10px; width: 300px; text-align: center;">
+    <div id="detalles">
+        <div id="x-cerrar">
+            <button onclick="cerrarPopup()" class="button-x-cerrar"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="m12 13.4l-2.9 2.9q-.275.275-.7.275t-.7-.275t-.275-.7t.275-.7l2.9-2.9l-2.9-2.875q-.275-.275-.275-.7t.275-.7t.7-.275t.7.275l2.9 2.9l2.875-2.9q.275-.275.7-.275t.7.275q.3.3.3.713t-.3.687L13.375 12l2.9 2.9q.275.275.275.7t-.275.7q-.3.3-.712.3t-.688-.3z" />
+                </svg></button>
+        </div>
         <h3 id="detallesTitulo"></h3>
         <p id="localidad"></p>
         <p id="direccion"></p>
         <p id="hora"></p>
         <p id="horaFin"></p>
-        <button onclick="cerrarPopup()">Cerrar</button>
     </div>
 </main>
 <script>
