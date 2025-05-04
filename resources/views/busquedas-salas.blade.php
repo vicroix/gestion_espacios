@@ -57,6 +57,7 @@
                 <!-- Contenedor BOTONES -->
                 <div class="flex gap-4 ml-4 mt-2 items-center">
                     <div>
+                        <!-- Volver a view "nuevas-reservas.blade.php" -->
                         <a href="{{ route('buscar-sala',['id'=> $espacio->idespacios] )}}" class="inline-flex items-center button-reserva-a-filtro">
                             <svg class="mr-2 w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -67,6 +68,7 @@
                         </a>
                     </div>
                     <div class="text-center">
+                        <!-- Realizar reserva -->
                         <button type="submit" class="button-confirmar-reserva w-[61.97]">
                             <div class="flex justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor">

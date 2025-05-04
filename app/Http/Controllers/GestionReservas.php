@@ -12,7 +12,7 @@ class GestionReservas extends Controller
     public function realizarReserva(Request $respuesta)
     {
         // Validar lo que llega del formulario
-        $validator = Validator::make($respuesta->all(), [
+        $validar = Validator::make($respuesta->all(), [
             'nombre_teatro' => 'required|string|max:100',
             'localidad' => 'required|string',
             'codigo_postal' => 'required|string|max:5',
@@ -22,29 +22,29 @@ class GestionReservas extends Controller
             'hora_fin' => 'required|date_format:H:i',
             'id_espacio' => 'required|integer',
         ]);
-        if ($validator->fails()) {
+        if ($validar->fails()) {
             return redirect()->route('detalle-espacio', ['id' => $respuesta->input('id_espacio')])
-                ->withErrors($validator)
+                ->withErrors($validar)
                 ->withInput()
                 ->with('error', 'Hubo un problema al realizar la reserva. Datos incorrectos.');
         }
-        $validar = $validator->validated();
+        $validar = $validar->validated();
 
         // Comprobar si la hora es la misma que un idreservas
         $reservaExistente = Reserva::where('id_espacio', $validar['id_espacio']) //Selecciona de la base de datos el idespacios que sea igual al introducido
-        ->where('fecha', $validar['fecha']) //y donde fecha sea igual a la introducida también
-        ->where(function($consulta) use ($validar) { //ahora ejecuta una función que crea una $consulta y usa la variable $validar del exterior de la función anónima
-            $consulta->where(function($subConsulta) use ($validar) {
-                $subConsulta->where('hora', '<', $validar['hora_fin'])
-                  ->where('hora_fin', '>', $validar['hora_inicio']);
-            });
-        })
-        ->exists();
+            ->where('fecha', $validar['fecha']) //y donde fecha sea igual a la introducida también
+            ->where(function ($consulta) use ($validar) { //ahora ejecuta una función que crea una $consulta y usa la variable $validar del exterior de la función anónima
+                $consulta->where(function ($subConsulta) use ($validar) {
+                    $subConsulta->where('hora', '<', $validar['hora_fin'])
+                        ->where('hora_fin', '>', $validar['hora_inicio']);
+                });
+            })
+            ->exists();
 
-    if ($reservaExistente) {
-        return redirect()->route('detalle-espacio', ['id' => $validar['id_espacio']])
-            ->with('error', 'Hora no disponible.');
-    }
+        if ($reservaExistente) {
+            return redirect()->route('detalle-espacio', ['id' => $validar['id_espacio']])
+                ->with('error', 'Hora no disponible.');
+        }
 
 
         // Insertar datos en la tabla reserva
@@ -90,23 +90,43 @@ class GestionReservas extends Controller
     {
         $reserva = Reserva::findOrFail($id);
         return view('editar-reservas', compact('reserva'));
+        // *** Debo programar que tenga HORA FIN y además que no colapsen las reservas aquí ***
     }
     // Función para actualizar una reserva existente desde el view "editar-reservas.blade.php" y redirige a
     // el view "gestion-reservas.blade.php"
-    public function actualizarReserva(Request $request, $id)
+    public function actualizarReserva(Request $respuesta, $id)
     {
         $reserva = Reserva::findOrFail($id);
-
-        $request->validate([
+        $validar = Validator::make($respuesta->all(), [
             'fecha' => 'required|date|after_or_equal:today',
             'hora' => 'required|date_format:H:i',
-            // 'hora_fin' => 'required|date_format:H:i|after:hora', *** Añadirlo más adelante para limitar nuevas reservas sobre ese rango ***
+            'hora_fin' => 'required|date_format:H:i|after:hora',
+            'id_espacio' => 'required|integer',
         ]);
+        Log::info('Validar:', ['validar' => $validar]);
+        $validar = $validar->validated();
 
-        $reserva->fecha = $request->fecha;
-        $reserva->hora = $request->hora;
-        // $reserva->hora_fin = $request->hora_fin; *** Añadirlo más adelante para limitar nuevas reservas sobre ese rango ***
+        // Comprobar si la hora es la misma que un idreservas
+        $reservaExistente = Reserva::where('id_espacio', $validar['id_espacio'])
+            ->where('fecha', $validar['fecha'])
+            ->where(function ($consulta) use ($validar) {
+                $consulta->where(function ($subConsulta) use ($validar) {
+                    $subConsulta->where('hora', '<', $validar['hora_fin'])
+                        ->where('hora_fin', '>', $validar['hora']);
+                });
+            })
+            ->exists();
+
+        if ($reservaExistente) {
+            return redirect()->route('editar-reserva', ['id' => $reserva->idreservas])
+                ->with('error', 'Hora no disponible.');
+        }
+
+        $reserva->fecha = $validar['fecha'];
+        $reserva->hora = $validar['hora'];
+        $reserva->hora_fin = $validar['hora_fin']; //*** Añadirlo más adelante para limitar nuevas reservas sobre ese rango ***
         $reserva->save();
+        Log::info('Reserva:', ['reserva' => $reserva]);
 
         return redirect()->route('buscar-reservas')->with('correcto', 'Reserva actualizada correctamente.');
     }

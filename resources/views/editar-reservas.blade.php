@@ -17,15 +17,18 @@
         <input type="date" id="fecha" name="fecha" min="{{ date('Y-m-d') }}" value="{{ $reserva->fecha }}" required class="inputs-text">
 
         <label>Hora inicio:</label>
-        <input type="time" id="hora" name="hora" value="{{ $reserva->hora }}" required class="inputs-text">
+        <input type="time" id="horaInicio" name="hora" value="{{ $reserva->hora }}" required class="inputs-text">
 
-        <!-- <label>Hora fin:</label>
-        <input type="time" name="hora_fin" value="{{ $reserva->hora_fin }}" required> -->
+        <label>Hora fin:</label>
+        <input type="time" id="horaFin" name="hora_fin" value="{{ $reserva->hora_fin }}" required class="inputs-text">
 
-        <!-- Puedes agregar más campos si quieres editar más cosas -->
+        <input type="hidden" name="id_espacio" value="{{ $reserva->id_espacio }}">
 
         <button type="submit" class="button-primary-auto">Actualizar Reserva</button>
     </form>
+    @if (session('error'))
+    <p class="text-red-500">{{ session('error') }}</p>
+    @endif
 </main>
 @vite('resources/js/nuevas-reservas.js')
 @endsection
