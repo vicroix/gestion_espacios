@@ -3,7 +3,7 @@
 @vite(['resources/css/app.css', 'resources/css/inicio.css'])
 <!-- @vite('resources/css/inicio.css') -->
 @section('title', 'Inicio')
-<!-- http://localhost/teatrogest/public -->
+<!-- http://localhost/L25_gestionespacios/public/ -->
 
 @section('main')
 <main class="xl:mx-10 gap-3 items-center justify-start 2xl:mt-5">

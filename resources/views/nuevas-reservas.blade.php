@@ -29,6 +29,10 @@
                             </svg></span>
                     </h3>
                     <div x-show="openCiudades" x-transition>
+                        <div class="mb-2">
+                            <!-- <h3 id="h3">Equipamiento</h3> -->
+                            <input type="text" name="localidad" value="{{ request()->input('localidad') }}" class="w-full border rounded p-1 mr-2" placeholder="Localidad">
+                        </div>
                         @foreach (['Madrid', 'Barcelona', 'Sevilla', 'Málaga', 'Granada', 'Huelva', 'Valencia', 'Cádiz', 'Tarragona', 'Cádiz', 'Salamanca', 'León'] as $ciudad)
                         <label class="block text-sm text-gray-600">
                             <input type="checkbox" name="ciudades[]" value="{{ $ciudad }}" class="mr-2">

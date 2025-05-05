@@ -62,6 +62,10 @@ class GestionSalas extends Controller
             $query->whereIn('localidad', $respuesta->input('ciudades'));
         }
 
+        // Localidad para filtro manual
+        if ($respuesta->filled('localidad')) {
+            $query->where('localidad', 'like', '%' . $respuesta->input('localidad') . '%');
+        }
         // Tipo (radio)
         if ($respuesta->filled('tipo')) {
             $query->where('tipo', $respuesta->input('tipo')); // tipo = 'ensayo' o 'obra'
