@@ -67,7 +67,6 @@
                         @endforeach
                     </div>
                 </div>
-
                 <!-- Capacidad (AFORO) -->
                 <div>
                     <h3 id="h3" class="flex gap-1 items-center" @click="openAforo = !openAforo">
