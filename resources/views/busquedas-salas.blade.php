@@ -7,15 +7,15 @@
 <!-- http://localhost/TeatroGest/public/busquedas-salas -->
 
 @section("main")
-<main class="m-4">
+<main class="mt-10">
     <div class="flex justify-center">
         <div class="titulo-main w-full flex justify-center md:mx-[70px]">
-            <h3 class="md:text-4xl text-2xl">Nuevas Reservas</h3>
+            <h3 class="md:text-2xl text-2xl">NUEVAS RESERVAS</h3>
         </div>
     </div>
 
     @if (!is_null($espacio ?? null))
-    <section class="flex items-start justify-center gap-9">
+    <section class="flex items-start justify-center mt-10 gap-9">
         <!--Mapa interactivo-->
         <div class="lg:w-[500px] lg:h-[400px] shadow">
             <div id="contenedor-del-mapa" class="absolute lg:w-[500px] lg:h-[400px]" data-direccion="{{ $espacio->direccion }}"></div>

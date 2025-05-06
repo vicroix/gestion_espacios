@@ -8,7 +8,7 @@
 <main class="flex flex-col justify-start w-full items-center sm:mt-[50px] gap-4 lg:gap-12 px-4 lg:px-[150px]">
     <div class="flex justify-center">
         <div class="titulo-main w-full flex justify-center md:mx-[70px]">
-            <h3 class="md:text-4xl text-2xl">Gestión de reservas</h3>
+            <h3 class="mt-10 md:text-2xl text-2xl">GESTIÓN DE RESERVAS</h3>
         </div>
     </div>
     <!-- Reservas -->

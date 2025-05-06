@@ -8,7 +8,7 @@
 <main class="flex flex-col mt-[50px] ml-4 mr-4 lg:w-full">
     <div class="flex justify-center">
         <div class="titulo-main w-full flex justify-center md:mx-[70px]">
-            <h3 class="md:text-4xl text-2xl">Preguntas frecuentes</h3>
+            <h3 class="mt-10 md:text-2xl text-2xl">PREGUNTAS FRECUENTES</h3>
         </div>
     </div>
     <!--preguntas-->

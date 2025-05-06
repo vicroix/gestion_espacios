@@ -6,10 +6,10 @@
 
 @section("main")
 <main>
-    <section class="flex mt-5 flex-col lg:w-full">
+    <section class="flex flex-col lg:w-full">
         <div class="flex justify-center">
             <div class="titulo-main w-full flex justify-center md:mx-[70px]">
-                <h3 class="md:text-4xl text-2xl">Gestión de salas</h3>
+                <h3 class="mt-10 md:text-2xl text-2xl">GESTIÓN DE SALAS</h3>
             </div>
         </div>
         <!--inputs de gestión de salas-->

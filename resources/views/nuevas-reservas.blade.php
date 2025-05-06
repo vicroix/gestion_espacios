@@ -5,7 +5,12 @@
 <!-- http://localhost/TeatroGest/public/nuevas-reservas -->
 @section("main")
 
-<main class="flex-grow bg-white">
+<main class="flex-grow justify-center bg-white">
+    <div class="flex justify-center mt-10">
+        <div class="titulo-main w-full flex justify-center md:mx-[70px]">
+            <h3 class="md:text-2xl text-2xl">NUEVAS RESERVAS</h3>
+        </div>
+    </div>
     <div x-data="{ openCiudades: false, openTipo: false, openFiltros: false, openAforo: false }" class="flex flex-col items-center min-w-[320px] gap-4 lg:items-start lg:flex-row">
         <!-- Sidebar de filtros -->
         <aside class="w-64 px-2 shadow-md">
@@ -133,7 +138,7 @@
         </aside>
 
         <!-- Resultados -->
-        <section class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 4xl:grid-cols-6">
+        <section class="grid place-items-center grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 4xl:grid-cols-6">
             @foreach ($espacios as $espacio)
             <div class="relative h-[150px] md:h-[180px] group cursor-pointer" tabindex="0">
                 <div class="bg-white rounded-xl shadow p-3 border-t-4 border-[#990000] lg:h-[180px] lg:w-[280px]">

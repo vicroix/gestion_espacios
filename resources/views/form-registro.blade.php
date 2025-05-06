@@ -3,21 +3,22 @@
 @section('title', 'Proximos eventos')
 <!-- http://localhost/prueba-laravel/public/form-registro -->
 @section("main")
-<main class="w-full flex flex-col">
+<main class="w-full justify-center flex flex-col">
     <div class="flex justify-center">
         <div class="titulo-main w-full flex justify-center md:mx-[70px]">
-            <h3 class="md:text-4xl text-2xl">Registro de usuarios</h3>
+            <h3 class="md:text-2xl text-2xl">REGISTRO DE USUARIO</h3>
         </div>
     </div>
-    <section class="form-registro m-20">
-        <div class="flex items-center">
-            <div class="flex flex-col self-center gap-7  md:mt-[10px] mt-[17px] mr-2">
+    <section class="form-registro m-20 flex justify-center">
+        <div class="flex items-center w-full max-w-[1200px]">
+    
+            <div class="flex flex-col self-center gap-5  md:mt-[10px] mt-[17px] mr-2">
                 <!--Icono user-->
                 <svg class="text-[#FFFFFF]" width="35" height="35" viewBox="0 0 45 45" fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M37.5 39.375V35.625C37.5 33.6359 36.7098 31.7282 35.3033 30.3217C33.8968 28.9152 31.9891 28.125 30 28.125H15C13.0109 28.125 11.1032 28.9152 9.6967 30.3217C8.29018 31.7282 7.5 33.6359 7.5 35.625V39.375M30 13.125C30 17.2671 26.6421 20.625 22.5 20.625C18.3579 20.625 15 17.2671 15 13.125C15 8.98286 18.3579 5.625 22.5 5.625C26.6421 5.625 30 8.98286 30 13.125Z"
-                        stroke="#1E1E1E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" p />
+                        stroke="#1E1E1E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
                 <!--Icono password-->
                 <svg class="" width="35" height="35" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -40,7 +41,7 @@
 
             </div>
             <!--Formulario registro-->
-            <form id="formRegistro" action="{{ route('registro') }}" method="POST">
+            <form id="formRegistro" action="{{ route('registro') }}" method="POST" >
                 @csrf
                 <div class="flex flex-col md:w-[600px] gap-5">
                     @if (session('success'))
@@ -59,15 +60,15 @@
                     <input class="inputs-text" type="text" name="telefono" id="telefono" placeholder="Teléfono" maxlength="9">
                     <p>*Campo obligatorio</p>
                     <!--Botón submit-->
-                    <div>
+                    <div class="flex justify-center">
                         <input class="bg-[#990000] w-20 py-1 mt-3 text-white rounded-md cursor-pointer hover:bg-[#a84848]"
-                            type="submit">
+                            type="submit" value="Enviar">
                     </div>
                 </div>
             </form>
             <!--Imagen foco-->
             <div>
-                <img src="img/FOCO.jpg" width="437" class="hidden md:block ml-[200]">
+                <img src="img/FOCO.jpg" width="437" class="ml-[200]">
             </div>
         </div>
     </section>

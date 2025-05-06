@@ -8,7 +8,7 @@
 <main class="ml-25 mr-25">
     <div class="flex justify-center">
         <div class="titulo-main w-full flex justify-center md:mx-[70px]">
-            <h3 class="md:text-4xl text-2xl">Modificar salas</h3>
+            <h3 class="mt-10 md:text-2xl text-2xl">MODIFICAR SALAS</h3>
         </div>
     </div>
     <div>
