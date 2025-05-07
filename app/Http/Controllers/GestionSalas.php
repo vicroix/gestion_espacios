@@ -108,4 +108,45 @@ class GestionSalas extends Controller
         $espacio = Espacio::findOrFail($id);
         return view('busquedas-salas', compact('espacio'));
     }
+    public function actualizarReserva(Request $request, $id)
+{
+    // 1) Validación básica de campos
+    $data = $request->validate([
+        'fecha'      => 'required|date',
+        'hora'       => 'required|date_format:H:i',
+        'hora_fin'   => 'required|date_format:H:i|after:hora',
+        'id_espacio' => 'required|integer|exists:espacios,idespacios',
+    ]);
+
+    // 2) Comprobar solapamientos excluyendo esta reserva
+    $existeChoque = Reserva::where('id_espacio', $data['id_espacio'])
+        ->where('idreservas', '<>', $id)               // <-- aquí excluimos la propia reserva
+        ->where('fecha', $data['fecha'])
+        ->where(function($q) use ($data) {
+            $q->whereBetween('hora',     [$data['hora'],   $data['hora_fin']])
+              ->orWhereBetween('hora_fin',[$data['hora'],   $data['hora_fin']])
+              ->orWhereRaw('? BETWEEN hora AND hora_fin',   [$data['hora']])
+              ->orWhereRaw('? BETWEEN hora AND hora_fin',   [$data['hora_fin']]);
+        })
+        ->exists();
+
+    if ($existeChoque) {
+        return back()
+            ->withErrors(['hora' => 'Ya hay otra reserva en ese horario.'])
+            ->withInput();
+    }
+
+    // 3) Si no hay choque, actualizamos
+    $reserva = Reserva::findOrFail($id);
+    $reserva->update([
+        'fecha'      => $data['fecha'],
+        'hora'       => $data['hora'],
+        'hora_fin'   => $data['hora_fin'],
+        'id_espacio' => $data['id_espacio'],
+    ]);
+
+    return redirect()
+        ->route('detalle-espacio', $data['id_espacio'])
+        ->with('success', 'Reserva actualizada correctamente.');
+}
 }

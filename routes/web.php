@@ -50,8 +50,6 @@ Route::middleware(['profe'])->group(function () {
     Route::post('/actualizar-reserva/{id}', [GestionReservas::class, 'actualizarReserva'])->name('actualizar-reserva');
     //Ruta que borra las reservas
     Route::delete('/eliminar-reserva/{id}', [GestionReservas::class, 'eliminarReserva'])->name('eliminar-reserva');
-
-
 });
 
 //Rutas para autentificación
