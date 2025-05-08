@@ -20,7 +20,7 @@
                 </svg>
                 Filtros
             </h2>
-
+            <!--  -->
             <form method="GET" action="{{ route('buscar-sala') }}" class="space-y-0 mb-2 pl-1">
                 <!-- Ciudades -->
                 <div>
