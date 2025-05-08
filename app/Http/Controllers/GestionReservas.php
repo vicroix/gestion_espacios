@@ -5,10 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use App\Models\Reserva;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+
+use function PHPUnit\Framework\isEmpty;
 
 class GestionReservas extends Controller
 {
+
     public function realizarReserva(Request $respuesta)
     {
         // Validar lo que llega del formulario
@@ -29,7 +33,21 @@ class GestionReservas extends Controller
                 ->with('error', 'Hubo un problema al realizar la reserva. Datos incorrectos.');
         }
         $validar = $validar->validated();
-
+         // Leer JSON festivos
+        $rutaJSON = public_path('fullCalendar/calendario-2025.json');
+        $json = file_get_contents($rutaJSON);
+        $datos = json_decode($json, true);
+        //  dd($data);
+        if (!empty($datos)) {
+            foreach ($datos as $dato) {
+                $fechaFestivo = $dato['start'];
+                // dd($validar['fecha']);
+                if ($fechaFestivo === $validar['fecha']) {
+                return redirect()->route('detalle-espacio', ['id' => $respuesta->input('id_espacio')])
+                ->with('festivo', 'No puedes reservar en un día festivo');
+                }
+            }
+        }else dd("No se encontró nada");
         // Comprobar si la hora es la misma que un idreservas
         $reservaExistente = Reserva::where('id_espacio', $validar['id_espacio']) //Selecciona de la base de datos el idespacios que sea igual al introducido
             ->where('fecha', $validar['fecha']) //y donde fecha sea igual a la introducida también
@@ -107,19 +125,19 @@ class GestionReservas extends Controller
 
         // 1) Consulta si se pisan, excluyendo la propia reserva:
         $reservaExistente = Reserva::where('id_espacio', $validar['id_espacio'])
-        ->where('fecha', $validar['fecha'])
-        ->where('idreservas', '<>', $id) // el operador <> pide que la consulta sea un id distinto
-        ->where(function ($consulta) use ($validar) {
-            $consulta->where(function ($subConsulta) use ($validar) {
-                $subConsulta->where('hora', '<', $validar['hora_fin'])
-                    ->where('hora_fin', '>', $validar['hora']);
-            });
-        })
-        ->exists();
+            ->where('fecha', $validar['fecha'])
+            ->where('idreservas', '<>', $id) // el operador <> pide que la consulta sea un id distinto
+            ->where(function ($consulta) use ($validar) {
+                $consulta->where(function ($subConsulta) use ($validar) {
+                    $subConsulta->where('hora', '<', $validar['hora_fin'])
+                        ->where('hora_fin', '>', $validar['hora']);
+                });
+            })
+            ->exists();
 
         if ($reservaExistente) {
             return redirect()->route('editar-reserva', ['id' => $reserva->idreservas])
-                             ->with('error', 'Hora no disponible.');
+                ->with('error', 'Hora no disponible.');
         }
 
         $reserva->fecha     = $validar['fecha'];
@@ -128,7 +146,7 @@ class GestionReservas extends Controller
         $reserva->save();
 
         return redirect()->route('buscar-reservas')
-                         ->with('correcto', 'Reserva actualizada correctamente.');
+            ->with('correcto', 'Reserva actualizada correctamente.');
     }
 
     //Función para eliminar una reserva desde "gestion-reservas.blade.php" con el botón Anular

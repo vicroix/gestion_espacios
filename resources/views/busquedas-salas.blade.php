@@ -82,6 +82,8 @@
             </form>
             @if(session('error'))
             <p class="text-red-500">{{ session('error') }}</p>
+            @elseif(session('festivo'))
+            <p class="text-red-500">{{ session('festivo') }}</p>
             @endif
         </div>
         </div>
@@ -92,5 +94,6 @@
 
 </main>
 @vite('resources/js/nuevas-reservas.js')
-<script src="{{ asset('mapa/mapa.js') }}"></script>
+<script src="{{ asset('mapa/mapa.js') }}">
+</script>
 @endsection
