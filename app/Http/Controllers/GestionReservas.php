@@ -37,17 +37,15 @@ class GestionReservas extends Controller
         $rutaJSON = public_path('fullCalendar/calendario-2025.json');
         $json = file_get_contents($rutaJSON);
         $datos = json_decode($json, true);
-        //  dd($data);
         if (!empty($datos)) {
             foreach ($datos as $dato) {
                 $fechaFestivo = $dato['start'];
-                // dd($validar['fecha']);
                 if ($fechaFestivo === $validar['fecha']) {
                 return redirect()->route('detalle-espacio', ['id' => $respuesta->input('id_espacio')])
-                ->with('festivo', 'No puedes reservar en un día festivo');
+                ->with('festivo', 'Días festivos no disponibles para reservar');
                 }
             }
-        }else dd("No se encontró nada");
+        };
         // Comprobar si la hora es la misma que un idreservas
         $reservaExistente = Reserva::where('id_espacio', $validar['id_espacio']) //Selecciona de la base de datos el idespacios que sea igual al introducido
             ->where('fecha', $validar['fecha']) //y donde fecha sea igual a la introducida también
