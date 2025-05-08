@@ -33,7 +33,7 @@
                         <div class="w-[70%]">
                             <!-- INPUT TELEFONO -->
                             <input class="inputs-text border border-gray-300 focus:outline-none
-                            invalid:focus:ring-red-400 peer w-full" type="text" maxlength="9" name="telefono" id="telefono" placeholder="Teléfono">
+                            invalid:focus:ring-red-400 peer w-full" type="text" name="telefono" id="telefono" placeholder="Teléfono">
                         </div>
                         <div class="w-full">
                             <!-- INPUT LOCALIDAD -->
@@ -46,7 +46,7 @@
                         <div class="w-[35%]">
                             <!-- INPUT CODIGO POSTAL -->
                             <input class="inputs-text border border-gray-300 focus:outline-none invalid:focus:ring-red-400 peer w-full"
-                                type="text" name="codigo_postal" id="codigo_postal" placeholder="C.P." maxlength="5">
+                                type="text" name="codigo_postal" id="codigo_postal" placeholder="C.P.">
                         </div>
 
                         <div class="w-full">
@@ -61,8 +61,6 @@
                         <input class="inputs-text border border-gray-300 focus:outline-none
                      invalid:focus:ring-red-400 peer w-full" type="email" name="email" id="email" placeholder="Correo electrónico">
                     </div>
-                    <!--tel-->
-
 
                     <div class="flex justify-between">
                         <div class="flex items-center">
@@ -92,11 +90,13 @@
                     <textarea class="inputs-text border border-gray-300 min-h-[60px] focus:outline-none
                  invalid:focus:ring-red-400 peer w-full" rows="3" name="equipamiento" id="equipamiento" placeholder="Equipamiento"></textarea>
                 </div>
-                @if (session('correcto'))
-                <p class="text-green-500">{{ session('correcto') }}</p>
-                @else
-                <p class="text-red-500">{{ session('error') }}</p>
-                @endif
+                <div class="text-center">
+                    @if (session('correcto'))
+                    <p class="text-green-500">{{ session('correcto') }}</p>
+                    @else
+                    <p class="text-red-500">{{ session('error') }}</p>
+                    @endif
+                </div>
                 <!--botones-->
                 <div class="mt-6 mb-5 flex justify-center gap-4">
                     <button type="submit" class="button-primary-auto lg:w-[108.85px] cursor-pointer">Añadir sala</button>
@@ -107,5 +107,5 @@
         </div>
     </section>
 </main>
- @vite('resources/js/gestion-salas.js')
+@vite('resources/js/gestion-salas.js')
 @endsection

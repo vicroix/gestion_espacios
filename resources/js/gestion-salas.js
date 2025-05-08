@@ -56,8 +56,8 @@ inputCodigoPostal.addEventListener("input", function () {
     }
 });
 document.getElementById("telefono").addEventListener("input", function () {
-    this.value = this.value.replace(/[^0-9]/g, "");
+    this.value = this.value.replace(/[^0-9]/g, "").slice(0, 9);
 });
-// document.getElementById('codigo_postal').addEventListener('input', function () {
-//     this.value = this.value.replace(/[^0-5]/g, '');
-// })
+document.getElementById('codigo_postal').addEventListener('input', function () {
+    this.value = this.value.replace(/[^0-9]/g, '').slice(0, 5);
+})
