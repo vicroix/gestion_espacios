@@ -26,6 +26,12 @@ class GestionSalas extends Controller
                 'tipo_sala' => 'required|string|max:6',
                 'aforo' => 'required|integer|min:1|max:100',
             ]);
+            if ($validar->fails()) {
+                return redirect()->route('gestion-salas')
+                    ->withErrors($validar)
+                    ->withInput()
+                    ->with('error', 'Datos incorrectos.');
+            }
             $validar = $validar->validated();
             Log::info('Datos enviados al registrar: ', $validar);
 
@@ -50,7 +56,7 @@ class GestionSalas extends Controller
             Log::error('Error al registrar en la base de datos: ' . $ex->getMessage(), [
                 'exception' => $ex
             ]);
-            return redirect()->route('gestion-salas')->with('error', 'Error al registrar sala');
+            return redirect()->route('gestion-salas')->with('error', 'Error, has introducido algún dato duplicado en la base de datos');
         }
     }
     // Función para buscar los resultados de los filtros del view "nuevas-reservas.blade.php"
