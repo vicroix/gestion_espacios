@@ -2,9 +2,16 @@ mapboxgl.accessToken = "pk.eyJ1IjoicGFwYWZyaXRhODgiLCJhIjoiY204eWM0eDFuMGF2dzJxc
 const apiKey = "zqVfiojTFXFJtmVndyEOu8luVqE7LQqWskiQt_ysWDM"
 //La dirección que se inserta a continuación es la que se muestra <--ENLAZAR AQUI CON LA BBDD
 const contenedorMapa = document.getElementById("contenedor-del-mapa");
+const contenedorLocalidad = document.getElementById("inputLocalidad");
+const contenedorCP = document.getElementById("inputCP");
 const direccion = contenedorMapa.dataset.direccion;
+const cp = contenedorCP.dataset.cp;
+const localidad = contenedorLocalidad.dataset.localidad;
+const direccionCompleta = `${direccion}, ${cp}, ${localidad}`;
+console.log(direccionCompleta);
 
-fetch(`https://geocode.search.hereapi.com/v1/geocode?q=${direccion}&apiKey=${apiKey}`)
+
+fetch(`https://geocode.search.hereapi.com/v1/geocode?q=${direccionCompleta}&apiKey=${apiKey}`)
     .then((response) => response.json())
     .then((data) => {
         latitud = data.items[0].position.lat
@@ -23,7 +30,7 @@ fetch(`https://geocode.search.hereapi.com/v1/geocode?q=${direccion}&apiKey=${api
         //Popup con mensaje que aparece en la aplicación indicando la dirección exacta
         const popup = new mapboxgl.Popup({
 
-        }).setText(direccion)
+        }).setText(direccionCompleta)
 
         //Clase para añadir marcador
         const marcador = new mapboxgl.Marker({

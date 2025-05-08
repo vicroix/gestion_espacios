@@ -24,8 +24,8 @@
             <form action="{{ route('reservar') }}" method="POST" class="flex flex-col gap-1">
                 @csrf
                 <input type="hidden" name="nombre_teatro" value="{{ $espacio->nombre }}">
-                <input type="hidden" name="localidad" value="{{ $espacio->localidad }}">
-                <input type="hidden" name="codigo_postal" value="{{ $espacio->codigopostal }}">
+                <input type="hidden" name="localidad" id="inputLocalidad" data-localidad="{{ $espacio->localidad }}" value="{{ $espacio->localidad }}">
+                <input type="hidden" name="codigo_postal" id="inputCP" data-cp="{{ $espacio->codigopostal }}" value="{{ $espacio->codigopostal }}">
                 <input type="hidden" name="direccion" value="{{ $espacio->direccion }}">
                 <input type="hidden" name="id_espacio" value="{{ $espacio->idespacios }}">
                 <!-- Información de espacio seleccionado de "nuevas-reservas.blade.php" -->
