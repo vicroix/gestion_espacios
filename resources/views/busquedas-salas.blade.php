@@ -82,46 +82,52 @@
                 </div>
             </form>
             <!-- FOTOS con Alpine.js -->
-            <div x-data="{ index: 0, total: {{ count($espacio->fotos) }} }" class="relative w-[300px] mx-auto">
-                <!-- Botón izquierda -->
-                <button @click="index = Math.max(index - 1, 0)"
-                    class="absolute left-0 top-1/2 transform -translate-y-[100%] bg-white bg-opacity-70 p-1 z-50 rounded-full shadow">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 15 24">
-                        <path fill="currentColor" d="m3.55 12l7.35 7.35q.375.375.363.875t-.388.875t-.875.375t-.875-.375l-7.7-7.675q-.3-.3-.45-.675T.825 12t.15-.75t.45-.675l7.7-7.7q.375-.375.888-.363t.887.388t.375.875t-.375.875z" />
-                    </svg>
-                </button>
+            <div x-data="{ index: 0, total: {{ count($espacio->fotos) }}, fotos: [
+                @foreach ($espacio->fotos as $foto)
+                '{{ asset('storage/' . $foto->ruta) }}',
+                @endforeach
+                ], modalOpen: false }">
+                <!-- Miniaturas -->
+                <div class="flex space-x-2">
+                    @foreach ($espacio->fotos as $foto)
+                    <img src="{{ asset('storage/' . $foto->ruta) }}"
+                        @click="index = {{ $loop->index }}; modalOpen = true"
+                        class="w-20 h-20 object-cover rounded cursor-pointer border-2 border-gray-300 hover:border-blue-500">
+                    @endforeach
+                </div>
 
-                <!-- Botón derecha -->
-                <button @click="index = Math.min(index + 1, total - 1)"
-                    class="absolute right-0 top-1/2 transform -translate-y-[100%] bg-white bg-opacity-70 p-1 z-50 rounded-full shadow">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 23 24">
-                        <path fill="currentColor" d="m14.475 12l-7.35-7.35q-.375-.375-.363-.888t.388-.887t.888-.375t.887.375l7.675 7.7q.3.3.45.675t.15.75t-.15.75t-.45.675l-7.7 7.7q-.375.375-.875.363T7.15 21.1t-.375-.888t.375-.887z" />
-                    </svg>
-                </button>
+                <!-- Modal -->
+                <div x-show="modalOpen"
+                    class="fixed inset-0 bg-black bg-opacity-75 z-50 flex justify-center items-center"
+                    x-cloak>
+                    <!-- Cerrar -->
+                    <span class="absolute top-4 right-8 text-white text-4xl cursor-pointer" @click="modalOpen = false">&times;</span>
 
-                <!-- Contenedor con overflow-hidden -->
-                <div class="overflow-hidden w-[300px]">
-                    <!-- Carrusel movible -->
-                    <div class="flex transition-transform duration-300 ease-in-out"
-                        :style="'transform: translateX(-' + (index * 300) + 'px)'">
-                        @foreach ($espacio->fotos as $foto)
-                        <div class="flex-shrink-0 w-[300px]">
-                            <img src="{{ asset('storage/' . $foto->ruta) }}" alt="Foto del espacio" class="rounded-lg shadow-md w-full h-auto" />
-                        </div>
-                        @endforeach
+                    <div class="relative">
+                        <!-- No prestar atención a la advertencia, es por que usa Vue.js y el PHP lo interpreta como posible problema, pero lee la ruta correctamente -->
+                        <img :src="fotos[index]" class="max-h-[800px] max-w-[800px] rounded shadow-lg cursor-pointer">
+
+                        <!-- Botón izquierda -->
+                        <button @click="index = (index === 0) ? total - 1 : index - 1"
+                            class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 p-1 rounded-full shadow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 15 24">
+                                <path fill="currentColor" d="m3.55 12l7.35 7.35q.375.375.363.875t-.388.875t-.875.375t-.875-.375l-7.7-7.675q-.3-.3-.45-.675T.825 12t.15-.75t.45-.675l7.7-7.7q-.375-.375.888-.363t.887.388t.375.875t-.375.875z" />
+                            </svg>
+                        </button>
+
+                        <!-- Botón derecha -->
+                        <button @click="index = (index === total - 1) ? 0 : index + 1"
+                            class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 p-1 rounded-full shadow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 23 24">
+                                <path fill="currentColor" d="m14.475 12l-7.35-7.35q-.375-.375-.363-.888t.388-.887t.888-.375t.887.375l7.675 7.7q.3.3.45.675t.15.75t-.15.75t-.45.675l-7.7 7.7q-.375.375-.875.363T7.15 21.1t-.375-.888t.375-.887z" />
+                            </svg>
+                        </button>
                     </div>
                 </div>
-
-                <!-- Indicadores -->
-                <div class="flex justify-center mt-2 space-x-2">
-                    <template x-for="i in total" :key="i">
-                        <div :class="{'bg-blue-500': index === i - 1, 'bg-gray-300': index !== i - 1}"
-                            class="w-3 h-3 rounded-full cursor-pointer"
-                            @click="index = i - 1">
-                        </div>
-                    </template>
-                </div>
             </div>
+
+
+
 
             @if(session('error'))
             <p class="text-red-500">{{ session('error') }}</p>
