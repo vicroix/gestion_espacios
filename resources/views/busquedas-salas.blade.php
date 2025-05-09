@@ -1,5 +1,6 @@
 @extends("layouts.plantilla")
 <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+<script src="//unpkg.com/alpinejs" defer></script>
 <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet" />
 @vite('resources/css/app.css')
 
@@ -80,6 +81,44 @@
                     </div>
                 </div>
             </form>
+            <!-- FOTOS con Alpine.js -->
+            <div x-data="{ index: 0, total: {{ count($espacio->fotos) }} }" class="relative w-[300px] mx-auto">
+                <!-- Botón izquierda -->
+                <button @click="index = Math.max(index - 1, 0)"
+                    class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 p-1 rounded-full shadow">
+                    ←
+                </button>
+
+                <!-- Botón derecha -->
+                <button @click="index = Math.min(index + 1, total - 1)"
+                    class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 p-1 rounded-full shadow">
+                    →
+                </button>
+
+                <!-- Contenedor con overflow-hidden -->
+                <div class="overflow-hidden w-[300px]">
+                    <!-- Carrusel movible -->
+                    <div class="flex transition-transform duration-300 ease-in-out"
+                        :style="'transform: translateX(-' + (index * 300) + 'px)'">
+                        @foreach ($espacio->fotos as $foto)
+                        <div class="flex-shrink-0 w-[300px]">
+                            <img src="{{ asset('storage/' . $foto->ruta) }}" alt="Foto del espacio" class="rounded-lg shadow-md w-full h-auto" />
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+
+                <!-- Indicadores -->
+                <div class="flex justify-center mt-2 space-x-2">
+                    <template x-for="i in total" :key="i">
+                        <div :class="{'bg-blue-500': index === i - 1, 'bg-gray-300': index !== i - 1}"
+                            class="w-3 h-3 rounded-full cursor-pointer"
+                            @click="index = i - 1">
+                        </div>
+                    </template>
+                </div>
+            </div>
+
             @if(session('error'))
             <p class="text-red-500">{{ session('error') }}</p>
             @elseif(session('festivo'))
@@ -93,7 +132,7 @@
     @endif
 
 </main>
-@vite('resources/js/nuevas-reservas.js')
+@vite(['resources/js/nuevas-reservas.js', 'resources/js/busquedas-salas.js'])
 <script src="{{ asset('mapa/mapa.js') }}">
 </script>
 @endsection

@@ -14,7 +14,7 @@
         </div>
         <!--inputs de gestión de salas-->
         <div class="flex justify-center min-w-[300px] w-full mt-5">
-            <form id="formGestionSalas" action="{{ route('gestion-espacio') }}" method="POST" class="bg-white lg:w-[300px] m-8 rounded-lg flex-col flex gap-2 justify-center">
+            <form id="formGestionSalas" action="{{ route('gestion-espacio') }}" enctype="multipart/form-data" method="POST" class="bg-white lg:w-[300px] m-8 rounded-lg flex-col flex gap-2 justify-center">
                 @csrf
                 <div class="w-[300px] flex flex-col gap-2">
                     <!--nombre teatro-->
@@ -90,6 +90,10 @@
                     <textarea class="inputs-text border border-gray-300 min-h-[60px] focus:outline-none
                  invalid:focus:ring-red-400 peer w-full" rows="3" name="equipamiento" id="equipamiento" placeholder="Equipamiento"></textarea>
                 </div>
+                <!-- FOTOS -->
+                 <div>
+                    <input type="file" name="fotos[]" multiple>
+                 </div>
                 <div class="text-center">
                     @if (session('correcto'))
                     <p class="text-green-500">{{ session('correcto') }}</p>
