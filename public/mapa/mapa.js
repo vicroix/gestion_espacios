@@ -39,14 +39,6 @@ fetch(`https://geocode.search.hereapi.com/v1/geocode?q=${direccionCompleta}&apiK
             //Define el angulo del marcador
             rotation: 0
         }).setLngLat([longitud, latitud]).setPopup(popup).addTo(mapa)
-
-        //Función click que muestra los datos donde se hace click
-        function clickSobreMapa(evento){
-            alert(evento.lngLat)
-        }
-
-        mapa.on("click", clickSobreMapa)
-
     })
 
 fetch(`https://revgeocode.search.hereapi.com/v1/revgeocode?at=${coordenadasLatitud},${coordenadasLongitud}&apiKey=${apiKey}`)
