@@ -85,14 +85,18 @@
             <div x-data="{ index: 0, total: {{ count($espacio->fotos) }} }" class="relative w-[300px] mx-auto">
                 <!-- Botón izquierda -->
                 <button @click="index = Math.max(index - 1, 0)"
-                    class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 p-1 rounded-full shadow">
-                    ←
+                    class="absolute left-0 top-1/2 transform -translate-y-[100%] bg-white bg-opacity-70 p-1 z-50 rounded-full shadow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 15 24">
+                        <path fill="currentColor" d="m3.55 12l7.35 7.35q.375.375.363.875t-.388.875t-.875.375t-.875-.375l-7.7-7.675q-.3-.3-.45-.675T.825 12t.15-.75t.45-.675l7.7-7.7q.375-.375.888-.363t.887.388t.375.875t-.375.875z" />
+                    </svg>
                 </button>
 
                 <!-- Botón derecha -->
                 <button @click="index = Math.min(index + 1, total - 1)"
-                    class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 p-1 rounded-full shadow">
-                    →
+                    class="absolute right-0 top-1/2 transform -translate-y-[100%] bg-white bg-opacity-70 p-1 z-50 rounded-full shadow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 23 24">
+                        <path fill="currentColor" d="m14.475 12l-7.35-7.35q-.375-.375-.363-.888t.388-.887t.888-.375t.887.375l7.675 7.7q.3.3.45.675t.15.75t-.15.75t-.45.675l-7.7 7.7q-.375.375-.875.363T7.15 21.1t-.375-.888t.375-.887z" />
+                    </svg>
                 </button>
 
                 <!-- Contenedor con overflow-hidden -->
