@@ -57,6 +57,7 @@
                         required>
                     <input class="inputs-text" type="email" name="email" id="email" placeholder="Correo electrónico*"
                         required>
+                        <span class="error" id="error-email"></span>
                     <input class="inputs-text" type="text" name="telefono" id="telefono" placeholder="Teléfono" maxlength="9">
                     <p>*Campo obligatorio</p>
                     <!--Botón submit-->

@@ -1,12 +1,18 @@
+
+//Función para que no permita dejar campos vacios
 document.getElementById('formRegistro').addEventListener('submit', function (event) {
 
-
-    const nombre = document.getElementById('nombre').value;
+    const nombre = document.getElementById('nombre').value.trim;
     const apellidos = document.getElementById('apellidos').value;
-    const usuario = document.getElementById('usuario').value;
-    const password = document.getElementById('password').value;
-    const email = document.getElementById('email').value;
-    const telefono = document.getElementById('telefono').value;
+    const usuario = document.getElementById('usuario').value.trim;
+    const password = document.getElementById('password').value.trim;
+    const email = document.getElementById('email').value.trim;
+    const telefono = document.getElementById('telefono').value.trim;
+
+    const emailRegex =  /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {document.getElementById("error-email").textContent = "Correo no válido.";
+        valido = false;
+      }
 
     if (nombre === '') {
         alert('El nombre es obligatorio.');
@@ -30,12 +36,15 @@ document.getElementById('formRegistro').addEventListener('submit', function (eve
     }
 });
 
+//Validación para no permitir números
 document.getElementById('nombre').addEventListener('input', function () {
     this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s-]/g, '');
 })
+//Validación para no permitir números
 document.getElementById('apellidos').addEventListener('input', function () {
     this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s-]/g, '');
 })
+//Validación para no permitir letras
 document.getElementById('telefono').addEventListener('input', function () {
     this.value = this.value.replace(/[^0-9]/g, '');
 })
