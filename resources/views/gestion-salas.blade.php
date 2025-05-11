@@ -14,7 +14,7 @@
         </div>
         <!--inputs de gestión de salas-->
         <div class="flex justify-center min-w-[300px] w-full mt-5">
-            <form id="formGestionSalas" action="{{ route('gestion-espacio') }}" enctype="multipart/form-data" method="POST" class="bg-white lg:w-[300px] m-8 rounded-lg flex-col flex gap-2 justify-center">
+            <form id="formGestionSalas" action="{{ route('gestion-espacio') }}" enctype="multipart/form-data" method="POST" class="bg-[--color-general] lg:w-[300px] m-8 rounded-lg flex-col flex gap-2 justify-center">
                 @csrf
                 <div class="w-[300px] flex flex-col gap-2">
                     <!--nombre teatro-->

@@ -11,7 +11,7 @@
         <!--Sección principal de presentación de la aplicación-->
         <section class="section-presentacion">
             <div class="flex justify-start">
-                <h2 class="text-[#990000]">TeatroGest</h1>
+                <h2 class="text-[--color-primario]">TeatroGest</h1>
             </div>
             <div>
                 <!--Imagen de sillones de teatro (se puede modificar por la que desee el cliente) pendiente de alinear con texto-->
@@ -33,7 +33,7 @@
         <div>
             <!--Reseñas BUSCAR API-->
             <div class="flex items-start ml-5">
-                <h2 class="text-[#990000]">Reseñas</h1>
+                <h2 class="text-[--color-primario]">Reseñas</h1>
             </div>
             <!-- Elfsight Google Reviews | Untitled Google Reviews -->
             <section class="flex">

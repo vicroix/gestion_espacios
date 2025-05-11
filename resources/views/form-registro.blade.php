@@ -11,7 +11,7 @@
     </div>
     <section class="form-registro m-20 flex justify-center">
         <div class="flex items-center w-full max-w-[1200px]">
-    
+
             <div class="flex flex-col self-center gap-5  md:mt-[10px] mt-[17px] mr-2">
                 <!--Icono user-->
                 <svg class="text-[#FFFFFF]" width="35" height="35" viewBox="0 0 45 45" fill="currentColor"
@@ -62,7 +62,7 @@
                     <p>*Campo obligatorio</p>
                     <!--Botón submit-->
                     <div class="flex justify-center">
-                        <input class="bg-[#990000] w-20 py-1 mt-3 text-white rounded-md cursor-pointer hover:bg-[#a84848]"
+                        <input class="button-primary-auto w-20 py-1 mt-3 text-[color-secundario] rounded-md cursor-pointer"
                             type="submit" value="Enviar">
                     </div>
                 </div>

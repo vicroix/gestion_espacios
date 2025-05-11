@@ -31,7 +31,7 @@
                 <input type="hidden" name="id_espacio" value="{{ $espacio->idespacios }}">
                 <!-- Información de espacio seleccionado de "nuevas-reservas.blade.php" -->
                 <div>
-                    <h4 class="text-lg font-semibold text-[#990000]">{{ $espacio->nombre }}</h4>
+                    <h4 class="text-lg font-semibold text-[--color-primario]">{{ $espacio->nombre }}</h4>
                     <p>Sala: {{ $espacio->nombre_sala }}</p>
                     <p>Localidad: {{ $espacio->localidad }}</p>
                     <p>Dirección: {{ $espacio->direccion }}</p>
@@ -60,7 +60,7 @@
                     <div>
                         <!-- Volver a view "nuevas-reservas.blade.php" -->
                         <a href="{{ route('buscar-sala',['id'=> $espacio->idespacios] )}}" class="inline-flex items-center button-reserva-a-filtro">
-                            <svg class="mr-2 w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="mr-2 w-3 h-3 text-[--color-general]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                             </svg>
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
@@ -103,7 +103,7 @@
 
                     <!-- Botón izquierda -->
                     <button @click="index = (index === 0) ? total - 1 : index - 1"
-                        class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 p-1 rounded-full shadow">
+                        class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-[--color-general] bg-opacity-70 p-1 rounded-full shadow">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 15 24">
                             <path fill="currentColor" d="m3.55 12l7.35 7.35q.375.375.363.875t-.388.875t-.875.375t-.875-.375l-7.7-7.675q-.3-.3-.45-.675T.825 12t.15-.75t.45-.675l7.7-7.7q-.375-.375.888-.363t.887.388t.375.875t-.375.875z" />
                         </svg>
@@ -111,7 +111,7 @@
 
                     <!-- Botón derecha -->
                     <button @click="index = (index === total - 1) ? 0 : index + 1"
-                        class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 p-1 rounded-full shadow">
+                        class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-[--color-general] bg-opacity-70 p-1 rounded-full shadow">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 23 24">
                             <path fill="currentColor" d="m14.475 12l-7.35-7.35q-.375-.375-.363-.888t.388-.887t.888-.375t.887.375l7.675 7.7q.3.3.45.675t.15.75t-.15.75t-.45.675l-7.7 7.7q-.375.375-.875.363T7.15 21.1t-.375-.888t.375-.887z" />
                         </svg>
@@ -133,14 +133,14 @@
                     class="fixed inset-0 bg-black bg-opacity-75 z-50 flex justify-center items-center"
                     x-cloak>
                     <!-- Cerrar -->
-                    <span class="absolute top-4 right-8 text-white text-4xl cursor-pointer" @click="modalOpen = false">&times;</span>
+                    <span class="absolute top-4 right-8 text-[--color-general] text-4xl cursor-pointer" @click="modalOpen = false">&times;</span>
 
                     <div class="relative">
                         <img :src="fotos[index]" class="max-h-[80vh] max-w-[80vw] rounded shadow-lg cursor-pointer">
 
                         <!-- Botón izquierda modal -->
                         <button @click="index = (index === 0) ? total - 1 : index - 1"
-                            class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 p-1 rounded-full shadow">
+                            class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-[--color-general] bg-opacity-70 p-1 rounded-full shadow">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 15 24">
                                 <path fill="currentColor" d="m3.55 12l7.35 7.35q.375.375.363.875t-.388.875t-.875.375t-.875-.375l-7.7-7.675q-.3-.3-.45-.675T.825 12t.15-.75t.45-.675l7.7-7.7q-.375-.375.888-.363t.887.388t.375.875t-.375.875z" />
                             </svg>
@@ -148,7 +148,7 @@
 
                         <!-- Botón derecha modal -->
                         <button @click="index = (index === total - 1) ? 0 : index + 1"
-                            class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 p-1 rounded-full shadow">
+                            class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-[--color-general] bg-opacity-70 p-1 rounded-full shadow">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 23 24">
                                 <path fill="currentColor" d="m14.475 12l-7.35-7.35q-.375-.375-.363-.888t.388-.887t.888-.375t.887.375l7.675 7.7q.3.3.45.675t.15.75t-.15.75t-.45.675l-7.7 7.7q-.375.375-.875.363T7.15 21.1t-.375-.888t.375-.887z" />
                             </svg>

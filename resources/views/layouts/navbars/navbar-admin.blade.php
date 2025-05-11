@@ -12,7 +12,7 @@
 
     <!-- Botón hamburguesa para móviles -->
     <div class="md:hidden z-20">
-        <button @click="abrir = !abrir" class="text-[#990000] focus:outline-none">
+        <button @click="abrir = !abrir" class="text-[--color-primario] focus:outline-none">
             <svg xmlns="http://www.w3.org/2000/svg" class="svg-home-navbar" fill="currentColor"
                 viewBox="0 0 24 24" stroke="currentColor">
                 <path :class="{ 'hidden': abrir, 'block': !abrir }" class="block" stroke-linecap="round"
@@ -29,7 +29,7 @@
             <span class="navbar-text flex mr-2">
                 <span>Bienvenido</span>
                 <span class="mx-2 font-semibold">{{ session('nombre_rol') }}</span>
-                <span class="text-[#990000]">{{ session('usuario') }}</span>
+                <span class="text-[--color-primario]">{{ session('usuario') }}</span>
             </span>
             <a href="{{ url('/') }}" class="animation-scale svg-home-navbar">
                 <svg width="25" height="25" viewBox="0 0 42 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
