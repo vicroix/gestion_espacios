@@ -82,6 +82,8 @@
                 </div>
             </form>
             <!-- FOTOS con Alpine.js -->
+            @if (!empty($espacio->fotos) && $espacio->fotos->isNotEmpty())
+
             <div x-data="{
         index: 0,
         total: {{ count($espacio->fotos) }},
@@ -154,7 +156,7 @@
                     </div>
                 </div>
             </div>
-
+            @endif
 
 
 
