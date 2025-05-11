@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return h * 60 + m;
     }
 
-    //Te convierte los minutos totales a formate "HH:MM"
+    //Te convierte los minutos totales a formato "HH:MM"
     function aHoraStr(minutos) {
       const h = Math.floor(minutos / 60);
       const m = minutos % 60;
@@ -31,15 +31,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const cierreM   = aMinutos(HORA_CIERRE);
 
       let minInicioM = aperturaM;
-      if (fechaDeInput.toDateString() === hoy.toDateString()) { //Si la fecha introducia en el formulario es igual a la de hoy:
+      if (fechaDeInput.toDateString() === hoy.toDateString()) { //Si la fecha introducida en el formulario es igual a la de hoy:
         hoy.setMinutes(hoy.getMinutes() + NEGAR_MINUTOS); //Suma a los minutos actuales los 30 minutos
-        const ahoraM = hoy.getHours() * 60 + hoy.getMinutes(); //Ahora convierte las horas y minutos en minutos Totales
+        const ahoraM = hoy.getHours() * 60 + hoy.getMinutes(); //Ahora convierte las horas y minutos en minutos totales
         minInicioM = Math.max(aperturaM, ahoraM); //saca el valor más grande (si la de apertura o la de ahora)
       }
 
-      //Si o la hora de Apertura o la hora actual + los 30 min es mayor a la de
-      //cierre a minutos totales, desabilita los inputs y además los vacía
-      if (minInicioM > cierreM) {
+      // Si o la hora de apertura o la hora actual + los 30 min es mayor a la de cierre menos una hora (21:59 - 1h), deshabilita los inputs y los vacía
+      if (minInicioM > cierreM - 60) {
         fechaInput.value = "";
         horaInicioInput.disabled = horaFinInput.disabled = true;
         horaInicioInput.value = horaFinInput.value = "";
@@ -49,34 +48,53 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       horaInicioInput.min = aHoraStr(minInicioM);
-      horaInicioInput.max = HORA_CIERRE;
-      //Si el valor del input de Inicio es menor que el de la apertura, o mayor que el de cierre, vacía el input
+      horaInicioInput.max = aHoraStr(cierreM - 60); // Nueva restricción: no dejar que empiece a las 22:00
+
+      //Si el valor del input de Inicio es menor que el de la apertura o mayor que el de cierre - 1h, vacía el input
       if (aMinutos(horaInicioInput.value) < minInicioM ||
-          aMinutos(horaInicioInput.value) > cierreM) {
+          aMinutos(horaInicioInput.value) > cierreM - 60) {
         horaInicioInput.value = "";
       }
 
-      const minFinM = Math.max(minInicioM, aMinutos(horaInicioInput.value)); //Saca cual es mayor, si minInicioM o la introducida en el formulario
+      const minFinM = Math.max(minInicioM + 60, aMinutos(horaInicioInput.value) + 60); // Asegura que mínimo sea una hora después
       horaFinInput.min = aHoraStr(minFinM);
       horaFinInput.max = HORA_CIERRE;
-      //Si el valor de Fin es menos que el de apartura, o mayor que el de cierre, vacía el input
+
+      //Si el valor de Fin es menor que el mínimo o mayor que el de cierre, vacía el input
       if (aMinutos(horaFinInput.value) < minFinM ||
           aMinutos(horaFinInput.value) > cierreM) {
         horaFinInput.value = "";
       }
     }
 
+    // Ajusta restricciones de la horaFin al cambiar la horaInicio
     function actualizarHoraFin() {
       if (!horaInicioInput.value) return;
       const inicioM = aMinutos(horaInicioInput.value); //el input de hora inicio lo pasa a minutos totales
       const finMinM = inicioM + 60; //le suma 1 hora
-      const finStr  = aHoraStr(finMinM); //pasa en formate "HH:MM"
+      const cierreM = aMinutos(HORA_CIERRE);
+      const finStr  = aHoraStr(finMinM); //pasa en formato "HH:MM"
       horaFinInput.min = finStr;
+      horaFinInput.max = HORA_CIERRE;
+
       //Si el input de fin es menor que la de inicio con un margen de 1 hora añadida, vacía el input de fin.
-      if (aMinutos(horaFinInput.value) < finMinM) {
+      if (aMinutos(horaFinInput.value) < finMinM ||
+          aMinutos(horaFinInput.value) > cierreM) {
         horaFinInput.value = "";
       }
     }
+
+    // Validación estricta manual de horaFin al escribir
+    horaFinInput.addEventListener("input", () => {
+      const cierreM = aMinutos(HORA_CIERRE);
+      const inicioM = aMinutos(horaInicioInput.value);
+      const finM = aMinutos(horaFinInput.value);
+
+      // Si se pasa de las 21:59 o es menor que inicio+1h, o si escribe "00:00", "00:30", etc., vacía
+      if (finM > cierreM || finM < inicioM + 60 || finM < 0 || finM >= 1440) {
+        horaFinInput.value = "";
+      }
+    });
 
     // Asegura que al cargar la página, asigna a los inputs inicio y fin el atributo min y max de las restricciones
     window.addEventListener("load", () => {
@@ -93,4 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
       actualizarRestricciones();
       actualizarHoraFin();
     });
-  });
+});
+
+
+
