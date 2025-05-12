@@ -8,7 +8,7 @@
     <main class="ml-25 mr-25">
         <div class="flex justify-center">
             <div class="titulo-main w-full flex justify-center md:mx-[70px]">
-                <h3 class="mt-2 md:text-2xl flex gap-2 text-2xl">MODIFICAR SALA:<p class="text-[--color-primario]">{{ $espacio->nombre }}</p></h3>
+                <h3 class="mt-2 md:text-2xl flex gap-2 text-2xl">MODIFICAR ESPACIO:<p class="text-[--color-primario]">{{ $espacio->nombre }}</p></h3>
             </div>
         </div>
         <!--inputs de gestión de salas-->
