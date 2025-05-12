@@ -37,8 +37,9 @@
             </div>
             <!-- Elfsight Google Reviews | Untitled Google Reviews -->
             <section class="flex">
+                <!--
                 <script src="https://static.elfsight.com/platform/platform.js" async></script>
-                <div class="elfsight-app-950d3ce1-1b66-4612-9a4c-0ff6b225647f" data-elfsight-app-lazy></div>
+                <div class="elfsight-app-3f894ccc-f643-4019-935b-cff19c55c358" data-elfsight-app-lazy></div>-->
             </section>
         </div>
     </div>
