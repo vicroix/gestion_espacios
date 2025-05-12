@@ -106,7 +106,6 @@ class GestionReservas extends Controller
     {
         $reserva = Reserva::findOrFail($id);
         return view('editar-reservas', compact('reserva'));
-        // *** Debo programar que tenga HORA FIN y además que no colapsen las reservas aquí ***
     }
     // Función para actualizar una reserva existente desde el view "editar-reservas.blade.php" y redirige a
     // el view "gestion-reservas.blade.php"

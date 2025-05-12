@@ -8,13 +8,13 @@
     <main class="ml-25 mr-25">
         <div class="flex justify-center">
             <div class="titulo-main w-full flex justify-center md:mx-[70px]">
-                <h3 class="mt-10 md:text-2xl text-2xl">MODIFICAR SALAS</h3>
+                <h3 class="mt-2 md:text-2xl flex gap-2 text-2xl">MODIFICAR SALA:<p class="text-[--color-primario]">{{ $espacio->nombre }}</p></h3>
             </div>
         </div>
         <!--inputs de gestión de salas-->
-        <div class="flex justify-center min-w-[300px] w-full mt-5">
-            <form id="formGestionSalas" action="{{ route('gestion-espacio') }}" enctype="multipart/form-data" method="POST"
-                class="bg-[--color-general] lg:w-[300px] m-8 rounded-lg flex-col flex gap-2 justify-center">
+        <div class="flex justify-center min-w-[300px] w-full mt-2">
+            <form id="formGestionSalas" action="{{ route('editar-espacio',['id'=> $espacio->idespacios] )}}" enctype="multipart/form-data" method="POST"
+                class="bg-[--color-general] lg:w-[300px] m-3 rounded-lg flex-col flex gap-2 justify-center">
                 @csrf
                 <div class="w-[300px] flex flex-col gap-2">
                     <!--nombre teatro-->

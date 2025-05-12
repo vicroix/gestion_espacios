@@ -173,11 +173,12 @@ class GestionSalas extends Controller
         return view('modificar-salas', compact('espacios'));
     }
 
-        // Función para enviar por id una sala selecionada desde el botón Ver de la view "modificar-salas.blade.php"
+    // Función para enviar por id una sala selecionada desde el botón Ver de la view "modificar-salas.blade.php"
     // a la view de "Editar-salas.blade.php"
     public function enviarEditarSalas($id)
     {
-        $espacio = Espacio::where('idespacios')->findOrFail($id);
+        $espacio = Espacio::findOrFail($id);
+        // dd($espacio);
         return view('editar-salas', compact('espacio'));
     }
 
@@ -185,8 +186,8 @@ class GestionSalas extends Controller
     // el view "editar-salas.blade.php"
     public function editarSalas(Request $respuesta, $id)
     {
-        $editarEspacio = Espacio::findOrFail($id);
-
+        $espacio = Espacio::findOrFail($id);
+        // dd($respuesta);
         $validar = Validator::make($respuesta->all(), [
             'nombre_teatro' => 'required|string|max:100',
             'localidad' => 'required|string|max:100',
@@ -199,22 +200,37 @@ class GestionSalas extends Controller
             'tipo_sala' => 'required|string|max:6',
             'aforo' => 'required|integer|min:1|max:100',
             'fotos.*' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
-        ])->validated();
-            // Guardamos los datos en la BBDD
-            $editarespacio = new Espacio();
-            $editarespacio->nombre = $validar['nombre_teatro'];
-            $editarespacio->localidad = $validar['localidad'];
-            $editarespacio->codigopostal = $validar['codigo_postal'];
-            $editarespacio->direccion = $validar['direccion'];
-            $editarespacio->email = $validar['email'];
-            $editarespacio->telefono = $validar['telefono'];
-            $editarespacio->equipamiento = $validar['equipamiento'];
-            $editarespacio->nombre_sala = $validar['nombre_sala'];
-            $editarespacio->tipo = $validar['tipo_sala'];
-            $editarespacio->capacidad = $validar['aforo'];
-            $editarespacio->save();
-
-        return redirect()->route('editar-salas')
+        ]);
+        Log::error('Errores de validación:', $validar->errors()->toArray());
+        if ($validar->fails()) {
+            return redirect()->route('editar-salas', compact('id'))
+                ->withErrors($validar)
+                ->withInput()
+                ->with('error', 'Datos incorrectos.');
+        }
+        $validado = $validar->validated();
+        // Guardamos los datos en la BBDD
+        $editarespacio = new Espacio();
+        $editarespacio->nombre = $validado['nombre_teatro'];
+        $editarespacio->localidad = $validado['localidad'];
+        $editarespacio->codigopostal = $validado['codigo_postal'];
+        $editarespacio->direccion = $validado['direccion'];
+        $editarespacio->email = $validado['email'];
+        $editarespacio->telefono = $validado['nombre_sala'];
+        $editarespacio->tipo = $validado['tipo_sala'];
+        $editarespacio->capacidad = $validado['aforo'];
+        $editarespacio->save();
+        // Si el espacio se guardó correctamente y hay fotos, las subimos
+        if ($respuesta->hasFile('fotos')) {
+            foreach ($respuesta->file('fotos') as $fotoArchivo) {
+                $ruta = $fotoArchivo->store('img', 'public');
+                $foto = new Foto();
+                $foto->espacio_id = $espacio->idespacios;
+                $foto->ruta = $ruta;
+                $foto->save();
+            }
+        }
+        return redirect()->route('editar-salas', ['id'=>$editarespacio->idespacios])
             ->with('correcto', 'Modificación actualizada correctamente.');
     }
 
