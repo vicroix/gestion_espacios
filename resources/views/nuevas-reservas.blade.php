@@ -8,7 +8,7 @@
 <main class="flex-grow justify-center bg-[--color-general]">
     <div class="flex justify-center mt-10">
         <div class="titulo-main w-full flex justify-center md:mx-[70px]">
-            <h3 class="md:text-2xl text-2xl">BUSQUEDAS SALAS</h3>
+            <h3 class="md:text-2xl text-2xl">BUSQUEDA SALAS</h3>
         </div>
     </div>
     <div x-data="{ openCiudades: false, openTipo: false, openFiltros: false, openAforo: false }" class="flex flex-col items-center min-w-[320px] gap-4 lg:items-start lg:flex-row">
@@ -127,8 +127,8 @@
                     <!-- Botón de búsqueda -->
                     <button type="submit" class="button-primary-auto mt-2 w-[61.97]">
                         <div class="flex justify-center">
-                            <svg width="50" height="18" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M35 35L27.75 27.75M31.6667 18.3333C31.6667 25.6971 25.6971 31.6667 18.3333 31.6667C10.9695 31.6667 5 25.6971 5 18.3333C5 10.9695 10.9695 5 18.3333 5C25.6971 5 31.6667 10.9695 31.6667 18.3333Z" stroke="[--color-general]" stroke-width="2.56" stroke-linecap="round" stroke-linejoin="round" />
+                            <svg width="50" height="18" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                                <path d="M35 35L27.75 27.75M31.6667 18.3333C31.6667 25.6971 25.6971 31.6667 18.3333 31.6667C10.9695 31.6667 5 25.6971 5 18.3333C5 10.9695 10.9695 5 18.3333 5C25.6971 5 31.6667 10.9695 31.6667 18.3333Z" stroke=var(--color-general) stroke-width="2.56" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </div>
                     </button>
