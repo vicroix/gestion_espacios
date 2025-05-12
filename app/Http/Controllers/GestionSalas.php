@@ -186,7 +186,7 @@ class GestionSalas extends Controller
     // el view "editar-salas.blade.php"
     public function editarSalas(Request $respuesta, $id)
     {
-        $espacio = Espacio::findOrFail($id);
+        $editarespacio = Espacio::findOrFail($id);
         // dd($respuesta);
         $validar = Validator::make($respuesta->all(), [
             'nombre_teatro' => 'required|string|max:100',
@@ -210,7 +210,6 @@ class GestionSalas extends Controller
         }
         $validado = $validar->validated();
         // Guardamos los datos en la BBDD
-        $editarespacio = new Espacio();
         $editarespacio->nombre = $validado['nombre_teatro'];
         $editarespacio->localidad = $validado['localidad'];
         $editarespacio->codigopostal = $validado['codigo_postal'];
@@ -225,7 +224,7 @@ class GestionSalas extends Controller
             foreach ($respuesta->file('fotos') as $fotoArchivo) {
                 $ruta = $fotoArchivo->store('img', 'public');
                 $foto = new Foto();
-                $foto->espacio_id = $espacio->idespacios;
+                $foto->espacio_id = $editarespacio->idespacios;
                 $foto->ruta = $ruta;
                 $foto->save();
             }
