@@ -12,7 +12,7 @@
 
     <!-- Botón hamburguesa para móviles -->
     <div class="md:hidden z-20">
-        <button @click="open = !open" class="text-[#990000] focus:outline-none">
+        <button @click="open = !open" class="text-[--color-primario] focus:outline-none">
             <svg xmlns="http://www.w3.org/2000/svg" class="svg-home-navbar" fill="currentColor"
                 viewBox="0 0 24 24" stroke="currentColor">
                 <path :class="{'hidden': open, 'block': !open}" class="block" stroke-linecap="round"

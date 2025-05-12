@@ -17,10 +17,10 @@
             @if(isset($reservas) && $reservas->isNotEmpty())
             @foreach($reservas as $reserva)
             <div class="relative md:h-[180px] group cursor-pointer" tabindex="0">
-                <div class="bg-white rounded-xl shadow p-3 border-t-4 border-[#990000] lg:h-[180px] lg:w-[280px] flex flex-col justify-between">
+                <div class="bg-[--color-general] rounded-xl shadow p-3 border-t-4 border-[--color-primario] lg:h-[180px] lg:w-[280px] flex flex-col justify-between">
                     <div>
                         <div class="flex justify-between gap-8">
-                            <h4 class="text-lg font-semibold text-[#990000] gap-2 items-center justify-between truncate overflow-hidden">
+                            <h4 class="text-lg font-semibold text-[--color-primario] gap-2 items-center justify-between truncate overflow-hidden">
                                 {{ $reserva->nombre }}
                             </h4>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="text-gray-800 group-hover:hidden" viewBox="0 0 24 24">
@@ -50,7 +50,7 @@
 
                 <!-- Detalle aparece al hover/focus -->
                 <div
-                    class="contenedor-mas-detalles absolute top-[50px] left-[205px] -translate-x-1/4 mt-2 bg-white p-3 rounded-xl shadow-lg opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity">
+                    class="contenedor-mas-detalles absolute top-[50px] left-[205px] -translate-x-1/4 mt-2 bg-[--color-general] p-3 rounded-xl shadow-lg opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity">
                     <p><strong>Nombre:</strong> {{ $reserva->nombre }}</p>
                     <p><strong>Localidad:</strong> {{ $reserva->localidad }}</p>
                     <p><strong>Dirección:</strong> {{ $reserva->direccion }}</p>
@@ -60,7 +60,7 @@
             @endforeach
             @else
             <div class="col-span-full">
-                <p class="flex gap-[6px]">No tienes ninguna reserva pendiente, ve a <a href="{{ url('buscar-sala') }}" class="hover:text-[#990000] font-semibold flex hover:scale-105">nuevas reservas <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="-translate-y-[8px]" viewBox="0 0 20 20">
+                <p class="flex gap-[6px]">No tienes ninguna reserva pendiente, ve a <a href="{{ url('buscar-sala') }}" class="hover:text-[--color-primario] font-semibold flex hover:scale-105">nuevas reservas <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="-translate-y-[8px]" viewBox="0 0 20 20">
                             <path fill="currentColor" d="m16.89 1.2l1.41 1.41c.39.39.39 1.02 0 1.41L14 8.33V18H3V3h10.67l1.8-1.8c.4-.39 1.03-.4 1.42 0m-5.66 8.48l5.37-5.36l-1.42-1.42l-5.36 5.37l-.71 2.12z" />
                         </svg></a></p>
             </div>

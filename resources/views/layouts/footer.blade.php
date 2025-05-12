@@ -2,7 +2,7 @@
     <div class="contenedor-contacto-redes-footer flex justify-between items-center h-full">
         <!-- Contenedor izquierdo footer -->
         <div class="contenedor-redes space-y-3">
-            <h3 class="text-[#990000] font-semibold">TeatroGest</h3>
+            <h3 class="text-[--color-primario] font-semibold">TeatroGest</h3>
             <p>Redes sociales</p>
             <!-- Iconos de redes sociales -->
             <div class="contenedor-svg flex gap-[8px]">
@@ -23,7 +23,7 @@
 
         <!-- Contenedor derecho footer - contacto-->
         <div class="contenedor-contacto flex flex-col ml-14 items-end">
-            <h3 class="font-semibold text-[#990000]">Contacto</h3>
+            <h3 class="font-semibold text-[--color-primario]">Contacto</h3>
             <p class="m-0">956666666</p>
             <p class="m-0">appteatro@teatro.com</p>
             <p class="m-0">C. Canal, 20, 41006 Sevilla</p>

@@ -13,14 +13,14 @@ main{
     border-top-right-radius: 1rem;
     padding-left: 1rem;
     padding-right: 1rem;
-    border-color: #990000;
+    border-color: var(--color-primario);
 }
 .contenedor-reseñas{
     border-right-width: 10px;
     border-bottom-width: 1px;
     border-bottom-left-radius: 1rem /* 16px */;
     border-top-right-radius: 1rem /* 16px */;
-    border-color: #990000;
+    border-color: var(--color-primario);
     padding-left: 1rem;
     padding-right: 1rem;
 }

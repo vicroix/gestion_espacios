@@ -1,13 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+:root{
+    /* Color primario */
+    --color-primario:#990000;
+    --color-primario-hover:#b30000;
+    --color-primario-active:#9d0101;
 
+    /* Color secundario */
+    --color-secundario:#000000;
+    --color-secundario-hover:#282828;
+    --color-secundario-active:#141414;
+
+    /* Color general blanco */
+    --color-general: #ffffff;
+}
 .svg-home-navbar {
     display: flex;
     align-items: center;
     width: 30px;
     height: 30px;
-    color: #990000;
+    color: var(--color-primario);
 }
 .svg-home-navbar:hover {
     transform: scale(1.15); /* Escala al 115% */
@@ -16,18 +29,18 @@
 .svg-botones {
     width: 18px;
     height: 18px;
-    color: #ffffff;
+    color: var(--color-general);
 }
 @font-face {
     font-family: "Playfair Display";
-    src: url("font/PlayfairDisplay-Regular.ttf") format("truetype");
+    src: url("../font/PlayfairDisplay-Regular.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     line-height: 1px;
     font-family: "Montserrat";
-    src: url("font/Montserrat-Regular.ttf") format("truetype");
+    src: url("../font/Montserrat-Regular.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
@@ -38,7 +51,7 @@ nav {
 }
 .list-style-circle::before {
     content: "•";
-    color: #990000;
+    color: var(--color-primario);
     margin-right: 0.8rem;
 }
 body {
@@ -89,7 +102,7 @@ h5 {
 }
 
 .inputs-text {
-    border: solid 1px black;
+    border: solid 1px var(--color-secundario);
     border-radius: 8px;
     height: 35px;
     padding-left: 10px;
@@ -97,31 +110,31 @@ h5 {
     padding-top: 1px;
 }
 .inputs-text:hover {
-    border-color: black;
-    box-shadow: 0 0 1.8px 0.2px black;
+    border-color: var(--color-secundario);
+    box-shadow: 0 0 1.8px 0.2px var(--color-secundario);
 }
 .inputs-text-disabled {
-    border: solid 1px black;
+    border: solid 1px var(--color-secundario);
     border-radius: 8px;
     padding: 4px;
     height: 35px;
     padding: 10px;
 }
 .gestion-reservas-select {
-    border: solid 1px black;
+    border: solid 1px var(--color-secundario);
     border-radius: 8px;
     height: 35px;
     padding-inline: 5px;
 }
 .gestion-reservas-select:hover {
-    border-color: black;
-    box-shadow: 0 0 1.8px 0.2px black;
+    border-color: var(--color-secundario-hover);
+    box-shadow: 0 0 1.8px 0.2px var(--color-secundario);
 }
 /* BOTONES */
 /* BOTON PRIMARY */
 .button-primary-auto {
-    background-color: #990000;
-    color: white;
+    background-color: var(--color-primario);
+    color: var(--color-general);
     padding-top: 8px;
     padding-bottom: 8px;
     padding-left: 9px;
@@ -134,17 +147,17 @@ h5 {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 .button-primary-auto:hover {
-    background-color: #b30000;
-    box-shadow: 0px 0px 1.8px 0.2px black;
+    background-color: var(--color-primario-hover);
+    box-shadow: 0px 0px 1.8px 0.2px var(--color-secundario);
 }
 .button-primary-auto:active {
-    background-color: #9d0101;
-    box-shadow: 0px 0px 2px 0.5px black;
+    background-color: var(--color-primario-active);
+    box-shadow: 0px 0px 2px 0.5px var(--color-secundario);
 }
 /* BOTON SECUNDARY */
 .button-secundary-auto {
-    background-color: #000000;
-    color: white;
+    background-color: var(--color-secundario);
+    color: var(--color-general);
     padding-top: 8px;
     padding-bottom: 8px;
     padding-left: 9px;
@@ -157,16 +170,16 @@ h5 {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 .button-secundary-auto:hover {
-    background-color: #333333;
-    box-shadow: 0px 0px 1.8px 0.2px black;
+    background-color: var(--color-secundario-hover);
+    box-shadow: 0px 0px 1.8px 0.2px var(--color-secundario);
 }
 .button-secundary-auto:active {
-    background-color: #1a1a1a;
-    box-shadow: 0px 0px 2px 0.5px black;
+    background-color: var(--color-secundario-active);
+    box-shadow: 0px 0px 2px 0.5px var(--color-secundario);
 }
 
 .button-primary-login {
-    color: #990000;
+    color: var(--color-primario);
     border: none;
     border-radius: 2rem;
     font-size: 0.9rem;
@@ -179,12 +192,12 @@ h5 {
     transition: transform 0.15s ease-in-out;
 }
 .button-primary-login:active {
-    color: #9d0101;
-    -webkit-text-stroke-color: 0px 0px 1.8px 0.2px black;
+    color: var(--color-primario-active);
+    -webkit-text-stroke-color: 0px 0px 1.8px 0.2px var(--color-secundario);
 }
 .button-logout {
-    background-color: #000000;
-    color: white;
+    background-color: var(--color-secundario);
+    color: var(--color-general);
     padding-top: 4px;
     padding-bottom: 4px;
     padding-left: 9px;
@@ -201,12 +214,12 @@ h5 {
     transition: transform 0.15s ease-in-out;
 }
 .button-logout:active {
-    -webkit-text-stroke-color: 0px 0px 1.8px 0.2px black;
+    -webkit-text-stroke-color: 0px 0px 1.8px 0.2px var(--color-secundario);
 }
 /* BOTON VER de NUEVAS RESERVAS */
 .button-filtro-a-reserva {
-    background-color: #990000;
-    color: white;
+    background-color: var(--color-primario);
+    color: var(--color-general);
     padding: 10px;
     border: none;
     border-radius: 2rem;
@@ -216,16 +229,16 @@ h5 {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 .button-filtro-a-reserva:hover {
-    background-color: #b30000;
-    box-shadow: 0px 0px 1.8px 0.2px black;
+    background-color: var(--color-primario-hover);
+    box-shadow: 0px 0px 1.8px 0.2px var(--color-secundario);
 }
 .button-filtro-a-reserva:active {
-    background-color: #9d0101;
-    box-shadow: 0px 0px 2px 0.5px black;
+    background-color: var(--color-primario-active);
+    box-shadow: 0px 0px 2px 0.5px var(--color-secundario);
 }
 .button-reserva-a-filtro {
-    background-color: black;
-    color: white;
+    background-color: var(--color-secundario);
+    color: var(--color-general);
     padding: 10px;
     border: none;
     border-radius: 2rem;
@@ -235,16 +248,16 @@ h5 {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 .button-reserva-a-filtro:hover {
-    background-color: black;
-    box-shadow: 0px 0px 1.8px 0.2px black;
+    background-color: var(--color-secundario-hover);
+    box-shadow: 0px 0px 1.8px 0.2px var(--color-secundario);
 }
 .button-reserva-a-filtro:active {
-    background-color: black;
-    box-shadow: 0px 0px 2px 0.5px black;
+    background-color: var(--color-secundario-active);
+    box-shadow: 0px 0px 2px 0.5px var(--color-secundario);
 }
 .button-confirmar-reserva {
-    background-color: #990000;
-    color: white;
+    background-color: var(--color-primario);
+    color: var(--color-general);
     padding: 10px;
     border: none;
     border-radius: 2rem;
@@ -254,19 +267,19 @@ h5 {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 .button-confirmar-reserva:hover {
-    background-color: #b30000;
-    box-shadow: 0px 0px 1.8px 0.2px black;
+    background-color: var(--color-primario-hover);
+    box-shadow: 0px 0px 1.8px 0.2px var(--color-secundario);
 }
 .button-confirmar-reserva:active {
-    background-color: #9d0101;
-    box-shadow: 0px 0px 2px 0.5px black;
+    background-color: var(--color-primario-active);
+    box-shadow: 0px 0px 2px 0.5px var(--color-secundario);
 }
 /* FORMULARIO DE REGISTRO EN FORM-REGISTRO */
 .form-registro {
-    background: #ffffff;
+    background: var(--color-general);
     margin-top: 45px;
     border-radius: 4px;
-    color: black;
+    color: var(--color-secundario);
 }
 
 .form-registro h4 {
@@ -275,22 +288,22 @@ h5 {
 }
 
 .controls {
-    background: #ffffff;
+    background: var(--color-general);
     padding: 10px;
     border-radius: 4px;
 
-    border: 1px solid #000000;
+    border: 1px solid var(--color-secundario);
     font-size: 16px;
-    color: #000000;
+    color: var(--color-secundario);
 }
 
 ::placeholder {
-    color: #000000;
+    color: var(--color-secundario);
 }
 
 .button {
-    color: #ffffff;
-    background-color: #990000;
+    color: var(--color-general);
+    background-color: var(--color-primario);
     align-items: center;
     border-radius: 5px;
     padding: 10px;
@@ -300,7 +313,7 @@ h5 {
 }
 
 .titulo_pagina {
-    border-bottom: #000000 1px solid;
+    border-bottom: var(--color-secundario) 1px solid;
 }
 
 /* Gestión reservas */
@@ -325,7 +338,7 @@ footer {
     border-top: 1px solid #d1d5dc;
 }
 .svg-redes {
-    color: #990000;
+    color: var(--color-primario);
     width: 25px;
 }
 .svg-redes:hover {
@@ -335,9 +348,9 @@ footer {
 /*Modificar sala*/
 .slider {
     -webkit-appearance: none;
-    background-color: #990000;
+    background-color: var(--color-primario);
     border-radius: 10px;
-    border: #000000;
+    border: var(--color-secundario);
     border-width: 3px;
     padding: 2px;
 }
@@ -348,7 +361,7 @@ footer {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: #000000;
+    background: var(--color-secundario);
     cursor: pointer;
     border: none;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);

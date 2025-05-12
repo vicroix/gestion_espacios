@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Models\Espacio;
+use App\Models\Foto;
 use Illuminate\Support\Facades\Validator;
 
 class GestionSalas extends Controller
@@ -14,7 +15,7 @@ class GestionSalas extends Controller
     {
         try {
             // Validación de los campos
-            $validar = Validator::make($respuesta->all(),[
+            $validar = Validator::make($respuesta->all(), [
                 'nombre_teatro' => 'required|string|max:100',
                 'localidad' => 'required|string|max:100',
                 'codigo_postal' => 'required|string|max:5',
@@ -25,40 +26,54 @@ class GestionSalas extends Controller
                 'equipamiento' => 'required|string|max:255',
                 'tipo_sala' => 'required|string|max:6',
                 'aforo' => 'required|integer|min:1|max:100',
+                'fotos.*' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
             ]);
+            Log::error('Errores de validación:', $validar->errors()->toArray());
             if ($validar->fails()) {
                 return redirect()->route('gestion-salas')
                     ->withErrors($validar)
                     ->withInput()
                     ->with('error', 'Datos incorrectos.');
             }
+
             $validar = $validar->validated();
             Log::info('Datos enviados al registrar: ', $validar);
 
-            // Crear nuevo usuario
-            $usuario = new Espacio();
-            $usuario->nombre = $validar['nombre_teatro'];
-            $usuario->localidad = $validar['localidad'];
-            $usuario->codigopostal = $validar['codigo_postal'];
-            $usuario->direccion = $validar['direccion'];
-            $usuario->email = $validar['email'];
-            $usuario->telefono = $validar['telefono'];
-            $usuario->equipamiento = $validar['equipamiento'];
-            $usuario->nombre_sala = $validar['nombre_sala'];
-            $usuario->tipo = $validar['tipo_sala'];
-            $usuario->capacidad = $validar['aforo'];
-            $usuario->save();
+            // Guardamos los datos en la BBDD
+            $espacio = new Espacio();
+            $espacio->nombre = $validar['nombre_teatro'];
+            $espacio->localidad = $validar['localidad'];
+            $espacio->codigopostal = $validar['codigo_postal'];
+            $espacio->direccion = $validar['direccion'];
+            $espacio->email = $validar['email'];
+            $espacio->telefono = $validar['telefono'];
+            $espacio->equipamiento = $validar['equipamiento'];
+            $espacio->nombre_sala = $validar['nombre_sala'];
+            $espacio->tipo = $validar['tipo_sala'];
+            $espacio->capacidad = $validar['aforo'];
+            $espacio->save();
 
-            // Redirigir con mensaje de éxito
+            // Si el espacio se guardó correctamente y hay fotos, las subimos
+            if ($respuesta->hasFile('fotos')) {
+                foreach ($respuesta->file('fotos') as $fotoArchivo) {
+                    $ruta = $fotoArchivo->store('img', 'public');
+
+                    $foto = new Foto();
+                    $foto->espacio_id = $espacio->idespacios;
+                    $foto->ruta = $ruta;
+                    $foto->save();
+                }
+            }
+
             return redirect()->route('gestion-salas')->with('correcto', 'Registro de sala correcto');
         } catch (\Exception $ex) {
-            // Manejo de otras excepciones
             Log::error('Error al registrar en la base de datos: ' . $ex->getMessage(), [
                 'exception' => $ex
             ]);
             return redirect()->route('gestion-salas')->with('error', 'Error, has introducido algún dato duplicado en la base de datos');
         }
     }
+
     // Función para buscar los resultados de los filtros del view "nuevas-reservas.blade.php"
     public function buscarEspacios(Request $respuesta)
     {
@@ -112,7 +127,7 @@ class GestionSalas extends Controller
     // a la view de "busquedas-salas.blade.php"
     public function detalleEspacio($id)
     {
-        $espacio = Espacio::findOrFail($id);
+        $espacio = Espacio::with('fotos')->findOrFail($id);
         return view('busquedas-salas', compact('espacio'));
     }
 }

@@ -1,3 +1,4 @@
+//Validacion, guardado de valores
 document
     .getElementById("formGestionSalas")
     .addEventListener("submit", function (event) {
@@ -11,7 +12,7 @@ document
         const tipo_sala = document.getElementById("tipo_sala").value;
         const aforo = document.getElementById("aforo").value;
         const equipamiento = document.getElementById("equipamiento").value;
-
+//Impedir que se puedan dejar los campos vacios
         if (nombre_teatro === "") {
             alert("El campo es obligatorio.");
             event.preventDefault(); // Detiene el envío
@@ -49,6 +50,7 @@ document
             event.preventDefault(); // Detiene el envío
         }
     });
+//Validación para no permitir letras y limitar el numero de caracteres
 const inputCodigoPostal = document.getElementById("codigo_postal");
 inputCodigoPostal.addEventListener("input", function () {
     if (this.value.length > 5) {

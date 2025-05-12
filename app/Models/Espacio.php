@@ -22,4 +22,10 @@ class Espacio extends Model
         'capacidad'
     ];
     protected $guarded = ['idespacios', 'idequipamiento'];
+
+     // Definir la relación con la tabla fotos
+    public function fotos()
+    {
+        return $this->hasMany(Foto::class, 'espacio_id', 'idespacios');
+    }
 }
