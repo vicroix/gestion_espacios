@@ -11,6 +11,11 @@ class Foto extends Model
     protected $primaryKey = 'id_fotos';
     const CREATED_AT = 'creado_el';
     const UPDATED_AT = 'actualizado_el';
+    // Definir la propiedad fillable
+    protected $fillable = [
+        'espacio_id',  // Asegúrate de añadir esto
+        'ruta',  // Y cualquier otro campo que necesite ser asignado masivamente
+    ];
     // Definir la relación con la tabla espacios
     public function espacio()
     {

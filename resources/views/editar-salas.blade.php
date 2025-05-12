@@ -107,10 +107,10 @@
                     rows="3" name="equipamiento" id="equipamiento" placeholder="Equipamiento">{{ $espacio->equipamiento }}</textarea>
             </div>
             <!-- Listado de fotos actuales -->
-            <div class="grid grid-cols-3 gap-2 mb-4">
+            <div class="flex overflow-x-auto gap-2 mb-4">
                 @foreach($espacio->fotos as $foto)
-                <div class="relative border p-1">
-                    <img src="{{ asset('storage/' . $foto->ruta) }}" alt="" class="w-full h-24 object-cover rounded">
+                <div class="relative border p-1 flex-shrink-0">
+                    <img src="{{ asset('storage/' . $foto->ruta) }}" alt="" class="w-32 h-24 object-cover rounded">
                     <label class="absolute top-1 right-1 bg-white rounded-full p-1 shadow">
                         <input type="checkbox" name="fotos_borrar[]" value="{{ $foto->id_fotos }}" class="peer sr-only">
                         {{-- ícono de papelera --}}
@@ -122,6 +122,7 @@
                 </div>
                 @endforeach
             </div>
+
             <!-- FOTOS -->
             <div>
                 <input type="file" name="fotos[]" multiple>
