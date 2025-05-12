@@ -123,7 +123,7 @@ class GestionSalas extends Controller
 
         return view('nuevas-reservas', compact('espacios'));
     }
-       // Función para buscar los resultados de los filtros del view "modificar-salas.blade.php"
+    // Función para buscar los resultados de los filtros del view "modificar-salas.blade.php"
     public function modificarSalas(Request $respuesta)
     {
         $query = Espacio::query();
@@ -171,6 +171,51 @@ class GestionSalas extends Controller
         $espacios = $query->limit(12)->get();
 
         return view('modificar-salas', compact('espacios'));
+    }
+
+        // Función para enviar por id una sala selecionada desde el botón Ver de la view "modificar-salas.blade.php"
+    // a la view de "Editar-salas.blade.php"
+    public function enviarEditarSalas($id)
+    {
+        $espacio = Espacio::where('idespacios')->findOrFail($id);
+        return view('editar-salas', compact('espacio'));
+    }
+
+    // Función para actualizar una reserva existente desde el view "editar-reservas.blade.php" y redirige a
+    // el view "editar-salas.blade.php"
+    public function editarSalas(Request $respuesta, $id)
+    {
+        $editarEspacio = Espacio::findOrFail($id);
+
+        $validar = Validator::make($respuesta->all(), [
+            'nombre_teatro' => 'required|string|max:100',
+            'localidad' => 'required|string|max:100',
+            'codigo_postal' => 'required|string|max:5',
+            'direccion' => 'required|string|max:100',
+            'email' => 'required|string|max:255',
+            'telefono' => 'required|string|max:9',
+            'nombre_sala' => 'required|string|max:100',
+            'equipamiento' => 'required|string|max:255',
+            'tipo_sala' => 'required|string|max:6',
+            'aforo' => 'required|integer|min:1|max:100',
+            'fotos.*' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
+        ])->validated();
+            // Guardamos los datos en la BBDD
+            $editarespacio = new Espacio();
+            $editarespacio->nombre = $validar['nombre_teatro'];
+            $editarespacio->localidad = $validar['localidad'];
+            $editarespacio->codigopostal = $validar['codigo_postal'];
+            $editarespacio->direccion = $validar['direccion'];
+            $editarespacio->email = $validar['email'];
+            $editarespacio->telefono = $validar['telefono'];
+            $editarespacio->equipamiento = $validar['equipamiento'];
+            $editarespacio->nombre_sala = $validar['nombre_sala'];
+            $editarespacio->tipo = $validar['tipo_sala'];
+            $editarespacio->capacidad = $validar['aforo'];
+            $editarespacio->save();
+
+        return redirect()->route('editar-salas')
+            ->with('correcto', 'Modificación actualizada correctamente.');
     }
 
     // Función para enviar por id un espacio selecionado desde el botón Ver de la view "nuevas-reservas.blade.php"
