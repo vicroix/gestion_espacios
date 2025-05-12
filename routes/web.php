@@ -26,6 +26,7 @@ Route::get('/form-registro', [App\Http\Controllers\PaginasController::class, 'fo
 Route::get('/faq', [App\Http\Controllers\PaginasController::class, 'faq'])->name('faq');
 Route::get('/busquedas-salas', [App\Http\Controllers\PaginasController::class, 'busquedasSalas'])->name('busquedas-salas');
 
+
 //Rutas solo Admin
 Route::middleware(['admin'])->group(function () {
     //Rutas de acceso
@@ -34,6 +35,8 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/gestion-salas', [App\Http\Controllers\PaginasController::class, 'gestionSalas'])->name('gestion-salas');
     //Ruta encargada de registrar los espacios por parte del Admin en view "gestion-reservas.blade.php"
     Route::post('gestion-espacio', action: [GestionSalas::class, 'gestionEspacio'])->name('gestion-espacio');
+    //Ruta encargada de modificar los espacios por parte del Admin en view "modificar-salas.blade.php"
+    Route::get('/modificar-salas', [App\Http\Controllers\GestionSalas::class, 'modificarSalas'])->name('modificar-salas');
 });
 //Rutas profe, pero Admin también
 Route::middleware(['profe'])->group(function () {
