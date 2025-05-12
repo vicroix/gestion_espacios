@@ -29,3 +29,4 @@ class Espacio extends Model
         return $this->hasMany(Foto::class, 'espacio_id', 'idespacios');
     }
 }
+//
