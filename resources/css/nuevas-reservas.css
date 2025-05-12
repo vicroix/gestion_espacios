@@ -46,3 +46,7 @@ section {
     color: rgb(31 41 55 / var(--tw-text-opacity, 1)); /* #1f2937 */
     background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1)); /* #f3f4f6 */
 }
+
+#mainFormCont {
+    transition: margin-left 0.5s ease;
+  }
