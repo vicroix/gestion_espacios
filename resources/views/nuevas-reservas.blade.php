@@ -181,7 +181,7 @@
                         <!-- Botón con Lápiz y Flecha -->
                         @if (session('id_rol') === 1)
                         <a href="{{ route('editar-salas', ['id' => $espacio->idespacios]) }}"
-                            class="inline-flex items-center button-filtro-a-reserva">
+                            class="inline-flex items-center button-filtro-a-editar-sala">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                 viewBox="0 0 24 24">
                                 <g fill="none" stroke="currentColor" stroke-linecap="round"

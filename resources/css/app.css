@@ -236,6 +236,27 @@ h5 {
     background-color: var(--color-primario-active);
     box-shadow: 0px 0px 2px 0.5px var(--color-secundario);
 }
+/* BOTON para ir a editar la sala */
+.button-filtro-a-editar-sala {
+    background-color: var(--color-secundario);
+    color: var(--color-general);
+    padding: 10px;
+    border: none;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.button-filtro-a-editar-sala:hover {
+    background-color: var(--color-secundario-hover);
+    box-shadow: 0px 0px 1.8px 0.2px var(--color-secundario);
+}
+.button-filtro-a-editar-sala:active {
+    background-color: var(--color-secundario-active);
+    box-shadow: 0px 0px 2px 0.5px var(--color-secundario);
+}
+/* BOTON para volver de reserva a filtro */
 .button-reserva-a-filtro {
     background-color: var(--color-secundario);
     color: var(--color-general);

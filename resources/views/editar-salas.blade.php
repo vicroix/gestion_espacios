@@ -12,9 +12,9 @@
         </div>
     </div>
     <!--inputs de gestión de salas-->
-    <div class="flex justify-center min-w-[340px] w-full mt-2">
+    <div class="flex justify-center w-full mt-2">
         <form id="formGestionSalas" action="{{ route('editar-espacio',['id'=> $espacio->idespacios] )}}" enctype="multipart/form-data" method="POST"
-            class="bg-[--color-general] lg:w-[340px] m-3 rounded-lg flex-col flex gap-2 justify-center">
+            class="bg-[--color-general] w-[315px] sm:w-[340px] m-3 rounded-lg flex-col flex gap-2 justify-center">
             @csrf
             <div class="w-full flex flex-col gap-2">
                 <!--nombre teatro-->
@@ -124,7 +124,7 @@
             </div>
 
             <!-- FOTOS -->
-            <div>
+            <div class="text-center">
                 <input type="file" name="fotos[]" multiple>
             </div>
             <div class="text-center">
