@@ -199,18 +199,6 @@
                         @endif
                     </div>
                 </div>
-
-                <!-- Detalle aparece abajo, ligeramente a la derecha -->
-                <!-- <div class="contenedor-mas-detalles absolute top-[50%] left-[140px] -translate-x-2/4 translate-y-[40%] mt-2 shadow-lg group-hover:opacity-100 group-focus-within:opacity-100">
-                    <p><strong>Nombre:</strong> {{ $espacio->nombre }}</p>
-                    <p><strong>Sala:</strong> {{ $espacio->nombre_sala }}</p>
-                    <p><strong>Direccion:</strong> {{ $espacio->direccion }}</p>
-                    <p><strong>Tel:</strong> {{ $espacio->telefono }}</p>
-                    <p><strong>Tipo:</strong> {{ $espacio->tipo }}</p>
-                    <p><strong>Capacidad:</strong> {{ $espacio->capacidad }}</p>
-                    <p><strong>Equipamiento:</strong> {{ $espacio->equipamiento }}</p>
-                </div> -->
-
             </div>
             @endforeach
         </section>

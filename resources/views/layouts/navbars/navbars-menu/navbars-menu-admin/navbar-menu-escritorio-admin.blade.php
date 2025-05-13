@@ -15,9 +15,7 @@
                         Salas
                     </button>
                     <div class="absolute hidden bg-[--color-general] border border-[--color-primario] left-0 w-[154.67px] rounded-3xl group-hover:flex flex-col">
-                        <a href="{{ url('gestion-salas') }}" class="hover:bg-[--color-primario] border border-[--color-general] hover:text-[--color-general] rounded-t-3xl p-1 pl-3 transition-all duration-300 ease-out">Creación Salas</a>
-                        <!-- <a href="{{ url('busquedas-salas') }}" class="hover:bg-[#990000] border border-white hover:text-white rounded-3xl p-2 transition-all duration-300 ease-out">Búsquedas Salas</a> -->
-                        <a href="{{ url('modificar-salas') }}" class="hover:bg-[--color-primario] border border-[--color-general] hover:text-[--color-general] rounded-b-3xl p-1 pl-3 transition-all duration-300 ease-out">Modificar Salas</a>
+                        <a href="{{ url('gestion-salas') }}" class="hover:bg-[--color-primario] border border-[--color-general] hover:text-[--color-general] rounded-3xl p-1 pl-3 transition-all duration-300 ease-out">Creación Salas</a>
                     </div>
                 </div>
                 <a href="{{ url('proximos-eventos') }}" class="hover:bg-[--color-primario] px-3 border-2 w-[180px] border-[--color-general] hover:text-[--color-general] p-1 transition-all duration-300 ease-out">Próximos eventos</a>

@@ -33,8 +33,6 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/gestion-salas', [App\Http\Controllers\PaginasController::class, 'gestionSalas'])->name('gestion-salas');
     //Ruta encargada de registrar los espacios por parte del Admin en view "gestion-reservas.blade.php"
     Route::post('gestion-espacio', action: [GestionSalas::class, 'gestionEspacio'])->name('gestion-espacio');
-    //Ruta encargada de modificar los espacios por parte del Admin en view "modificar-salas.blade.php"
-    Route::get('/modificar-salas', [App\Http\Controllers\GestionSalas::class, 'modificarSalas'])->name('modificar-salas');
     //Ruta encargada de modificar los espacios por parte del Admin en view "editar-salas.blade.php"
     Route::get('/editar-salas/{id}', [App\Http\Controllers\GestionSalas::class, 'enviarEditarSalas'])->name('editar-salas');
     // Ruta encargada de llamar a la función que modifica los espacios ya existentes en la view "editar-salas.blade.php"
