@@ -135,7 +135,7 @@
             <div class="flex justify-center mt-7">
               <div class="flex items-start">
                 <!--Panel botones -->
-                <div class="flex flex-col gap-12 mt-7">    
+                <div class="flex flex-col gap-12 mt-7">
                   <!--Info -->
                   <button id="btnInfo" type="button">
                     <svg width="25" height="25" viewBox="0 0 44 32" fill="none" xmlns="http://www.w3.org/2000/svg">

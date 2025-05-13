@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Models\Espacio;
 use App\Models\Foto;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class GestionSalas extends Controller
@@ -173,48 +174,87 @@ class GestionSalas extends Controller
         return view('modificar-salas', compact('espacios'));
     }
 
-        // Función para enviar por id una sala selecionada desde el botón Ver de la view "modificar-salas.blade.php"
+    // Función para enviar por id una sala selecionada desde el botón Ver de la view "modificar-salas.blade.php"
     // a la view de "Editar-salas.blade.php"
     public function enviarEditarSalas($id)
     {
-        $espacio = Espacio::where('idespacios')->findOrFail($id);
+        $espacio = Espacio::findOrFail($id);
+        // dd($espacio);
         return view('editar-salas', compact('espacio'));
     }
 
     // Función para actualizar una reserva existente desde el view "editar-reservas.blade.php" y redirige a
     // el view "editar-salas.blade.php"
-    public function editarSalas(Request $respuesta, $id)
+    public function editarSalas(Request $request, $id)
     {
-        $editarEspacio = Espacio::findOrFail($id);
-
-        $validar = Validator::make($respuesta->all(), [
+        $editarespacio = Espacio::findOrFail($id);
+        // dd($request->input('fotos_borrar'));
+        $validar = Validator::make($request->all(), [
             'nombre_teatro' => 'required|string|max:100',
-            'localidad' => 'required|string|max:100',
+            'localidad'     => 'required|string|max:100',
             'codigo_postal' => 'required|string|max:5',
-            'direccion' => 'required|string|max:100',
-            'email' => 'required|string|max:255',
-            'telefono' => 'required|string|max:9',
-            'nombre_sala' => 'required|string|max:100',
-            'equipamiento' => 'required|string|max:255',
-            'tipo_sala' => 'required|string|max:6',
-            'aforo' => 'required|integer|min:1|max:100',
-            'fotos.*' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
-        ])->validated();
-            // Guardamos los datos en la BBDD
-            $editarespacio = new Espacio();
-            $editarespacio->nombre = $validar['nombre_teatro'];
-            $editarespacio->localidad = $validar['localidad'];
-            $editarespacio->codigopostal = $validar['codigo_postal'];
-            $editarespacio->direccion = $validar['direccion'];
-            $editarespacio->email = $validar['email'];
-            $editarespacio->telefono = $validar['telefono'];
-            $editarespacio->equipamiento = $validar['equipamiento'];
-            $editarespacio->nombre_sala = $validar['nombre_sala'];
-            $editarespacio->tipo = $validar['tipo_sala'];
-            $editarespacio->capacidad = $validar['aforo'];
-            $editarespacio->save();
+            'direccion'     => 'required|string|max:100',
+            'email'         => 'required|email|max:255',
+            'telefono'      => 'required|string|max:9',
+            'nombre_sala'   => 'required|string|max:100',
+            'equipamiento'  => 'required|string|max:255',
+            'tipo_sala'     => 'required|in:Obra,Ensayo',
+            'aforo'         => 'required|integer|min:1|max:100',
+            'fotos.*'       => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'fotos_borrar' => 'sometimes|array',
+            'fotos_borrar.*' => 'nullable|integer|exists:fotos,id_fotos',
+        ]);
 
-        return redirect()->route('editar-salas')
+        if ($validar->fails()) {
+            Log::error('Errores de validación en editarSalas():', $validar->errors()->toArray());
+            return redirect()
+                ->route('editar-salas', ['id' => $id])
+                ->withErrors($validar)
+                ->withInput()
+                ->with('error', 'Datos incorrectos.');
+        }
+
+        $datos = $validar->validated();
+
+        // Eliminar fotos seleccionadas
+        if (!empty($datos['fotos_borrar'])) {
+            $fotosABorrar = Foto::whereIn('id_fotos', $datos['fotos_borrar'])
+            ->where('espacio_id', $editarespacio->idespacios)
+            ->get();
+
+            foreach ($fotosABorrar as $foto) {
+                // dd('Ruta de la foto a eliminar: ' . $foto->ruta);
+                Storage::disk('public')->delete($foto->ruta);
+                $foto->delete();
+            }
+        }
+
+        // Actualizar espacio
+        $editarespacio->nombre       = $datos['nombre_teatro'];
+        $editarespacio->localidad    = $datos['localidad'];
+        $editarespacio->codigopostal = $datos['codigo_postal'];
+        $editarespacio->direccion    = $datos['direccion'];
+        $editarespacio->email        = $datos['email'];
+        $editarespacio->telefono     = $datos['telefono'];
+        $editarespacio->nombre_sala  = $datos['nombre_sala'];
+        $editarespacio->tipo         = $datos['tipo_sala'];
+        $editarespacio->capacidad    = $datos['aforo'];
+        $editarespacio->equipamiento = $datos['equipamiento'];
+        $editarespacio->save();
+
+        // Subir fotos nuevas
+        if ($request->hasFile('fotos')) {
+            foreach ($request->file('fotos') as $archivo) {
+                $ruta = $archivo->store('img', 'public');
+                Foto::create([
+                    'espacio_id' => $editarespacio->idespacios,
+                    'ruta'       => $ruta,
+                ]);
+            }
+        }
+
+        return redirect()
+            ->route('editar-salas', ['id' => $editarespacio->idespacios])
             ->with('correcto', 'Modificación actualizada correctamente.');
     }
 

@@ -5,7 +5,7 @@
 <!-- http://localhost/TeatroGest/public/nuevas-reservas -->
 @section("main")
 
-<main class="flex-grow justify-center bg-[--color-general]">
+<main class="flex-grow justify-center w-[90%] bg-[--color-general]">
     <div class="flex justify-center mt-10">
         <div class="titulo-main w-full flex justify-center md:mx-[70px]">
             <h3 class="md:text-2xl text-2xl">BUSQUEDA SALAS</h3>
@@ -127,7 +127,7 @@
                     <!-- Botón de búsqueda -->
                     <button type="submit" class="button-primary-auto mt-2 w-[61.97]">
                         <div class="flex justify-center">
-                            <svg width="50" height="18" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                            <svg width="50" height="18" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M35 35L27.75 27.75M31.6667 18.3333C31.6667 25.6971 25.6971 31.6667 18.3333 31.6667C10.9695 31.6667 5 25.6971 5 18.3333C5 10.9695 10.9695 5 18.3333 5C25.6971 5 31.6667 10.9695 31.6667 18.3333Z" stroke=var(--color-general) stroke-width="2.56" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </div>
@@ -137,9 +137,9 @@
         </aside>
 
         <!-- Resultados -->
-        <section class="grid place-items-center grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 4xl:grid-cols-6">
+        <section class="grid w-[90%] xl:gap-12 place-items-center grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-4 4xl:grid-cols-5">
             @foreach ($espacios as $espacio)
-            <div class="relative h-[150px] md:h-[180px] group cursor-pointer" tabindex="0">
+            <div class="relative h-[150px] w-[250px] md:h-[180px] group cursor-pointer" tabindex="0">
                 <div class="bg-[--color-general] rounded-xl shadow p-3 border-t-4 border-[--color-primario] lg:h-[180px] lg:w-[280px]">
                     <div class="lg:h-[100px]">
                         <div class="flex justify-between gap-4">
@@ -155,7 +155,7 @@
                         <p class="text-sm text-gray-700">Localidad: {{ $espacio->localidad }}</p>
                         <p class="text-sm text-gray-700 truncate">Dirección: {{ $espacio->direccion }}</p>
                     </div>
-                    <div class="mt-3 flex items-center justify-between">
+                    <div class="mt-3 flex gap-3 items-center">
                         <!-- Botón con Mapa y Flecha -->
                         <a href="{{ route('detalle-espacio',['id'=> $espacio->idespacios] )}}" class="inline-flex items-center button-filtro-a-reserva">
                             <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 100 100" class="svg-botones">
@@ -166,11 +166,30 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                             </svg>
                         </a>
+                        <!-- Botón con Lápiz y Flecha -->
+                        @if (session('id_rol') === 1)
+                        <a href="{{ route('editar-salas', ['id' => $espacio->idespacios]) }}"
+                            class="inline-flex items-center button-filtro-a-reserva">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                viewBox="0 0 24 24">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="2">
+                                    <path d="M7 7H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-1" />
+                                    <path d="M20.385 6.585a2.1 2.1 0 0 0-2.97-2.97L9 12v3h3zM16 5l3 3" />
+                                </g>
+                            </svg>
+                            <svg class="ml-1 w-3 h-4 text-[--color-general]" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                        @endif
                     </div>
                 </div>
 
                 <!-- Detalle aparece abajo, ligeramente a la derecha -->
-                <div class="contenedor-mas-detalles top-[100px] left-[140px] -translate-x-1/4 mt-2 shadow-lg group-hover:opacity-100 group-focus-within:opacity-100">
+                <div class="contenedor-mas-detalles absolute top-[50%] left-[140px] -translate-x-2/4 translate-y-[40%] mt-2 shadow-lg group-hover:opacity-100 group-focus-within:opacity-100">
                     <p><strong>Nombre:</strong> {{ $espacio->nombre }}</p>
                     <p><strong>Sala:</strong> {{ $espacio->nombre_sala }}</p>
                     <p><strong>Direccion:</strong> {{ $espacio->direccion }}</p>

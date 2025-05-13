@@ -29,9 +29,7 @@ Route::get('/busquedas-salas', [App\Http\Controllers\PaginasController::class, '
 
 //Rutas solo Admin
 Route::middleware(['admin'])->group(function () {
-    //Rutas de acceso
-    Route::get('/modificar-salas', [App\Http\Controllers\PaginasController::class, 'modificarSalas'])->name('modificar-salas');
-    //Ruta al view "gestion-reservas.blade.php"
+     //Ruta al view "gestion-reservas.blade.php"
     Route::get('/gestion-salas', [App\Http\Controllers\PaginasController::class, 'gestionSalas'])->name('gestion-salas');
     //Ruta encargada de registrar los espacios por parte del Admin en view "gestion-reservas.blade.php"
     Route::post('gestion-espacio', action: [GestionSalas::class, 'gestionEspacio'])->name('gestion-espacio');
@@ -39,6 +37,8 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/modificar-salas', [App\Http\Controllers\GestionSalas::class, 'modificarSalas'])->name('modificar-salas');
     //Ruta encargada de modificar los espacios por parte del Admin en view "editar-salas.blade.php"
     Route::get('/editar-salas/{id}', [App\Http\Controllers\GestionSalas::class, 'enviarEditarSalas'])->name('editar-salas');
+    // Ruta encargada de llamar a la función que modifica los espacios ya existentes en la view "editar-salas.blade.php"
+    Route::post('editar-espacio/{id}', action: [GestionSalas::class, 'editarSalas'])->name('editar-espacio');
 });
 //Rutas profe, pero Admin también
 Route::middleware(['profe'])->group(function () {
