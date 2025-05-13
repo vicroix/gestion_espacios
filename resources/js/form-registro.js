@@ -68,3 +68,5 @@ document.getElementById('formRegistro').addEventListener('submit', function (eve
         event.preventDefault();
     }
 });
+
+
