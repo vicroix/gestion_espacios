@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Models\Usuario;
+use Illuminate\Support\Facades\Validator;
 
 // Registro y Login de usuarios
 class AuthController extends Controller
@@ -31,16 +32,21 @@ class AuthController extends Controller
     {
         try {
             // Validación de los campos del registro de usuarios
-            $validar = $respuesta->validate([
+            $validar = Validator::make($respuesta->all(), [
                 'nombre' => 'required|string|max:255',
                 'apellidos' => 'required|string|max:255',
-                'telefono' => 'required|string|max:15',
+                'telefono' => 'nullable|string|max:15',
                 'email' => 'required|email|unique:usuarios,email',
                 'usuario' => 'required|string|max:255|unique:usuarios,usuario',
                 'password' => 'required|string',
             ]);
-            Log::info('Datos enviados al registrar: ', $validar);
-
+            if ($validar->fails()) {
+                return redirect()->route('form-registro')
+                ->withErrors($validar)
+                ->withInput()
+                ->with('error', 'Datos incorrectos.');
+            }
+            $validar = $validar->validated();
             // Crear nuevo usuario
             $usuario = new Usuario();
             $usuario->nombre = $validar['nombre'];
@@ -53,6 +59,7 @@ class AuthController extends Controller
 
             return redirect()->route('form-registro')->with('success', 'Usuario registrado con éxito');
         } catch (\Exception $e) {
+            Log::info('Datos enviados al registrar: ', $validar);
             return redirect()->route('form-registro')->with('error', 'Error al registrar. Posible usuario o email ya existentes.');
         }
     }
