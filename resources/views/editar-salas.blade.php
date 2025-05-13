@@ -33,20 +33,19 @@
                      invalid:focus:ring-red-400 peer w-full"
                                 type="text" value="{{ $espacio->nombre_sala }}" name="nombre_sala" id="nombre_sala"
                                 placeholder="Nombre Sala">
-                            
+
                             <div class="grid grid-cols-2 gap-4">
                                 <!-- INPUT LOCALIDAD -->
-                            <input
-                                class="inputs-text border border-gray-300 focus:outline-none invalid:focus:ring-red-400 peer w-full"
-                                type="text" value="{{ $espacio->localidad }}" name="localidad" id="localidad"
-                                placeholder="Localidad">
+                                <input
+                                    class="inputs-text border border-gray-300 focus:outline-none invalid:focus:ring-red-400 peer w-full"
+                                    type="text" value="{{ $espacio->localidad }}" name="localidad" id="localidad"
+                                    placeholder="Localidad">
                                 <!-- INPUT CODIGO POSTAL -->
-                            <input
-                                class="inputs-text border border-gray-300 focus:outline-none invalid:focus:ring-red-400 peer w-full"
-                                type="text" value="{{ $espacio->codigopostal }}" name="codigo_postal" id="codigo_postal"
-                                placeholder="C.P.">
+                                <input
+                                    class="inputs-text border border-gray-300 focus:outline-none invalid:focus:ring-red-400 peer w-full"
+                                    type="text" value="{{ $espacio->codigopostal }}" name="codigo_postal"
+                                    id="codigo_postal" placeholder="C.P.">
                             </div>
-                            
                             <!-- INPUT DIRECCION -->
                             <input
                                 class="inputs-text border border-gray-300 focus:outline-none invalid:focus:ring-red-400 peer w-full"
@@ -139,13 +138,13 @@
                         </div>
                     </div>
                 </div>
+                
                 <!--botones-->
                 <div class=" mb-5 flex justify-center gap-4">
                     <!--Botón volver-->
                     <a type="input" href="{{ url('buscar-sala') }}"
                         class="button-secundary-auto text-center lg:w-[70px] cursor-pointer flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"
-                            fill="currentColor" stroke="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
                             <path fill="currentColor"
                                 d="M4.4 7.4L6.8 4h2.5L7.2 7h6.3a6.5 6.5 0 0 1 0 13H9l1-2h3.5a4.5 4.5 0 1 0 0-9H7.2l2.1 3H6.8L4.4 8.6L4 8z" />
                         </svg>
@@ -153,8 +152,7 @@
                     <!--Botón confirmar modificación-->
                     <button type="submit"
                         class="button-primary-auto cursor-pointer flex items-center justify-center w-20">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 1200 1200"
-                            stroke="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 1200 1200" stroke="currentColor">
                             <path fill="currentColor"
                                 d="M0 0v1200h1200V424.289l-196.875 196.875v381.961h-806.25v-806.25h381.961L775.711 0zm1030.008 15.161l-434.18 434.25L440.7 294.283L281.618 453.438L595.821 767.57l159.082-159.082l434.18-434.25l-159.082-159.081z" />
                         </svg>
