@@ -4,11 +4,18 @@
             Reservas
         </button>
         <div class="absolute hidden bg-[--color-general] border border-[--color-primario] left-0 w-[154.67px] rounded-3xl group-hover:flex flex-col">
-            <a href="{{ url('buscar-sala') }}" class="hover:bg-[--color-primario] border border-[--color-general] hover:text-[--color-general] rounded-t-3xl p-1 pl-3 transition-all duration-300 ease-out">Nuevas Reservas</a>
-            <a href="{{ url('buscar-reservas') }}" class="hover:bg-[--color-primario] border border-[--color-general] hover:text-[--color-general] rounded-b-3xl p-1 pl-3 transition-all duration-300 ease-out">Gestión reservas</a>
+            <a href="{{ url('buscar-reservas') }}" class="hover:bg-[--color-primario] border border-[--color-general] hover:text-[--color-general] rounded-3xl p-1 pl-3 transition-all duration-300 ease-out">Gestión reservas</a>
         </div>
     </div>
-
+    <!-- Salas -->
+    <div class="relative group">
+        <button class="px-3 py-1 hover:bg-[--color-primario] border border-[--color-general] group-hover:bg-[--color-primario] group-hover:text-[--color-general] hover:text-[--color-general] transition-all duration-300 ease-out">
+            Salas
+        </button>
+        <div class="absolute hidden bg-[--color-general] border border-[--color-primario] left-0 w-[154.67px] rounded-3xl group-hover:flex flex-col">
+            <a href="{{ url('buscar-sala') }}" class="hover:bg-[--color-primario] border border-[--color-general] hover:text-[--color-general] rounded-3xl p-1 pl-3 transition-all duration-300 ease-out">Gestión Salas</a>
+        </div>
+    </div>
     <a href="{{ url('proximos-eventos') }}" class="hover:bg-[--color-primario] px-3 border border-[--color-general] hover:text-[--color-general] p-1 transition-all duration-300 ease-out">
         Próximos eventos
     </a>

@@ -33,8 +33,8 @@
           <!-- Formulario -->
           <form action="{{ route('login') }}" method="POST" class="bg-[--color-general] w-80 rounded-lg p-6 flex flex-col items-center gap-4">
             @csrf
-            <input class="inputs-text w-full" type="email" name="email" placeholder="Correo">
-            <input class="inputs-text w-full" type="password" name="password" placeholder="Contraseña">
+            <input class="inputs-text border border-black w-full" type="email" name="email" placeholder="Correo">
+            <input class="inputs-text border border-black w-full" type="password" name="password" placeholder="Contraseña">
             <input class="button-primary-auto mt-4" type="submit" value="Enviar">
             @if(session('error'))
               <p class="text-red-500">{{ session('error') }}</p>
