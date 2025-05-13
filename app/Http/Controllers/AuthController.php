@@ -29,12 +29,14 @@ class AuthController extends Controller
     }
     public function registro(Request $respuesta)
     {
+        //dd($respuesta);
         try {
             // Validación de los campos del registro de usuarios
+            
             $validar = $respuesta->validate([
                 'nombre' => 'required|string|max:255',
                 'apellidos' => 'required|string|max:255',
-                'telefono' => 'required|string|max:15',
+                'telefono' => 'string|max:15',
                 'email' => 'required|email|unique:usuarios,email',
                 'usuario' => 'required|string|max:255|unique:usuarios,usuario',
                 'password' => 'required|string',
@@ -53,7 +55,7 @@ class AuthController extends Controller
 
             return redirect()->route('form-registro')->with('success', 'Usuario registrado con éxito');
         } catch (\Exception $e) {
-            Log::info('Datos enviados al registrar: ', $validar);
+            //Log::info('Datos enviados al registrar: ', $validar);
             return redirect()->route('form-registro')->with('error', 'Error al registrar. Posible usuario o email ya existentes.');
         }
     }

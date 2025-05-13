@@ -45,6 +45,7 @@ document.getElementById('telefono').addEventListener('input', function () {
     this.value = this.value.replace(/[^0-9]/g, '');
 })
 //Validación correo
+
 document.getElementById('email').addEventListener('submit', function () {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
