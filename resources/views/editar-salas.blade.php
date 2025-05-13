@@ -138,7 +138,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!--botones-->
                 <div class=" mb-5 flex justify-center gap-4">
                     <!--Botón volver-->

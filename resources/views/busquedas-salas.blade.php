@@ -167,7 +167,7 @@
                                     <h4 class="mt-2">Selecciona hora y día:</h4>
                                     <div class="flex gap-1">
                                         <input type="date" name="fecha" id="fecha" min="{{ date('Y-m-d') }}"
-                                        class="inputs-text border border-[--color-secundario]
+                                            class="inputs-text border border-[--color-secundario]
                                         {{ $errors->has('fecha') ? 'border-red-500' : 'border-black' }}" value="{{ old('fecha') }}">
                                         @error('fecha')
                                         <p class="text-red-500">{{ $message }}</p>
@@ -183,16 +183,16 @@
                                                     class="inputs-text border border-[--color-secundario]
                                                     {{ $errors->has('hora_inicio') ? 'border-red-500' : 'border-black' }}"
                                                     value="{{ old('hora_inicio') }}">
-                                                    @error('hora_inicio')
-                                                    <p class="text-red-500">{{ $message }}</p>
-                                                    @enderror
+                                                @error('hora_inicio')
+                                                <p class="text-red-500">{{ $message }}</p>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="flex flex-col">
                                             <p>Hora Fin: </p>
                                             <div class="flex gap-1">
                                                 <input type="time" name="hora_fin" id="horaFin"
-                                                class="inputs-text border border-[--color-secundario]
+                                                    class="inputs-text border border-[--color-secundario]
                                                 {{ $errors->has('hora_fin') ? 'border-red-500' : 'border-black' }}">
                                                 @error('hora_fin')
                                                 <p class="text-red-500">{{ $message }}</p>
@@ -206,20 +206,18 @@
                                 <div class="flex gap-4 justify-center text-center mt-8 items-center">
                                     <div>
                                         <!-- Volver a view "nuevas-reservas.blade.php" -->
-                                        <a href="{{ route('buscar-sala',['id'=> $espacio->idespacios] )}}" class="inline-flex items-center button-reserva-a-filtro">
-                                            <svg class="mr-2 w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                                            </svg>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
-                                                <path fill="currentColor" d="M9 5a1 1 0 1 0 0 2a1 1 0 0 0 0-2M6.17 5a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-7.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 0 1 0-2zM15 11a1 1 0 1 0 0 2a1 1 0 0 0 0-2m-2.83 0a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-1.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 1 1 0-2zM9 17a1 1 0 1 0 0 2a1 1 0 0 0 0-2m-2.83 0a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-7.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 1 1 0-2z" />
+                                        <a href="{{ route('buscar-sala',['id'=> $espacio->idespacios] )}}" class="inline-flex w-[61.97] h-[43.99] justify-center items-center button-reserva-a-filtro">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                                                <path fill="currentColor"
+                                                    d="M4.4 7.4L6.8 4h2.5L7.2 7h6.3a6.5 6.5 0 0 1 0 13H9l1-2h3.5a4.5 4.5 0 1 0 0-9H7.2l2.1 3H6.8L4.4 8.6L4 8z" />
                                             </svg>
                                         </a>
                                     </div>
                                     <div class="text-center">
                                         <!-- Realizar reserva -->
-                                        <button type="submit" class="button-confirmar-reserva w-[61.97]">
+                                        <button type="submit" class="button-confirmar-reserva w-[61.97] h-[43.99]">
                                             <div class="flex justify-center">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 16l2 2 4-4" />
                                                 </svg>
