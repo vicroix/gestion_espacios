@@ -37,7 +37,7 @@
             </div>
             <!-- Elfsight Google Reviews | Untitled Google Reviews -->
             <section class="flex">
-                <!--
+                <!--................................COMENTADO PARA NO CARGAR LA API Y CONSUMIR TOKENS. ELIMINAR COMENTARIO CUANDO SE VAYA A UTILIZAR.......................
                 <script src="https://static.elfsight.com/platform/platform.js" async></script>
                 <div class="elfsight-app-3f894ccc-f643-4019-935b-cff19c55c358" data-elfsight-app-lazy></div>-->
             </section>
