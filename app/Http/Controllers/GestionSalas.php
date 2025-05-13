@@ -27,7 +27,7 @@ class GestionSalas extends Controller
                 'equipamiento' => 'required|string|max:255',
                 'tipo_sala' => 'required|string|max:6',
                 'aforo' => 'required|integer|min:1|max:100',
-                'fotos.*' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
+                'fotos.*' => 'required|image|mimes:jpeg,png,jpg,webp|max:12248',
             ]);
             Log::error('Errores de validación:', $validar->errors()->toArray());
             if ($validar->fails()) {
