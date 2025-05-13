@@ -13,12 +13,12 @@
   <section class="flex items-start justify-center mt-10 gap-9">
 
     <!-- Contenedor panel y form para transición -->
-    <div class="flex gap-6 items-start transition-all duration-500" id="wrapperPrincipal">
+    <div class="flex items-start transition-all duration-500" id="wrapperPrincipal">
 
       <!-- Panel lateral izquierdo  -->
-      <div id="panelContenedor" class="hidden min-w-[300px] max-w-md bg-white rounded-xl shadow p-4 border-t-4 border-[#990000]">
+      <div id="panelContenedor" class="w-full hidden min-w-[600px] max-w-none bg-white rounded-xl mt-10 shadow p-4 border-t-4 border-[#990000]">
         <!-- Panel info -->
-        <div id="panelInfo" class="hidden">
+        <div id="panelInfo" class="hidden w-full">
           <h4 class="font-semibold text-[#990000] mb-2">Información</h4>
           <p>Sala: {{ $espacio->nombre_sala }}</p>
           <p>Localidad: {{ $espacio->localidad }}</p>
@@ -30,14 +30,14 @@
         </div>
 
         <!-- Panel mapa -->
-        <div id="panelMapa" class="hidden">
+        <div id="panelMapa" class="hidden w-full">
           <h4 class="font-semibold text-[#990000] mb-2">Mapa</h4>
-          <div id="contenedor-del-mapa" class="w-full h-40 bg-gray-200" data-direccion="{{ $espacio->direccion }}"></div>
+          <div id="contenedor-del-mapa" class="w-full h-80 bg-gray-200" data-direccion="{{ $espacio->direccion }}"></div>
         </div>
 
         <!-- Panel galería -->
-        <div id="panelGaleria" class="hidden">
-          <h4 class="font-semibold text-[#990000] mb-2">Galería</h4>
+        <div id="panelGaleria" class="hidden w-full">
+          <h4 class="w-full font-semibold text-[#990000] mb-2">Galería</h4>
           <!-- FOTOS con Alpine.js -->
             @if (!empty($espacio->fotos) && $espacio->fotos->isNotEmpty())
 
@@ -53,7 +53,7 @@
     }" class="relative w-full flex flex-col items-center">
 
                 <!-- Foto destacada fuera del modal -->
-                <div class="relative w-[300px] h-[200px]">
+                <div class="relative w-[550px] h-[350px]">
                     <img :src="fotos[index]"
                         @click="modalOpen = true"
                         class="w-full h-full object-cover rounded cursor-pointer shadow">
@@ -118,8 +118,8 @@
       </div>
 
       <!-- Contenedor principal-->
-      <div id="mainFormCont" class="transition-all duration-500 ml-0 flex justify-center items-center w-full"> <!-- Flex para centrar -->
-        <form action="{{ route('reservar') }}" method="POST" class="flex flex-col gap-1 max-w-md w-full"> <!-- Centrado y tamaño máximo -->
+      <div id="mainFormCont" class="transition-all duration-500 flex justify-center items-center w-full"> <!-- Flex para centrar -->
+        <form action="{{ route('reservar') }}" method="POST" class="flex flex-col gap-1 max-w-md w-full lg:w-3/4"> <!-- Centrado y tamaño máximo -->
           @csrf
           <input type="hidden" name="nombre_teatro" value="{{ $espacio->nombre }}">
           <input type="hidden" name="localidad" id="inputLocalidad" data-localidad="{{ $espacio->localidad }}" value="{{ $espacio->localidad }}">
@@ -128,33 +128,32 @@
           <input type="hidden" name="id_espacio" value="{{ $espacio->idespacios }}">
 
           <!-- Información de espacio seleccionado de "nuevas-reservas.blade.php" -->
-          <div class="w-full flex flex-col justify-center md:mx-[70px]">
+          <div class="w-full flex flex-col justify-center items-center">
             <h5 class="text-center md:text-2xl text-2xl font-tex text-[#990000] border-b border-[#990000] mx-auto max-w-md w-full pb-1">{{ $espacio->nombre }}</h5>
 
-            <!-- conteneder principal -->
-            <div class="flex justify-center mt-7">
-              <div class="flex items-start">
+            <!-- Conteneder principal -->
+            <div class="flex flex-col lg:flex-row justify-center items-start mt-8 w-full">
                 <!--Panel botones -->
-                <div class="flex flex-col gap-12 mt-7">
+                <div class="w-full lg:w-1/4 h-auto items-start flex flex-row lg:flex-col lg:items-center justify-center gap-12 lg:mt-0">    
                   <!--Info -->
-                  <button id="btnInfo" type="button">
+                  <button id="btnInfo" type="button" class="text-[#990000] active:text-black">
                     <svg width="25" height="25" viewBox="0 0 44 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M2 1.99998H41.3909" stroke="#990000" stroke-width="4" stroke-linecap="round"/>
-                      <path d="M2 29.8053H41.3909" stroke="#990000" stroke-width="4" stroke-linecap="round"/>
-                      <path d="M2 15.9027H41.3909" stroke="#990000" stroke-width="4" stroke-linecap="round"/>
+                      <path d="M2 1.99998H41.3909" stroke="currentcolor" stroke-width="4" stroke-linecap="round"/>
+                      <path d="M2 29.8053H41.3909" stroke="currentcolor" stroke-width="4" stroke-linecap="round"/>
+                      <path d="M2 15.9027H41.3909" stroke="currentcolor" stroke-width="4" stroke-linecap="round"/>
                     </svg>
                   </button>
                   <!--Mapa -->
-                  <button id="btnMapa" type="button">
+                  <button id="btnMapa" type="button" class="text-[#990000] active:text-black">
                     <svg width="25" height="34" viewBox="0 0 46 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M2.10704 19.9873C0.608127 32.8886 15.2225 46.038 22.7171 51C30.2116 46.6582 44.9509 34.3772 43.9517 19.9873C42.9524 5.59747 29.3789 2 22.7171 2C16.4716 2.62025 3.60595 7.08608 2.10704 19.9873Z" stroke="#990000" stroke-width="4"/>
-                      <path d="M23 13C27.3274 13 31 16.7125 31 21.5C31 26.2875 27.3274 30 23 30C18.6726 30 15 26.2875 15 21.5C15 16.7125 18.6726 13 23 13Z" stroke="#990000" stroke-width="4"/>
+                      <path d="M2.10704 19.9873C0.608127 32.8886 15.2225 46.038 22.7171 51C30.2116 46.6582 44.9509 34.3772 43.9517 19.9873C42.9524 5.59747 29.3789 2 22.7171 2C16.4716 2.62025 3.60595 7.08608 2.10704 19.9873Z" stroke="currentcolor" stroke-width="4"/>
+                      <path d="M23 13C27.3274 13 31 16.7125 31 21.5C31 26.2875 27.3274 30 23 30C18.6726 30 15 26.2875 15 21.5C15 16.7125 18.6726 13 23 13Z" stroke="currentcolor" stroke-width="4"/>
                     </svg>
                   </button>
                   <!--Galería -->
-                  <button id="btnGaleria" type="button">
+                  <button id="btnGaleria" type="button" class="text-[#990000] active:text-black">
                     <svg width="25" height="25" viewBox="0 0 45 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M6.55556 44H38.4444C40.9604 44 43 41.9107 43 39.3333V6.66667C43 4.08934 40.9604 2 38.4444 2H6.55556C4.03959 2 2 4.08934 2 6.66667V39.3333C2 41.9107 4.03959 44 6.55556 44ZM6.55556 44L31.6111 18.3333L43 30M17.9444 14.8333C17.9444 16.7663 16.4148 18.3333 14.5278 18.3333C12.6408 18.3333 11.1111 16.7663 11.1111 14.8333C11.1111 12.9003 12.6408 11.3333 14.5278 11.3333C16.4148 11.3333 17.9444 12.9003 17.9444 14.8333Z" stroke="#990000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M6.55556 44H38.4444C40.9604 44 43 41.9107 43 39.3333V6.66667C43 4.08934 40.9604 2 38.4444 2H6.55556C4.03959 2 2 4.08934 2 6.66667V39.3333C2 41.9107 4.03959 44 6.55556 44ZM6.55556 44L31.6111 18.3333L43 30M17.9444 14.8333C17.9444 16.7663 16.4148 18.3333 14.5278 18.3333C12.6408 18.3333 11.1111 16.7663 11.1111 14.8333C11.1111 12.9003 12.6408 11.3333 14.5278 11.3333C16.4148 11.3333 17.9444 12.9003 17.9444 14.8333Z" stroke="currentcolor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                   </button>
                 </div>
@@ -205,7 +204,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              
             </div>
           </div>
         </form>
