@@ -15,6 +15,11 @@ class GestionReservas extends Controller
 
     public function realizarReserva(Request $respuesta)
     {
+        $mensajes = [
+            'fecha.required' => '*',
+            'hora_inicio.required' => '*',
+            'hora_fin.required' => '*'
+        ];
         // Validar lo que llega del formulario
         $validar = Validator::make($respuesta->all(), [
             'nombre_teatro' => 'required|string|max:100',
@@ -25,15 +30,15 @@ class GestionReservas extends Controller
             'hora_inicio' => 'required|date_format:H:i',
             'hora_fin' => 'required|date_format:H:i',
             'id_espacio' => 'required|integer',
-        ]);
+        ], $mensajes);
         if ($validar->fails()) {
             return redirect()->route('detalle-espacio', ['id' => $respuesta->input('id_espacio')])
                 ->withErrors($validar)
                 ->withInput()
-                ->with('error', 'Hubo un problema al realizar la reserva. Datos incorrectos.');
+                ->with('error', 'Campos obligatorios *');
         }
         $validar = $validar->validated();
-         // Leer JSON festivos
+        // Leer JSON festivos
         $rutaJSON = public_path('fullCalendar/calendario-2025.json');
         $json = file_get_contents($rutaJSON);
         $datos = json_decode($json, true);
@@ -41,8 +46,8 @@ class GestionReservas extends Controller
             foreach ($datos as $dato) {
                 $fechaFestivo = $dato['start'];
                 if ($fechaFestivo === $validar['fecha']) {
-                return redirect()->route('detalle-espacio', ['id' => $respuesta->input('id_espacio')])
-                ->with('festivo', 'Días festivos no disponibles para reservar');
+                    return redirect()->route('detalle-espacio', ['id' => $respuesta->input('id_espacio')])
+                        ->with('festivo', 'Días festivos no disponibles para reservar');
                 }
             }
         };

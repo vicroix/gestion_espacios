@@ -102,7 +102,6 @@ h5 {
 }
 
 .inputs-text {
-    border: solid 1px var(--color-secundario);
     border-radius: 8px;
     height: 35px;
     padding-left: 10px;
