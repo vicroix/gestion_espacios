@@ -200,7 +200,7 @@ class GestionSalas extends Controller
             'equipamiento'  => 'required|string|max:255',
             'tipo_sala'     => 'required|in:Obra,Ensayo',
             'aforo'         => 'required|integer|min:1|max:100',
-            'fotos.*'       => 'nullable|image|mimes:jpeg,png,jpg,webp|max:4082',
+            'fotos.*'       => 'nullable|image|mimes:jpeg,png,jpg,webp|max:12248',
             'fotos_borrar' => 'sometimes|array',
             'fotos_borrar.*' => 'nullable|integer|exists:fotos,id_fotos',
         ]);

@@ -113,7 +113,7 @@
                     <img src="{{ asset('storage/' . $foto->ruta) }}" alt="" class="w-32 h-24 object-cover rounded">
                     <label class="absolute top-1 right-1 bg-white rounded-full p-1 shadow">
                         <input type="checkbox" name="fotos_borrar[]" value="{{ $foto->id_fotos }}" class="peer sr-only">
-                        {{-- ícono de papelera --}}
+                        <!-- ícono de papelera -->
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 cursor-pointer text-white peer-checked:text-[--color-primario]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M6 18L18 6M6 6l12 12" />
