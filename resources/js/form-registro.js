@@ -9,11 +9,6 @@ document.getElementById('formRegistro').addEventListener('submit', function (eve
     const email = document.getElementById('email').value.trim;
     const telefono = document.getElementById('telefono').value.trim;
 
-    const emailRegex =  /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {document.getElementById("error-email").textContent = "Correo no válido.";
-        valido = false;
-      }
-
     if (nombre === '') {
         alert('El nombre es obligatorio.');
         event.preventDefault(); // Detiene el envío
@@ -34,6 +29,7 @@ document.getElementById('formRegistro').addEventListener('submit', function (eve
         alert('El campo correo es obligatorio.');
         event.preventDefault(); // Detiene el envío
     }
+
 });
 
 //Validación para no permitir números
@@ -48,3 +44,26 @@ document.getElementById('apellidos').addEventListener('input', function () {
 document.getElementById('telefono').addEventListener('input', function () {
     this.value = this.value.replace(/[^0-9]/g, '');
 })
+//Validación correo
+
+document.getElementById('email').addEventListener('submit', function () {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        event.preventDefault();
+    }
+})
+
+//Validación contraseña
+document.getElementById('formRegistro').addEventListener('submit', function (event) {
+    const password = getElementById('password').value.trim;
+    const cumpleRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,}$/;
+    const mensaje = document.getElementById("mensaje");
+    if (cumpleRegex.test(password)) {
+        mensaje.style.color = "green";
+        mensaje.textContent = "Contraseña válida.";
+    } else {
+        mensaje.style.color = "red";
+        mensaje.textContent = "La contraseña debe incluir 1 mayúscula, 1 minúscula, 1 número y al menos 6 carácteres";
+        event.preventDefault();
+    }
+});

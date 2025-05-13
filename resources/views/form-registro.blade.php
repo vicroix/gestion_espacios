@@ -57,9 +57,9 @@
                         required>
                     <input class="inputs-text" type="email" name="email" id="email" placeholder="Correo electrónico*"
                         required>
-                        <span class="error" id="error-email"></span>
                     <input class="inputs-text" type="text" name="telefono" id="telefono" placeholder="Teléfono" maxlength="9">
                     <p>*Campo obligatorio</p>
+                    <p id="mensaje" style="color: red;"></p>
                     <!--Botón submit-->
                     <div class="flex justify-center">
                         <input class="button-primary-auto w-20 py-1 mt-3 text-[color-secundario] rounded-md cursor-pointer"
