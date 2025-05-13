@@ -170,7 +170,7 @@
                                         class="inputs-text border border-[--color-secundario]
                                         {{ $errors->has('fecha') ? 'border-red-500' : 'border-black' }}" value="{{ old('fecha') }}">
                                         @error('fecha')
-                                        <p class="text-red-500 text-sm">{{ $message }}</p>
+                                        <p class="text-red-500">{{ $message }}</p>
                                         @enderror
                                     </div>
                                     <div class="flex gap-2 mt-2">
@@ -184,7 +184,7 @@
                                                     {{ $errors->has('hora_inicio') ? 'border-red-500' : 'border-black' }}"
                                                     value="{{ old('hora_inicio') }}">
                                                     @error('hora_inicio')
-                                                    <p class="text-red-500 text-sm">{{ $message }}</p>
+                                                    <p class="text-red-500">{{ $message }}</p>
                                                     @enderror
                                             </div>
                                         </div>
@@ -195,7 +195,7 @@
                                                 class="inputs-text border border-[--color-secundario]
                                                 {{ $errors->has('hora_fin') ? 'border-red-500' : 'border-black' }}">
                                                 @error('hora_fin')
-                                                <p class="text-red-500 text-sm">{{ $message }}</p>
+                                                <p class="text-red-500">{{ $message }}</p>
                                                 @enderror
                                             </div>
                                         </div>
