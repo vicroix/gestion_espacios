@@ -53,6 +53,7 @@ class AuthController extends Controller
 
             return redirect()->route('form-registro')->with('success', 'Usuario registrado con éxito');
         } catch (\Exception $e) {
+            Log::info('Datos enviados al registrar: ', $validar);
             return redirect()->route('form-registro')->with('error', 'Error al registrar. Posible usuario o email ya existentes.');
         }
     }
