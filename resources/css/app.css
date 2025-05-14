@@ -1,16 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-:root{
+:root {
     /* Color primario */
-    --color-primario:#990000;
-    --color-primario-hover:#b30000;
-    --color-primario-active:#8a0101;
+    --color-primario: #990000;
+    --color-primario-hover: #b30000;
+    --color-primario-active: #8a0101;
 
     /* Color secundario */
-    --color-secundario:#000000;
-    --color-secundario-hover:#282828;
-    --color-secundario-active:#141414;
+    --color-secundario: #000000;
+    --color-secundario-hover: #282828;
+    --color-secundario-active: #141414;
 
     /* Color general blanco */
     --color-general: #ffffff;
@@ -54,19 +54,19 @@ nav {
     color: var(--color-primario);
     margin-right: 0.8rem;
 }
-body {
-    font-family: "Montserrat";
-    font-size: 16px;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
+
 /* Main ocupe todo el espacio y empuje al Footer hacia abajo */
 main {
     flex: 1;
     margin-top: 0%;
 }
-
+/* FOOTER */
+footer {
+    padding-inline: 3rem;
+    padding-block: 0.8rem;
+    background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
+    border-top: 1px solid #d1d5dc;
+}
 /* Estilos titulos */
 h1 {
     font-size: 36px;
@@ -350,13 +350,6 @@ h5 {
     transform: rotate(180deg) !important;
 }
 
-/* FOOTER */
-footer {
-    padding-inline: 3rem;
-    padding-block: 0.8rem;
-    background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
-    border-top: 1px solid #d1d5dc;
-}
 .svg-redes {
     color: var(--color-primario);
     width: 25px;

@@ -5,13 +5,13 @@
 <!-- http://localhost/TeatroGest/public/nuevas-reservas -->
 @section("main")
 
-<main class="flex-grow justify-center w-[90%] bg-[--color-general]">
-    <div class="flex justify-center mt-10">
-        <div class="titulo-main w-full flex justify-center md:mx-[70px]">
+<div class="min-h-screen flex flex-col">
+    <div class="flex justify-center">
+        <div class="titulo-main w-full flex justify-center">
             <h3 class="md:text-2xl text-2xl">BUSQUEDA SALAS</h3>
         </div>
     </div>
-    <div x-data="{ openCiudades: false, openTipo: false, openFiltros: false, openAforo: false }" class="flex flex-col items-center min-w-[320px] gap-4 lg:items-start lg:flex-row">
+    <div x-data="{ openCiudades: false, openTipo: false, openFiltros: false, openAforo: false }" class="flex flex-col  items-center min-w-[320px] gap-4 lg:items-start lg:flex-row">
         <!-- Sidebar de filtros -->
         <aside class="w-64 px-2 shadow-md">
             <h2 id="h2" @click="openFiltros = !openFiltros">
@@ -196,6 +196,5 @@
 
 
     </div>
-</main>
 @vite('resources/js/nuevas-reservas.js')
 @endsection

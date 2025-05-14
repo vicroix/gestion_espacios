@@ -1,38 +1,48 @@
 @extends("layouts.plantilla")
 
-@vite(['resources/css/app.css', 'resources/css/gestion-reservas.css'])
+@vite(['resources/css/app.css', 'resources/css/gestion-reservas.css', 'resources/css/nuevas-reservas.css'])
 @section('title', 'Proximos eventos')
 <!-- http://localhost/TeatroGest/public/gestion-reservas -->
 
 @section("main")
-<main class="flex flex-col justify-start w-full items-center sm:mt-[50px] gap-4 lg:gap-12 px-4 lg:px-[150px]">
+<div class="flex flex-col">
     <div class="flex justify-center">
         <div class="titulo-main w-full flex justify-center md:mx-[70px]">
-            <h3 class="mt-10 md:text-2xl text-2xl">GESTIÓN DE RESERVAS</h3>
+            <h3 class="md:text-2xl text-2xl">GESTIÓN DE RESERVAS</h3>
         </div>
     </div>
     <!-- Reservas -->
     <div class="flex justify-center w-full">
-        <section class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 4xl:grid-cols-6 gap-4">
+        <section class="grid w-[90%] gap-12 place-items-center grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6">
             @if(isset($reservas) && $reservas->isNotEmpty())
             @foreach($reservas as $reserva)
-            <div class="relative md:h-[180px] group cursor-pointer" tabindex="0">
-                <div class="bg-[--color-general] rounded-xl shadow p-3 border-t-4 border-[--color-primario] lg:h-[180px] lg:w-[280px] flex flex-col justify-between">
+            <div class="h-[147.6px] w-[300px] cursor-pointer" tabindex="0">
+                <div class="relative rounded-xl shadow p-3 border-t-4 border-[--color-primario] lg:w-[280px]">
                     <div>
-                        <div class="flex justify-between gap-8">
-                            <h4 class="text-lg font-semibold text-[--color-primario] gap-2 items-center justify-between truncate overflow-hidden">
+                        <div class="flex justify-between gap-4">
+                            <h4 class="text-lg font-semibold text-[--color-primario] items-center justify-between truncate">
                                 {{ $reserva->nombre }}
                             </h4>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="text-gray-800 group-hover:hidden" viewBox="0 0 24 24">
-                                <path fill="currentColor" d="m16.577 20l-5.767-5.766a5.035 5.035 0 0 1-6.336-7.76a5.035 5.035 0 0 1 7.761 6.335L18 18.576L16.577 20ZM8.034 7.014a3.02 3.02 0 1 0-.004 6.04a3.02 3.02 0 0 0 .004-6.04ZM19 11h-2V9h-2V7h2V5h2v2h2v2h-2v2Z" />
-                            </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="text-gray-500 hidden group-hover:block" viewBox="0 0 24 24">
-                                <path fill="currentColor" d="m16.577 20l-5.767-5.766a5.035 5.035 0 0 1-6.336-7.76a5.035 5.035 0 0 1 7.761 6.335L18 18.576L16.577 20ZM8.034 7.014a3.02 3.02 0 1 0-.004 6.04a3.02 3.02 0 0 0 .004-6.04ZM21 9h-6V7h6v2Z" />
-                            </svg>
+                            <div class="group w-[40px] flex justify-center items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="text-gray-800 w-full group-hover:hidden rounded-xl shadow-around shadow-gray-400" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="m16.577 20l-5.767-5.766a5.035 5.035 0 0 1-6.336-7.76a5.035 5.035 0 0 1 7.761 6.335L18 18.576L16.577 20ZM8.034 7.014a3.02 3.02 0 1 0-.004 6.04a3.02 3.02 0 0 0 .004-6.04ZM19 11h-2V9h-2V7h2V5h2v2h2v2h-2v2Z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="text-gray-500 w-full hidden group-hover:block rounded-xl shadow-around shadow-[--color-primario]" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="m16.577 20l-5.767-5.766a5.035 5.035 0 0 1-6.336-7.76a5.035 5.035 0 0 1 7.761 6.335L18 18.576L16.577 20ZM8.034 7.014a3.02 3.02 0 1 0-.004 6.04a3.02 3.02 0 0 0 .004-6.04ZM21 9h-6V7h6v2Z" />
+                                </svg>
+                                <!-- Detalle aparece al hover/focus -->
+                                <div
+                                    class="contenedor-mas-detalles absolute top-full left-1/2 -translate-x-1/2 mt-2 shadow-lg group-hover:opacity-100 group-focus-within:opacity-100">
+                                    <p><strong>Nombre:</strong> {{ $reserva->nombre }}</p>
+                                    <p><strong>Localidad:</strong> {{ $reserva->localidad }}</p>
+                                    <p><strong>Dirección:</strong> {{ $reserva->direccion }}</p>
+                                    <p><strong>Código Postal:</strong> {{ $reserva->codigopostal }}</p>
+                                </div>
+                            </div>
                         </div>
                         <p class="text-sm text-gray-700 truncate">Fecha: {{ $reserva->fecha }}</p>
                         <p class="text-sm text-gray-700">
-                            Hora:   {{ \Carbon\Carbon::createFromFormat('H:i:s', $reserva->hora)->format('H:i') }} -
+                            Hora: {{ \Carbon\Carbon::createFromFormat('H:i:s', $reserva->hora)->format('H:i') }} -
                             {{ \Carbon\Carbon::createFromFormat('H:i:s', $reserva->hora_fin)->format('H:i') }}
                         </p>
                     </div>
@@ -46,15 +56,6 @@
                             <button type="submit" class="button-secundary-auto">Anular</button>
                         </form>
                     </div>
-                </div>
-
-                <!-- Detalle aparece al hover/focus -->
-                <div
-                    class="contenedor-mas-detalles absolute top-[50px] left-[205px] -translate-x-1/4 mt-2 bg-[--color-general] p-3 rounded-xl shadow-lg opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity">
-                    <p><strong>Nombre:</strong> {{ $reserva->nombre }}</p>
-                    <p><strong>Localidad:</strong> {{ $reserva->localidad }}</p>
-                    <p><strong>Dirección:</strong> {{ $reserva->direccion }}</p>
-                    <p><strong>Código Postal:</strong> {{ $reserva->codigopostal }}</p>
                 </div>
             </div>
             @endforeach
@@ -76,6 +77,5 @@
         <p class="text-red-500">{{ session('error') }}</p>
         @endif
     </div>
-</main>
-
+</div>
 @endsection

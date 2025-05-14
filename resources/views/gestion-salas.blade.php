@@ -5,7 +5,6 @@
 <!-- http://localhost/TeatroGest/public/gestion-salas -->
 
 @section("main")
-<main>
     <section class="flex flex-col lg:w-full">
         <div class="flex justify-center">
             <div class="titulo-main w-full flex justify-center md:mx-[70px]">
@@ -110,6 +109,5 @@
             </form>
         </div>
     </section>
-</main>
 @vite('resources/js/gestion-salas.js')
 @endsection
