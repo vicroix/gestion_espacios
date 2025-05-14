@@ -13,11 +13,11 @@
     </div>
     <!-- Reservas -->
     <div class="flex justify-center w-full">
-        <section class="grid w-[90%] gap-12 place-items-center grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6">
+        <section class="grid w-[90%]  gap-12 place-items-center grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6">
             @if(isset($reservas) && $reservas->isNotEmpty())
             @foreach($reservas as $reserva)
             <div class="h-[147.6px] w-[300px] cursor-pointer" tabindex="0">
-                <div class="relative rounded-xl shadow p-3 border-t-4 border-[--color-primario] lg:w-[280px] transition duration-250 ease-in-out transform hover:scale-105 hover:shadow-lg hover:-translate-y-1">
+                <div class="relative rounded-xl shadow p-3 border-t-4 border-[--color-primario] transition duration-250 ease-in-out lg:w-[280px] hover:shadow-lg">
                     <div>
                         <div class="flex justify-between gap-4">
                             <h4 class="text-lg font-semibold text-[--color-primario] items-center justify-between truncate">

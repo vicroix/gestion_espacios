@@ -139,8 +139,8 @@
         <!-- Resultados -->
         <section class="grid w-[90%] xl:gap-12 place-items-center grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-4 4xl:grid-cols-5">
             @foreach ($espacios as $espacio)
-            <div class="h-[147.6px] w-[300px] cursor-pointer shadow transition duration-250 ease-in-out transform hover:scale-105 hover:shadow-lg hover:-translate-y-1" tabindex="0">
-                <div class="relative rounded-xl shadow p-3 border-t-4 border-[--color-primario]">
+            <div class="relative h-[147.6px] w-[300px] cursor-pointer shadow rounded-xl transition duration-250 ease-in-out hover:shadow-lg" tabindex="0">
+                <div class="rounded-xl shadow p-3 border-t-4 border-[--color-primario]">
                     <div>
                         <div class="flex justify-between gap-4">
                             <h4 class="text-lg font-semibold text-[--color-primario] items-center justify-between truncate">{{ $espacio->nombre }}
@@ -153,7 +153,7 @@
                                     <path fill="currentColor" d="m16.577 20l-5.767-5.766a5.035 5.035 0 0 1-6.336-7.76a5.035 5.035 0 0 1 7.761 6.335L18 18.576L16.577 20ZM8.034 7.014a3.02 3.02 0 1 0-.004 6.04a3.02 3.02 0 0 0 .004-6.04ZM21 9h-6V7h6v2Z" />
                                 </svg>
                                 <!-- Detalle aparece abajo, ligeramente a la derecha -->
-                                <div class="contenedor-mas-detalles absolute top-full left-1/2 -translate-x-1/2 mt-2 shadow-lg group-hover:opacity-100 group-focus-within:opacity-100">
+                                <div class="absolute z-[9999] bg-white p-3 rounded shadow-lg left-1/2 -translate-x-1/2 top-[120%] w-max max-w-[300px] pointer-events-none opacity-0 group-hover:opacity-100 transition duration-300">
                                     <p><strong>Nombre:</strong> {{ $espacio->nombre }}</p>
                                     <p><strong>Sala:</strong> {{ $espacio->nombre_sala }}</p>
                                     <p><strong>Direccion:</strong> {{ $espacio->direccion }}</p>

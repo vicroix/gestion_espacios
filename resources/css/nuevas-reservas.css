@@ -31,6 +31,7 @@ section {
     gap: 1rem;
 }
 .contenedor-mas-detalles {
+    background-color: var(--color-general);
     position: absolute;
     width: 16rem;
     pointer-events: none;
