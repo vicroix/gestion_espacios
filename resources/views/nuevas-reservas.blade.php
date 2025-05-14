@@ -139,7 +139,7 @@
         <!-- Resultados -->
         <section class="grid w-[90%] xl:gap-12 place-items-center grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-4 4xl:grid-cols-5">
             @foreach ($espacios as $espacio)
-            <div class="relative h-[147.6px] w-[300px] cursor-pointer shadow rounded-xl transition duration-250 ease-in-out hover:shadow-lg" tabindex="0">
+            <div class="relative hover:bg-slate-100/85 h-[147.6px] w-[300px] cursor-pointer shadow rounded-xl transition duration-250 ease-in-out hover:shadow-lg" tabindex="0">
                 <div class="rounded-xl shadow p-3 border-t-4 border-[--color-primario]">
                     <div>
                         <div class="flex justify-between gap-4">

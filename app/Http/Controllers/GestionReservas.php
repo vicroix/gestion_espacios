@@ -86,7 +86,7 @@ class GestionReservas extends Controller
             $reserva->save();
             // dd($reserva);
             Log::info('Reserva:', ['reserva' => $reserva]);
-            return redirect()->route('buscar-reservas')->with('correcto', 'Reserva realizada correctamente.');
+            return redirect()->route('buscar-reservas')->with('reservado', 'Reserva realizada correctamente.');
         } catch (\Exception $ex) {
             Log::error('Error al registrar en la base de datos: ' . $ex->getMessage(), [
                 'exception' => $ex
@@ -148,7 +148,7 @@ class GestionReservas extends Controller
         $reserva->save();
 
         return redirect()->route('buscar-reservas')
-            ->with('correcto', 'Reserva actualizada correctamente.');
+            ->with('actualizado',$reserva->nombre);
     }
 
     //Función para eliminar una reserva desde "gestion-reservas.blade.php" con el botón Anular
@@ -158,7 +158,7 @@ class GestionReservas extends Controller
 
         if ($reserva) {
             $reserva->delete();
-            return redirect()->back()->with('eliminado', 'Reserva eliminada correctamente.');
+            return redirect()->back()->with('eliminado',  $reserva->nombre);
         } else {
             return redirect()->back()->with('error', 'Reserva no encontrada.');
         }

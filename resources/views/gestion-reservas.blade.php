@@ -11,13 +11,28 @@
             <h3 class="md:text-2xl text-2xl">GESTIÓN DE RESERVAS</h3>
         </div>
     </div>
+    <!-- Mensaje de error o ok si funciona -->
+    <div class="flex gap-2 justify-center mb-5">
+        @if (session('actualizado'))
+        <p class="text-[--color-primario] text-md font-semibold">{{ session('actualizado') }}</p>
+        <p class="text-green-600 font-semibold">actualizada correctamente</p>
+        @elseif(session('reservado'))
+        <p class="text-green-600 text-md font-semibold">{{ session('reservado') }}</p>
+        @elseif(session('eliminado'))
+        <p class="text-[--color-primario] text-md font-semibold">{{ session('eliminado') }}</p>
+        <p class="text-red-950 font-semibold">eliminado correctamente</p>
+        @elseif (session('sinDatos'))
+        @else
+        <p class="text-red-500">{{ session('error') }}</p>
+        @endif
+    </div>
     <!-- Reservas -->
     <div class="flex justify-center w-full">
         <section class="grid w-[90%]  gap-12 place-items-center grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6">
             @if(isset($reservas) && $reservas->isNotEmpty())
             @foreach($reservas as $reserva)
             <div class="relative h-[147.6px] w-[300px] cursor-pointer" tabindex="0">
-                <div class="rounded-xl shadow p-3 border-t-4 border-[--color-primario] transition duration-250 ease-in-out hover:shadow-lg">
+                <div class="rounded-xl hover:bg-slate-100/85 shadow p-3 border-t-4 border-[--color-primario] transition duration-250 ease-in-out hover:shadow-lg">
                     <div>
                         <div class="flex justify-between gap-4">
                             <h4 class="text-lg font-semibold text-[--color-primario] items-center justify-between truncate">
@@ -67,15 +82,6 @@
             </div>
             @endif
         </section>
-    </div>
-    <!-- Mensaje de error o ok si funciona -->
-    <div class="text-center mb-10">
-        @if (session('correcto'))
-        <p class="text-green-500">{{ session('correcto') }}</p>
-        @elseif (session('sinDatos'))
-        @else
-        <p class="text-red-500">{{ session('error') }}</p>
-        @endif
     </div>
 </div>
 @endsection

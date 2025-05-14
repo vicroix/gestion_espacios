@@ -103,10 +103,11 @@ h5 {
 
 .inputs-text {
     border-radius: 8px;
-    height: 35px;
+    height: 30px;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 1px;
+
 }
 .inputs-text:hover {
     border-color: var(--color-secundario);

@@ -11,7 +11,7 @@
             <h3 class="md:text-2xl text-2xl">Editar reservas</h3>
         </div>
     </div>
-    <div class="flex flex-col gap-4 rounded-xl shadow transition duration-250 ease-in-out hover:shadow-lg p-3 border-t-4 border-[--color-primario]">
+    <div class="flex flex-col hover:bg-slate-100/85 gap-4 rounded-xl shadow transition duration-250 ease-in-out hover:shadow-lg p-3 border-t-4 border-[--color-primario]">
         <h3 class="text-center text-[--color-primario]">{{ $reserva->nombre }}</h3>
         <form method="POST" action="{{ route('actualizar-reserva', ['id' => $reserva->idreservas]) }}" class="flex flex-col">
             @csrf
