@@ -152,7 +152,7 @@
                     <!--Botón confirmar modificación-->
                     <button type="submit"
                         class="button-primary-auto cursor-pointer flex items-center justify-center w-20">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 1200 1200" stroke="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 1200 1200" stroke="currentColor">
                             <path fill="currentColor"
                                 d="M0 0v1200h1200V424.289l-196.875 196.875v381.961h-806.25v-806.25h381.961L775.711 0zm1030.008 15.161l-434.18 434.25L440.7 294.283L281.618 453.438L595.821 767.57l159.082-159.082l434.18-434.25l-159.082-159.081z" />
                         </svg>
