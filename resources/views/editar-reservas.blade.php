@@ -11,7 +11,7 @@
             <h3 class="md:text-2xl text-2xl">Editar reservas</h3>
         </div>
     </div>
-    <form method="POST" action="{{ route('actualizar-reserva', ['id' => $reserva->idreservas]) }}" class="flex flex-col md:flex md:flex-row items-center gap-3">
+    <form method="POST" action="{{ route('actualizar-reserva', ['id' => $reserva->idreservas]) }}" class="flex flex-col md:flex md:flex-row items-end gap-3">
         @csrf
         <input type="hidden" name="id_espacio" value="{{ $reserva->id_espacio }}">
         <label>Fecha:</label>
