@@ -17,7 +17,7 @@
             @if(isset($reservas) && $reservas->isNotEmpty())
             @foreach($reservas as $reserva)
             <div class="h-[147.6px] w-[300px] cursor-pointer" tabindex="0">
-                <div class="relative rounded-xl shadow p-3 border-t-4 border-[--color-primario] lg:w-[280px]">
+                <div class="relative rounded-xl shadow p-3 border-t-4 border-[--color-primario] lg:w-[280px] transition duration-250 ease-in-out transform hover:scale-105 hover:shadow-lg hover:-translate-y-1">
                     <div>
                         <div class="flex justify-between gap-4">
                             <h4 class="text-lg font-semibold text-[--color-primario] items-center justify-between truncate">
