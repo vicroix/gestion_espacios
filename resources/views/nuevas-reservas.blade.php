@@ -153,7 +153,7 @@
                                     <path fill="currentColor" d="m16.577 20l-5.767-5.766a5.035 5.035 0 0 1-6.336-7.76a5.035 5.035 0 0 1 7.761 6.335L18 18.576L16.577 20ZM8.034 7.014a3.02 3.02 0 1 0-.004 6.04a3.02 3.02 0 0 0 .004-6.04ZM21 9h-6V7h6v2Z" />
                                 </svg>
                                 <!-- Detalle aparece abajo, ligeramente a la derecha -->
-                                <div class="absolute z-[9999] bg-white p-3 rounded shadow-lg left-1/2 -translate-x-1/2 top-[120%] w-max max-w-[300px] pointer-events-none opacity-0 group-hover:opacity-100 transition duration-300">
+                                <div class="contenedor-mas-detalles absolute p-3 rounded-xl shadow-lg left-1/2 -translate-x-1/2 top-[100%] w-[300px] pointer-events-none opacity-0 group-hover:opacity-100 transition duration-300">
                                     <p><strong>Nombre:</strong> {{ $espacio->nombre }}</p>
                                     <p><strong>Sala:</strong> {{ $espacio->nombre_sala }}</p>
                                     <p><strong>Direccion:</strong> {{ $espacio->direccion }}</p>
