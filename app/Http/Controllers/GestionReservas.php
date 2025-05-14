@@ -117,7 +117,7 @@ class GestionReservas extends Controller
     public function actualizarReserva(Request $respuesta, $id)
     {
         $reserva = Reserva::findOrFail($id);
-
+        // dd($respuesta->all());
         $validar = Validator::make($respuesta->all(), [
             'fecha'      => 'required|date|after_or_equal:today',
             'hora'       => 'required|date_format:H:i',
