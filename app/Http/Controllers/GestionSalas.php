@@ -31,7 +31,7 @@ class GestionSalas extends Controller
             ]);
             Log::error('Errores de validación:', $validar->errors()->toArray());
             if ($validar->fails()) {
-                return redirect()->route('gestion-salas')
+                return redirect()->route('creacion-salas')
                     ->withErrors($validar)
                     ->withInput()
                     ->with('error', 'Datos incorrectos.');
@@ -66,16 +66,16 @@ class GestionSalas extends Controller
                 }
             }
 
-            return redirect()->route('gestion-salas')->with('correcto', 'Registro de sala correcto');
+            return redirect()->route('creacion-salas')->with('correcto', 'Registro de sala correcto');
         } catch (\Exception $ex) {
             Log::error('Error al registrar en la base de datos: ' . $ex->getMessage(), [
                 'exception' => $ex
             ]);
-            return redirect()->route('gestion-salas')->with('error', 'Error, has introducido algún dato duplicado en la base de datos');
+            return redirect()->route('creacion-salas')->with('error', 'Error, has introducido algún dato duplicado en la base de datos');
         }
     }
 
-    // Función para buscar los resultados de los filtros del view "nuevas-reservas.blade.php"
+    // Función para buscar los resultados de los filtros del view "gestion-salas.blade.php"
     public function buscarEspacios(Request $respuesta)
     {
         $query = Espacio::query();
@@ -122,7 +122,7 @@ class GestionSalas extends Controller
         // Ejecutar query (si hay algún filtro aplicado, o traer todos si no) y en limit() pon el número de datos que quieres traer de máximo
         $espacios = $query->limit(12)->get();
 
-        return view('nuevas-reservas', compact('espacios'));
+        return view('gestion-salas', compact('espacios')); // *** CAMBIAR LUEGO LA VIEW A gestion-salas ***
     }
     // Función para buscar los resultados de los filtros del view "modificar-salas.blade.php"
     public function modificarSalas(Request $respuesta)
@@ -258,11 +258,11 @@ class GestionSalas extends Controller
             ->with('correcto', 'Modificación actualizada correctamente.');
     }
 
-    // Función para enviar por id un espacio selecionado desde el botón Ver de la view "nuevas-reservas.blade.php"
-    // a la view de "busquedas-salas.blade.php"
+    // Función para enviar por id un espacio selecionado desde el botón Ver de la view "gestion-salas.blade.php"
+    // a la view de "reservar-sala.blade.php"
     public function detalleEspacio($id)
     {
         $espacio = Espacio::with('fotos')->findOrFail($id);
-        return view('busquedas-salas', compact('espacio'));
+        return view('reservar-sala', compact('espacio'));
     }
 }

@@ -20,7 +20,7 @@ class PaginasController extends Controller
     }
     public function nuevasReservas()
     {
-        return view('nuevas-reservas');
+        return view('gestion-salas');
     }
     public function modificarSalas()
     {
@@ -32,7 +32,7 @@ class PaginasController extends Controller
     }
     public function gestionSalas()
     {
-        return view('gestion-salas');
+        return view('creacion-salas');
     }
     public function formRegistro()
     {
@@ -44,10 +44,10 @@ class PaginasController extends Controller
     }
     public function busquedasSalas()
     {
-        return view('busquedas-salas');
+        return view('reservar-sala');
     }
     public function buscarEspacios(){
-        return view('nuevas-reservas');
+        return view('gestion-salas');
     }
 
     public function buscarReservas(){

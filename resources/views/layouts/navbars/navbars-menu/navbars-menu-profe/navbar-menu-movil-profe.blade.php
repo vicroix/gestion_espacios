@@ -7,7 +7,7 @@
             <span class="block">Bienvenido <span class="font-semibold">{{ session('nombre_rol') }}</span></span>
             <span class="block text-[--color-primario]">{{ session('usuario') }}</span>
         </span>
-        <a href="{{ url('buscar-sala') }}" class="text-[--color-primario] font-semibold">Gestión reservas</a>
+        <a href="{{ url('gestion-salas') }}" class="text-[--color-primario] font-semibold">Gestión reservas</a>
         <a href="{{ url('proximos-eventos') }}" class="text-[--color-primario] font-semibold">Próximos eventos</a>
         <a href="{{ url('faq') }}" class="text-[--color-primario] font-semibold">FAQ</a>
         <a href="{{ route('salir') }}" class="bg-[--color-primario] text-[--color-general] px-4 py-2 rounded-lg w-full text-center">Cerrar sesión</a>
