@@ -5,8 +5,8 @@
         </button>
         <div class="absolute hidden bg-[--color-general] border border-[--color-primario] left-0 w-[154.67px] rounded-3xl group-hover:flex flex-col">
             <a href="{{ url('gestion-reservas') }}"
-            class="hover:bg-[--color-primario] border border-[--color-general] hover:text-[--color-general] rounded-3xl p-1 pl-3 transition-all duration-300 ease-out">
-            Gestión reservas</a>
+                class="hover:bg-[--color-primario] border border-[--color-general] hover:text-[--color-general] rounded-3xl p-1 pl-3 transition-all duration-300 ease-out">
+                Gestión reservas</a>
         </div>
     </div>
     <!-- Salas -->
@@ -15,13 +15,17 @@
             Salas
         </button>
         <div class="absolute hidden bg-[--color-general] border border-[--color-primario] left-0 w-[154.67px] rounded-3xl group-hover:flex flex-col">
-            <a href="{{ url('buscar-sala') }}" class="hover:bg-[--color-primario] border border-[--color-general] hover:text-[--color-general] rounded-3xl p-1 pl-3 transition-all duration-300 ease-out">Gestión Salas</a>
+            <a href="{{ url('buscar-sala') }}"
+                class="hover:bg-[--color-primario] border border-[--color-general] hover:text-[--color-general] rounded-3xl p-1 pl-3 transition-all duration-300 ease-out">
+                Gestión Salas</a>
         </div>
     </div>
-    <a href="{{ url('proximos-eventos') }}" class="hover:bg-[--color-primario] px-3 border border-[--color-general] hover:text-[--color-general] p-1 transition-all duration-300 ease-out">
+    <a href="{{ url('proximos-eventos') }}"
+        class="hover:bg-[--color-primario] px-3 border border-[--color-general] hover:text-[--color-general] p-1 transition-all duration-300 ease-out">
         Próximos eventos
     </a>
-    <a href="{{ url('faq') }}" class="hover:bg-[--color-primario] px-3 border border-[--color-general] hover:text-[--color-general] rounded-r-3xl p-1 transition-all duration-300 ease-out">
+    <a href="{{ url('faq') }}"
+        class="hover:bg-[--color-primario] px-3 border border-[--color-general] hover:text-[--color-general] rounded-r-3xl p-1 transition-all duration-300 ease-out">
         FAQ
     </a>
 </div>
