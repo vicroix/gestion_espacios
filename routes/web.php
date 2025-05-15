@@ -24,7 +24,7 @@ Route::get('/pago', [App\Http\Controllers\PaginasController::class, 'pago'])->na
 Route::get('/inicio-sesion', [App\Http\Controllers\PaginasController::class, 'inicioSesion'])->name('inicio-sesion');
 Route::get('/form-registro', [App\Http\Controllers\PaginasController::class, 'formRegistro'])->name('form-registro');
 Route::get('/faq', [App\Http\Controllers\PaginasController::class, 'faq'])->name('faq');
-Route::get('/busquedas-salas', [App\Http\Controllers\PaginasController::class, 'busquedasSalas'])->name('busquedas-salas');
+Route::get('/reservar-sala', [App\Http\Controllers\PaginasController::class, 'busquedasSalas'])->name('reservar-sala');
 
 
 //Rutas solo Admin
@@ -44,7 +44,7 @@ Route::middleware(['profe'])->group(function () {
     Route::get('gestion-reservas', action: [GestionReservas::class, 'buscarReservas'])->name('gestion-reservas');
     //Ruta encargada de filtrar y buscar todos los espacios de la BBDD al cargar la view "nuevas-reservas.blade.php"
     Route::get('/gestion-salas', [App\Http\Controllers\GestionSalas::class, 'buscarEspacios'])->name('gestion-salas');
-    //Ruta para envia el id de espacio desde "nuevas-reservas.blade.php" a "busquedas-salas.blade.php"
+    //Ruta para envia el id de espacio desde "nuevas-reservas.blade.php" a "reservar-sala.blade.php"
     Route::get('/detalle-espacio/{id}', [App\Http\Controllers\GestionSalas::class, 'detalleEspacio'])->name('detalle-espacio');
     //Ruta encargada de realizar reserva desde "busqueas-salas.blade.php"
     Route::post('reservar', action: [GestionReservas::class, 'realizarReserva'])->name('reservar');

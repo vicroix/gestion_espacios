@@ -5,7 +5,7 @@
 @vite('resources/css/app.css')
 
 @section('title', 'Proximos eventos')
-<!-- http://localhost/TeatroGest/public/busquedas-salas -->
+
 <head>
 <title>Resultados</title>
 <link rel="icon" type="image/png" href="/img/Logo.png">

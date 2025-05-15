@@ -259,10 +259,10 @@ class GestionSalas extends Controller
     }
 
     // Función para enviar por id un espacio selecionado desde el botón Ver de la view "gestion-salas.blade.php"
-    // a la view de "busquedas-salas.blade.php"
+    // a la view de "reservar-sala.blade.php"
     public function detalleEspacio($id)
     {
         $espacio = Espacio::with('fotos')->findOrFail($id);
-        return view('busquedas-salas', compact('espacio'));
+        return view('reservar-sala', compact('espacio'));
     }
 }
