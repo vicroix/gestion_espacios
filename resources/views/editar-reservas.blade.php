@@ -36,10 +36,12 @@
                 </div>
             </div>
             <div class="flex justify-center items-center gap-3 mt-6">
-                <button type="submit" class="button-primary-auto w-[55.95] h-[40] flex justify-center items-center">
+                <!--Botón de confirmar-->
+                <button type="submit" class="button-primary-auto w-[55.95] h-[40] flex justify-center items-center" title="Confirmar">
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 376 384"><path fill="currentColor" d="M119 282L346 55l29 30l-256 256L0 222l30-30z"/></svg>
                 </button>
-                <a href="{{ url('buscar-reservas') }}" class="inline-flex w-[61.97] h-[37.6] justify-center items-center button-reserva-a-filtro">
+                <!--Botón de volver-->
+                <a href="{{ url('buscar-reservas') }}" class="inline-flex w-[61.97] h-[37.6] justify-center items-center button-reserva-a-filtro" title="Volver">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
                         <path fill="currentColor"
                             d="M4.4 7.4L6.8 4h2.5L7.2 7h6.3a6.5 6.5 0 0 1 0 13H9l1-2h3.5a4.5 4.5 0 1 0 0-9H7.2l2.1 3H6.8L4.4 8.6L4 8z" />

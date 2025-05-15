@@ -156,7 +156,7 @@
                         </div>
                         <div class="w-full text-center">
                             <!-- Botón de búsqueda -->
-                            <button type="submit" class="button-primary-auto mt-2 w-[61.97] mb-2">
+                            <button type="submit" class="button-primary-auto mt-2 w-[61.97] mb-2" title="Buscar">
                                 <div class="flex justify-center">
                                     <svg width="50" height="18" viewBox="0 0 40 40" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -232,17 +232,17 @@
                             <div class="mt-3 flex gap-3 items-center">
                                 <!-- Botón con Mapa y Flecha -->
                                 <a href="{{ route('detalle-espacio', ['id' => $espacio->idespacios]) }}"
-                                    class="inline-flex w-[55.95] h-[40] justify-center items-center button-filtro-a-reserva">
+                                    class="inline-flex w-[55.95] h-[40] justify-center items-center button-filtro-a-reserva" title="Reservar">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                         viewBox="0 0 2048 2048">
                                         <path fill="currentColor"
                                             d="M1792 993q60 41 107 93t81 114t50 131t18 141q0 119-45 224t-124 183t-183 123t-224 46q-91 0-176-27t-156-78t-126-122t-85-157H128V128h256V0h128v128h896V0h128v128h256zM256 256v256h1408V256h-128v128h-128V256H512v128H384V256zm643 1280q-3-31-3-64q0-86 24-167t73-153h-97v-128h128v86q41-51 91-90t108-67t121-42t128-15q100 0 192 33V640H256v896zm573 384q93 0 174-35t142-96t96-142t36-175q0-93-35-174t-96-142t-142-96t-175-36q-93 0-174 35t-142 96t-96 142t-36 175q0 93 35 174t96 142t142 96t175 36m64-512h192v128h-320v-384h128zM384 1024h128v128H384zm256 0h128v128H640zm0-256h128v128H640zm-256 512h128v128H384zm256 0h128v128H640zm384-384H896V768h128zm256 0h-128V768h128zm256 0h-128V768h128z" />
                                     </svg>
                                 </a>
-                                <!-- Botón con Lápiz y Flecha-->
+                                <!-- Botón Editar (Lápiz)-->
                                 @if (session('id_rol') === 1)
                                     <a href="{{ route('editar-salas', ['id' => $espacio->idespacios]) }}"
-                                        class="inline-flex w-[55.95] h-[40] justify-center items-center button-filtro-a-editar-sala">
+                                        class="inline-flex w-[55.95] h-[40] justify-center items-center button-filtro-a-editar-sala" title="Editar">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 24 24">
                                             <g fill="none" stroke="currentColor" stroke-linecap="round"
@@ -256,7 +256,7 @@
                                 <!-- Botón con Eliminar -->
                                 @if (session('id_rol') === 1)
                                     <a href=""
-                                        class="inline-flex w-[55.95] h-[40] justify-center items-center button-filtro-a-editar-sala">
+                                        class="inline-flex w-[55.95] h-[40] justify-center items-center button-filtro-a-editar-sala" title="Eliminar">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                                             viewBox="0 0 24 24">
                                             <path fill="none" stroke="currentColor" stroke-linecap="round"

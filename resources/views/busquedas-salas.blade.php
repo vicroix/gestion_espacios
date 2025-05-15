@@ -71,7 +71,7 @@
                                 </svg>
                             </button>
 
-                            <!-- Bot贸n derecha -->
+                            <!-- Botón derecha -->
                             <button @click="index = (index === total - 1) ? 0 : index + 1"
                                 class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-[--color-general] bg-opacity-70 p-1 rounded-full shadow">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 23 24">
@@ -100,7 +100,7 @@
                             <div class="relative">
                                 <img :src="fotos[index]" class="max-h-[80vh] max-w-[80vw] rounded shadow-lg cursor-pointer">
 
-                                <!-- Bot贸n izquierda modal -->
+                                <!-- Botón izquierda modal -->
                                 <button @click="index = (index === 0) ? total - 1 : index - 1"
                                     class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-[--color-general] bg-opacity-70 p-1 rounded-full shadow">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 15 24">
@@ -108,7 +108,7 @@
                                     </svg>
                                 </button>
 
-                                <!-- Bot贸n derecha modal -->
+                                <!-- Botón derecha modal -->
                                 <button @click="index = (index === total - 1) ? 0 : index + 1"
                                     class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-[--color-general] bg-opacity-70 p-1 rounded-full shadow">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 23 24">
@@ -171,7 +171,7 @@
                                 <div class="flex flex-col gap-1">
                                     <h4 class="mt-2">Selecciona hora y día:</h4>
                                     <div class="flex gap-1">
-                                        <input type="date" name="fecha" id="fecha" min="{{ date('Y-m-d') }}"
+                                        <input type="date" title="Fecha" name="fecha" id="fecha" min="{{ date('Y-m-d') }}"
                                             class="inputs-text border border-gray-300
                                         {{ $errors->has('fecha') ? 'border-red-500' : 'border-black' }}" value="{{ old('fecha') }}">
                                         @error('fecha')
@@ -182,7 +182,7 @@
                                         <div class="flex flex-col items-start">
                                             <p>Hora Inicio: </p>
                                             <div class="flex gap-1">
-                                                <input type="time"
+                                                <input type="time" title="Hora inicio"
                                                     name="hora_inicio"
                                                     id="horaInicio"
                                                     class="inputs-text border border-gray-300
@@ -196,7 +196,7 @@
                                         <div class="flex flex-col">
                                             <p>Hora Fin: </p>
                                             <div class="flex gap-1">
-                                                <input type="time" name="hora_fin" id="horaFin"
+                                                <input type="time" title="Hora Fin" name="hora_fin" id="horaFin"
                                                     class="inputs-text border border-gray-300
                                                 {{ $errors->has('hora_fin') ? 'border-red-500' : 'border-black' }}">
                                                 @error('hora_fin')
@@ -211,7 +211,7 @@
                                 <div class="flex gap-4 justify-center text-center mt-8 items-center">
                                     <div>
                                         <!-- Volver a view "nuevas-reservas.blade.php" -->
-                                        <a href="{{ route('buscar-sala',['id'=> $espacio->idespacios] )}}" class="inline-flex w-[61.97] h-[43.99] justify-center items-center button-reserva-a-filtro">
+                                        <a href="{{ route('buscar-sala',['id'=> $espacio->idespacios] )}}" class="inline-flex w-[61.97] h-[43.99] justify-center items-center button-reserva-a-filtro" title="Volver">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
                                                 <path fill="currentColor"
                                                     d="M4.4 7.4L6.8 4h2.5L7.2 7h6.3a6.5 6.5 0 0 1 0 13H9l1-2h3.5a4.5 4.5 0 1 0 0-9H7.2l2.1 3H6.8L4.4 8.6L4 8z" />
@@ -220,7 +220,7 @@
                                     </div>
                                     <div class="text-center">
                                         <!-- Realizar reserva -->
-                                        <button type="submit" class="button-confirmar-reserva w-[61.97] h-[43.99]">
+                                        <button type="submit" title="Reservar" class="button-confirmar-reserva w-[61.97] h-[43.99]">
                                             <div class="flex justify-center">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />

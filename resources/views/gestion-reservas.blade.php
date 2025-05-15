@@ -67,7 +67,7 @@
                     <div class="mt-3 flex gap-2">
                         <!--Botón editar reserva-->
                         <form action="{{ route('editar-reserva', ['id' => $reserva->idreservas]) }}" method="GET">
-                            <button type="submit" class="button-primary-auto w-[55.95] h-[40] flex justify-center items-center">
+                            <button type="submit" class="button-primary-auto w-[55.95] h-[40] flex justify-center items-center" title="Editar">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 24 24">
                                             <g fill="none" stroke="currentColor" stroke-linecap="round"
@@ -82,7 +82,7 @@
                         <form method="POST" action="{{ route('eliminar-reserva', ['id' => $reserva->idreservas]) }}" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta reserva?')">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="button-secundary-auto w-[55.95] h-[40] flex justify-center items-center">
+                            <button type="submit" class="button-secundary-auto w-[55.95] h-[40] flex justify-center items-center" title="Eliminar">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                                             viewBox="0 0 24 24">
                                             <path fill="none" stroke="currentColor" stroke-linecap="round"
