@@ -64,7 +64,7 @@ class GestionReservas extends Controller
 
         if ($reservaExistente) {
             return redirect()->route('detalle-espacio', ['id' => $validar['id_espacio']])
-                ->with('error', 'Hora no disponible.');
+                ->with('error', 'Hora no disponible');
         }
 
 
@@ -86,14 +86,14 @@ class GestionReservas extends Controller
             $reserva->save();
             // dd($reserva);
             Log::info('Reserva:', ['reserva' => $reserva]);
-            return redirect()->route('buscar-reservas')->with('reservado', 'Reserva realizada correctamente.');
+            return redirect()->route('buscar-reservas')->with('reservado', 'Reserva realizada correctamente');
         } catch (\Exception $ex) {
             Log::error('Error al registrar en la base de datos: ' . $ex->getMessage(), [
                 'exception' => $ex
             ]);
             // Si hay un error en la BD, redirige a detalle-espacio
             return redirect()->route('detalle-espacio', ['id' => $validar['id_espacio']])
-                ->with('error', 'Hubo un problema al realizar la reserva. Inténtalo de nuevo.');
+                ->with('error', 'Hubo un problema al realizar la reserva. Inténtalo de nuevo');
         }
     }
     // función que busca si tiene reservas realizadas el usuario en view "gestion-reservas.blade.php"
@@ -139,7 +139,7 @@ class GestionReservas extends Controller
 
         if ($reservaExistente) {
             return redirect()->route('editar-reserva', ['id' => $reserva->idreservas])
-                ->with('error', 'Hora no disponible.');
+                ->with('error', 'Hora no disponible');
         }
 
         $reserva->fecha     = $validar['fecha'];
@@ -160,7 +160,7 @@ class GestionReservas extends Controller
             $reserva->delete();
             return redirect()->back()->with('eliminado',  $reserva->nombre);
         } else {
-            return redirect()->back()->with('error', 'Reserva no encontrada.');
+            return redirect()->back()->with('error', 'Reserva no encontrada');
         }
     }
 }
