@@ -172,7 +172,7 @@
                                     <h4 class="mt-2">Selecciona hora y día:</h4>
                                     <div class="flex gap-1">
                                         <input type="date" name="fecha" id="fecha" min="{{ date('Y-m-d') }}"
-                                            class="inputs-text border border-[--color-secundario]
+                                            class="inputs-text border border-gray-300
                                         {{ $errors->has('fecha') ? 'border-red-500' : 'border-black' }}" value="{{ old('fecha') }}">
                                         @error('fecha')
                                         <p class="text-red-500">{{ $message }}</p>
@@ -185,7 +185,7 @@
                                                 <input type="time"
                                                     name="hora_inicio"
                                                     id="horaInicio"
-                                                    class="inputs-text border border-[--color-secundario]
+                                                    class="inputs-text border border-gray-300
                                                     {{ $errors->has('hora_inicio') ? 'border-red-500' : 'border-black' }}"
                                                     value="{{ old('hora_inicio') }}">
                                                 @error('hora_inicio')
@@ -197,7 +197,7 @@
                                             <p>Hora Fin: </p>
                                             <div class="flex gap-1">
                                                 <input type="time" name="hora_fin" id="horaFin"
-                                                    class="inputs-text border border-[--color-secundario]
+                                                    class="inputs-text border border-gray-300
                                                 {{ $errors->has('hora_fin') ? 'border-red-500' : 'border-black' }}">
                                                 @error('hora_fin')
                                                 <p class="text-red-500">{{ $message }}</p>
