@@ -79,7 +79,7 @@
                     <!--Botón submit-->
                     <div class="flex justify-center">
                         <input class="button-primary-auto w-20 py-1 mt-3 text-[color-secundario] rounded-md cursor-pointer"
-                            type="submit" value="Enviar">
+                            type="submit" value="Registrar" title="Registrar">
                     </div>
 
                 </div>

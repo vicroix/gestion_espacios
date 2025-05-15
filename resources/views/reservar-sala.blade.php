@@ -9,7 +9,6 @@
 <head>
 <title>Resultados</title>
 <link rel="icon" type="image/png" href="/img/Logo.png">
-
 </head>
 
 @section("main")
@@ -71,7 +70,7 @@
                                 </svg>
                             </button>
 
-                            <!-- Bot贸n derecha -->
+                            <!-- Botón derecha -->
                             <button @click="index = (index === total - 1) ? 0 : index + 1"
                                 class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-[--color-general] bg-opacity-70 p-1 rounded-full shadow">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 23 24">
@@ -100,7 +99,7 @@
                             <div class="relative">
                                 <img :src="fotos[index]" class="max-h-[80vh] max-w-[80vw] rounded shadow-lg cursor-pointer">
 
-                                <!-- Bot贸n izquierda modal -->
+                                <!-- Botón izquierda modal -->
                                 <button @click="index = (index === 0) ? total - 1 : index - 1"
                                     class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-[--color-general] bg-opacity-70 p-1 rounded-full shadow">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 15 24">
@@ -108,7 +107,7 @@
                                     </svg>
                                 </button>
 
-                                <!-- Bot贸n derecha modal -->
+                                <!-- Botón derecha modal -->
                                 <button @click="index = (index === total - 1) ? 0 : index + 1"
                                     class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-[--color-general] bg-opacity-70 p-1 rounded-full shadow">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 23 24">
@@ -139,7 +138,7 @@
                         <!-- Conteneder principal -->
                         <div class="flex flex-col lg:flex-row justify-center items-start mt-8 w-full">
                             <!--Panel botones -->
-                            <div class="w-full lg:w-1/4 h-auto items-start flex flex-row lg:flex-col lg:items-center justify-center gap-12 lg:mt-0">
+                            <div class="w-full lg:w-1/4 h-auto items-start flex flex-row md:flex col md:items-center lg:flex-col lg:items-center justify-center gap-12 lg:mt-0">
                                 <!--Info -->
                                 <button id="btnInfo" type="button" class="text-[#990000] active:text-black">
                                     <svg width="25" height="25" viewBox="0 0 44 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -171,8 +170,8 @@
                                 <div class="flex flex-col gap-1">
                                     <h4 class="mt-2">Selecciona hora y día:</h4>
                                     <div class="flex gap-1">
-                                        <input type="date" name="fecha" id="fecha" min="{{ date('Y-m-d') }}"
-                                            class="inputs-text border border-[--color-secundario]
+                                        <input type="date" title="Fecha" name="fecha" id="fecha" min="{{ date('Y-m-d') }}"
+                                            class="inputs-text border border-gray-300
                                         {{ $errors->has('fecha') ? 'border-red-500' : 'border-black' }}" value="{{ old('fecha') }}">
                                         @error('fecha')
                                         <p class="text-red-500">{{ $message }}</p>
@@ -182,10 +181,10 @@
                                         <div class="flex flex-col items-start">
                                             <p>Hora Inicio: </p>
                                             <div class="flex gap-1">
-                                                <input type="time"
+                                                <input type="time" title="Hora inicio"
                                                     name="hora_inicio"
                                                     id="horaInicio"
-                                                    class="inputs-text border border-[--color-secundario]
+                                                    class="inputs-text border border-gray-300
                                                     {{ $errors->has('hora_inicio') ? 'border-red-500' : 'border-black' }}"
                                                     value="{{ old('hora_inicio') }}">
                                                 @error('hora_inicio')
@@ -196,8 +195,8 @@
                                         <div class="flex flex-col">
                                             <p>Hora Fin: </p>
                                             <div class="flex gap-1">
-                                                <input type="time" name="hora_fin" id="horaFin"
-                                                    class="inputs-text border border-[--color-secundario]
+                                                <input type="time" title="Hora Fin" name="hora_fin" id="horaFin"
+                                                    class="inputs-text border border-gray-300
                                                 {{ $errors->has('hora_fin') ? 'border-red-500' : 'border-black' }}">
                                                 @error('hora_fin')
                                                 <p class="text-red-500">{{ $message }}</p>
@@ -220,7 +219,7 @@
                                     </div>
                                     <div class="text-center">
                                         <!-- Realizar reserva -->
-                                        <button type="submit" class="button-confirmar-reserva w-[61.97] h-[43.99]">
+                                        <button type="submit" title="Reservar" class="button-confirmar-reserva w-[61.97] h-[43.99]">
                                             <div class="flex justify-center">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
