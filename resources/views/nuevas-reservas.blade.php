@@ -3,8 +3,11 @@
 @section('title', 'Proximos eventos')
 @vite('resources/css/nuevas-reservas.css')
 <!-- http://localhost/TeatroGest/public/nuevas-reservas -->
-@section("main")
 
+<title>Salas</title>
+<link rel="icon" type="image/png" href="/img/Logo.png">
+
+@section("main")
 <div class="min-h-screen flex flex-col">
     <div class="flex justify-center">
         <div class="titulo-main w-full flex justify-center">

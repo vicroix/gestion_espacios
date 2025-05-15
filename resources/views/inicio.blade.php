@@ -5,6 +5,9 @@
 @section('title', 'Inicio')
 <!-- http://localhost/L25_gestionespacios/public/ -->
 
+<title>TeatroGest</title>
+<link rel="icon" type="image/png" href="/img/Logo.png">
+
 @section('main')
 <main class="xl:mx-10 gap-3 items-center justify-start 2xl:mt-5">
     <div class="w-[90%]">
