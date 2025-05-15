@@ -2,184 +2,188 @@
 
 @section('title', 'Proximos eventos')
 @vite('resources/css/nuevas-reservas.css')
+
+<head>
+    <title>Busqueda salas</title>
+    <link rel="icon" type="image/png" href="/img/Logo.png">
+</head>
 <!-- http://localhost/TeatroGest/public/nuevas-reservas -->
 @section('main')
-
     <div class="min-h-screen flex flex-col">
         <div class="flex justify-center">
             <div class="titulo-main w-full flex justify-center">
-                <h3 class="md:text-2xl text-2xl">BUSQUEDA SALAS</h3>
+                <h3 class="md:text-2xl text-2xl">GESTION SALAS</h3>
             </div>
         </div>
-        <div x-data="{ openCiudades: false, openTipo: false, openFiltros: false, openAforo: false }" class="flex flex-col  items-center min-w-[320px] gap-4 lg:items-start lg:flex-row">
-            <!-- Sidebar de filtros -->
-            <aside class="w-64 px-2 shadow-md">
-                <h2 id="h2" @click="openFiltros = !openFiltros" class="mt-2">
-                    <!--Añadir sala-->
-                    <div class="flex justify-center button-primary-auto mt-2 w-[61.97]">
+        <div x-data="{ openCiudades: false, openTipo: false, openFiltros: false, openAforo: false }" class="flex flex-col items-center min-w-[320px] gap-4 lg:items-start lg:flex-row">
+            <div>
+                <!-- Sidebar de filtros -->
+                <aside class="w-64 px-2 shadow-md">
+                    <h2 id="h2" @click="openFiltros = !openFiltros" class="mt-2">
+                        <!--Icono de filtros-->
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
                             <path fill="currentColor"
+                                d="M9 5a1 1 0 1 0 0 2a1 1 0 0 0 0-2M6.17 5a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-7.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 0 1 0-2zM15 11a1 1 0 1 0 0 2a1 1 0 0 0 0-2m-2.83 0a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-1.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 1 1 0-2zM9 17a1 1 0 1 0 0 2a1 1 0 0 0 0-2m-2.83 0a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-7.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 1 1 0-2z" />
+                        </svg>
+                        Filtros
+                    </h2>
+                    <form method="GET" action="{{ route('buscar-sala') }}" class="space-y-0 mb-2 pl-1">
+                        <!-- Ciudades -->
+                        <div>
+                            <h3 id="h3" class="flex gap-1 items-center" @click="openCiudades = !openCiudades">
+                                Ciudades
+                                <span x-show="!openCiudades" class="text-[--color-primario]"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+                                        viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="M18 10h-4V6a2 2 0 0 0-4 0l.071 4H6a2 2 0 0 0 0 4l4.071-.071L10 18a2 2 0 0 0 4 0v-4.071L18 14a2 2 0 0 0 0-4" />
+                                    </svg></span>
+                                <span x-show="openCiudades"><svg xmlns="http://www.w3.org/2000/svg" width="15"
+                                        height="15" viewBox="0 0 32 32">
+                                        <path fill="currentColor"
+                                            d="M2 15.99c0-1.69 1.38-3.06 3.06-3.06h21.85c1.69 0 3.06 1.38 3.06 3.06c0 1.69-1.38 3.06-3.06 3.06H5.06C3.38 19.05 2 17.67 2 15.99" />
+                                    </svg></span>
+                            </h3>
+                            <div x-show="openCiudades" x-transition>
+                                <div class="mb-2">
+                                    <!-- <h3 id="h3">Equipamiento</h3> -->
+                                    <input type="text" name="localidad" value="{{ request()->input('localidad') }}"
+                                        class="w-full border rounded p-1 mr-2" placeholder="Localidad">
+                                </div>
+                                @foreach (['Madrid', 'Barcelona', 'Sevilla', 'Málaga', 'Granada', 'Huelva', 'Valencia', 'Cádiz', 'Tarragona', 'Cádiz', 'Salamanca', 'León'] as $ciudad)
+                                    <label class="block text-sm text-gray-600">
+                                        <input type="checkbox" name="ciudades[]" value="{{ $ciudad }}" class="mr-2">
+                                        {{ $ciudad }}
+                                    </label>
+                                @endforeach
+                            </div>
+                        </div>
+                        <!-- Tipo de sala -->
+                        <div>
+                            <h3 id="h3" class="flex gap-1 items-center" @click="openTipo = !openTipo">
+                                Tipo de sala
+                                <span x-show="!openTipo" class="text-[--color-primario]"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+                                        viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="M18 10h-4V6a2 2 0 0 0-4 0l.071 4H6a2 2 0 0 0 0 4l4.071-.071L10 18a2 2 0 0 0 4 0v-4.071L18 14a2 2 0 0 0 0-4" />
+                                    </svg></span>
+                                <span x-show="openTipo"><svg xmlns="http://www.w3.org/2000/svg" width="15"
+                                        height="15" viewBox="0 0 32 32">
+                                        <path fill="currentColor"
+                                            d="M2 15.99c0-1.69 1.38-3.06 3.06-3.06h21.85c1.69 0 3.06 1.38 3.06 3.06c0 1.69-1.38 3.06-3.06 3.06H5.06C3.38 19.05 2 17.67 2 15.99" />
+                                    </svg></span>
+                            </h3>
+                            <div x-show="openTipo" x-transition>
+                                @foreach (['Obra', 'Ensayo'] as $tipo)
+                                    <label class="block text-sm text-gray-600">
+                                        <input type="radio" name="tipo" value="{{ strtolower($tipo) }}" class="mr-2">
+                                        {{ $tipo }}
+                                    </label>
+                                @endforeach
+                            </div>
+                        </div>
+                        <!-- Capacidad (AFORO) -->
+                        <div>
+                            <h3 id="h3" class="flex gap-1 items-center" @click="openAforo = !openAforo">
+                                Aforo
+                                <span x-show="!openAforo" class="text-[--color-primario]"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+                                        viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="M18 10h-4V6a2 2 0 0 0-4 0l.071 4H6a2 2 0 0 0 0 4l4.071-.071L10 18a2 2 0 0 0 4 0v-4.071L18 14a2 2 0 0 0 0-4" />
+                                    </svg></span>
+                                <span x-show="openAforo"><svg xmlns="http://www.w3.org/2000/svg" width="15"
+                                        height="15" viewBox="0 0 32 32">
+                                        <path fill="currentColor"
+                                            d="M2 15.99c0-1.69 1.38-3.06 3.06-3.06h21.85c1.69 0 3.06 1.38 3.06 3.06c0 1.69-1.38 3.06-3.06 3.06H5.06C3.38 19.05 2 17.67 2 15.99" />
+                                    </svg></span>
+                            </h3>
+                            @foreach (['10' => 'Hasta 10 personas', '20' => 'Hasta 20 personas', '30' => 'Hasta 30 personas'] as $valor => $label)
+                                <label class="block text-sm text-gray-600" x-show="openAforo">
+                                    <input type="radio" name="capacidad" value="{{ $valor }}" class="mr-2">
+                                    {{ $label }}
+                                </label>
+                            @endforeach
+                        </div>
+                        <!-- + Filtros -->
+                        <div class="mt-4">
+                            <h3 id="h3" class="flex gap-1 items-center" @click="openFiltros = !openFiltros">
+                                Filtros
+                                <span x-show="!openFiltros" class="text-[--color-primario]"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+                                        viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="M18 10h-4V6a2 2 0 0 0-4 0l.071 4H6a2 2 0 0 0 0 4l4.071-.071L10 18a2 2 0 0 0 4 0v-4.071L18 14a2 2 0 0 0 0-4" />
+                                    </svg></span>
+                                <span x-show="openFiltros"><svg xmlns="http://www.w3.org/2000/svg" width="15"
+                                        height="15" viewBox="0 0 32 32">
+                                        <path fill="currentColor"
+                                            d="M2 15.99c0-1.69 1.38-3.06 3.06-3.06h21.85c1.69 0 3.06 1.38 3.06 3.06c0 1.69-1.38 3.06-3.06 3.06H5.06C3.38 19.05 2 17.67 2 15.99" />
+                                    </svg></span>
+                            </h3>
+                            <div x-show="openFiltros" x-transition class="pl flex flex-col gap-1">
+                                <!-- Equipamiento -->
+                                <div>
+                                    <!-- <h3 id="h3">Equipamiento</h3> -->
+                                    <input type="text" name="equipamiento"
+                                        value="{{ request()->input('equipamiento') }}"
+                                        class="w-full border rounded p-1 mr-2" placeholder="Equipamiento">
+                                </div>
+
+                                <!-- Nombre del teatro -->
+                                <div>
+                                    <!-- <h3 id="h3">Nombre del teatro</h3> -->
+                                    <input type="text" name="nombre" value="{{ request()->input('nombre') }}"
+                                        class="w-full border rounded p-1" placeholder="Nombre del teatro">
+                                </div>
+
+                                <!-- Dirección -->
+                                <div>
+                                    <!-- <h3 id="h3">Dirección</h3> -->
+                                    <input type="text" name="direccion" value="{{ request()->input('direccion') }}"
+                                        class="w-full border rounded p-1" placeholder="Dirección">
+                                </div>
+
+                                <!-- Nombre de sala -->
+                                <div>
+                                    <!-- <h3 id="h3">Nombre de sala</h3> -->
+                                    <input type="text" name="nombre_sala"
+                                        value="{{ request()->input('nombre_sala') }}" class="w-full border rounded p-1"
+                                        placeholder="Nombre de sala">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full text-center">
+                            <!-- Botón de búsqueda -->
+                            <button type="submit" class="button-primary-auto mt-2 w-[61.97] mb-2">
+                                <div class="flex justify-center">
+                                    <svg width="50" height="18" viewBox="0 0 40 40" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M35 35L27.75 27.75M31.6667 18.3333C31.6667 25.6971 25.6971 31.6667 18.3333 31.6667C10.9695 31.6667 5 25.6971 5 18.3333C5 10.9695 10.9695 5 18.3333 5C25.6971 5 31.6667 10.9695 31.6667 18.3333Z"
+                                            stroke=var(--color-general) stroke-width="2.56" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                            </button>
+                        </div>
+                    </form>
+                </aside>
+                <!-- Sidebar de añadir salas -->
+                <aside class="w-64 px-2 shadow-md">
+                    <a href="{{ route('gestion-salas') }}" class="w-full">
+                    <h2 id="h2" class="mt-2 mb-2">
+                        <!--Icono de añadir-->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
+                            <path fill="#000000"
                                 d="M17 13h-4v4h-2v-4H7v-2h4V7h2v4h4m-5-9A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2" />
                         </svg>
-                    </div>
-                    <!--Filtrar sala-->
-
-                    <div class="flex justify-center button-primary-auto mt-2 w-[61.97]">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
-                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M4 4h16v2.172a2 2 0 0 1-.586 1.414L15 12v7l-6 2v-8.5L4.52 7.572A2 2 0 0 1 4 6.227z" />
-                        </svg>
-                    </div>
-                    <!--Icono de filtros-->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
-                        <path fill="currentColor"
-                            d="M9 5a1 1 0 1 0 0 2a1 1 0 0 0 0-2M6.17 5a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-7.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 0 1 0-2zM15 11a1 1 0 1 0 0 2a1 1 0 0 0 0-2m-2.83 0a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-1.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 1 1 0-2zM9 17a1 1 0 1 0 0 2a1 1 0 0 0 0-2m-2.83 0a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-7.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 1 1 0-2z" />
-                    </svg>
-                    Filtros
-                </h2>
-
-                <form method="GET" action="{{ route('buscar-sala') }}" class="space-y-0 mb-2 pl-1">
-                    <!-- Ciudades -->
-                    <div>
-                        <h3 id="h3" class="flex gap-1 items-center" @click="openCiudades = !openCiudades">
-                            Ciudades
-                            <span x-show="!openCiudades" class="text-[--color-primario]"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
-                                    <path fill="currentColor"
-                                        d="M18 10h-4V6a2 2 0 0 0-4 0l.071 4H6a2 2 0 0 0 0 4l4.071-.071L10 18a2 2 0 0 0 4 0v-4.071L18 14a2 2 0 0 0 0-4" />
-                                </svg></span>
-                            <span x-show="openCiudades"><svg xmlns="http://www.w3.org/2000/svg" width="15"
-                                    height="15" viewBox="0 0 32 32">
-                                    <path fill="currentColor"
-                                        d="M2 15.99c0-1.69 1.38-3.06 3.06-3.06h21.85c1.69 0 3.06 1.38 3.06 3.06c0 1.69-1.38 3.06-3.06 3.06H5.06C3.38 19.05 2 17.67 2 15.99" />
-                                </svg></span>
-                        </h3>
-                        <div x-show="openCiudades" x-transition>
-                            <div class="mb-2">
-                                <!-- <h3 id="h3">Equipamiento</h3> -->
-                                <input type="text" name="localidad" value="{{ request()->input('localidad') }}"
-                                    class="w-full border rounded p-1 mr-2" placeholder="Localidad">
-                            </div>
-                            @foreach (['Madrid', 'Barcelona', 'Sevilla', 'Málaga', 'Granada', 'Huelva', 'Valencia', 'Cádiz', 'Tarragona', 'Cádiz', 'Salamanca', 'León'] as $ciudad)
-                                <label class="block text-sm text-gray-600">
-                                    <input type="checkbox" name="ciudades[]" value="{{ $ciudad }}" class="mr-2">
-                                    {{ $ciudad }}
-                                </label>
-                            @endforeach
-                        </div>
-                    </div>
-
-                    <!-- Tipo de sala -->
-                    <div>
-                        <h3 id="h3" class="flex gap-1 items-center" @click="openTipo = !openTipo">
-                            Tipo de sala
-                            <span x-show="!openTipo" class="text-[--color-primario]"><svg xmlns="http://www.w3.org/2000/svg"
-                                    width="15" height="15" viewBox="0 0 24 24">
-                                    <path fill="currentColor"
-                                        d="M18 10h-4V6a2 2 0 0 0-4 0l.071 4H6a2 2 0 0 0 0 4l4.071-.071L10 18a2 2 0 0 0 4 0v-4.071L18 14a2 2 0 0 0 0-4" />
-                                </svg></span>
-                            <span x-show="openTipo"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
-                                    viewBox="0 0 32 32">
-                                    <path fill="currentColor"
-                                        d="M2 15.99c0-1.69 1.38-3.06 3.06-3.06h21.85c1.69 0 3.06 1.38 3.06 3.06c0 1.69-1.38 3.06-3.06 3.06H5.06C3.38 19.05 2 17.67 2 15.99" />
-                                </svg></span>
-                        </h3>
-                        <div x-show="openTipo" x-transition>
-                            @foreach (['Obra', 'Ensayo'] as $tipo)
-                                <label class="block text-sm text-gray-600">
-                                    <input type="radio" name="tipo" value="{{ strtolower($tipo) }}" class="mr-2">
-                                    {{ $tipo }}
-                                </label>
-                            @endforeach
-                        </div>
-                    </div>
-                    <!-- Capacidad (AFORO) -->
-                    <div>
-                        <h3 id="h3" class="flex gap-1 items-center" @click="openAforo = !openAforo">
-                            Aforo
-                            <span x-show="!openAforo" class="text-[--color-primario]"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
-                                    <path fill="currentColor"
-                                        d="M18 10h-4V6a2 2 0 0 0-4 0l.071 4H6a2 2 0 0 0 0 4l4.071-.071L10 18a2 2 0 0 0 4 0v-4.071L18 14a2 2 0 0 0 0-4" />
-                                </svg></span>
-                            <span x-show="openAforo"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
-                                    viewBox="0 0 32 32">
-                                    <path fill="currentColor"
-                                        d="M2 15.99c0-1.69 1.38-3.06 3.06-3.06h21.85c1.69 0 3.06 1.38 3.06 3.06c0 1.69-1.38 3.06-3.06 3.06H5.06C3.38 19.05 2 17.67 2 15.99" />
-                                </svg></span>
-                        </h3>
-                        @foreach (['10' => 'Hasta 10 personas', '20' => 'Hasta 20 personas', '30' => 'Hasta 30 personas'] as $valor => $label)
-                            <label class="block text-sm text-gray-600" x-show="openAforo">
-                                <input type="radio" name="capacidad" value="{{ $valor }}" class="mr-2">
-                                {{ $label }}
-                            </label>
-                        @endforeach
-                    </div>
-
-                    <!-- + Filtros -->
-                    <div class="mt-4">
-                        <h3 id="h3" class="flex gap-1 items-center" @click="openFiltros = !openFiltros">
-                            Filtros
-                            <span x-show="!openFiltros" class="text-[--color-primario]"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="15" height="15"
-                                    viewBox="0 0 24 24">
-                                    <path fill="currentColor"
-                                        d="M18 10h-4V6a2 2 0 0 0-4 0l.071 4H6a2 2 0 0 0 0 4l4.071-.071L10 18a2 2 0 0 0 4 0v-4.071L18 14a2 2 0 0 0 0-4" />
-                                </svg></span>
-                            <span x-show="openFiltros"><svg xmlns="http://www.w3.org/2000/svg" width="15"
-                                    height="15" viewBox="0 0 32 32">
-                                    <path fill="currentColor"
-                                        d="M2 15.99c0-1.69 1.38-3.06 3.06-3.06h21.85c1.69 0 3.06 1.38 3.06 3.06c0 1.69-1.38 3.06-3.06 3.06H5.06C3.38 19.05 2 17.67 2 15.99" />
-                                </svg></span>
-                        </h3>
-                        <div x-show="openFiltros" x-transition class="pl flex flex-col gap-1">
-                            <!-- Equipamiento -->
-                            <div>
-                                <!-- <h3 id="h3">Equipamiento</h3> -->
-                                <input type="text" name="equipamiento" value="{{ request()->input('equipamiento') }}"
-                                    class="w-full border rounded p-1 mr-2" placeholder="Equipamiento">
-                            </div>
-
-                            <!-- Nombre del teatro -->
-                            <div>
-                                <!-- <h3 id="h3">Nombre del teatro</h3> -->
-                                <input type="text" name="nombre" value="{{ request()->input('nombre') }}"
-                                    class="w-full border rounded p-1" placeholder="Nombre del teatro">
-                            </div>
-
-                            <!-- Dirección -->
-                            <div>
-                                <!-- <h3 id="h3">Dirección</h3> -->
-                                <input type="text" name="direccion" value="{{ request()->input('direccion') }}"
-                                    class="w-full border rounded p-1" placeholder="Dirección">
-                            </div>
-
-                            <!-- Nombre de sala -->
-                            <div>
-                                <!-- <h3 id="h3">Nombre de sala</h3> -->
-                                <input type="text" name="nombre_sala" value="{{ request()->input('nombre_sala') }}"
-                                    class="w-full border rounded p-1" placeholder="Nombre de sala">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w-full text-center">
-                        <!-- Botón de búsqueda -->
-                        <button type="submit" class="button-primary-auto mt-2 w-[61.97]">
-                            <div class="flex justify-center">
-                                <svg width="50" height="18" viewBox="0 0 40 40" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M35 35L27.75 27.75M31.6667 18.3333C31.6667 25.6971 25.6971 31.6667 18.3333 31.6667C10.9695 31.6667 5 25.6971 5 18.3333C5 10.9695 10.9695 5 18.3333 5C25.6971 5 31.6667 10.9695 31.6667 18.3333Z"
-                                        stroke=var(--color-general) stroke-width="2.56" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                        </button>
-                    </div>
-                </form>
-            </aside>
-
+                        Añadir sala
+                    </h2>
+                    </a>
+                </aside>
+            </div>
             <!-- Resultados -->
             <section
                 class="grid w-[90%] xl:gap-12 place-items-center grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-4 4xl:grid-cols-5">
@@ -232,7 +236,7 @@
                                             d="M1792 993q60 41 107 93t81 114t50 131t18 141q0 119-45 224t-124 183t-183 123t-224 46q-91 0-176-27t-156-78t-126-122t-85-157H128V128h256V0h128v128h896V0h128v128h256zM256 256v256h1408V256h-128v128h-128V256H512v128H384V256zm643 1280q-3-31-3-64q0-86 24-167t73-153h-97v-128h128v86q41-51 91-90t108-67t121-42t128-15q100 0 192 33V640H256v896zm573 384q93 0 174-35t142-96t96-142t36-175q0-93-35-174t-96-142t-142-96t-175-36q-93 0-174 35t-142 96t-96 142t-36 175q0 93 35 174t96 142t142 96t175 36m64-512h192v128h-320v-384h128zM384 1024h128v128H384zm256 0h128v128H640zm0-256h128v128H640zm-256 512h128v128H384zm256 0h128v128H640zm384-384H896V768h128zm256 0h-128V768h128zm256 0h-128V768h128z" />
                                     </svg>
                                 </a>
-                                <!-- Botón con Lápiz y Flecha -->
+                                <!-- Botón con Lápiz y Flecha-->
                                 @if (session('id_rol') === 1)
                                     <a href="{{ route('editar-salas', ['id' => $espacio->idespacios]) }}"
                                         class="inline-flex w-[55.95] h-[40] justify-center items-center button-filtro-a-editar-sala">
@@ -267,5 +271,3 @@
         </div>
         @vite('resources/js/nuevas-reservas.js')
     @endsection
-
-

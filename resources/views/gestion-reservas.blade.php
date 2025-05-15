@@ -31,7 +31,7 @@
     </div>
     <!-- Reservas -->
     <div class="flex justify-center w-full">
-        <section class="grid w-[90%]  gap-12 place-items-center grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6">
+        <section class="grid w-[90%]  gap-12 place-items-center grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-4 3xl:grid-cols-6">
             @if(isset($reservas) && $reservas->isNotEmpty())
             @foreach($reservas as $reserva)
             <div class="relative h-[147.6px] w-[300px] cursor-pointer" tabindex="0">
