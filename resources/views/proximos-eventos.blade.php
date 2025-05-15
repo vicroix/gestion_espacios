@@ -4,6 +4,9 @@
 @section('title', 'Proximos eventos')
 <!-- http://localhost/teatrogest/public/proximos-eventos -->
 
+<title>Eventos</title>
+<link rel="icon" type="image/png" href="/img/Logo.png">
+
 @section("main")
 <main class="flex content-center md:block">
     <!--Documentación del calendario: https://fullcalendar.io/docs -->

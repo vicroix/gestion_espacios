@@ -4,6 +4,9 @@
 @section('title', 'Proximos eventos')
 <!-- http://localhost/teatrogest/public/modificar-salas -->
 
+<title>Edición salas</title>
+<link rel="icon" type="image/png" href="/img/Logo.png">
+
 @section('main')
     <main class="ml-25 mr-25">
         <div class="flex justify-center">

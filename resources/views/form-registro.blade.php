@@ -2,6 +2,10 @@
 @vite('resources/css/app.css')
 @section('title', 'Proximos eventos')
 <!-- http://localhost/prueba-laravel/public/form-registro -->
+
+<title>Registro</title>
+<link rel="icon" type="image/png" href="/img/Logo.png">
+
 @section("main")
 <main class="w-full justify-center flex flex-col">
     <div class="flex justify-center">

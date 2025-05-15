@@ -4,6 +4,9 @@
 @section('title', 'Proximos eventos')
 <!-- http://localhost/TeatroGest/public/gestion-reservas -->
 
+<title>Reservas</title>
+<link rel="icon" type="image/png" href="/img/Logo.png">
+
 @section("main")
 <div class="flex flex-col">
     <div class="flex justify-center">
