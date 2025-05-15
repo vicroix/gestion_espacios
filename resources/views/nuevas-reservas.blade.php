@@ -9,11 +9,6 @@
 
 @section("main")
 <div class="min-h-screen flex flex-col">
-    <div class="flex justify-center">
-        <div class="titulo-main w-full flex justify-center">
-            <h3 class="md:text-2xl text-2xl">BUSQUEDA SALAS</h3>
-        </div>
-    </div>
     <div x-data="{ openCiudades: false, openTipo: false, openFiltros: false, openAforo: false }" class="flex flex-col  items-center min-w-[320px] gap-4 lg:items-start lg:flex-row">
         <!-- Sidebar de filtros -->
         <aside class="w-64 px-2 shadow-md">
