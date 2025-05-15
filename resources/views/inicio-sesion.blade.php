@@ -38,7 +38,7 @@
             @csrf
             <input class="inputs-text border border-gray-300 w-full" type="email" name="email" placeholder="Correo">
             <input class="inputs-text border border-gray-300 w-full" type="password" name="password" placeholder="Contraseña">
-            <input class="button-primary-auto mt-4" type="submit" value="Enviar">
+            <input class="button-primary-auto mt-4" type="submit" value="Iniciar sesión">
             @if(session('error'))
               <p class="text-red-500">{{ session('error') }}</p>
             @endif
