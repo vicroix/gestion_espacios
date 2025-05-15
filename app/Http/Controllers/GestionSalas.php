@@ -22,12 +22,12 @@ class GestionSalas extends Controller
                 'codigo_postal' => 'required|string|max:5',
                 'direccion' => 'required|string|max:100',
                 'email' => 'required|string|max:255',
-                'telefono' => 'required|string|max:9',
-                'nombre_sala' => 'required|string|max:100',
-                'equipamiento' => 'required|string|max:255',
+                'telefono' => 'nullable|string|max:9',
+                'nombre_sala' => 'nullable|string|max:100',
+                'equipamiento' => 'nullable|string|max:255',
                 'tipo_sala' => 'required|string|max:6',
                 'aforo' => 'required|integer|min:1|max:100',
-                'fotos.*' => 'required|image|mimes:jpeg,png,jpg,webp|max:12248',
+                'fotos.*' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:12248',
             ]);
             Log::error('Errores de validación:', $validar->errors()->toArray());
             if ($validar->fails()) {
