@@ -86,7 +86,7 @@ class GestionReservas extends Controller
             $reserva->save();
             // dd($reserva);
             Log::info('Reserva:', ['reserva' => $reserva]);
-            return redirect()->route('buscar-reservas')->with('reservado', 'Reserva realizada correctamente');
+            return redirect()->route('gestion-reservas')->with('reservado', 'Reserva realizada correctamente');
         } catch (\Exception $ex) {
             Log::error('Error al registrar en la base de datos: ' . $ex->getMessage(), [
                 'exception' => $ex
@@ -147,7 +147,7 @@ class GestionReservas extends Controller
         $reserva->hora_fin  = $validar['hora_fin'];
         $reserva->save();
 
-        return redirect()->route('buscar-reservas')
+        return redirect()->route('gestion-reservas')
             ->with('actualizado',$reserva->nombre);
     }
 

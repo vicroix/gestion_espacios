@@ -41,7 +41,7 @@ Route::middleware(['admin'])->group(function () {
 //Rutas profe, pero Admin también
 Route::middleware(['profe'])->group(function () {
     //Ruta al view "gestion-reservas.blade.php" para mostrar las reservas automáticamente el acceder a ella
-    Route::get('buscar-reservas', action: [GestionReservas::class, 'buscarReservas'])->name('buscar-reservas');
+    Route::get('gestion-reservas', action: [GestionReservas::class, 'buscarReservas'])->name('gestion-reservas');
     //Ruta encargada de filtrar y buscar todos los espacios de la BBDD al cargar la view "nuevas-reservas.blade.php"
     Route::get('/buscar-sala', [App\Http\Controllers\GestionSalas::class, 'buscarEspacios'])->name('buscar-sala');
     //Ruta para envia el id de espacio desde "nuevas-reservas.blade.php" a "busquedas-salas.blade.php"
