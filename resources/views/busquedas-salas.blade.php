@@ -6,10 +6,10 @@
 
 @section('title', 'Proximos eventos')
 <!-- http://localhost/TeatroGest/public/busquedas-salas -->
+
 <head>
 <title>Resultados</title>
 <link rel="icon" type="image/png" href="/img/Logo.png">
-
 </head>
 
 @section("main")
@@ -139,7 +139,7 @@
                         <!-- Conteneder principal -->
                         <div class="flex flex-col lg:flex-row justify-center items-start mt-8 w-full">
                             <!--Panel botones -->
-                            <div class="w-full lg:w-1/4 h-auto items-start flex flex-row lg:flex-col lg:items-center justify-center gap-12 lg:mt-0">
+                            <div class="w-full lg:w-1/4 h-auto items-start flex flex-row md:flex col md:items-center lg:flex-col lg:items-center justify-center gap-12 lg:mt-0">
                                 <!--Info -->
                                 <button id="btnInfo" type="button" class="text-[#990000] active:text-black">
                                     <svg width="25" height="25" viewBox="0 0 44 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -172,7 +172,7 @@
                                     <h4 class="mt-2">Selecciona hora y día:</h4>
                                     <div class="flex gap-1">
                                         <input type="date" name="fecha" id="fecha" min="{{ date('Y-m-d') }}"
-                                            class="inputs-text border border-[--color-secundario]
+                                            class="inputs-text border border-gray-300
                                         {{ $errors->has('fecha') ? 'border-red-500' : 'border-black' }}" value="{{ old('fecha') }}">
                                         @error('fecha')
                                         <p class="text-red-500">{{ $message }}</p>
@@ -185,7 +185,7 @@
                                                 <input type="time"
                                                     name="hora_inicio"
                                                     id="horaInicio"
-                                                    class="inputs-text border border-[--color-secundario]
+                                                    class="inputs-text border border-gray-300
                                                     {{ $errors->has('hora_inicio') ? 'border-red-500' : 'border-black' }}"
                                                     value="{{ old('hora_inicio') }}">
                                                 @error('hora_inicio')
@@ -197,7 +197,7 @@
                                             <p>Hora Fin: </p>
                                             <div class="flex gap-1">
                                                 <input type="time" name="hora_fin" id="horaFin"
-                                                    class="inputs-text border border-[--color-secundario]
+                                                    class="inputs-text border border-gray-300
                                                 {{ $errors->has('hora_fin') ? 'border-red-500' : 'border-black' }}">
                                                 @error('hora_fin')
                                                 <p class="text-red-500">{{ $message }}</p>
