@@ -2,7 +2,7 @@
 
 @vite('resources/css/app.css')
 @section('title', 'Proximos eventos')
-<!-- http://localhost/TeatroGest/public/gestion-reservas -->
+
 
 <title>?</title>
 <link rel="icon" type="image/png" href="/img/Logo.png">

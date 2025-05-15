@@ -15,7 +15,7 @@
             Salas
         </button>
         <div class="absolute hidden bg-[--color-general] border border-[--color-primario] left-0 w-[154.67px] rounded-3xl group-hover:flex flex-col">
-            <a href="{{ url('buscar-sala') }}"
+            <a href="{{ url('gestion-salas') }}"
                 class="hover:bg-[--color-primario] border border-[--color-general] hover:text-[--color-general] rounded-3xl p-1 pl-3 transition-all duration-300 ease-out">
                 Gestión Salas</a>
         </div>

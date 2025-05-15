@@ -75,7 +75,7 @@ class GestionSalas extends Controller
         }
     }
 
-    // Función para buscar los resultados de los filtros del view "nuevas-reservas.blade.php"
+    // Función para buscar los resultados de los filtros del view "gestion-salas.blade.php"
     public function buscarEspacios(Request $respuesta)
     {
         $query = Espacio::query();
@@ -122,7 +122,7 @@ class GestionSalas extends Controller
         // Ejecutar query (si hay algún filtro aplicado, o traer todos si no) y en limit() pon el número de datos que quieres traer de máximo
         $espacios = $query->limit(12)->get();
 
-        return view('nuevas-reservas', compact('espacios')); // *** CAMBIAR LUEGO LA VIEW A gestion-salas ***
+        return view('gestion-salas', compact('espacios')); // *** CAMBIAR LUEGO LA VIEW A gestion-salas ***
     }
     // Función para buscar los resultados de los filtros del view "modificar-salas.blade.php"
     public function modificarSalas(Request $respuesta)
@@ -258,7 +258,7 @@ class GestionSalas extends Controller
             ->with('correcto', 'Modificación actualizada correctamente.');
     }
 
-    // Función para enviar por id un espacio selecionado desde el botón Ver de la view "nuevas-reservas.blade.php"
+    // Función para enviar por id un espacio selecionado desde el botón Ver de la view "gestion-salas.blade.php"
     // a la view de "busquedas-salas.blade.php"
     public function detalleEspacio($id)
     {

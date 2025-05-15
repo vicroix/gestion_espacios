@@ -145,7 +145,7 @@
                 <!--botones-->
                 <div class=" mb-5 flex justify-center gap-4">
                     <!--Botón volver-->
-                    <a type="input" href="{{ url('buscar-sala') }}"
+                    <a type="input" href="{{ url('gestion-salas') }}"
                         class="button-secundary-auto text-center lg:w-[70px] cursor-pointer flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
                             <path fill="currentColor"

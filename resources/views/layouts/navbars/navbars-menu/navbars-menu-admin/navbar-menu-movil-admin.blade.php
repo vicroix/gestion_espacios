@@ -14,7 +14,7 @@
             <details class="w-full text-center">
                 <summary class="cursor-pointer text-[--color-primario] font-semibold py-2">Reservas</summary>
                 <div class="flex flex-col items-center pl-4">
-                    <a href="{{ url('buscar-sala') }}" class="hover:text-[--color-primario] py-1 list-style-circle">Gestión Salas</a>
+                    <a href="{{ url('gestion-salas') }}" class="hover:text-[--color-primario] py-1 list-style-circle">Gestión Salas</a>
                     <a href="{{ url('gestion-reservas') }}" class="hover:text-[--color-primario] py-1 list-style-circle">Gestión reservas</a>
                 </div>
             </details>

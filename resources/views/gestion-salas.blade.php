@@ -39,7 +39,7 @@
                     Filtros
                 </h2>
 
-                <form method="GET" action="{{ route('buscar-sala') }}" class="space-y-0 mb-2 pl-1">
+                <form method="GET" action="{{ route('gestion-salas') }}" class="space-y-0 mb-2 pl-1">
                     <!-- Ciudades -->
                     <div>
                         <h3 id="h3" class="flex gap-1 items-center" @click="openCiudades = !openCiudades">

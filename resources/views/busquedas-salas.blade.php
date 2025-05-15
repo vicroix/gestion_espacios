@@ -132,7 +132,7 @@
                     <input type="hidden" name="direccion" value="{{ $espacio->direccion }}">
                     <input type="hidden" name="id_espacio" value="{{ $espacio->idespacios }}">
 
-                    <!-- Información de espacio seleccionado de "nuevas-reservas.blade.php" -->
+                    <!-- Información de espacio seleccionado de "gestion-salas.blade.php" -->
                     <div class="w-full flex flex-col justify-center items-center">
                         <h5 class="text-center md:text-2xl text-2xl font-tex text-[#990000] border-b border-[#990000] mx-auto max-w-md w-full pb-1">{{ $espacio->nombre }}</h5>
 
@@ -210,8 +210,8 @@
                                 <!-- Contenedor BOTONES -->
                                 <div class="flex gap-4 justify-center text-center mt-8 items-center">
                                     <div>
-                                        <!-- Volver a view "nuevas-reservas.blade.php" -->
-                                        <a href="{{ route('buscar-sala')}}" class="inline-flex w-[61.97] h-[43.99] justify-center items-center button-reserva-a-filtro">
+                                        <!-- Volver a view "gestion-salas.blade.php" -->
+                                        <a href="{{ route('gestion-salas')}}" class="inline-flex w-[61.97] h-[43.99] justify-center items-center button-reserva-a-filtro">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
                                                 <path fill="currentColor"
                                                     d="M4.4 7.4L6.8 4h2.5L7.2 7h6.3a6.5 6.5 0 0 1 0 13H9l1-2h3.5a4.5 4.5 0 1 0 0-9H7.2l2.1 3H6.8L4.4 8.6L4 8z" />
@@ -249,7 +249,7 @@
     @else
     <p class="text-center">
         No seleccionaste un espacio en búsqueda de salas:
-        <a href="{{ url('buscar-sala') }}" class="hover:text-[#990000] font-semibold">nuevas reservas</a>
+        <a href="{{ url('gestion-salas') }}" class="hover:text-[#990000] font-semibold">nuevas reservas</a>
     </p>
     @endif
 </main>
