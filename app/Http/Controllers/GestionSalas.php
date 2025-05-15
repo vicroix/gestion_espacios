@@ -31,7 +31,7 @@ class GestionSalas extends Controller
             ]);
             Log::error('Errores de validación:', $validar->errors()->toArray());
             if ($validar->fails()) {
-                return redirect()->route('gestion-salas')
+                return redirect()->route('creacion-salas')
                     ->withErrors($validar)
                     ->withInput()
                     ->with('error', 'Datos incorrectos.');
@@ -66,12 +66,12 @@ class GestionSalas extends Controller
                 }
             }
 
-            return redirect()->route('gestion-salas')->with('correcto', 'Registro de sala correcto');
+            return redirect()->route('creacion-salas')->with('correcto', 'Registro de sala correcto');
         } catch (\Exception $ex) {
             Log::error('Error al registrar en la base de datos: ' . $ex->getMessage(), [
                 'exception' => $ex
             ]);
-            return redirect()->route('gestion-salas')->with('error', 'Error, has introducido algún dato duplicado en la base de datos');
+            return redirect()->route('creacion-salas')->with('error', 'Error, has introducido algún dato duplicado en la base de datos');
         }
     }
 

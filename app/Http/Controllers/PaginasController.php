@@ -32,7 +32,7 @@ class PaginasController extends Controller
     }
     public function gestionSalas()
     {
-        return view('gestion-salas');
+        return view('creacion-salas');
     }
     public function formRegistro()
     {

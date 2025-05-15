@@ -23,7 +23,7 @@
             <details class="w-full self-start text-center">
                 <summary class="cursor-pointer text-[--color-primario] font-semibold py-2">Salas</summary>
                 <div class="flex flex-col pl-4">
-                    <a href="{{ url('gestion-salas') }}" class="hover:text-[--color-primario] py-1 list-style-circle">Creación Sala</a>
+                    <a href="{{ url('creacion-salas') }}" class="hover:text-[--color-primario] py-1 list-style-circle">Creación Sala</a>
                 </div>
             </details>
         </div>
