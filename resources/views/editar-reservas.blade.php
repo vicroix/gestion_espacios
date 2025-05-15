@@ -36,7 +36,9 @@
                 </div>
             </div>
             <div class="flex justify-center items-center gap-3 mt-6">
-                <button type="submit" class="button-primary-auto">Actualizar</button>
+                <button type="submit" class="button-primary-auto w-[55.95] h-[40] flex justify-center items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 376 384"><path fill="currentColor" d="M119 282L346 55l29 30l-256 256L0 222l30-30z"/></svg>
+                </button>
                 <a href="{{ url('buscar-reservas') }}" class="inline-flex w-[61.97] h-[37.6] justify-center items-center button-reserva-a-filtro">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
                         <path fill="currentColor"

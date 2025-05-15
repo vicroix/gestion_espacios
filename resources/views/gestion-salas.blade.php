@@ -105,9 +105,9 @@
                 </div>
                 <!--botones-->
                 <div class="mt-6 mb-5 flex justify-center gap-4">
-                    <button type="submit" class="button-primary-auto lg:w-[108.85px] cursor-pointer">Añadir sala</button>
-                    <!-- <button type="submit" class="bg-black w-[60px] lg:w-[150px] py-1.5
-                 text-white rounded-md cursor-pointer hover:bg-[#5d5d5d]">Modificar salas</button> -->
+                    <button type="submit" class="button-primary-auto lg:w-[108.85px] cursor-pointer w-[55.95] h-[40] flex justify-center items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 376 384"><path fill="currentColor" d="M119 282L346 55l29 30l-256 256L0 222l30-30z"/></svg>
+                    </button>
                 </div>
             </form>
         </div>
