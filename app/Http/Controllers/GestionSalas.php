@@ -266,4 +266,15 @@ class GestionSalas extends Controller
         $espacio = Espacio::with('fotos')->findOrFail($id);
         return view('reservar-sala', compact('espacio'));
     }
+
+    public function eliminarEspacio($id){
+        $espacio = Espacio::find($id);
+
+        if($espacio) {
+            $espacio->delete();
+            return redirect()->back()->with('eliminado', $espacio->nombre);
+        } else {
+            return redirect()->back()->with('error', 'Error al eliminar el espacio');
+        }
+    }
 }

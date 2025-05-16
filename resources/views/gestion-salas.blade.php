@@ -16,6 +16,12 @@
                 <h3 class="md:text-2xl text-2xl">GESTION SALAS</h3>
             </div>
         </div>
+        <div class="flex gap-2 justify-center mb-4">
+            @if (session('eliminado'))
+            <p class="text-[--color-primario] text-md font-semibold">{{ session('eliminado') }}</p>
+            <p class="text-red-950 font-semibold">eliminado correctamente</p>
+            @endif
+        </div>
         <p x-show="sinEspacios" x-cloak>No se encontraron espacios</p>
     </div>
     <div x-data="{ openCiudades: false, openTipo: false, openFiltros: false, openAforo: false }" class="flex flex-col items-center min-w-[320px] gap-4 lg:items-start lg:flex-row">
@@ -259,15 +265,19 @@
                         @endif
                         <!-- Botón con Eliminar -->
                         @if (session('id_rol') === 1)
-                        <a href=""
-                            class="inline-flex w-[55.95] h-[40] justify-center items-center button-filtro-a-editar-sala" title="Eliminar">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
-                                viewBox="0 0 24 24">
-                                <path fill="none" stroke="currentColor" stroke-linecap="round"
-                                    stroke-linejoin="round" stroke-width="2"
-                                    d="M4 7h16m-10 4v6m4-6v6M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3" />
-                            </svg>
-                        </a>
+                        <form method="POST" action="{{ route('eliminar-espacio', ['id'=> $espacio->idespacios]) }}" class="mb-0" onsubmit="return confirm('Seguro qué deseas eliminar el espacio {{ $espacio->nombre }}')">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit"
+                                class="button-secundary-auto w-[55.95] h-[40] flex justify-center items-center" title="Eliminar">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                                    viewBox="0 0 24 24">
+                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2"
+                                        d="M4 7h16m-10 4v6m4-6v6M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3" />
+                                </svg>
+                            </button>
+                        </form>
                         @endif
                     </div>
                 </div>
