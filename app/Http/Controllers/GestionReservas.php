@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use App\Models\Reserva;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
@@ -99,19 +100,18 @@ class GestionReservas extends Controller
     // función que busca si tiene reservas realizadas el usuario en view "gestion-reservas.blade.php"
     public function buscarReservas(Request $respuesta)
     {
+        $fechaActual = date('Y-m-d');
         $id_usuario = session('idusuarios');
-        $reservas = Reserva::where('id_usuario', $id_usuario)->get();
-
+        $reservas = Reserva::where('id_usuario', $id_usuario)
+        ->where('fecha', '>=', $fechaActual)->get();
+        // dd($reservas);
 
         return view('gestion-reservas', compact('reservas'));
     }
     public function filtrarReservas(Request $respuesta)
     {
+        $fechaActual = date('Y-m-d');
         $query = Reserva::query();
-        // Fecha (date)
-        if ($respuesta->filled('fecha')) {
-            $query->whereDate('fecha', $respuesta->input('fecha'));
-        }
         // Hora (time)
         if ($respuesta->filled('hora')) {
             $horaInput = $respuesta->input('hora');
@@ -122,7 +122,14 @@ class GestionReservas extends Controller
         if ($respuesta->filled('ciudades')) {
             $query->whereIn('localidad', $respuesta->input('ciudades'));
         }
-
+        if($respuesta->filled('fechasPasadas')){
+            $query->whereDate('fecha', '<',$fechaActual);
+        }
+        elseif($respuesta->filled('fecha') && (!$respuesta->filled('fechasPasadas'))) {
+            $query->whereDate('fecha', $respuesta->input('fecha'));
+        }else {
+            $query->whereDate('fecha', '>=', $fechaActual);
+        }
         // Localidad para filtro manual
         if ($respuesta->filled('localidad')) {
             $query->where('localidad', 'like', '%' . $respuesta->input('localidad') . '%');

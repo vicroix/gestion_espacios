@@ -79,6 +79,10 @@
                             <input type="text" name="direccion" value="{{ request()->input('direccion') }}"
                                 class="w-full border rounded p-1" placeholder="Dirección">
                         </div>
+                        <div class="flex gap-3">
+                            <p>Mostrar reservas pasadas</p>
+                            <input type="checkbox" name="fechasPasadas" value="1" class="mr-2 cursor-pointer">
+                        </div>
                         <!-- Ciudades -->
                         <div class="flex flex-col my-3">
                             <h3 id="h3" class="flex gap-1 items-center" @click="openCiudades = !openCiudades">
