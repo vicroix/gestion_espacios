@@ -19,7 +19,7 @@
         <div class="flex gap-2 justify-center mb-4">
             @if (session('eliminado'))
             <p class="text-[--color-primario] text-md font-semibold">{{ session('eliminado') }}</p>
-            <p class="text-red-950 font-semibold">Eliminado correctamente</p>
+            <p class="text-red-950 font-semibold">eliminado correctamente</p>
             @endif
         </div>
         <p x-show="sinEspacios" x-cloak>No se encontraron espacios</p>
