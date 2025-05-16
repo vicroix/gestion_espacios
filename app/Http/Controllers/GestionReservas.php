@@ -105,6 +105,44 @@ class GestionReservas extends Controller
 
         return view('gestion-reservas', compact('reservas'));
     }
+    public function filtrarReservas(Request $respuesta)
+    {
+        $query = Reserva::query();
+        // Fecha (date)
+        if ($respuesta->filled('fecha')) {
+            $query->whereDate('fecha', $respuesta->input('fecha'));
+        }
+        // Hora (time)
+        if ($respuesta->filled('hora')) {
+            $horaInput = $respuesta->input('hora');
+            $query->whereTime('hora', '<=', $horaInput)
+                ->whereTime('hora_fin', '>=', $horaInput);
+        }
+        // Localidades (checkbox)
+        if ($respuesta->filled('ciudades')) {
+            $query->whereIn('localidad', $respuesta->input('ciudades'));
+        }
+
+        // Localidad para filtro manual
+        if ($respuesta->filled('localidad')) {
+            $query->where('localidad', 'like', '%' . $respuesta->input('localidad') . '%');
+        }
+
+        // Nombre teatro
+        if ($respuesta->filled('nombre')) {
+            $query->where('nombre', 'like', '%' . $respuesta->input('nombre') . '%');
+        }
+
+        // Dirección
+        if ($respuesta->filled('direccion')) {
+            $query->where('direccion', 'like', '%' . $respuesta->input('direccion') . '%');
+        }
+
+        // Ejecutar query (si hay algún filtro aplicado, o traer todos si no) y en limit() pon el número de datos que quieres traer de máximo
+        $reservas = $query->limit(12)->get();
+
+        return view('gestion-reservas', compact('reservas')); // *** CAMBIAR LUEGO LA VIEW A gestion-salas ***
+    }
     // Función que permite editar una reserva existente en view "gestion-reservas.blade.php" con botón Editar, y envía
     // el id al view "editar-reservas.blade.php"
     public function editarReserva($id)
@@ -148,7 +186,7 @@ class GestionReservas extends Controller
         $reserva->save();
 
         return redirect()->route('gestion-reservas')
-            ->with('actualizado',$reserva->nombre);
+            ->with('actualizado', $reserva->nombre);
     }
 
     //Función para eliminar una reserva desde "gestion-reservas.blade.php" con el botón Anular

@@ -15,6 +15,9 @@
     /* Color general blanco */
     --color-general: #ffffff;
 }
+/* Para ocultar el elemento hasta que se evalúe el x-show de Alpine (View Gestion-salas) */
+[x-cloak] { display: none !important; }
+
 .svg-home-navbar {
     display: flex;
     align-items: center;

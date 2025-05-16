@@ -104,7 +104,7 @@
                 </div>
                 <!--botones-->
                 <div class="mt-6 mb-5 flex justify-center gap-4">
-                    <button type="submit" class="button-primary-auto lg:w-[108.85px] cursor-pointer">Añadir sala</button>
+                    <button type="submit" class="button-primary-auto lg:w-[108.85px] cursor-pointer">Crear sala</button>
                     <!-- <button type="submit" class="bg-black w-[60px] lg:w-[150px] py-1.5
                  text-white rounded-md cursor-pointer hover:bg-[#5d5d5d]">Modificar salas</button> -->
                 </div>

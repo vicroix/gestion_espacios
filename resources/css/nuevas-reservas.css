@@ -1,7 +1,6 @@
 aside {
     height: 100%;
     width: 100%;
-    margin-top: 16px;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
     border-radius: 0.75rem;
@@ -26,7 +25,6 @@ aside {
     cursor: pointer;
 }
 section {
-    padding: 1rem;
     width: auto;
     gap: 1rem;
 }
