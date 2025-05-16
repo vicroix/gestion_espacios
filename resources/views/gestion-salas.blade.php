@@ -13,13 +13,13 @@
     <div class="text-center">
         <div class="flex justify-center mb-5">
             <div class="titulo-main w-full flex justify-center">
-                <h3 class="md:text-2xl text-2xl">GESTION SALAS</h3>
+                <h3 class="md:text-2xl text-2xl">GESTIÓN SALAS</h3>
             </div>
         </div>
         <div class="flex gap-2 justify-center mb-4">
             @if (session('eliminado'))
             <p class="text-[--color-primario] text-md font-semibold">{{ session('eliminado') }}</p>
-            <p class="text-red-950 font-semibold">eliminado correctamente</p>
+            <p class="text-red-950 font-semibold">Eliminado correctamente</p>
             @endif
         </div>
         <p x-show="sinEspacios" x-cloak>No se encontraron espacios</p>
