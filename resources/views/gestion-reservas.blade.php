@@ -45,7 +45,7 @@
             <form method="GET" action="{{ route('filtro-reservas') }}" class="space-y-0 mb-2 pl-1">
                 <!-- Fecha -->
                 <div class="flex justify-between relative">
-                    <input type="date" name="fecha" class="mr-2 my-1 p-1 w-[160px]" value="{{ old('fecha') }}">
+                    <input type="date" name="fecha" class="inputs-filtros mr-2 my-1 w-[160px]" value="{{ old('fecha') }}">
                     <!-- Botón para resetear filtro -->
                     <button type="reset" class="absolute right-0 -translate-y-[54px] w-[30px]" title="Limpiar">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 16 16" class="mb-4 p-1 w-full items-center hover:shadow-around border-2 hover:shadow-gray-400 rounded-md">
@@ -64,7 +64,7 @@
                 </div>
                 <!-- Hora -->
                 <div class="flex flex-col my-3 w-[100px]">
-                    <input type="time" name="hora" class="mr-2 my-1 p-1" value="{{ old('hora') }}">
+                    <input type="time" name="hora" class="inputs-filtros mr-2 my-1 p-1" value="{{ old('hora') }}">
                 </div>
                 <!-- + Filtros -->
                 <div class="mt-4">
@@ -87,14 +87,14 @@
                         <div>
                             <!-- <h3 id="h3">Nombre del teatro</h3> -->
                             <input type="text" name="nombre" value="{{ request()->input('nombre') }}"
-                                class="w-full border rounded p-1" placeholder="Nombre del teatro">
+                                class="inputs-filtros w-full" placeholder="Nombre del teatro">
                         </div>
 
                         <!-- Dirección -->
                         <div>
                             <!-- <h3 id="h3">Dirección</h3> -->
                             <input type="text" name="direccion" value="{{ request()->input('direccion') }}"
-                                class="w-full border rounded p-1" placeholder="Dirección">
+                                class="inputs-filtros w-full border rounded" placeholder="Dirección">
                         </div>
                         <div class="flex gap-3">
                             <p>Mostrar reservas pasadas</p>
@@ -119,8 +119,8 @@
                             <div x-show="openCiudades" x-transition>
                                 <div class="mb-2">
                                     <!-- <h3 id="h3">Equipamiento</h3> -->
-                                    <input type="text" name="localidad" value="{{ request()->input('localidad') }}"
-                                        class="w-full border rounded p-1 mr-2 my-1" placeholder="Localidad">
+                                    <input type="text" name="localidad" value="{{ request()->input('localidad')}}"
+                                        class="inputs-filtros w-full mr-2 my-1" placeholder="Localidad">
                                 </div>
                                 @foreach (['Madrid', 'Barcelona', 'Sevilla', 'Málaga', 'Granada', 'Huelva', 'Valencia', 'Cádiz', 'Tarragona', 'Cádiz', 'Salamanca', 'León'] as $ciudad)
                                 <label class="block text-sm text-gray-600">

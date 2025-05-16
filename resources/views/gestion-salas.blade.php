@@ -73,7 +73,7 @@
                                 <div class="mb-2">
                                     <!-- <h3 id="h3">Equipamiento</h3> -->
                                     <input type="text" name="localidad" value="{{ request()->input('localidad') }}"
-                                        class="w-full border rounded p-1 mr-2" placeholder="Localidad">
+                                        class="inputs-filtros w-full mr-2" placeholder="Localidad">
                                 </div>
                                 @foreach (['Madrid', 'Barcelona', 'Sevilla', 'Málaga', 'Granada', 'Huelva', 'Valencia', 'Cádiz', 'Tarragona', 'Cádiz', 'Salamanca', 'León'] as $ciudad)
                                 <label class="block text-sm text-gray-600">
@@ -154,28 +154,28 @@
                                 <!-- <h3 id="h3">Equipamiento</h3> -->
                                 <input type="text" name="equipamiento"
                                     value="{{ request()->input('equipamiento') }}"
-                                    class="w-full border rounded p-1 mr-2" placeholder="Equipamiento">
+                                    class="inputs-filtros w-full border rounded mr-2" placeholder="Equipamiento">
                             </div>
 
                             <!-- Nombre del teatro -->
                             <div>
                                 <!-- <h3 id="h3">Nombre del teatro</h3> -->
                                 <input type="text" name="nombre" value="{{ request()->input('nombre') }}"
-                                    class="w-full border rounded p-1" placeholder="Nombre del teatro">
+                                    class="inputs-filtros w-full border rounded" placeholder="Nombre del teatro">
                             </div>
 
                             <!-- Dirección -->
                             <div>
                                 <!-- <h3 id="h3">Dirección</h3> -->
                                 <input type="text" name="direccion" value="{{ request()->input('direccion') }}"
-                                    class="w-full border rounded p-1" placeholder="Dirección">
+                                    class="inputs-filtros w-full border rounded" placeholder="Dirección">
                             </div>
 
                             <!-- Nombre de sala -->
                             <div>
                                 <!-- <h3 id="h3">Nombre de sala</h3> -->
                                 <input type="text" name="nombre_sala"
-                                    value="{{ request()->input('nombre_sala') }}" class="w-full border rounded p-1"
+                                    value="{{ request()->input('nombre_sala') }}" class="inputs-filtros w-full border rounded"
                                     placeholder="Nombre de sala">
                             </div>
                         </div>
