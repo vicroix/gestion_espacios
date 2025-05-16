@@ -182,7 +182,7 @@
             @if (session('id_rol') === 1)
             <!-- Sidebar de añadir salas -->
             <aside class="w-64 px-2 shadow-md">
-                <a href="{{ route('gestion-salas') }}" class="w-full">
+                <a href="{{ route('creacion-salas') }}" class="w-full">
                     <h2 id="h2" class="mt-2 mb-2">
                         <!--Icono de añadir-->
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
