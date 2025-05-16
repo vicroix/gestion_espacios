@@ -111,7 +111,9 @@ class GestionReservas extends Controller
     public function filtrarReservas(Request $respuesta)
     {
         $fechaActual = date('Y-m-d');
+        $id_usuario = session('idusuarios');
         $query = Reserva::query();
+        $query->where('id_usuario', $id_usuario);
         // Hora (time)
         if ($respuesta->filled('hora')) {
             $horaInput = $respuesta->input('hora');
