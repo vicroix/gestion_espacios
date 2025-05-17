@@ -8,7 +8,9 @@
         <span class="block text-[--color-primario]">{{ session('usuario') }}</span>
     </span>
     <div class="flex gap-3">
-        <a href="{{ url('gestion-salas') }}" class="text-[--color-primario] font-semibold">Gestión reservas</a>
+        <a href="{{ url('gestion-reservas') }}" class="text-[--color-primario] font-semibold">Reservas</a>
+        <p>|</p>
+        <a href="{{ url('gestion-salas') }}" class="text-[--color-primario] font-semibold">Gestión salas</a>
         <p>|</p>
         <a href="{{ url('proximos-eventos') }}" class="text-[--color-primario] font-semibold">Próximos eventos</a>
         <p>|</p>
