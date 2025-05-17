@@ -9,13 +9,13 @@
 
 @section("main")
 <div class="flex flex-col">
-    <div class="flex justify-center">
+    <div class="flex justify-center mb-5">
         <div class="titulo-main w-full flex justify-center md:mx-[70px]">
             <h3 class="md:text-2xl text-2xl">GESTIÓN DE RESERVAS</h3>
         </div>
     </div>
     <!-- Mensaje de error o ok si funciona -->
-    <div class="flex gap-2 justify-center mb-5">
+    <div class="flex gap-2 justify-center mb-4">
         @if (session('actualizado'))
         <p class="text-[--color-primario] text-md font-semibold">{{ session('actualizado') }}</p>
         <p class="text-green-600 font-semibold">actualizada correctamente</p>

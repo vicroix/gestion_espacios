@@ -12,7 +12,7 @@
 <div x-data="{sinEspacios: false}" class="min-h-screen flex flex-col">
     <div class="text-center">
         <div class="flex justify-center mb-5">
-            <div class="titulo-main w-full flex justify-center">
+            <div class="titulo-main w-full flex justify-center md:mx-[70px]">
                 <h3 class="md:text-2xl text-2xl">GESTIÓN SALAS</h3>
             </div>
         </div>
