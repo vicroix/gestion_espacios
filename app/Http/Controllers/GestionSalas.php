@@ -31,7 +31,7 @@ class GestionSalas extends Controller
             ]);
             Log::error('Errores de validación:', $validar->errors()->toArray());
             if ($validar->fails()) {
-                return redirect()->route('creacion-salas')
+                return redirect()->route('gestion-salas', ['mostrarFiltroEspacios' => false])
                     ->withErrors($validar)
                     ->withInput()
                     ->with('error', 'Datos incorrectos.');
@@ -66,12 +66,12 @@ class GestionSalas extends Controller
                 }
             }
 
-            return redirect()->route('creacion-salas')->with('correcto', 'Registro de sala correcto');
+            return redirect()->route('gestion-salas', ['mostrarFiltroEspacios' => false])->with('correcto', $espacio->nombre);
         } catch (\Exception $ex) {
             Log::error('Error al registrar en la base de datos: ' . $ex->getMessage(), [
                 'exception' => $ex
             ]);
-            return redirect()->route('creacion-salas')->with('error', 'Error, has introducido algún dato duplicado en la base de datos');
+            return redirect()->route('gestion-salas', ['mostrarFiltroEspacios' => false])->with('error', 'Error, has introducido algún dato duplicado en la base de datos');
         }
     }
 
@@ -79,6 +79,7 @@ class GestionSalas extends Controller
     public function buscarEspacios(Request $respuesta)
     {
         $query = Espacio::query();
+        $mostrarFiltroEspacios = filter_var($respuesta->query('mostrarFiltroEspacios', true), FILTER_VALIDATE_BOOLEAN);
 
         // Localidades (checkbox)
         if ($respuesta->filled('ciudades')) {
@@ -123,7 +124,7 @@ class GestionSalas extends Controller
         $espacios = $query->limit(12)->get();
 
 
-        return view('gestion-salas', compact('espacios')); // *** CAMBIAR LUEGO LA VIEW A gestion-salas ***
+        return view('gestion-salas', compact('espacios', 'mostrarFiltroEspacios')); // *** CAMBIAR LUEGO LA VIEW A gestion-salas ***
     }
     // Función para buscar los resultados de los filtros del view "modificar-salas.blade.php"
     public function modificarSalas(Request $respuesta)

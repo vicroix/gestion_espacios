@@ -1,4 +1,9 @@
-document.addEventListener("DOMContentLoaded", () => {
+  // CARGA EL JS FILTRO ESPACIOS
+if (
+    document
+        .querySelector('[x-data*="mostrarFiltroEspacios"]')
+        ?.__x?.get("mostrarFiltroEspacios") === true
+) {
     const fechaInput = document.getElementById("fecha");
     const horaInicioInput = document.getElementById("horaInicio");
     const horaFinInput = document.getElementById("horaFin");
@@ -196,4 +201,4 @@ document.addEventListener("DOMContentLoaded", () => {
     btnGaleria.addEventListener("click", function () {
         mostrarPanel("galeria");
     });
-});
+}

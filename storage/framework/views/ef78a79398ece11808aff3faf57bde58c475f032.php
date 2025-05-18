@@ -1,1 +1,0 @@
-<?php /**PATH C:\Users\Victor\Documents\GitHub\prueba-laravel\resources\views/1.blade.php ENDPATH**/ ?>
