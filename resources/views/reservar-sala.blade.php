@@ -252,7 +252,7 @@
     </p>
     @endif
 </main>
-@vite('resources/js/nuevas-reservas.js')
+@vite('resources/js/reservar-sala.js')
 <script src="{{ asset('mapa/mapa.js') }}">
 </script>
 @endsection
