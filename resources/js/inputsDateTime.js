@@ -1,6 +1,7 @@
     const fechaInput = document.getElementById("fecha");
     const horaInicioInput = document.getElementById("horaInicio");
     const horaFinInput = document.getElementById("horaFin");
+    const modoEditarReserva = document.getElementById('modoEditarReserva')?.value === "true";
 
     // Configuración
     const HORA_APERTURA = "08:00";
@@ -51,11 +52,14 @@
         horaInicioInput.max = aHoraStr(cierreM - 60); // Nueva restricción: no dejar que empiece a las 22:00
 
         //Si el valor del input de Inicio es menor que el de la apertura o mayor que el de cierre - 1h, vacía el input
-        if (
+        if ( !modoEditarReserva &&
             aMinutos(horaInicioInput.value) < minInicioM ||
             aMinutos(horaInicioInput.value) > cierreM - 60
         ) {
+            horaFinInput.classList.add("border-red-500");
             horaInicioInput.value = "";
+        } else {
+            horaInicioInput.classList.add("border-green-500");
         }
 
         const minFinM = Math.max(
@@ -66,11 +70,14 @@
         horaFinInput.max = HORA_CIERRE;
 
         //Si el valor de Fin es menor que el mínimo o mayor que el de cierre, vacía el input
-        if (
+        if ( !modoEditarReserva &&
             aMinutos(horaFinInput.value) < minFinM ||
             aMinutos(horaFinInput.value) > cierreM
         ) {
+            horaFinInput.classList.add("border-red-500");
             horaFinInput.value = "";
+        } else {
+            horaFinInput.classList.add("border-green-500");
         }
     }
 
@@ -85,11 +92,14 @@
         horaFinInput.max = HORA_CIERRE;
 
         //Si el input de fin es menor que la de inicio con un margen de 1 hora añadida, vacía el input de fin.
-        if (
+        if ( !modoEditarReserva &&
             aMinutos(horaFinInput.value) < finMinM ||
             aMinutos(horaFinInput.value) > cierreM
         ) {
+            horaFinInput.classList.add("border-red-500");
             horaFinInput.value = "";
+        } else {
+            horaFinInput.classList.add("border-green-500");
         }
     }
 
@@ -102,6 +112,7 @@
         // Si se pasa de las 21:59 o es menor que inicio+1h, o si escribe "00:00", "00:30", etc., vacía
         if (finM > cierreM || finM < inicioM + 60 || finM < 0 || finM >= 1440) {
             horaFinInput.value = "";
+            horaFinInput.classList.add("border-red-500");
         }
     });
 

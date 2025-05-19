@@ -4,7 +4,7 @@
 @section('title', 'Proximos eventos')
 
 
-<title>?</title>
+<title>Editar reserva</title>
 <link rel="icon" type="image/png" href="/img/Logo.png">
 
 @section("main")
@@ -18,6 +18,7 @@
         <h3 class="text-center text-[--color-primario]">{{ $reserva->nombre }}</h3>
         <form method="POST" action="{{ route('actualizar-reserva', ['id' => $reserva->idreservas]) }}" class="flex flex-col">
             @csrf
+            <input type="hidden" id="modoEditarReserva" value="true">
             <div class="flex md:flex md:flex-row items-end gap-3">
                 <input type="hidden" name="id_espacio" value="{{ $reserva->id_espacio }}">
                 <div class="flex flex-col">
@@ -54,5 +55,5 @@
     <p class="text-red-500">{{ session('error') }}</p>
     @endif
 </div>
-@vite('resources/js/nuevas-reservas.js')
+@vite('resources/js/inputsDateTime.js')
 @endsection

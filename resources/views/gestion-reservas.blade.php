@@ -222,5 +222,5 @@
             @endif
         </section>
     </div>
-    @vite('resources/js/nuevas-reservas.js')
+    @vite('resources/js/inputsDateTime.js')
     @endsection
