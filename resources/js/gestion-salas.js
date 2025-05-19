@@ -15,42 +15,14 @@ window.cargaFormularioCreacionSalas = function () {
         const aforo = document.getElementById("aforo").value;
         const equipamiento = document.getElementById("equipamiento").value;
         //Impedir que se puedan dejar los campos vacios
-        if (nombre_teatro === "") {
+        if (nombre_teatro === "" || nombre_sala === "" || telefono === "" || 
+            localidad === "" || codigo_postal === "" || direccion === "" ||
+            email === "" || tipo_sala === "" || aforo === ""
+        ) {
             alert("El campo es obligatorio.");
             event.preventDefault(); // Detiene el envío
         }
-        if (nombre_sala === "") {
-            alert("El campo es obligatorio.");
-            event.preventDefault(); // Detiene el envío
-        }
-        if (telefono === "") {
-            alert("El campo es obligatorio.");
-            event.preventDefault(); // Detiene el envío
-        }
-        if (localidad === "") {
-            alert("El campo es obligatorio.");
-            event.preventDefault(); // Detiene el envío
-        }
-        if (codigo_postal === "") {
-            alert("El campo es obligatorio.");
-            event.preventDefault(); // Detiene el envío
-        }
-        if (direccion === "") {
-            alert("El campo es obligatorio.");
-            event.preventDefault(); // Detiene el envío
-        }
-        if (email === "") {
-            alert("El campo es obligatorio.");
-            event.preventDefault(); // Detiene el envío
-        }
-        if (tipo_sala === "") {
-            alert("El campo es obligatorio.");
-            event.preventDefault(); // Detiene el envío
-        }
-        if (aforo === "") {
-            alert("El campo es obligatorio.");
-            event.preventDefault(); // Detiene el envío
-        }
+       
     });
     //Validación para no permitir letras y limitar el numero de caracteres
     const inputCodigoPostal = document.getElementById("codigo_postal");
