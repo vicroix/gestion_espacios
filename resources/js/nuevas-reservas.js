@@ -1,8 +1,3 @@
-if (
-    document
-        .querySelector('[x-data*="mostrarFiltroEspacios"]')
-        ?.__x?.get("mostrarFiltroEspacios") === true
-) {
     const fechaInput = document.getElementById("fecha");
     const horaInicioInput = document.getElementById("horaInicio");
     const horaFinInput = document.getElementById("horaFin");
@@ -125,5 +120,3 @@ if (
         actualizarRestricciones();
         actualizarHoraFin();
     });
-
-}

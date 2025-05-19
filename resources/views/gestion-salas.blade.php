@@ -17,5 +17,5 @@
         @include('layouts.creacion-salas')
     </template>
 </div>
-@vite(['resources/js/nuevas-reservas.js', 'resources/js/gestion-salas.js'])
+@vite('resources/js/gestion-salas.js')
 @endsection

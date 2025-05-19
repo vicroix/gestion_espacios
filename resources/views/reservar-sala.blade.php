@@ -20,7 +20,7 @@
         <div class="flex items-start transition-all duration-500" id="wrapperPrincipal">
 
             <!-- Panel lateral izquierdo  -->
-            <div id="panelContenedor" class="w-full hidden bg-white rounded-xl shadow p-4 border-t-4 border-[#990000] absolute bottom-[150px] left-0 z-40 transform translate-y-full transition-transform duration-500 
+            <div id="panelContenedor" class="w-full hidden bg-white rounded-xl shadow p-4 border-t-4 border-[#990000] absolute bottom-[150px] left-0 z-40 transform translate-y-full transition-transform duration-500
             md:static md:translate-y-0 md:mt-10 md:min-w-[600px] md:mr-20 lg:mr-20">
 
                 <!-- Panel info -->
@@ -254,7 +254,7 @@
     </p>
     @endif
 </main>
-@vite('resources/js/reservar-sala.js')
+@vite(['resources/js/reservar-sala.js', 'resources/js/nuevas-reservas.js'])
 <script src="{{ asset('mapa/mapa.js') }}">
 </script>
 @endsection
