@@ -143,7 +143,7 @@
                             <div class="w-full lg:w-1/4 h-auto items-start flex flex-row md:flex col md:items-center lg:flex-col lg:items-center justify-center gap-12 lg:mt-0 mb-5">
                                 <!--Info -->
                                 <button id="btnInfo" type="button" class="text-[#990000] active:text-black">
-                                    <svg width="25" height="25" viewBox="0 0 44 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <svg width="30" height="30" viewBox="0 0 44 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M2 1.99998H41.3909" stroke="currentcolor" stroke-width="4" stroke-linecap="round" />
                                         <path d="M2 29.8053H41.3909" stroke="currentcolor" stroke-width="4" stroke-linecap="round" />
                                         <path d="M2 15.9027H41.3909" stroke="currentcolor" stroke-width="4" stroke-linecap="round" />
@@ -158,7 +158,7 @@
                                 </button>
                                 <!--Galería -->
                                 <button id="btnGaleria" type="button" class="text-[#990000] active:text-black">
-                                    <svg width="25" height="25" viewBox="0 0 45 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <svg width="25" height="30" viewBox="0 0 45 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M6.55556 44H38.4444C40.9604 44 43 41.9107 43 39.3333V6.66667C43 4.08934 40.9604 2 38.4444 2H6.55556C4.03959 2 2 4.08934 2 6.66667V39.3333C2 41.9107 4.03959 44 6.55556 44ZM6.55556 44L31.6111 18.3333L43 30M17.9444 14.8333C17.9444 16.7663 16.4148 18.3333 14.5278 18.3333C12.6408 18.3333 11.1111 16.7663 11.1111 14.8333C11.1111 12.9003 12.6408 11.3333 14.5278 11.3333C16.4148 11.3333 17.9444 12.9003 17.9444 14.8333Z" stroke="currentcolor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </button>
