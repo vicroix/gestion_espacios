@@ -20,7 +20,9 @@
         <div class="flex items-start transition-all duration-500" id="wrapperPrincipal">
 
             <!-- Panel lateral izquierdo  -->
-            <div id="panelContenedor" class="w-full hidden min-w-[600px] max-w-none bg-white rounded-xl mt-10 shadow p-4 border-t-4 border-[#990000]">
+            <div id="panelContenedor" class="w-full hidden bg-white rounded-xl shadow p-4 border-t-4 border-[#990000] absolute bottom-[150px] left-0 z-40 transform translate-y-full transition-transform duration-500 
+            md:static md:translate-y-0 md:mt-10 md:min-w-[600px] md:mr-20 lg:mr-20">
+
                 <!-- Panel info -->
                 <div id="panelInfo" class="hidden w-full">
                     <h4 class="font-semibold text-[#990000] mb-2">Información</h4>
@@ -138,7 +140,7 @@
                         <!-- Conteneder principal -->
                         <div class="flex flex-col lg:flex-row justify-center items-start mt-8 w-full">
                             <!--Panel botones -->
-                            <div class="w-full lg:w-1/4 h-auto items-start flex flex-row md:flex col md:items-center lg:flex-col lg:items-center justify-center gap-12 lg:mt-0">
+                            <div class="w-full lg:w-1/4 h-auto items-start flex flex-row md:flex col md:items-center lg:flex-col lg:items-center justify-center gap-12 lg:mt-0 mb-5">
                                 <!--Info -->
                                 <button id="btnInfo" type="button" class="text-[#990000] active:text-black">
                                     <svg width="25" height="25" viewBox="0 0 44 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -149,7 +151,7 @@
                                 </button>
                                 <!--Mapa -->
                                 <button id="btnMapa" type="button" class="text-[#990000] active:text-black">
-                                    <svg width="25" height="34" viewBox="0 0 46 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <svg width="25" height="30" viewBox="0 0 46 54" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M2.10704 19.9873C0.608127 32.8886 15.2225 46.038 22.7171 51C30.2116 46.6582 44.9509 34.3772 43.9517 19.9873C42.9524 5.59747 29.3789 2 22.7171 2C16.4716 2.62025 3.60595 7.08608 2.10704 19.9873Z" stroke="currentcolor" stroke-width="4" />
                                         <path d="M23 13C27.3274 13 31 16.7125 31 21.5C31 26.2875 27.3274 30 23 30C18.6726 30 15 26.2875 15 21.5C15 16.7125 18.6726 13 23 13Z" stroke="currentcolor" stroke-width="4" />
                                     </svg>
