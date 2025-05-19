@@ -143,7 +143,7 @@
                             <div class="w-full lg:w-1/4 h-auto items-start flex flex-row md:flex col md:items-center lg:flex-col lg:items-center justify-center gap-12 lg:mt-0 mb-5">
                                 <!--Info -->
                                 <button id="btnInfo" type="button" class="text-[#990000] active:text-black">
-                                    <svg width="30" height="30" viewBox="0 0 44 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <svg width="28" height="28" viewBox="0 0 44 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M2 1.99998H41.3909" stroke="currentcolor" stroke-width="4" stroke-linecap="round" />
                                         <path d="M2 29.8053H41.3909" stroke="currentcolor" stroke-width="4" stroke-linecap="round" />
                                         <path d="M2 15.9027H41.3909" stroke="currentcolor" stroke-width="4" stroke-linecap="round" />
