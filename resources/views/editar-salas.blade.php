@@ -166,5 +166,6 @@
         </div>
         </section>
     </main>
-    @vite('resources/js/nuevas-reservas.js')
+   
+    @vite('resources/js/gestion-salas.js')
 @endsection
