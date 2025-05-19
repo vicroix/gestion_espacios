@@ -25,8 +25,7 @@
                     </svg>
                     Filtros
                 </h2>
-                <form method="GET" id="formFiltroEspacios" action="{{ route('gestion-salas') }}"
-                    x-init="$nextTick(() => cargaFiltroEspacios())" class="space-y-0 mb-2 pl-1">
+                <form method="GET" id="formFiltroEspacios" action="{{ route('gestion-salas') }}" class="space-y-0 mb-2 pl-1">
                     <div class="relative">
                         <!-- Botón para resetear filtro -->
                         <button type="reset" class="absolute right-0 -translate-y-[45px] w-[30px]" title="Limpiar">

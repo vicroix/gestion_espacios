@@ -15,13 +15,13 @@
         @endif
     </div>
     <!--Inputs de Crear de salas-->
-    <div class="flex justify-center min-w-[300px] w-full mt-0">
+    <div class="flex justify-center w-full mt-2">
         <form id="formGestionSalas" x-init="$nextTick(() => cargaFormularioCreacionSalas())" action="{{ route('gestion-espacio') }}" enctype="multipart/form-data" method="POST"
             class="bg-[--color-general] lg:w-[500px] m-1 rounded-lg flex-col flex gap-2 justify-center">
             @csrf
             <div class="w-full flex flex-col gap-2">
                 <!--Información básica-->
-                <div class="mb-1 bg-gray-50 p-2 rounded-lg shadow-sm">
+                <div class="mb-1 bg-gray-50 p-4 rounded-lg shadow-sm">
                     <h2 class="text-lg mb-4">Información básica</h2>
                     <!--nombre teatro-->
                     <div class="flex items-center">
@@ -61,7 +61,7 @@
                     </div>
                 </div>
                 <!--Datos de contacto-->
-                <div class="mb-1 bg-gray-50 p-6 rounded-lg shadow-sm">
+                <div class="mb-1 bg-gray-50 p-4 rounded-lg shadow-sm">
                     <h2 class="text-lg mb-4">Datos de contacto</h2>
                     <!--gmail-->
                     <div class="flex items-center mb-4">
@@ -115,8 +115,9 @@
                             rows="3" name="equipamiento" id="equipamiento" placeholder="Equipamiento"></textarea>
                     </div>
                     <!-- FOTOS -->
-                    <div>
-                        <input type="file" name="fotos[]" multiple>
+                    <div class="flex gap-3 items-center">
+                        <p>Fotos: </p>
+                        <input type="file" name="fotos[]" title="Añadir fotos" multiple>
                     </div>
                 </div>
             </div>

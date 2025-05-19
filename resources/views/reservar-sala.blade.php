@@ -7,7 +7,7 @@
 @section('title', 'Proximos eventos')
 
 <head>
-<title>Resultados</title>
+<title>Reservar sala</title>
 <link rel="icon" type="image/png" href="/img/Logo.png">
 </head>
 
