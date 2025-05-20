@@ -1,4 +1,8 @@
 @extends("layouts.plantilla")
+<!-- Para evitar que salga el falso positivo de $message -->
+@php
+    /** @var \Illuminate\Support\ViewErrorBag $errors */
+@endphp
 <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
 <script src="//unpkg.com/alpinejs" defer></script>
 <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet" />
@@ -188,7 +192,7 @@
                                                 <input type="time" title="Hora inicio"
                                                     name="hora_inicio"
                                                     id="horaInicio"
-                                                    class="inputs-text border">
+                                                    class="inputs-text border {{ $errors->has('hora_inicio') ? 'border-red-500' : 'border-gray-300' }}" value="{{ old('hora_inicio') }}">
                                                 @error('hora_inicio')
                                                 <p class="text-red-500">{{ $message }}</p>
                                                 @enderror
@@ -198,7 +202,7 @@
                                             <p>Hora Fin: </p>
                                             <div class="flex gap-1">
                                                 <input type="time" title="Hora Fin" name="hora_fin" id="horaFin"
-                                                    class="inputs-text border"
+                                                    class="inputs-text border {{ $errors->has('hora_fin') ? 'border-red-500' : 'border-gray-300' }}" value="{{ old('hora_fin') }}"
                                                     value="{{ old('hora_fin') }}">
                                                 @error('hora_fin')
                                                 <p class="text-red-500">{{ $message }}</p>
