@@ -291,7 +291,7 @@
             @endforeach
         </section>
         @else
-        <div x-init="sinEspacios = true"></div>
+        <div x-init="sinEspacios = true">No se encontraron espacios</div>
         @endif
     </div>
 </div>

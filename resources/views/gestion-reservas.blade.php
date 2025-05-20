@@ -29,7 +29,7 @@
         <p class="text-red-500">{{ session('error') }}</p>
         @endif
     </div>
-    <div x-data="{ openHora: false,openFecha:false ,openCiudades: false, openTipo: false, openFiltros: false, openAforo: false }" class="flex flex-col items-center min-w-[320px] gap-1 lg:items-start lg:flex-row">
+    <div x-data="{ openHora: false,openFecha:false ,openCiudades: false, openTipo: false, openFiltros: false, openAforo: false }" class="relative flex flex-col items-center min-w-[320px] gap-4 lg:items-start lg:flex-row">
         <!-- Sidebar de filtros -->
         <aside class="w-64 px-2 shadow-md">
             <div class="flex justify-between p-2">
@@ -214,10 +214,14 @@
             </div>
             @endforeach
             @else
-            <div class="col-span-full w-full flex justify-center">
-                <p class="flex">No tienes ninguna reserva pendiente, ve a <a href="{{ url('gestion-salas') }}" class="hover:text-[--color-primario] font-semibold flex hover:scale-105">nuevas reservas <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="-translate-y-[8px]" viewBox="0 0 20 20">
-                            <path fill="currentColor" d="m16.89 1.2l1.41 1.41c.39.39.39 1.02 0 1.41L14 8.33V18H3V3h10.67l1.8-1.8c.4-.39 1.03-.4 1.42 0m-5.66 8.48l5.37-5.36l-1.42-1.42l-5.36 5.37l-.71 2.12z" />
-                        </svg></a></p>
+            <div class="col-span-full flex flex-col gap-2 justify-center lg:absolute lg:left-1/2 lg:top-[5%] lg:-translate-x-1/2">
+                <p class="text-center">No tienes ninguna reserva pendiente, ve a
+                </p>
+                <a href="{{ url('gestion-salas') }}" class="hover:text-[--color-primario] font-semibold justify-center flex">nuevas reservas
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="-translate-y-[8px]" viewBox="0 0 20 20">
+                        <path fill="currentColor" d="m16.89 1.2l1.41 1.41c.39.39.39 1.02 0 1.41L14 8.33V18H3V3h10.67l1.8-1.8c.4-.39 1.03-.4 1.42 0m-5.66 8.48l5.37-5.36l-1.42-1.42l-5.36 5.37l-.71 2.12z" />
+                    </svg>
+                </a>
             </div>
             @endif
         </section>
