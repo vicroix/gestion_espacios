@@ -7,8 +7,8 @@
 @section('title', 'Proximos eventos')
 
 <head>
-<title>Reservar sala</title>
-<link rel="icon" type="image/png" href="/img/Logo.png">
+    <title>Reservar sala</title>
+    <link rel="icon" type="image/png" href="/img/Logo.png">
 </head>
 
 @section("main")
@@ -92,32 +92,34 @@
                         </div>
 
                         <!-- Modal -->
-                        <div x-show="modalOpen"
-                            class="fixed inset-0 bg-black bg-opacity-75 z-50 flex justify-center items-center"
-                            x-cloak>
-                            <!-- Cerrar -->
-                            <span class="absolute top-4 right-8 text-[--color-general] text-4xl cursor-pointer" @click="modalOpen = false">&times;</span>
+                        <template x-teleport="body">
+                            <div x-show="modalOpen"
+                                class="fixed inset-0 bg-black bg-opacity-75 z-50 flex justify-center items-center"
+                                x-cloak>
+                                <!-- Cerrar -->
+                                <span class="absolute top-4 right-8 text-[--color-general] text-4xl cursor-pointer" @click="modalOpen = false">&times;</span>
 
-                            <div class="relative">
-                                <img :src="fotos[index]" class="max-h-[80vh] max-w-[80vw] rounded shadow-lg cursor-pointer">
+                                <div class="relative">
+                                    <img :src="fotos[index]" class="max-h-[80vh] max-w-[80vw] rounded shadow-lg cursor-pointer">
 
-                                <!-- Botón izquierda modal -->
-                                <button @click="index = (index === 0) ? total - 1 : index - 1"
-                                    class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-[--color-general] bg-opacity-70 p-1 rounded-full shadow">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 15 24">
-                                        <path fill="currentColor" d="m3.55 12l7.35 7.35q.375.375.363.875t-.388.875t-.875.375t-.875-.375l-7.7-7.675q-.3-.3-.45-.675T.825 12t.15-.75t.45-.675l7.7-7.7q-.375-.375.888-.363t.887.388t.375.875t-.375.875z" />
-                                    </svg>
-                                </button>
+                                    <!-- Botón izquierda modal -->
+                                    <button @click="index = (index === 0) ? total - 1 : index - 1"
+                                        class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-[--color-general] bg-opacity-70 p-1 rounded-full shadow">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 15 24">
+                                            <path fill="currentColor" d="m3.55 12l7.35 7.35q.375.375.363.875t-.388.875t-.875.375t-.875-.375l-7.7-7.675q-.3-.3-.45-.675T.825 12t.15-.75t.45-.675l7.7-7.7q-.375-.375.888-.363t.887.388t.375.875t-.375.875z" />
+                                        </svg>
+                                    </button>
 
-                                <!-- Botón derecha modal -->
-                                <button @click="index = (index === total - 1) ? 0 : index + 1"
-                                    class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-[--color-general] bg-opacity-70 p-1 rounded-full shadow">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 23 24">
-                                        <path fill="currentColor" d="m14.475 12l-7.35-7.35q-.375-.375-.363-.888t.388-.887t.888-.375t.887.375l7.675 7.7q.3.3.45.675t.15.75t-.15.75t-.45.675l-7.7 7.7q-.375.375-.875.363T7.15 21.1t-.375-.888t.375-.887z" />
-                                    </svg>
-                                </button>
+                                    <!-- Botón derecha modal -->
+                                    <button @click="index = (index === total - 1) ? 0 : index + 1"
+                                        class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-[--color-general] bg-opacity-70 p-1 rounded-full shadow">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 23 24">
+                                            <path fill="currentColor" d="m14.475 12l-7.35-7.35q-.375-.375-.363-.888t.388-.887t.888-.375t.887.375l7.675 7.7q.3.3.45.675t.15.75t-.15.75t-.45.675l-7.7 7.7q-.375.375-.875.363T7.15 21.1t-.375-.888t.375-.887z" />
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
+                        </template>
                     </div>
                     @endif
                 </div>
@@ -196,7 +198,8 @@
                                             <p>Hora Fin: </p>
                                             <div class="flex gap-1">
                                                 <input type="time" title="Hora Fin" name="hora_fin" id="horaFin"
-                                                    class="inputs-text border">
+                                                    class="inputs-text border"
+                                                    value="{{ old('hora_fin') }}">
                                                 @error('hora_fin')
                                                 <p class="text-red-500">{{ $message }}</p>
                                                 @enderror
