@@ -68,11 +68,10 @@ class GestionReservas extends Controller
         }
 
         // Comprobar si el grupo del profesor, no excede el máximo de capacidad del Espacio
-        $grupo = Grupo::where('idusuario',session('idusuarios'))->first();
         $espacio = Espacio::where('idespacios', $validar['id_espacio'])->first();
-        if($grupo->groupsize > $espacio->capacidad){  //30 - 50
+        if(session('groupsize') > $espacio->capacidad){  //30 - 50
             return redirect()->route('detalle-espacio', ['id' => $validar['id_espacio']])
-            ->with('error', 'El tamaño del grupo excede la capacidad de éste espacio');
+            ->with('error', session('nombre_grupo') .' excede la capacidad de éste espacio');
         };
 
         // Insertar datos en la tabla reserva

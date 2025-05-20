@@ -120,60 +120,9 @@ class GestionSalas extends Controller
             $query->where('nombre_sala', 'like', '%' . $respuesta->input('nombre_sala') . '%');
         }
 
-        // Ejecutar query (si hay algún filtro aplicado, o traer todos si no) y en limit() pon el número de datos que quieres traer de máximo
         $espacios = $query->limit(12)->get();
-
 
         return view('gestion-salas', compact('espacios', 'mostrarFiltroEspacios')); // *** CAMBIAR LUEGO LA VIEW A gestion-salas ***
-    }
-    // Función para buscar los resultados de los filtros del view "modificar-salas.blade.php"
-    public function modificarSalas(Request $respuesta)
-    {
-        $query = Espacio::query();
-
-        // Localidades (checkbox)
-        if ($respuesta->filled('ciudades')) {
-            $query->whereIn('localidad', $respuesta->input('ciudades'));
-        }
-
-        // Localidad para filtro manual
-        if ($respuesta->filled('localidad')) {
-            $query->where('localidad', 'like', '%' . $respuesta->input('localidad') . '%');
-        }
-        // Tipo (radio)
-        if ($respuesta->filled('tipo')) {
-            $query->where('tipo', $respuesta->input('tipo')); // tipo = 'ensayo' o 'obra'
-        }
-
-        // Capacidad (radio)
-        if ($respuesta->filled('capacidad')) {
-            $query->where('capacidad', '<=', (int) $respuesta->input('capacidad'));
-        }
-
-        // Equipamiento (texto completo, opcional)
-        if ($respuesta->filled('equipamiento')) {
-            $query->where('equipamiento', 'like', '%' . $respuesta->input('equipamiento') . '%');
-        }
-
-        // Nombre teatro
-        if ($respuesta->filled('nombre')) {
-            $query->where('nombre', 'like', '%' . $respuesta->input('nombre') . '%');
-        }
-
-        // Dirección
-        if ($respuesta->filled('direccion')) {
-            $query->where('direccion', 'like', '%' . $respuesta->input('direccion') . '%');
-        }
-
-        // Sala
-        if ($respuesta->filled('nombre_sala')) {
-            $query->where('nombre_sala', 'like', '%' . $respuesta->input('nombre_sala') . '%');
-        }
-
-        // Ejecutar query (si hay algún filtro aplicado, o traer todos si no) y en limit() pon el número de datos que quieres traer de máximo
-        $espacios = $query->limit(12)->get();
-
-        return view('modificar-salas', compact('espacios'));
     }
 
     // Función para enviar por id una sala selecionada desde el botón Ver de la view "modificar-salas.blade.php"

@@ -12,17 +12,28 @@ class AuthController extends Controller
 {
     public function login(Request $respuesta)
     {
-        // Comprueba que el email escrito en el login coincide con el email de la BBDD
-        $usuario = Usuario::with('rol')->where('email', $respuesta->email)->first();
+        // Comprueba que el email escrito en el login coincide con el email de la BBDD y realiza un join con las tablas relacionadas
+        $usuario = Usuario::with(['rol', 'grupo'])->where('email', $respuesta->email)->first();
+        // dd($usuario);
+
         // Comprueba que la contraseña escrita en el login coincide con la de la BBDD
-        if ($usuario && password_verify($respuesta->password, $usuario->password)) {
+        if ($usuario && $usuario->id_rol === 1 && password_verify($respuesta->password, $usuario->password)) {
             session([
                 'idusuarios' => $usuario->idusuarios,
                 'usuario' => $usuario->usuario,
                 'id_rol' => $usuario->id_rol,
-                'nombre_rol' => $usuario->rol->nombre_rol
+                'nombre_rol' => $usuario->rol->nombre_rol,
             ]);
-
+            return redirect('/');
+        }elseif ($usuario && $usuario->id_rol !== 1 && password_verify($respuesta->password, $usuario->password)) {
+            session([
+                'idusuarios' => $usuario->idusuarios,
+                'usuario' => $usuario->usuario,
+                'id_rol' => $usuario->id_rol,
+                'nombre_rol' => $usuario->rol->nombre_rol,
+                'groupsize' => $usuario->grupo->groupsize,
+                'nombre_grupo' => $usuario->grupo->nombre_grupo
+            ]);
             return redirect('/');
         } else {
             return redirect('/inicio-sesion')->with('error', 'Contraseña o email incorrectos');
@@ -43,9 +54,9 @@ class AuthController extends Controller
             ]);
             if ($validar->fails()) {
                 return redirect()->route('form-registro')
-                ->withErrors($validar)
-                ->withInput()
-                ->with('error', 'Datos incorrectos.');
+                    ->withErrors($validar)
+                    ->withInput()
+                    ->with('error', 'Datos incorrectos.');
             }
             $validar = $validar->validated();
             // Crear nuevo usuario
