@@ -124,8 +124,8 @@
             </div>
 
             <!-- Contenedor principal-->
-            <div id="mainFormCont" class="transition-all duration-500 flex justify-center items-center w-full"> <!-- Flex para centrar -->
-                <form action="{{ route('reservar') }}" method="POST" class="flex flex-col gap-1 max-w-md w-full lg:w-3/4"> <!-- Centrado y tamaño máximo -->
+            <div id="mainFormCont" class="transition-all duration-500 flex justify-center items-center w-full">
+                <form action="{{ route('reservar') }}" method="POST" class="flex flex-col gap-1 max-w-md w-full lg:w-3/4">
                     @csrf
                     <input type="hidden" name="nombre_teatro" value="{{ $espacio->nombre }}">
                     <input type="hidden" name="localidad" id="inputLocalidad" data-localidad="{{ $espacio->localidad }}" value="{{ $espacio->localidad }}">
@@ -186,9 +186,7 @@
                                                 <input type="time" title="Hora inicio"
                                                     name="hora_inicio"
                                                     id="horaInicio"
-                                                    class="inputs-text border border-gray-300
-                                                    {{ $errors->has('hora_inicio') ? 'border-red-500' : 'border-black' }}"
-                                                    value="{{ old('hora_inicio') }}">
+                                                    class="inputs-text border">
                                                 @error('hora_inicio')
                                                 <p class="text-red-500">{{ $message }}</p>
                                                 @enderror
@@ -198,8 +196,7 @@
                                             <p>Hora Fin: </p>
                                             <div class="flex gap-1">
                                                 <input type="time" title="Hora Fin" name="hora_fin" id="horaFin"
-                                                    class="inputs-text border border-gray-300
-                                                {{ $errors->has('hora_fin') ? 'border-red-500' : 'border-black' }}">
+                                                    class="inputs-text border">
                                                 @error('hora_fin')
                                                 <p class="text-red-500">{{ $message }}</p>
                                                 @enderror

@@ -5,11 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use App\Models\Reserva;
-use Illuminate\Support\Facades\Date;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Grupo;
+use App\Models\Espacio;
 
-use function PHPUnit\Framework\isEmpty;
 
 class GestionReservas extends Controller
 {
@@ -68,6 +67,13 @@ class GestionReservas extends Controller
                 ->with('error', 'Hora no disponible');
         }
 
+        // Comprobar si el grupo del profesor, no excede el máximo de capacidad del Espacio
+        $grupo = Grupo::where('idusuario',session('idusuarios'))->first();
+        $espacio = Espacio::where('idespacios', $validar['id_espacio'])->first();
+        if($grupo->groupsize > $espacio->capacidad){  //30 - 50
+            return redirect()->route('detalle-espacio', ['id' => $validar['id_espacio']])
+            ->with('error', 'El tamaño del grupo excede la capacidad de éste espacio');
+        };
 
         // Insertar datos en la tabla reserva
         try {

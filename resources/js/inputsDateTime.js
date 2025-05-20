@@ -4,7 +4,17 @@ const horaFinInput = document.getElementById("horaFin");
 const modoEditarReserva =
     document.getElementById("modoEditarReserva")?.value === "true";
 
+function resetearBordes(input) {
+    input.classList.remove(
+        "border-red-500",
+        "border-green-500"
+    );
+}
 function añadirEstilo(input, color) {
+    resetearBordes(input);
+    if (color !== 'normal') {
+        input.classList.add(`border-${color}-500`);
+    }
     input.classList.add(`border-${color}-500`);
 }
 function quitarEstilo(input, color) {
@@ -32,8 +42,6 @@ function aHoraStr(minutos) {
 
 // 1) Ajusta minimo y maximo de horaInicio y horaFin, según la fecha y horario permitido
 function actualizarRestricciones() {
-    quitarEstilo(horaInicioInput, "green")
-    quitarEstilo(horaFinInput, "green")
     if (!fechaInput.value) return;
     const hoy = new Date();
     const fechaDeInput = new Date(fechaInput.value);
@@ -70,7 +78,7 @@ function actualizarRestricciones() {
         añadirEstilo(horaInicioInput, "red");
         horaInicioInput.value = "";
     } else {
-        añadirEstilo(horaInicioInput, "green");
+        añadirEstilo(horaInicioInput, "normal");
     }
 
     const minFinM = Math.max(
@@ -86,8 +94,6 @@ function actualizarRestricciones() {
         aMinutos(horaFinInput.value) > cierreM
     ) {
         horaFinInput.value = "";
-    } else {
-
     }
 }
 
@@ -107,10 +113,10 @@ function actualizarHoraFin() {
         (!modoEditarReserva && aMinutos(horaFinInput.value) < finMinM) ||
         aMinutos(horaFinInput.value) > cierreM
     ) {
-         añadirEstilo(horaFinInput, "red");
+        añadirEstilo(horaFinInput, "red");
         horaFinInput.value = "";
     } else {
-        añadirEstilo(horaFinInput, "green")
+        añadirEstilo(horaFinInput, "normal");
     }
 }
 
@@ -122,7 +128,7 @@ horaFinInput.addEventListener("input", () => {
 
     // Si se pasa de las 21:59 o es menor que inicio+1h, o si escribe "00:00", "00:30", etc., vacía
     if (finM > cierreM || finM < inicioM + 60 || finM < 0 || finM >= 1440) {
-         añadirEstilo(horaFinInput, "red");
+        añadirEstilo(horaFinInput, "red");
         horaFinInput.value = "";
     }
 });
