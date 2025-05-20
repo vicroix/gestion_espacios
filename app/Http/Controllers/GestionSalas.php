@@ -121,7 +121,7 @@ class GestionSalas extends Controller
         }
 
         // Ejecutar query (si hay algún filtro aplicado, o traer todos si no) y en limit() pon el número de datos que quieres traer de máximo
-        $espacios = $query->limit(0)->get();
+        $espacios = $query->limit(12)->get();
 
 
         return view('gestion-salas', compact('espacios', 'mostrarFiltroEspacios')); // *** CAMBIAR LUEGO LA VIEW A gestion-salas ***
