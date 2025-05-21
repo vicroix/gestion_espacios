@@ -30,6 +30,8 @@ class GestionReservas extends Controller
             'hora_inicio' => 'required|date_format:H:i',
             'hora_fin' => 'required|date_format:H:i',
             'id_espacio' => 'required|integer',
+            'grupos' => 'array',
+            'grupos.*' => 'string|max:50',
         ], $mensajes);
         if ($validar->fails()) {
             return redirect()->route('detalle-espacio', ['id' => $respuesta->input('id_espacio')])
@@ -38,6 +40,7 @@ class GestionReservas extends Controller
                 ->with('error', 'Campos obligatorios *');
         }
         $validar = $validar->validated();
+        // dd($validar);
         // Leer JSON festivos
         $rutaJSON = public_path('fullCalendar/calendario-2025.json');
         $json = file_get_contents($rutaJSON);
@@ -67,11 +70,18 @@ class GestionReservas extends Controller
                 ->with('error', 'Hora no disponible');
         }
 
-        // Comprobar si el grupo del profesor, no excede el máximo de capacidad del Espacio
+        // Comprobar si el grupo/os del profesor, no excede el máximo de capacidad del Espacio
         $espacio = Espacio::where('idespacios', $validar['id_espacio'])->first();
-        if(session('groupsize') > $espacio->capacidad){  //30 - 50
-            return redirect()->route('detalle-espacio', ['id' => $validar['id_espacio']])
-            ->with('error', session('nombre_grupo') .' excede la capacidad de éste espacio');
+        if ($validar['grupos']) {
+            $grupos = $validar['grupos'];
+            // dd($grupos);
+            $totalAlmsGrupos = 0;
+            foreach($grupos as $grupo){
+               $totalAlmsGrupos = $totalAlmsGrupos + $grupo;
+            };
+            if($totalAlmsGrupos > $espacio->capacidad){
+                return redirect()->route('detalle-espacio', ['id' => $validar['id_espacio']])->with('advertencia', 'Advertencia: El tamaño del grupo/os excede la capacidad del espacio');
+            };
         };
 
         // Insertar datos en la tabla reserva

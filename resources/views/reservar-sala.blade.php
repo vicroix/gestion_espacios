@@ -1,11 +1,12 @@
 @extends("layouts.plantilla")
 <!-- Para evitar que salga el falso positivo de $message -->
 @php
-    /** @var \Illuminate\Support\ViewErrorBag $errors */
+/** @var \Illuminate\Support\ViewErrorBag $errors */
 @endphp
 <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
 <script src="//unpkg.com/alpinejs" defer></script>
 <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet" />
+<link rel="stylesheet" href="{{ asset('choice/choices.min.css') }}">
 @vite('resources/css/app.css')
 
 @section('title', 'Proximos eventos')
@@ -170,7 +171,7 @@
                                 </button>
                             </div>
 
-                            <div class="text-left md:px-20 md:ml-10 mx-auto">
+                            <div class="flex flex-col  gap-2 text-left md:px-20 md:ml-10 mx-auto">
                                 <p>Sala: {{ $espacio->nombre_sala }}</p>
                                 <p>Localidad: {{ $espacio->localidad }}</p>
 
@@ -212,6 +213,18 @@
                                     </div>
                                 </div>
 
+                                <!-- Selección de GRUPOS del profesor -->
+                                <div>
+                                    <label for="grupos">Selecciona grupos:</label>
+                                    <div  class="overflow-y-auto h-[120px]">
+                                        <select name="grupos[]" multiple id="grupos">
+                                            @foreach(session('grupos', []) as $grupo)
+                                            <option value="{{ $grupo['groupsize'] }}">{{ $grupo['nombre_grupo'] }} - {{ $grupo['groupsize'] }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
                                 <!-- Contenedor BOTONES -->
                                 <div class="flex gap-4 justify-center text-center mt-8 items-center">
                                     <div>
@@ -238,6 +251,8 @@
                                 <div class="mt-4">
                                     @if(session('error'))
                                     <p class="text-[--color-primario]">{{ session('error') }}</p>
+                                    @elseif(session('advertencia'))
+                                    <p class="text-yellow-500">{{ session('advertencia') }}</p>
                                     @elseif(session('festivo'))
                                     <p class="text-[--color-primario]">{{ session('festivo') }}</p>
                                     @endif
@@ -260,5 +275,11 @@
 </main>
 @vite(['resources/js/reservar-sala.js', 'resources/js/inputsDateTime.js'])
 <script src="{{ asset('mapa/mapa.js') }}">
+</script>
+<script src="{{ asset('choice/choices.min.js') }}"></script>
+<script>
+
+
+
 </script>
 @endsection

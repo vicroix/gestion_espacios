@@ -11,7 +11,7 @@ class Usuario extends Model
     public function rol(){
         return $this->belongsTo(Rol::class, 'id_rol', 'id_rol');
     }
-    public function grupo(){
-        return $this->belongsTo(Grupo::class, 'id_grupo', 'id_grupo');
+    public function grupos(){
+        return $this->belongsToMany(Grupo::class, 'grupo_usuario', 'id_usuario', 'id_grupo');
     }
 }
