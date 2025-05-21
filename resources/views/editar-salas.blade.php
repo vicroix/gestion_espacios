@@ -60,7 +60,7 @@
                                 class="inputs-text border border-gray-300 focus:outline-none
                      invalid:focus:ring-red-400 peer w-full"
                             type="text" value="{{ $espacio->nombre_sala }}" name="nombre_sala" id="nombre_sala"
-                            placeholder="Nombre Sala" required>
+                            placeholder="Nombre Sala">
                                 type="text" value="{{ $espacio->nombre_sala }}" name="nombre_sala" id="nombre_sala"
                                 placeholder="Nombre Sala"required>
 
@@ -69,18 +69,18 @@
                             <input
                                 class="inputs-text border border-gray-300 focus:outline-none invalid:focus:ring-red-400 peer w-full"
                                 type="text" value="{{ $espacio->localidad }}" name="localidad" id="localidad"
-                                placeholder="Localidad" required>
+                                placeholder="Localidad">
                             <!-- INPUT CODIGO POSTAL -->
                             <input
                                 class="inputs-text border border-gray-300 focus:outline-none invalid:focus:ring-red-400 peer w-full"
                                 type="text" value="{{ $espacio->codigopostal }}" name="codigo_postal"
-                                id="codigo_postal" placeholder="C.P." required>
+                                id="codigo_postal" placeholder="C.P.">
                         </div>
                         <!-- INPUT DIRECCION -->
                         <input
                             class="inputs-text border border-gray-300 focus:outline-none invalid:focus:ring-red-400 peer w-full"
                             type="text" value="{{ $espacio->direccion }}" name="direccion" id="direccion"
-                            placeholder="Dirección" required>
+                            placeholder="Dirección">
                     </div>
                 </div>
                 <!-- Datos de Contacto -->
@@ -90,7 +90,7 @@
                         <!-- INPUT TELEFONO -->
                         <input
                             class="inputs-text border border-gray-300 focus:outline-none
-                            <div class="grid grid-cols-2 gap-4" required>
+                            <div class="grid grid-cols-2 gap-4">
                                 <!-- INPUT LOCALIDAD -->
                                 <input
                                     class="inputs-text border border-gray-300 focus:outline-none invalid:focus:ring-red-400 peer w-full"
@@ -118,7 +118,7 @@
                                 class="inputs-text border border-gray-300 focus:outline-none
                             invalid:focus:ring-red-400 peer w-full"
                             type="text" value="{{ $espacio->telefono }}" name="telefono" id="telefono"
-                            placeholder="Teléfono" required>
+                            placeholder="Teléfono">
                         <!-- INPUT EMAIL -->
                         <input
                             class="inputs-text border border-gray-300 focus:outline-none
@@ -129,7 +129,7 @@
                                 class="inputs-text border border-gray-300 focus:outline-none
                      invalid:focus:ring-red-400 peer w-full "
                             type="email" value="{{ $espacio->email }}" name="email" id="email"
-                            placeholder="Correo electrónico" required>
+                            placeholder="Correo electrónico">
                                 type="email" value="{{ $espacio->email }}" name="email" id="email"
                                 placeholder="Correo electrónico"required>
 
