@@ -39,7 +39,7 @@ class AuthController extends Controller
                 'nombre_rol' => $usuario->rol->nombre_rol,
                 'grupos' => $grupos,
             ]);
-            dd(session('grupos'));
+            // dd(session('grupos'));
             return redirect('/');
         } else {
             return redirect('/inicio-sesion')->with('error', 'Contraseña o email incorrectos');

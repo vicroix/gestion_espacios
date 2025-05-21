@@ -1,11 +1,12 @@
 @extends("layouts.plantilla")
 <!-- Para evitar que salga el falso positivo de $message -->
 @php
-    /** @var \Illuminate\Support\ViewErrorBag $errors */
+/** @var \Illuminate\Support\ViewErrorBag $errors */
 @endphp
 <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
 <script src="//unpkg.com/alpinejs" defer></script>
 <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet" />
+<link rel="stylesheet" href="{{ asset('choice/choices.min.css') }}">
 @vite('resources/css/app.css')
 
 @section('title', 'Proximos eventos')
@@ -211,6 +212,13 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-- Selección de grupos del profesor -->
+                                <label for="grupos">Selecciona grupos:</label>
+                                <select name="grupos[]" multiple id="grupos">
+                                    @foreach(session('grupos', []) as $grupo)
+                                    <option value="{{ $grupo['groupsize'] }}">{{ $grupo['nombre_grupo'] }}</option>
+                                    @endforeach
+                                </select>
 
                                 <!-- Contenedor BOTONES -->
                                 <div class="flex gap-4 justify-center text-center mt-8 items-center">
@@ -260,5 +268,16 @@
 </main>
 @vite(['resources/js/reservar-sala.js', 'resources/js/inputsDateTime.js'])
 <script src="{{ asset('mapa/mapa.js') }}">
+</script>
+<script src="{{ asset('choice/choices.min.js') }}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        new Choices('#grupos', {
+            removeItemButton: true,
+            placeholderValue: 'Selecciona grupos...',
+            noResultsText: 'No se encontraron resultados',
+            noChoicesText: 'No hay opciones disponibles',
+        });
+    });
 </script>
 @endsection
