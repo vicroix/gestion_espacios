@@ -1,3 +1,5 @@
+
+
 //Validacion form
 window.cargarFormularioEditarSalas=function(){
 
@@ -43,3 +45,5 @@ const form = document.getElementById("formGestionSalas");
         });
 };
 
+document.addEventListener("DOMContentLoaded", function () {
+  window.cargarFormularioEditarSalas(); })
