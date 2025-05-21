@@ -23,4 +23,8 @@ class Reserva extends Model
     {
         return $this->belongsTo(Usuario::class, 'id_usuario', 'idusuarios');
     }
+
+        public function grupoReservas(){
+        return $this->belongsToMany(Grupo::class, 'grupo_reserva', 'id_grupo', 'id_reserva');
+    }
 }

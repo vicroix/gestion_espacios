@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Grupo_reserva;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use App\Models\Reserva;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Grupo;
 use App\Models\Espacio;
+use App\Models\Grupo;
 
 
 class GestionReservas extends Controller
@@ -31,7 +32,7 @@ class GestionReservas extends Controller
             'hora_fin' => 'required|date_format:H:i',
             'id_espacio' => 'required|integer',
             'grupos' => 'array',
-            'grupos.*' => 'string|max:50',
+            'grupos.*' => 'required|integer',
         ], $mensajes);
         if ($validar->fails()) {
             return redirect()->route('detalle-espacio', ['id' => $respuesta->input('id_espacio')])
@@ -72,16 +73,16 @@ class GestionReservas extends Controller
 
         // Comprobar si el grupo/os del profesor, no excede el máximo de capacidad del Espacio
         $espacio = Espacio::where('idespacios', $validar['id_espacio'])->first();
-        if ($validar['grupos']) {
-            $grupos = $validar['grupos'];
-            // dd($grupos);
-            $totalAlmsGrupos = 0;
-            foreach($grupos as $grupo){
-               $totalAlmsGrupos = $totalAlmsGrupos + $grupo;
+        $gruposSeleccionados = Grupo::whereIn('id_grupo', $validar['grupos'])->get();
+        if ($espacio && $gruposSeleccionados) {
+            $totalAlmsSeleccionados = 0;
+            foreach ($gruposSeleccionados as $grupoSeleccionado) {
+                $totalAlmsSeleccionados = $totalAlmsSeleccionados + $grupoSeleccionado['groupsize'];
             };
-            if($totalAlmsGrupos > $espacio->capacidad){
-                return redirect()->route('detalle-espacio', ['id' => $validar['id_espacio']])->with('advertencia', 'Advertencia: El tamaño del grupo/os excede la capacidad del espacio');
-            };
+            if ($totalAlmsSeleccionados > $espacio->capacidad) {
+                return redirect()->route('detalle-espacio', ['id' => $validar['id_espacio']])
+                    ->with('advertencia', 'El tamaño del grupo/os seleccionados supera la capacidad del espacio');
+            }
         };
 
         // Insertar datos en la tabla reserva
@@ -101,6 +102,17 @@ class GestionReservas extends Controller
             $reserva->id_usuario = $idUsuario;
             $reserva->save();
             // dd($reserva);
+
+            $idReserva = $reserva->idreservas;
+
+
+            foreach ($validar['grupos'] as $idGrupo) {
+                $grupoReserva = new Grupo_reserva();
+                $grupoReserva->id_reserva = $idReserva;
+                $grupoReserva->id_grupo = $idGrupo;
+                $grupoReserva->save();
+            };
+
             Log::info('Reserva:', ['reserva' => $reserva]);
             return redirect()->route('gestion-reservas')->with('reservado', 'Reserva realizada correctamente');
         } catch (\Exception $ex) {
@@ -118,7 +130,7 @@ class GestionReservas extends Controller
         $fechaActual = date('Y-m-d');
         $id_usuario = session('idusuarios');
         $reservas = Reserva::where('id_usuario', $id_usuario)
-        ->where('fecha', '>=', $fechaActual)->orderBy('fecha', 'asc')->orderBy('hora', 'asc')->get();
+            ->where('fecha', '>=', $fechaActual)->orderBy('fecha', 'asc')->orderBy('hora', 'asc')->get();
         // dd($reservas);
 
         return view('gestion-reservas', compact('reservas'));
@@ -139,12 +151,11 @@ class GestionReservas extends Controller
         if ($respuesta->filled('ciudades')) {
             $query->whereIn('localidad', $respuesta->input('ciudades'));
         }
-        if($respuesta->filled('fechasPasadas')){
-            $query->whereDate('fecha', '<',$fechaActual);
-        }
-        elseif($respuesta->filled('fecha') && (!$respuesta->filled('fechasPasadas'))) {
+        if ($respuesta->filled('fechasPasadas')) {
+            $query->whereDate('fecha', '<', $fechaActual);
+        } elseif ($respuesta->filled('fecha') && (!$respuesta->filled('fechasPasadas'))) {
             $query->whereDate('fecha', $respuesta->input('fecha'));
-        }else {
+        } else {
             $query->whereDate('fecha', '>=', $fechaActual);
         }
         // Localidad para filtro manual

@@ -219,7 +219,7 @@
                                     <div  class="overflow-y-auto h-[120px]">
                                         <select name="grupos[]" multiple id="grupos">
                                             @foreach(session('grupos', []) as $grupo)
-                                            <option value="{{ $grupo['groupsize'] }}">{{ $grupo['nombre_grupo'] }} - {{ $grupo['groupsize'] }}</option>
+                                            <option value="{{ $grupo['id_grupo'] }}">{{ $grupo['id_grupo'] }}:{{ $grupo['nombre_grupo'] }} - {{ $grupo['groupsize'] }}</option>
                                             @endforeach
                                         </select>
                                     </div>
