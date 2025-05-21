@@ -5,14 +5,11 @@ const modoEditarReserva =
     document.getElementById("modoEditarReserva")?.value === "true";
 
 function resetearBordes(input) {
-    input.classList.remove(
-        "border-red-500",
-        "border-green-500"
-    );
+    input.classList.remove("border-red-500", "border-green-500");
 }
 function añadirEstilo(input, color) {
     resetearBordes(input);
-    if (color !== 'normal') {
+    if (color !== "normal") {
         input.classList.add(`border-${color}-500`);
     }
     input.classList.add(`border-${color}-500`);
@@ -47,7 +44,7 @@ function actualizarRestricciones() {
     const fechaDeInput = new Date(fechaInput.value);
     const aperturaM = aMinutos(HORA_APERTURA);
     const cierreM = aMinutos(HORA_CIERRE);
-
+    quitarEstilo(fechaInput, "red");
     let minInicioM = aperturaM;
     if (fechaDeInput.toDateString() === hoy.toDateString()) {
         //Si la fecha introducida en el formulario es igual a la de hoy:

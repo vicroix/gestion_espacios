@@ -13,9 +13,15 @@ class AuthController extends Controller
     public function login(Request $respuesta)
     {
         // Comprueba que el email escrito en el login coincide con el email de la BBDD y realiza un join con las tablas relacionadas
-        $usuario = Usuario::with(['rol', 'grupo'])->where('email', $respuesta->email)->first();
+        $usuario = Usuario::with(['rol', 'grupos'])->where('email', $respuesta->email)->first();
         // dd($usuario);
-
+        $grupos = $usuario->grupos->map(function($grupo){
+            return[
+                'id_grupo' => $grupo->id_grupo,
+                'nombre_grupo' => $grupo->nombre_grupo,
+                'groupsize' => $grupo->groupsize
+            ];
+        })->toArray();
         // Comprueba que la contraseña escrita en el login coincide con la de la BBDD
         if ($usuario && $usuario->id_rol === 1 && password_verify($respuesta->password, $usuario->password)) {
             session([
@@ -31,9 +37,9 @@ class AuthController extends Controller
                 'usuario' => $usuario->usuario,
                 'id_rol' => $usuario->id_rol,
                 'nombre_rol' => $usuario->rol->nombre_rol,
-                'groupsize' => $usuario->grupo->groupsize,
-                'nombre_grupo' => $usuario->grupo->nombre_grupo
+                'grupos' => $grupos,
             ]);
+            dd(session('grupos'));
             return redirect('/');
         } else {
             return redirect('/inicio-sesion')->with('error', 'Contraseña o email incorrectos');
