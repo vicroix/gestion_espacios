@@ -171,7 +171,7 @@
                                 </button>
                             </div>
 
-                            <div class="text-left md:px-20 md:ml-10 mx-auto">
+                            <div class="flex flex-col  gap-2 text-left md:px-20 md:ml-10 mx-auto">
                                 <p>Sala: {{ $espacio->nombre_sala }}</p>
                                 <p>Localidad: {{ $espacio->localidad }}</p>
 
@@ -212,13 +212,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Selección de grupos del profesor -->
-                                <label for="grupos">Selecciona grupos:</label>
-                                <select name="grupos[]" multiple id="grupos">
-                                    @foreach(session('grupos', []) as $grupo)
-                                    <option value="{{ $grupo['groupsize'] }}">{{ $grupo['nombre_grupo'] }}</option>
-                                    @endforeach
-                                </select>
+
+                                <!-- Selección de GRUPOS del profesor -->
+                                <div>
+                                    <label for="grupos">Selecciona grupos:</label>
+                                    <div  class="overflow-y-auto h-[120px]">
+                                        <select name="grupos[]" multiple id="grupos">
+                                            @foreach(session('grupos', []) as $grupo)
+                                            <option value="{{ $grupo['groupsize'] }}">{{ $grupo['nombre_grupo'] }} - {{ $grupo['groupsize'] }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
 
                                 <!-- Contenedor BOTONES -->
                                 <div class="flex gap-4 justify-center text-center mt-8 items-center">
@@ -246,6 +251,8 @@
                                 <div class="mt-4">
                                     @if(session('error'))
                                     <p class="text-[--color-primario]">{{ session('error') }}</p>
+                                    @elseif(session('advertencia'))
+                                    <p class="text-yellow-500">{{ session('advertencia') }}</p>
                                     @elseif(session('festivo'))
                                     <p class="text-[--color-primario]">{{ session('festivo') }}</p>
                                     @endif
@@ -271,13 +278,8 @@
 </script>
 <script src="{{ asset('choice/choices.min.js') }}"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        new Choices('#grupos', {
-            removeItemButton: true,
-            placeholderValue: 'Selecciona grupos...',
-            noResultsText: 'No se encontraron resultados',
-            noChoicesText: 'No hay opciones disponibles',
-        });
-    });
+
+
+
 </script>
 @endsection
