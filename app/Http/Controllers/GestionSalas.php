@@ -11,11 +11,10 @@ use Illuminate\Support\Facades\Validator;
 
 class GestionSalas extends Controller
 {
-    // Añade espacios en al base de datos
+    // Añade espacios en al BBDD
     public function gestionEspacio(Request $respuesta)
     {
         try {
-            // Validación de los campos
             $validar = Validator::make($respuesta->all(), [
                 'nombre_teatro' => 'required|string|max:100',
                 'localidad' => 'required|string|max:100',
@@ -40,7 +39,6 @@ class GestionSalas extends Controller
             $validar = $validar->validated();
             Log::info('Datos enviados al registrar: ', $validar);
 
-            // Guardamos los datos en la BBDD
             $espacio = new Espacio();
             $espacio->nombre = $validar['nombre_teatro'];
             $espacio->localidad = $validar['localidad'];
@@ -54,7 +52,7 @@ class GestionSalas extends Controller
             $espacio->capacidad = $validar['aforo'];
             $espacio->save();
 
-            // Si el espacio se guardó correctamente y hay fotos, las subimos
+            // Si el espacio se guardó correctamente y hay fotos, las subimos a la BBDD
             if ($respuesta->hasFile('fotos')) {
                 foreach ($respuesta->file('fotos') as $fotoArchivo) {
                     $ruta = $fotoArchivo->store('img', 'public');
@@ -81,41 +79,34 @@ class GestionSalas extends Controller
         $query = Espacio::query();
         $mostrarFiltroEspacios = filter_var($respuesta->query('mostrarFiltroEspacios', true), FILTER_VALIDATE_BOOLEAN);
 
-        // Localidades (checkbox)
         if ($respuesta->filled('ciudades')) {
             $query->whereIn('localidad', $respuesta->input('ciudades'));
         }
 
-        // Localidad para filtro manual
         if ($respuesta->filled('localidad')) {
             $query->where('localidad', 'like', '%' . $respuesta->input('localidad') . '%');
         }
-        // Tipo (radio)
+
         if ($respuesta->filled('tipo')) {
             $query->where('tipo', $respuesta->input('tipo')); // tipo = 'ensayo' o 'obra'
         }
 
-        // Capacidad (radio)
         if ($respuesta->filled('capacidad')) {
             $query->where('capacidad', '<=', (int) $respuesta->input('capacidad'));
         }
 
-        // Equipamiento (texto completo, opcional)
         if ($respuesta->filled('equipamiento')) {
             $query->where('equipamiento', 'like', '%' . $respuesta->input('equipamiento') . '%');
         }
 
-        // Nombre teatro
         if ($respuesta->filled('nombre')) {
             $query->where('nombre', 'like', '%' . $respuesta->input('nombre') . '%');
         }
 
-        // Dirección
         if ($respuesta->filled('direccion')) {
             $query->where('direccion', 'like', '%' . $respuesta->input('direccion') . '%');
         }
 
-        // Sala
         if ($respuesta->filled('nombre_sala')) {
             $query->where('nombre_sala', 'like', '%' . $respuesta->input('nombre_sala') . '%');
         }
@@ -125,8 +116,8 @@ class GestionSalas extends Controller
         return view('gestion-salas', compact('espacios', 'mostrarFiltroEspacios')); // *** CAMBIAR LUEGO LA VIEW A gestion-salas ***
     }
 
-    // Función para enviar por id una sala selecionada desde el botón Ver de la view "modificar-salas.blade.php"
-    // a la view de "Editar-salas.blade.php"
+    // Función para enviar por id una sala selecionada desde el botón Ver de la view "gestion-reservas.blade.php"
+    // a la view de "editar-salas.blade.php"
     public function enviarEditarSalas($id)
     {
         $espacio = Espacio::findOrFail($id);
@@ -134,8 +125,8 @@ class GestionSalas extends Controller
         return view('editar-salas', compact('espacio'));
     }
 
-    // Función para actualizar una reserva existente desde el view "editar-reservas.blade.php" y redirige a
-    // el view "editar-salas.blade.php"
+    // Función para actualizar una reserva existente desde el view "editar-salas.blade.php" y redirige a
+    // el view "gestion-reservas.blade.php"
     public function editarSalas(Request $request, $id)
     {
         $editarespacio = Espacio::findOrFail($id);
@@ -174,13 +165,11 @@ class GestionSalas extends Controller
             ->get();
 
             foreach ($fotosABorrar as $foto) {
-                // dd('Ruta de la foto a eliminar: ' . $foto->ruta);
                 Storage::disk('public')->delete($foto->ruta);
                 $foto->delete();
             }
         }
 
-        // Actualizar espacio
         $editarespacio->nombre       = $datos['nombre_teatro'];
         $editarespacio->localidad    = $datos['localidad'];
         $editarespacio->codigopostal = $datos['codigo_postal'];
