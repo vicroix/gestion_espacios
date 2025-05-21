@@ -129,9 +129,12 @@ class GestionReservas extends Controller
     {
         $fechaActual = date('Y-m-d');
         $id_usuario = session('idusuarios');
-        $reservas = Reserva::where('id_usuario', $id_usuario)
-            ->where('fecha', '>=', $fechaActual)->orderBy('fecha', 'asc')->orderBy('hora', 'asc')->get();
-        // dd($reservas);
+        $reservas = Reserva::with('grupos')
+        ->where('id_usuario', $id_usuario)
+        ->where('fecha', '>=', $fechaActual)
+        ->orderBy('fecha', 'asc')
+        ->orderBy('hora', 'asc')
+        ->get();
 
         return view('gestion-reservas', compact('reservas'));
     }
