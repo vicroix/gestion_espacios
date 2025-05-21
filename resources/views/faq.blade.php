@@ -28,7 +28,7 @@
                 
                     <details class="mb-1 bg-gray-50 p-4 rounded-lg shadow-sm cursor-pointer open:border-t-4 open:border-[#990000]">
                         <summary>¿Cómo hago una reserva?</summary>
-                        <p class="mt-5">Debes iniciar sesión, seleccionar la sala deseada <a href="{{ url('reservar-sala') }}" class="text-[#990000]"><strong>aquí</strong></a>, elegir la fecha y horario disponible, y confirmar la
+                        <p class="mt-5">Debes iniciar sesión, seleccionar la sala deseada <a href="{{ url('gestion-salas') }}" class="text-[#990000]"><strong>aquí</strong></a>, elegir la fecha y horario disponible, y confirmar la
                             reserva.</p>
                     </details>
                
