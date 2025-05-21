@@ -17,7 +17,7 @@
     <!--inputs de gestión de salas-->
     <div class="flex justify-center w-full mt-2">
         <form id="formGestionSalas" action="{{ route('editar-espacio', ['id' => $espacio->idespacios]) }}"
-            enctype="multipart/form-data" method="POST"
+            enctype="multipart/form-data" method="POST" x-init="$nextTick(() => cargaFormularioCreacionSalas())"
             class="bg-[--color-general] lg:w-[500px] m-1 rounded-lg flex-col flex gap-2 justify-center">
             @csrf
             <div class="w-full flex flex-col gap-2">
@@ -168,5 +168,6 @@
     </section>
 </main>
 
-@vite('resources/js/gestion-salas.js')
+@vite('/resources/js/editar-salas.js')
+
 @endsection
