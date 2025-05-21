@@ -15,23 +15,15 @@ class AuthController extends Controller
         // Comprueba que el email escrito en el login coincide con el email de la BBDD y realiza un join con las tablas relacionadas
         $usuario = Usuario::with(['rol', 'grupos'])->where('email', $respuesta->email)->first();
         // dd($usuario);
-        $grupos = $usuario->grupos->map(function($grupo){
-            return[
+        $grupos = $usuario->grupos->map(function ($grupo) {
+            return [
                 'id_grupo' => $grupo->id_grupo,
                 'nombre_grupo' => $grupo->nombre_grupo,
                 'groupsize' => $grupo->groupsize
             ];
         })->toArray();
         // Comprueba que la contraseña escrita en el login coincide con la de la BBDD
-        if ($usuario && $usuario->id_rol === 1 && password_verify($respuesta->password, $usuario->password)) {
-            session([
-                'idusuarios' => $usuario->idusuarios,
-                'usuario' => $usuario->usuario,
-                'id_rol' => $usuario->id_rol,
-                'nombre_rol' => $usuario->rol->nombre_rol,
-            ]);
-            return redirect('/');
-        }elseif ($usuario && $usuario->id_rol !== 1 && password_verify($respuesta->password, $usuario->password)) {
+        if ($usuario && password_verify($respuesta->password, $usuario->password)) {
             session([
                 'idusuarios' => $usuario->idusuarios,
                 'usuario' => $usuario->usuario,
@@ -39,7 +31,6 @@ class AuthController extends Controller
                 'nombre_rol' => $usuario->rol->nombre_rol,
                 'grupos' => $grupos,
             ]);
-            // dd(session('grupos'));
             return redirect('/');
         } else {
             return redirect('/inicio-sesion')->with('error', 'Contraseña o email incorrectos');
