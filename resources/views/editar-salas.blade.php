@@ -8,70 +8,70 @@
 <link rel="icon" type="image/png" href="/img/Logo.png">
 
 @section('main')
-    <main class="ml-25 mr-25">
-        <div class="flex justify-center">
-            <div class="titulo-main w-full flex justify-center md:mx-[70px]">
-                <h3 class="mt-2 md:text-2xl flex gap-2 text-2xl">MODIFICAR ESPACIO</h3>
-            </div>
+<main class="ml-25 mr-25">
+    <div class="flex justify-center">
+        <div class="titulo-main w-full flex justify-center md:mx-[70px]">
+            <h3 class="mt-2 md:text-2xl flex gap-2 text-2xl">MODIFICAR ESPACIO</h3>
         </div>
-        <!--inputs de gestión de salas-->
-        <div class="flex justify-center w-full mt-2">
-            <form id="formGestionSalas" action="{{ route('editar-espacio', ['id' => $espacio->idespacios]) }}"
-                enctype="multipart/form-data" method="POST"
-                class="bg-[--color-general] w-[315px] sm:w-[440px] m-1 rounded-lg flex-col flex gap-2 justify-center">
-                @csrf
-                <div class="w-full flex flex-col gap-2">
-                    <!--Información básica-->
-                    <div class="mb-1 bg-gray-50 p-6 rounded-lg shadow-sm">
-                        <h2 class="text-lg mb-4">Información básica</h2>
-                        <div class="flex items-center flex-col gap-5">
-                            <!-- INPUT NOMBRE TEATRO -->
-                            <input
-                                class="inputs-text border border-gray-300 focus:outline-none invalid:focus:ring-red-400 peer w-full"
-                                type="text" value="{{ $espacio->nombre }}" name="nombre_teatro" id="nombre_teatro"
-                                placeholder="Nombre del teatro">
-                            <!-- INPUT NOMBRE SALA -->
-                            <input
-                                class="inputs-text border border-gray-300 focus:outline-none
+    </div>
+    <!--inputs de gestión de salas-->
+    <div class="flex justify-center w-full mt-2">
+        <form id="formGestionSalas" action="{{ route('editar-espacio', ['id' => $espacio->idespacios]) }}"
+            enctype="multipart/form-data" method="POST"
+            class="bg-[--color-general] lg:w-[500px] m-1 rounded-lg flex-col flex gap-2 justify-center">
+            @csrf
+            <div class="w-full flex flex-col gap-2">
+                <!--Información básica-->
+                <div class="mb-1 bg-gray-50 p-6 rounded-lg shadow-sm">
+                    <h2 class="text-lg mb-4">Información básica</h2>
+                    <div class="flex items-center flex-col gap-5">
+                        <!-- INPUT NOMBRE TEATRO -->
+                        <input
+                            class="inputs-text border border-gray-300 focus:outline-none invalid:focus:ring-red-400 peer w-full"
+                            type="text" value="{{ $espacio->nombre }}" name="nombre_teatro" id="nombre_teatro"
+                            placeholder="Nombre del teatro">
+                        <!-- INPUT NOMBRE SALA -->
+                        <input
+                            class="inputs-text border border-gray-300 focus:outline-none
                      invalid:focus:ring-red-400 peer w-full"
-                                type="text" value="{{ $espacio->nombre_sala }}" name="nombre_sala" id="nombre_sala"
-                                placeholder="Nombre Sala">
+                            type="text" value="{{ $espacio->nombre_sala }}" name="nombre_sala" id="nombre_sala"
+                            placeholder="Nombre Sala">
 
-                            <div class="grid grid-cols-2 gap-4">
-                                <!-- INPUT LOCALIDAD -->
-                                <input
-                                    class="inputs-text border border-gray-300 focus:outline-none invalid:focus:ring-red-400 peer w-full"
-                                    type="text" value="{{ $espacio->localidad }}" name="localidad" id="localidad"
-                                    placeholder="Localidad">
-                                <!-- INPUT CODIGO POSTAL -->
-                                <input
-                                    class="inputs-text border border-gray-300 focus:outline-none invalid:focus:ring-red-400 peer w-full"
-                                    type="text" value="{{ $espacio->codigopostal }}" name="codigo_postal"
-                                    id="codigo_postal" placeholder="C.P.">
-                            </div>
-                            <!-- INPUT DIRECCION -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <!-- INPUT LOCALIDAD -->
                             <input
                                 class="inputs-text border border-gray-300 focus:outline-none invalid:focus:ring-red-400 peer w-full"
-                                type="text" value="{{ $espacio->direccion }}" name="direccion" id="direccion"
-                                placeholder="Dirección">
+                                type="text" value="{{ $espacio->localidad }}" name="localidad" id="localidad"
+                                placeholder="Localidad">
+                            <!-- INPUT CODIGO POSTAL -->
+                            <input
+                                class="inputs-text border border-gray-300 focus:outline-none invalid:focus:ring-red-400 peer w-full"
+                                type="text" value="{{ $espacio->codigopostal }}" name="codigo_postal"
+                                id="codigo_postal" placeholder="C.P.">
                         </div>
+                        <!-- INPUT DIRECCION -->
+                        <input
+                            class="inputs-text border border-gray-300 focus:outline-none invalid:focus:ring-red-400 peer w-full"
+                            type="text" value="{{ $espacio->direccion }}" name="direccion" id="direccion"
+                            placeholder="Dirección">
                     </div>
-                    <!-- Datos de Contacto -->
-                    <div class="mb-1 bg-gray-50 p-6 rounded-lg shadow-sm">
-                        <h2 class="text-lg mb-4">Datos de Contacto</h2>
-                        <div class="grid gap-4">
-                            <!-- INPUT TELEFONO -->
-                            <input
-                                class="inputs-text border border-gray-300 focus:outline-none
+                </div>
+                <!-- Datos de Contacto -->
+                <div class="mb-1 bg-gray-50 p-6 rounded-lg shadow-sm">
+                    <h2 class="text-lg mb-4">Datos de Contacto</h2>
+                    <div class="grid gap-4">
+                        <!-- INPUT TELEFONO -->
+                        <input
+                            class="inputs-text border border-gray-300 focus:outline-none
                             invalid:focus:ring-red-400 peer w-full"
-                                type="text" value="{{ $espacio->telefono }}" name="telefono" id="telefono"
-                                placeholder="Teléfono">
-                            <!-- INPUT EMAIL -->
-                            <input
-                                class="inputs-text border border-gray-300 focus:outline-none
+                            type="text" value="{{ $espacio->telefono }}" name="telefono" id="telefono"
+                            placeholder="Teléfono">
+                        <!-- INPUT EMAIL -->
+                        <input
+                            class="inputs-text border border-gray-300 focus:outline-none
                      invalid:focus:ring-red-400 peer w-full "
-                                type="email" value="{{ $espacio->email }}" name="email" id="email"
-                                placeholder="Correo electrónico">
+                            type="email" value="{{ $espacio->email }}" name="email" id="email"
+                            placeholder="Correo electrónico">
 
                     </div>
                 </div>
