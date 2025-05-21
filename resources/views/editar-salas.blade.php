@@ -29,20 +29,20 @@
                         <input
                             class="inputs-text border border-gray-300 focus:outline-none invalid:focus:ring-red-400 peer w-full"
                             type="text" value="{{ $espacio->nombre }}" name="nombre_teatro" id="nombre_teatro"
-                            placeholder="Nombre del teatro">
+                            placeholder="Nombre del teatro" required>
                         <!-- INPUT NOMBRE SALA -->
                         <input
                             class="inputs-text border border-gray-300 focus:outline-none
                      invalid:focus:ring-red-400 peer w-full"
                             type="text" value="{{ $espacio->nombre_sala }}" name="nombre_sala" id="nombre_sala"
-                            placeholder="Nombre Sala">
+                            placeholder="Nombre Sala"required>
 
                         <div class="grid grid-cols-2 gap-4">
                             <!-- INPUT LOCALIDAD -->
                             <input
                                 class="inputs-text border border-gray-300 focus:outline-none invalid:focus:ring-red-400 peer w-full"
                                 type="text" value="{{ $espacio->localidad }}" name="localidad" id="localidad"
-                                placeholder="Localidad">
+                                placeholder="Localidad"required>
                             <!-- INPUT CODIGO POSTAL -->
                             <input
                                 class="inputs-text border border-gray-300 focus:outline-none invalid:focus:ring-red-400 peer w-full"
@@ -53,7 +53,7 @@
                         <input
                             class="inputs-text border border-gray-300 focus:outline-none invalid:focus:ring-red-400 peer w-full"
                             type="text" value="{{ $espacio->direccion }}" name="direccion" id="direccion"
-                            placeholder="Dirección">
+                            placeholder="Dirección"required>
                     </div>
                 </div>
                 <!-- Datos de Contacto -->
@@ -65,13 +65,13 @@
                             class="inputs-text border border-gray-300 focus:outline-none
                             invalid:focus:ring-red-400 peer w-full"
                             type="text" value="{{ $espacio->telefono }}" name="telefono" id="telefono"
-                            placeholder="Teléfono">
+                            placeholder="Teléfono"required>
                         <!-- INPUT EMAIL -->
                         <input
                             class="inputs-text border border-gray-300 focus:outline-none
                      invalid:focus:ring-red-400 peer w-full "
                             type="email" value="{{ $espacio->email }}" name="email" id="email"
-                            placeholder="Correo electrónico">
+                            placeholder="Correo electrónico"required>
 
                     </div>
                 </div>
