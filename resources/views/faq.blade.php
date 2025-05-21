@@ -28,7 +28,7 @@
                 
                     <details class="mb-1 bg-gray-50 p-4 rounded-lg shadow-sm cursor-pointer open:border-t-4 open:border-[#990000]">
                         <summary>¿Cómo hago una reserva?</summary>
-                        <p class="mt-5">Debes iniciar sesión, seleccionar la sala deseada, elegir la fecha y horario disponible, y confirmar la
+                        <p class="mt-5">Debes iniciar sesión, seleccionar la sala deseada <a href="{{ url('reservar-sala') }}" class="text-[#990000]"><strong>aquí</strong></a>, elegir la fecha y horario disponible, y confirmar la
                             reserva.</p>
                     </details>
                
@@ -41,8 +41,7 @@
                
                     <details class="mb-1 bg-gray-50 p-4 rounded-lg shadow-sm cursor-pointer open:border-t-4 open:border-[#990000]">
                         <summary>¿Puedo cancelar o modificar una reserva?</summary>
-                        <p class="mt-5">Sí, puedes cancelar o modificar tu reserva desde tu perfil en la sección "Mis reservas".
-                            Ten en cuenta que algunas modificaciones pueden estar sujetas a políticas de cancelación.</p>
+                        <p class="mt-5">Sí, puedes cancelar o modificar tu reserva desde tu perfil en la sección <a href="{{ url('gestion-reservas') }}" class="text-[#990000]"><strong>Mis reservas</strong></a>. Ten en cuenta que algunas modificaciones pueden estar sujetas a políticas de cancelación.</p>
                     </details>
             </div>
             <div class="flex flex-col gap-2">
