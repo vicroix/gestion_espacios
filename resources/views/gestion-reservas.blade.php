@@ -173,9 +173,8 @@
                                     <p><strong>Localidad:</strong> {{ $reserva->localidad }}</p>
                                     <p><strong>Dirección:</strong> {{ $reserva->direccion }}</p>
                                     <p><strong>Código Postal:</strong> {{ $reserva->codigopostal }}</p>
-                                    @foreach ($reserva->grupos as $grupo)
-                                    <p><strong>Grupo:</strong> {{ $grupo->nombre_grupo }} - {{ $grupo->groupsize }}</p>
-                                    @endforeach
+                                    <p><strong>Grupo:</strong> {{ $reserva->grupos->pluck('nombre_grupo')->implode(', ') }}</p>
+
                                 </div>
                             </div>
                         </div>
