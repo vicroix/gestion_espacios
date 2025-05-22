@@ -46,10 +46,13 @@ document.getElementById('telefono').addEventListener('input', function () {
 })
 
 //Validación correo
-document.getElementById('email').addEventListener('submit', function () {
+document.getElementById('formRegistro').addEventListener('submit', function (event) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const email = document.getElementById('email').value;
     if (!emailRegex.test(email)) {
         event.preventDefault();
+        alert('Formato de correo incorrecto');
+        
     }
 })
 
