@@ -171,7 +171,7 @@
                                 </button>
                             </div>
 
-                            <div class="flex flex-col  gap-2 text-left md:px-20 md:ml-10 mx-auto">
+                            <div class="flex flex-col gap-2 text-left md:px-20 md:ml-10 mx-auto">
                                 <p>Sala: {{ $espacio->nombre_sala }}</p>
                                 <p>Localidad: {{ $espacio->localidad }}</p>
 
@@ -226,7 +226,7 @@
                                 </div>
 
                                 <!-- Contenedor BOTONES -->
-                                <div class="flex gap-4 justify-center text-center mt-8 items-center">
+                                <div class="flex gap-4 text-center ml-[10%] mt-8 items-center">
                                     <div>
                                         <!-- Volver a view "gestion-salas.blade.php" -->
                                         <a href="{{ route('gestion-salas')}}" class="inline-flex w-[61.97] h-[43.99] justify-center items-center button-reserva-a-filtro">
@@ -252,7 +252,7 @@
                                     @if(session('error'))
                                     <p class="text-[--color-primario]">{{ session('error') }}</p>
                                     @elseif(session('advertencia'))
-                                    <p class="text-yellow-500">{{ session('advertencia') }}</p>
+                                    <p class="text-amber-600">{{ session('advertencia') }}</p>
                                     @elseif(session('festivo'))
                                     <p class="text-[--color-primario]">{{ session('festivo') }}</p>
                                     @endif

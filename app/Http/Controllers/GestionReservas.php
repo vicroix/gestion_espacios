@@ -81,7 +81,7 @@ class GestionReservas extends Controller
             };
             if ($totalAlmsSeleccionados > $espacio->capacidad) {
                 return redirect()->route('detalle-espacio', ['id' => $validar['id_espacio']])
-                    ->with('advertencia', 'El tamaño del grupo/os seleccionados supera la capacidad del espacio');
+                    ->with('advertencia', 'Advertencia: El tamaño del grupo/os seleccionados supera la capacidad del espacio');
             }
         };
 
