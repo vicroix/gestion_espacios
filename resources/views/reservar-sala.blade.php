@@ -47,7 +47,7 @@
                 </div>
 
                 <!-- Panel galería -->
-                <div id="panelGaleria" class="hidden w-full">
+                <div id="panelGaleria" class="hidden  sm:w-full h-60">
                     <h4 class="w-full font-semibold text-[#990000] mb-2">Galería</h4>
                     <!-- FOTOS con Alpine.js -->
                     @if (!empty($espacio->fotos) && $espacio->fotos->isNotEmpty())
@@ -64,7 +64,7 @@
                     }" class="relative w-full flex flex-col items-center">
 
                         <!-- Foto destacada fuera del modal -->
-                        <div class="relative w-[550px] h-[350px]">
+                        <div class="relative w-auto h-[350px]">
                             <img :src="fotos[index]"
                                 @click="modalOpen = true"
                                 class="w-full h-full object-cover rounded cursor-pointer shadow">
