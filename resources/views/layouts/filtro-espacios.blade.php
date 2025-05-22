@@ -24,7 +24,7 @@
                     </svg>
                     Filtros
                 </h2>
-                <form method="GET" id="formFiltroEspacios" action="{{ route('gestion-salas') }}" class="space-y-0 mb-2 pl-1">
+                <form method="GET" id="formFiltroEspacios" action="{{ route('gestion-salas') }}" class="space-y-0 mb-2 px-1">
                     <div class="relative">
                         <!-- Botón para resetear filtro -->
                         <button type="reset" class="absolute right-0 -translate-y-[45px] w-[30px]" title="Limpiar">
@@ -43,7 +43,7 @@
                         </button>
                         <!-- Ciudades -->
                         <div>
-                            <h3 id="h3" class="flex gap-1 items-center" @click="openCiudades = !openCiudades">
+                            <h3 id="h3" class="flex justify-between gap-1 items-center border rounded-md p-1" @click="openCiudades = !openCiudades">
                                 Ciudades
                                 <span x-show="!openCiudades" class="text-[--color-primario]"><svg
                                         xmlns="http://www.w3.org/2000/svg" width="15" height="15"
@@ -73,8 +73,8 @@
                         </div>
                     </div>
                     <!-- Tipo de sala -->
-                    <div>
-                        <h3 id="h3" class="flex gap-1 items-center" @click="openTipo = !openTipo">
+                    <div class="">
+                        <h3 id="h3" class="flex justify-between gap-1 items-center border rounded-md p-1" @click="openTipo = !openTipo">
                             Tipo de sala
                             <span x-show="!openTipo" class="text-[--color-primario]"><svg
                                     xmlns="http://www.w3.org/2000/svg" width="15" height="15"
@@ -98,8 +98,8 @@
                         </div>
                     </div>
                     <!-- Capacidad (AFORO) -->
-                    <div>
-                        <h3 id="h3" class="flex gap-1 items-center" @click="openAforo = !openAforo">
+                    <div class="">
+                        <h3 id="h3" class="flex justify-between gap-1 items-center border rounded-md p-1" @click="openAforo = !openAforo">
                             Aforo
                             <span x-show="!openAforo" class="text-[--color-primario]"><svg
                                     xmlns="http://www.w3.org/2000/svg" width="15" height="15"
@@ -121,8 +121,8 @@
                         @endforeach
                     </div>
                     <!-- + Filtros -->
-                    <div class="mt-4">
-                        <h3 id="h3" class="flex gap-1 items-center" @click="openFiltros = !openFiltros">
+                    <div class="items-center">
+                        <h3 id="h3" class="flex justify-between gap-1 items-center border rounded-md p-1" @click="openFiltros = !openFiltros">
                             Filtros
                             <span x-show="!openFiltros" class="text-[--color-primario]"><svg
                                     xmlns="http://www.w3.org/2000/svg" width="15" height="15"

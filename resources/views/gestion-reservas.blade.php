@@ -42,10 +42,11 @@
                     Filtrar reservas
                 </h2>
             </div>
-            <form method="GET" action="{{ route('filtro-reservas') }}" class="space-y-0 mb-2 pl-1">
-                <!-- Fecha -->
+            <form method="GET" action="{{ route('filtro-reservas') }}" class="flex flex-col gap-3 space-y-0 mb-2 px-1">
+                <!-- Fecha y Hora-->
                 <div class="flex justify-between relative">
-                    <input type="date" name="fecha" class="inputs-filtros mr-2 my-1 w-[160px]" value="{{ old('fecha') }}">
+                    <input type="date" name="fecha" class="inputs-filtros w-[55%]" value="{{ old('fecha') }}">
+                    <input type="time" name="hora" class="inputs-filtros w-[40%]" value="{{ old('hora') }}">
                     <!-- Botón para resetear filtro -->
                     <button type="reset" class="absolute right-0 -translate-y-[54px] w-[30px]" title="Limpiar">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 16 16" class="mb-4 p-1 w-full items-center hover:shadow-around border-2 hover:shadow-gray-400 rounded-md">
@@ -62,13 +63,9 @@
                         </svg>
                     </button>
                 </div>
-                <!-- Hora -->
-                <div class="flex flex-col my-3 w-[100px]">
-                    <input type="time" name="hora" class="inputs-filtros mr-2 my-1 p-1" value="{{ old('hora') }}">
-                </div>
                 <!-- + Filtros -->
-                <div class="mt-4">
-                    <h3 id="h3" class="flex gap-1 items-center" @click="openFiltros = !openFiltros">
+                <div>
+                    <h3 id="h3" class="flex justify-between items-center border rounded-md p-1" @click="openFiltros = !openFiltros">
                         Filtro avanzado
                         <span x-show="!openFiltros" class="text-[--color-primario]"><svg
                                 xmlns="http://www.w3.org/2000/svg" width="15" height="15"
