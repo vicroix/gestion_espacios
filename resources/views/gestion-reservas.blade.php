@@ -42,7 +42,7 @@
                     Filtrar reservas
                 </h2>
             </div>
-            <form method="GET" action="{{ route('filtro-reservas') }}" class="flex flex-col gap-3 space-y-0 mb-2 px-1">
+            <form method="GET" action="{{ route('filtro-reservas') }}" class="flex flex-col gap-2 space-y-0 mb-2 px-1">
                 <!-- Fecha y Hora-->
                 <div class="flex justify-between relative">
                     <input type="date" name="fecha" class="inputs-filtros w-[55%]" value="{{ old('fecha') }}">
@@ -79,7 +79,7 @@
                                     d="M2 15.99c0-1.69 1.38-3.06 3.06-3.06h21.85c1.69 0 3.06 1.38 3.06 3.06c0 1.69-1.38 3.06-3.06 3.06H5.06C3.38 19.05 2 17.67 2 15.99" />
                             </svg></span>
                     </h3>
-                    <div x-show="openFiltros" x-transition class="flex flex-col gap-1">
+                    <div x-show="openFiltros" x-transition class="flex flex-col gap-2">
                         <!-- Nombre del teatro -->
                         <div>
                             <!-- <h3 id="h3">Nombre del teatro</h3> -->
@@ -93,13 +93,13 @@
                             <input type="text" name="direccion" value="{{ request()->input('direccion') }}"
                                 class="inputs-filtros w-full border rounded" placeholder="Dirección">
                         </div>
-                        <div class="flex gap-3">
-                            <p>Mostrar reservas pasadas</p>
-                            <input type="checkbox" name="fechasPasadas" value="1" class="mr-2 cursor-pointer">
+                        <div class="flex justify-between gap-1 items-center border rounded-md p-1">
+                            <p class="texto-filtros">Mostrar reservas pasadas</p>
+                            <input type="checkbox" name="fechasPasadas" value="1" class="cursor-pointer">
                         </div>
                         <!-- Ciudades -->
                         <div class="flex flex-col my-3">
-                            <h3 id="h3" class="flex gap-1 items-center" @click="openCiudades = !openCiudades">
+                            <h3 id="h3" class="flex justify-between gap-1 items-center border rounded-md p-1" @click="openCiudades = !openCiudades">
                                 Ciudades
                                 <span x-show="!openCiudades" class="text-[--color-primario]"><svg
                                         xmlns="http://www.w3.org/2000/svg" width="15" height="15"
