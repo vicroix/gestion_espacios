@@ -80,9 +80,9 @@
                 <div class="w-full">
                 </div>
                 <!--Características del espacio-->
-                <div class="mb-1 bg-gray-50 p-4 rounded-lg shadow-sm">
+                <div class="flex flex-col gap-3 mb-1 bg-gray-50 p-4 rounded-lg shadow-sm">
                     <h2 class="text-lg mb-4">Características del espacio</h2>
-                    <div class="flex mb-4 gap-4 justify-center">
+                    <div class="flex mb-4 gap-3 justify-center">
                         <div class="flex items-center align-middle">
                             <!-- SELECT TIPO (Obra / Ensayo) -->
                             <select
@@ -103,9 +103,23 @@
                                 <option value="" disabled selected hidden>Aforo</option>
                                 <option value="10" class="text-black">Hasta 10 personas</option>
                                 <option value="20" class="text-black">Hasta 20 personas</option>
+                                <option value="30" class="text-black">Hasta 30 personas</option>
                                 <option value="50" class="text-black">Hasta 50 personas</option>
+                                <option value="75" class="text-black">Hasta 75 personas</option>
+                                <option value="100" class="text-black">Hasta 100 personas</option>
+                                <option value="150" class="text-black">Hasta 150 personas</option>
+                                <option value="200" class="text-black">Hasta 200 personas</option>
                             </select>
                         </div>
+                    </div>
+                    <!-- Input acceso discapacitados -->
+                    <div class="w-[60%]">
+                        <select name="acceso_discapacitados" id="acceso_discapacitados"
+                            class="inputs-text border border-gray-300 text-gray-500 invalid:focus:ring-red-400 peer w-full" required>
+                            <option value="" disabled selected hidden>Acceso para discapacitados</option>
+                            <option value="Si" class="text-black">Sí</option>
+                            <option value="No" class="text-black">No</option>
+                        </select>
                     </div>
                     <div class="flex items-center">
                         <!-- TEXTAREA EQUIPAMIENTO -->
@@ -139,4 +153,3 @@
         </form>
     </div>
 </section>
-
