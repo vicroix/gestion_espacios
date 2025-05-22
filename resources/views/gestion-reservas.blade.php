@@ -149,14 +149,14 @@
         <section class="grid w-[80%] xl:gap-12 place-items-center grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-4 4xl:grid-cols-5">
             @if(isset($reservas) && $reservas->isNotEmpty())
             @foreach($reservas as $reserva)
-            <div class="relative hover:bg-slate-100/85 h-[147.6px] w-[300px] cursor-pointer shadow rounded-xl transition duration-250 ease-in-out hover:shadow-lg" tabindex="0">
+            <div class="relative hover:bg-slate-100/85 h-[147.6px] w-[300px] cursor-default shadow rounded-xl transition duration-250 ease-in-out hover:shadow-lg" tabindex="0">
                 <div class="rounded-xl p-3 border-t-4 border-[--color-primario]">
                     <div>
                         <div class="flex justify-between gap-4">
                             <h4 class="text-lg font-semibold text-[--color-primario] items-center justify-between truncate">
                                 {{ $reserva->nombre }}
                             </h4>
-                            <div class="group w-[40px] flex justify-center items-center">
+                            <div class="group w-[40px] flex justify-center cursor-pointer items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="text-gray-800 w-full group-hover:hidden rounded-xl shadow-around shadow-gray-400" viewBox="0 0 24 24">
                                     <path fill="currentColor" d="m16.577 20l-5.767-5.766a5.035 5.035 0 0 1-6.336-7.76a5.035 5.035 0 0 1 7.761 6.335L18 18.576L16.577 20ZM8.034 7.014a3.02 3.02 0 1 0-.004 6.04a3.02 3.02 0 0 0 .004-6.04ZM19 11h-2V9h-2V7h2V5h2v2h2v2h-2v2Z" />
                                 </svg>
@@ -175,10 +175,19 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="text-sm text-gray-700 truncate">Fecha: {{ $reserva->fecha }}</p>
                         <p class="text-sm text-gray-700">
-                            Hora: {{ \Carbon\Carbon::createFromFormat('H:i:s', $reserva->hora)->format('H:i') }} -
-                            {{ \Carbon\Carbon::createFromFormat('H:i:s', $reserva->hora_fin)->format('H:i') }}
+                            Fecha:
+                            <span class="bg-[--color-primario]/10 text-[--color-primario] font-semibold px-2 py-0.5 rounded-md">
+                                {{ $reserva->fecha }}
+                            </span>
+                        </p>
+                        <p class="text-sm text-gray-700">
+                            Hora:
+                            <span class="bg-[--color-primario]/10 text-[--color-primario] font-semibold px-2 py-0.5 rounded-md">
+                                {{ \Carbon\Carbon::createFromFormat('H:i:s', $reserva->hora)->format('H:i') }}
+                                -
+                                {{ \Carbon\Carbon::createFromFormat('H:i:s', $reserva->hora_fin)->format('H:i') }}
+                            </span>
                         </p>
                     </div>
                     <div class="mt-3 flex gap-2">
