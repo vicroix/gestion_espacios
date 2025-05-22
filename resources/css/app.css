@@ -132,7 +132,7 @@ h5 {
     border-radius: 4px;
     padding: 4px;
     height: 30px;
-    font-size: var(--text-filtros);
+    font-size: var(--texto-filtros);
 }
 .inputs-filtros:hover{
     border: 1px solid rgb(171, 171, 171);
