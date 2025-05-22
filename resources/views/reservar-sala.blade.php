@@ -43,7 +43,7 @@
                 <!-- Panel mapa -->
                 <div id="panelMapa" class="hidden w-full">
                     <h4 class="font-semibold text-[#990000] mb-2">Mapa</h4>
-                    <div id="contenedor-del-mapa" class="w-full h-80 bg-gray-200" data-direccion="{{ $espacio->direccion }}"></div>
+                    <div id="contenedor-del-mapa" class="w-full h-60 bg-gray-200" data-direccion="{{ $espacio->direccion }}"></div>
                 </div>
 
                 <!-- Panel galería -->
