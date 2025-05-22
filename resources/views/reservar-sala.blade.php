@@ -216,7 +216,7 @@
                                 <!-- Selección de GRUPOS del profesor -->
                                 <div>
                                     <label for="grupos">Selecciona grupos:</label>
-                                    <div  class="w-[245px] h-[120px]">
+                                    <div class="w-[245px] h-[120px] overflow-y-auto">
                                         <select name="grupos[]" multiple id="grupos">
                                             @foreach(session('grupos', []) as $grupo)
                                             <option value="{{ $grupo['id_grupo'] }}">{{ $grupo['nombre_grupo'] }} ({{ $grupo['groupsize'] }} alms)</option>

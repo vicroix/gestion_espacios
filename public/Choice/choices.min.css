@@ -160,10 +160,14 @@
     display: inline;
 }
 .choices__list--multiple .choices__item {
-    display: inline-block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* display: inline-block; */
     vertical-align: middle;
     border-radius: 20px;
     padding: 4px 10px;
+    width: 100%;
     font-size: 12px;
     font-weight: 500;
     margin-right: 3.75px;
