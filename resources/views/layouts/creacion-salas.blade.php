@@ -86,9 +86,9 @@
                         <div class="flex items-center align-middle">
                             <!-- SELECT TIPO (Obra / Ensayo) -->
                             <select
-                                class="inputs-text border border-gray-300 text-gray-500
-                         invalid:focus:ring-red-400 peer w-full"
-                                type="text" name="tipo_sala" id="tipo_sala">
+                                class="inputs-text border border-gray-300
+                                invalid:text-gray-400 invalid:focus:ring-red-400 peer w-full"
+                                type="text" name="tipo_sala" id="tipo_sala" required>
                                 <option value="" disabled selected hidden>Tipo</option>
                                 <option value="Obra" class="text-black">Con público</option>
                                 <option value="Ensayo" class="text-black">Ensayo</option>
@@ -97,9 +97,9 @@
                         <div class="flex items-center">
                             <!-- INPUT Aforo (10 / 20 / 50 personas) -->
                             <select
-                                class="inputs-text border border-gray-300 text-gray-500
-                     invalid:focus:ring-red-400 peer w-full"
-                                type="text" name="aforo" id="aforo">
+                                class="inputs-text border border-gray-300
+                                invalid:text-gray-400 invalid:focus:ring-red-400 peer w-full"
+                                type="text" name="aforo" id="aforo" required>
                                 <option value="" disabled selected hidden>Aforo</option>
                                 <option value="10" class="text-black">Hasta 10 personas</option>
                                 <option value="20" class="text-black">Hasta 20 personas</option>
@@ -115,7 +115,7 @@
                     <!-- Input acceso discapacitados -->
                     <div class="w-[60%]">
                         <select name="acceso_discapacitados" id="acceso_discapacitados"
-                            class="inputs-text border border-gray-300 text-gray-500 invalid:focus:ring-red-400 peer w-full" required>
+                            class="inputs-text border border-gray-300 invalid:text-gray-400 invalid:focus:ring-red-400 peer w-full" required>
                             <option value="" disabled selected hidden>Acceso para discapacitados</option>
                             <option value="Si" class="text-black">Sí</option>
                             <option value="No" class="text-black">No</option>

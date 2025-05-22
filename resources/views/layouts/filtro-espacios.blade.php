@@ -13,7 +13,7 @@
         </div>
     </div>
     <div x-data="{ openCiudades: false, openTipo: false, openFiltros: false, openAforo: false }" class="flex flex-col items-center min-w-[320px] gap-4 lg:items-start lg:flex-row">
-        <div>
+        <div class="flex flex-col gap-2">
             <!-- Sidebar de filtros -->
             <aside class="w-64 px-2 shadow-md p-2">
                 <h2 id="h2" @click="openFiltros = !openFiltros" class="mt-0">

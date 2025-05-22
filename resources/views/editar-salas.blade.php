@@ -35,14 +35,14 @@
                             class="inputs-text border border-gray-300 focus:outline-none
                      invalid:focus:ring-red-400 peer w-full"
                             type="text" value="{{ $espacio->nombre_sala }}" name="nombre_sala" id="nombre_sala"
-                            placeholder="Nombre Sala"required>
+                            placeholder="Nombre Sala" required>
 
                         <div class="grid grid-cols-2 gap-4">
                             <!-- INPUT LOCALIDAD -->
                             <input
                                 class="inputs-text border border-gray-300 focus:outline-none invalid:focus:ring-red-400 peer w-full"
                                 type="text" value="{{ $espacio->localidad }}" name="localidad" id="localidad"
-                                placeholder="Localidad"required>
+                                placeholder="Localidad" required>
                             <!-- INPUT CODIGO POSTAL -->
                             <input
                                 class="inputs-text border border-gray-300 focus:outline-none invalid:focus:ring-red-400 peer w-full"
@@ -53,7 +53,7 @@
                         <input
                             class="inputs-text border border-gray-300 focus:outline-none invalid:focus:ring-red-400 peer w-full"
                             type="text" value="{{ $espacio->direccion }}" name="direccion" id="direccion"
-                            placeholder="Dirección"required>
+                            placeholder="Dirección" required>
                     </div>
                 </div>
                 <!-- Datos de Contacto -->
@@ -65,18 +65,18 @@
                             class="inputs-text border border-gray-300 focus:outline-none
                             invalid:focus:ring-red-400 peer w-full"
                             type="text" value="{{ $espacio->telefono }}" name="telefono" id="telefono"
-                            placeholder="Teléfono"required>
+                            placeholder="Teléfono" required>
                         <!-- INPUT EMAIL -->
                         <input
                             class="inputs-text border border-gray-300 focus:outline-none
                      invalid:focus:ring-red-400 peer w-full "
                             type="email" value="{{ $espacio->email }}" name="email" id="email"
-                            placeholder="Correo electrónico"required>
+                            placeholder="Correo electrónico" required>
 
                     </div>
                 </div>
                 <!-- Características del Espacio -->
-                <div class="mb-1 bg-gray-50 p-6 rounded-lg shadow-sm">
+                <div class="flex flex-col gap-2 mb-1 bg-gray-50 p-6 rounded-lg shadow-sm">
                     <h2 class="text-lg mb-4">Características del Espacio</h2>
                     <div class="grid grid-cols-2 gap-4 mb-4">
                         <!-- SELECT TIPO (Obra / Ensayo) -->
@@ -91,9 +91,9 @@
                         </select>
                         <!-- INPUT Aforo (10 / 20 / 50 personas) -->
                         <select
-                            class="inputs-text border border-gray-300 focus:outline-none
-                     invalid:focus:ring-red-400 peer w-full"
-                            type="text" name="aforo" id="aforo">
+                            class="inputs-text border focus:outline-none
+                            invalid:text-gray-400 invalid:focus:ring-red-400 peer w-full"
+                            type="text" name="aforo" id="aforo" required>
                             <option value="" class="text-gray-500" disabled selected hidden>Aforo</option>
                             <option value="10" class="text-black" @selected($espacio->capacidad == 10)>Hasta 10 personas
                             </option>
@@ -101,6 +101,15 @@
                             </option>
                             <option value="50" class="text-black" @selected($espacio->capacidad == 50)>Hasta 50 personas
                             </option>
+                        </select>
+                    </div>
+                    <!-- Input acceso discapacitados -->
+                    <div class="w-[60%]">
+                        <select name="acceso_discapacitados" id="acceso_discapacitados"
+                            class="inputs-text border text-black invalid:text-gray-400 invalid:focus:ring-red-400 peer w-full" required>
+                            <option value="" disabled selected hidden>Acceso para discapacitados</option>
+                            <option value="Si" class="text-black" @selected($espacio->acceso_discapacitados == 'Si')>Sí</option>
+                            <option value="No" class="text-black" @selected($espacio->acceso_discapacitados == 'No')>No</option>
                         </select>
                     </div>
                     <!-- TEXTAREA EQUIPAMIENTO -->
