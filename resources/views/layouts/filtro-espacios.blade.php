@@ -24,7 +24,7 @@
                     </svg>
                     Filtros
                 </h2>
-                <form method="GET" id="formFiltroEspacios" action="{{ route('gestion-salas') }}" class="space-y-0 mb-2 px-1">
+                <form method="GET" id="formFiltroEspacios" action="{{ route('gestion-salas') }}" class="flex flex-col gap-2 space-y-0 mb-2 px-1">
                     <div class="relative">
                         <!-- Botón para resetear filtro -->
                         <button type="reset" class="absolute right-0 -translate-y-[45px] w-[30px]" title="Limpiar">
@@ -73,7 +73,7 @@
                         </div>
                     </div>
                     <!-- Tipo de sala -->
-                    <div class="">
+                    <div>
                         <h3 id="h3" class="flex justify-between gap-1 items-center border rounded-md p-1" @click="openTipo = !openTipo">
                             Tipo de sala
                             <span x-show="!openTipo" class="text-[--color-primario]"><svg
@@ -98,7 +98,7 @@
                         </div>
                     </div>
                     <!-- Capacidad (AFORO) -->
-                    <div class="">
+                    <div>
                         <h3 id="h3" class="flex justify-between gap-1 items-center border rounded-md p-1" @click="openAforo = !openAforo">
                             Aforo
                             <span x-show="!openAforo" class="text-[--color-primario]"><svg
@@ -121,7 +121,7 @@
                         @endforeach
                     </div>
                     <!-- + Filtros -->
-                    <div class="items-center">
+                    <div>
                         <h3 id="h3" class="flex justify-between gap-1 items-center border rounded-md p-1" @click="openFiltros = !openFiltros">
                             Filtros
                             <span x-show="!openFiltros" class="text-[--color-primario]"><svg
