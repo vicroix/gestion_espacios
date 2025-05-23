@@ -20,7 +20,7 @@ class Espacio extends Model
         'nombre_sala',
         'tipo',
         'capacidad',
-        'acceso_discapacitados'
+        'movilidad_reducida'
     ];
     protected $guarded = ['idespacios', 'idequipamiento'];
 

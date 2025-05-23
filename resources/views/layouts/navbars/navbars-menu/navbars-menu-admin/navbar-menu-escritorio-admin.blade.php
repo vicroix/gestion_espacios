@@ -5,6 +5,6 @@
     <a href="{{ url('gestion-salas') }}" class="px-3 py-1 hover:bg-[--color-primario] border border-[--color-general] group-hover:bg-[--color-primario] group-hover:text-[--color-general] hover:text-[--color-general] transition-all duration-300 ease-out">
         Gestión Salas
     </a>
-    <a href="{{ url('proximos-eventos') }}" class="hover:bg-[--color-primario] px-3 border-2 w-[180px] border-[--color-general] hover:text-[--color-general] p-1 transition-all duration-300 ease-out">Próximos eventos</a>
+    <a href="{{ url('proximos-eventos') }}" class="px-3 py-1 hover:bg-[--color-primario] border border-[--color-general] group-hover:bg-[--color-primario] group-hover:text-[--color-general] hover:text-[--color-general] transition-all duration-300 ease-out">Próximos eventos</a>
     <a href="{{ url('faq') }}" class="hover:bg-[--color-primario] border px-3 border-[--color-general] hover:text-[--color-general] rounded-r-3xl p-1 transition-all duration-300 ease-out">FAQ</a>
 </div>

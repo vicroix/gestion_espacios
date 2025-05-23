@@ -88,7 +88,10 @@ h3 {
     font-size: 20px;
     font-family: "Playfair Display";
 }
-
+h4{
+    font-size: 18px;
+    font-family: "Playfair Display";
+}
 /*Nombre teatro resultado de salas*/
 h5 {
     font-size: 20px;
@@ -96,8 +99,9 @@ h5 {
     color: #990000;
 }
 
-.font-montserrat {
-    font-family: "Montserrat";
+.font-text{
+    font-family:'Roboto';
+    font-size: 1.15rem;
 }
 
 .home-texto-bienvenida {

@@ -105,11 +105,11 @@
                     </div>
                     <!-- Input acceso discapacitados -->
                     <div class="w-[60%]">
-                        <select name="acceso_discapacitados" id="acceso_discapacitados"
+                        <select name="movilidad_reducida" id="movilidad_reducida"
                             class="inputs-text border text-black invalid:text-gray-400 invalid:focus:ring-red-400 peer w-full" required>
                             <option value="" disabled selected hidden>Acceso para discapacitados</option>
-                            <option value="Si" class="text-black" @selected($espacio->acceso_discapacitados == 'Si')>Discapacitados - Sí</option>
-                            <option value="No" class="text-black" @selected($espacio->acceso_discapacitados == 'No')>Discapacitados - No</option>
+                            <option value="Si" class="text-black" @selected($espacio->movilidad_reducida == 'Si')>Mov. reducida - Sí</option>
+                            <option value="No" class="text-black" @selected($espacio->movilidad_reducida == 'No')>Mov. reducida - No</option>
                         </select>
                     </div>
                     <!-- TEXTAREA EQUIPAMIENTO -->

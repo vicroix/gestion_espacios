@@ -28,7 +28,7 @@ class GestionSalas extends Controller
                 'tipo_sala' => 'required|string|max:6',
                 'aforo' => 'required|integer|min:1|max:200',
                 'fotos.*' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:12248',
-                'acceso_discapacitados' => 'required|string|max:2',
+                'movilidad_reducida' => 'required|string|max:2',
             ]);
             Log::error('Errores de validación:', $validar->errors()->toArray());
             if ($validar->fails()) {
@@ -53,7 +53,7 @@ class GestionSalas extends Controller
             $espacio->nombre_sala = $validar['nombre_sala'];
             $espacio->tipo = $validar['tipo_sala'];
             $espacio->capacidad = $validar['aforo'];
-            $espacio->acceso_discapacitados = $validar['acceso_discapacitados'];
+            $espacio->movilidad_reducida = $validar['movilidad_reducida'];
             $espacio->save();
 
             // Si el espacio se guardó correctamente y hay fotos, las subimos

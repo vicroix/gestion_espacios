@@ -17,12 +17,12 @@
     <!-- Mensaje de error o ok si funciona -->
     <div class="flex gap-2 justify-center mb-4">
         @if (session('actualizado'))
-        <p class="text-[--color-primario] text-md font-semibold">{{ session('actualizado') }}</p>
+        <p class="text-[--color-primario] font-semibold">{{ session('actualizado') }}</p>
         <p class="text-green-600 font-semibold">actualizada correctamente</p>
         @elseif(session('reservado'))
-        <p class="text-green-600 text-md font-semibold">{{ session('reservado') }}</p>
+        <p class="text-green-600 font-semibold">{{ session('reservado') }}</p>
         @elseif(session('eliminado'))
-        <p class="text-[--color-primario] text-md font-semibold">{{ session('eliminado') }}</p>
+        <p class="text-[--color-primario] font-semibold">{{ session('eliminado') }}</p>
         <p class="text-red-950 font-semibold">eliminado correctamente</p>
         @elseif (session('sinDatos'))
         @else
@@ -120,7 +120,7 @@
                                         class="inputs-filtros w-full mr-2 my-1" placeholder="Localidad">
                                 </div>
                                 @foreach (['Madrid', 'Barcelona', 'Sevilla', 'Málaga', 'Granada', 'Huelva', 'Valencia', 'Cádiz', 'Tarragona', 'Cádiz', 'Salamanca', 'León'] as $ciudad)
-                                <label class="block text-sm text-gray-600">
+                                <label class="block text-gray-600">
                                     <input type="checkbox" name="ciudades[]" value="{{ $ciudad }}" class="mr-2">
                                     {{ $ciudad }}
                                 </label>
@@ -149,14 +149,14 @@
         <section class="grid w-[80%] xl:gap-12 place-items-center grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-4 4xl:grid-cols-5">
             @if(isset($reservas) && $reservas->isNotEmpty())
             @foreach($reservas as $reserva)
-            <div class="relative hover:bg-slate-100/85 h-[147.6px] w-[300px] cursor-default shadow rounded-xl transition duration-250 ease-in-out hover:shadow-lg" tabindex="0">
-                <div class="rounded-xl p-3 border-t-4 border-[--color-primario]">
+            <div class="relative hover:bg-slate-100/85 h-[160.6px] w-[300px] cursor-default shadow rounded-xl transition duration-250 ease-in-out hover:shadow-lg" tabindex="0">
+                <div class="rounded-xl p-3 border-t-4 border-[--color-primario] opacity-0 translate-y-4 animate-fade-in-up">
                     <div>
                         <div class="flex justify-between gap-4 items-center">
                             <h4 class="text-lg font-semibold text-[--color-primario] items-center justify-between truncate">
                                 {{ $reserva->nombre }}
                             </h4>
-                            @if ($reserva->espacio->acceso_discapacitados === 'Si')
+                            @if ($reserva->espacio->movilidad_reducida === 'Si')
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 512 512" class="rounded-md">
                                 <path fill="#00B1FF" d="M508.333 32.666C508.333 16.35 494.984 3 478.668 3H29.032C14.348 3 2.333 15.015 2.333 29.699v452.602C2.333 496.985 14.348 509 29.032 509h449.635c16.316 0 29.666-13.35 29.666-29.666z" />
                                 <path fill="#0096D1" d="M478.668 488.915H29.032c-14.684 0-26.699-12.015-26.699-26.699v20.085C2.333 496.985 14.348 509 29.032 509h449.635c16.316 0 29.666-13.35 29.666-29.666v-20.085c0 16.316-13.349 29.666-29.665 29.666" />
@@ -184,13 +184,13 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="text-sm text-gray-700">
+                        <p class="text-gray-700">
                             Fecha:
                             <span class="bg-[--color-primario]/10 text-[--color-primario] font-semibold px-2 py-0.5 rounded-md">
                                 {{ $reserva->fecha }}
                             </span>
                         </p>
-                        <p class="text-sm text-gray-700">
+                        <p class="text-gray-700">
                             Hora:
                             <span class="bg-[--color-primario]/10 text-[--color-primario] font-semibold px-2 py-0.5 rounded-md">
                                 {{ \Carbon\Carbon::createFromFormat('H:i:s', $reserva->hora)->format('H:i') }}

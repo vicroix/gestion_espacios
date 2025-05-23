@@ -7,7 +7,7 @@
         </div>
         <div class="flex gap-2 justify-center mb-4">
             @if (session('eliminado'))
-            <p class="text-[--color-primario] text-md font-semibold">{{ session('eliminado') }}</p>
+            <p class="text-[--color-primario] font-semibold">{{ session('eliminado') }}</p>
             <p class="text-red-950 font-semibold">eliminado correctamente</p>
             @endif
         </div>
@@ -64,7 +64,7 @@
                                         class="inputs-filtros w-full mr-2" placeholder="Localidad">
                                 </div>
                                 @foreach (['Madrid', 'Barcelona', 'Sevilla', 'Málaga', 'Granada', 'Huelva', 'Valencia', 'Cádiz', 'Tarragona', 'Cádiz', 'Salamanca', 'León'] as $ciudad)
-                                <label class="block text-sm text-gray-600">
+                                <label class="block text-gray-600">
                                     <input type="checkbox" name="ciudades[]" value="{{ $ciudad }}" class="mr-2">
                                     {{ $ciudad }}
                                 </label>
@@ -90,7 +90,7 @@
                         </h3>
                         <div x-show="openTipo" x-transition>
                             @foreach (['Obra', 'Ensayo'] as $tipo)
-                            <label class="block text-sm text-gray-600">
+                            <label class="block text-gray-600">
                                 <input type="radio" name="tipo" value="{{ strtolower($tipo) }}" class="mr-2">
                                 {{ $tipo }}
                             </label>
@@ -114,7 +114,7 @@
                                 </svg></span>
                         </h3>
                         @foreach (['10' => 'Hasta 10 personas', '20' => 'Hasta 20 personas', '30' => 'Hasta 30 personas'] as $valor => $label)
-                        <label class="block text-sm text-gray-600" x-show="openAforo">
+                        <label class="block text-gray-600" x-show="openAforo">
                             <input type="radio" name="capacidad" value="{{ $valor }}" class="mr-2">
                             {{ $label }}
                         </label>
@@ -215,7 +215,7 @@
                                 class="text-lg font-semibold text-[--color-primario] items-center justify-between truncate">
                                 {{ $espacio->nombre }}
                             </h4>
-                            @if ($espacio->acceso_discapacitados === 'Si')
+                            @if ($espacio->movilidad_reducida === 'Si')
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 512 512" class="rounded-md">
                                 <path fill="#00B1FF" d="M508.333 32.666C508.333 16.35 494.984 3 478.668 3H29.032C14.348 3 2.333 15.015 2.333 29.699v452.602C2.333 496.985 14.348 509 29.032 509h449.635c16.316 0 29.666-13.35 29.666-29.666z" />
                                 <path fill="#0096D1" d="M478.668 488.915H29.032c-14.684 0-26.699-12.015-26.699-26.699v20.085C2.333 496.985 14.348 509 29.032 509h449.635c16.316 0 29.666-13.35 29.666-29.666v-20.085c0 16.316-13.349 29.666-29.665 29.666" />
@@ -250,8 +250,8 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="text-sm text-gray-700">Localidad: {{ $espacio->localidad }}</p>
-                        <p class="text-sm text-gray-700 truncate">Dirección: {{ $espacio->direccion }}</p>
+                        <p class= text-gray-700">Localidad: {{ $espacio->localidad }}</p>
+                        <p class= text-gray-700 truncate">Dirección: {{ $espacio->direccion }}</p>
                     </div>
                     <div class="mt-3 flex gap-3 items-center">
                         <!-- Botón ir a Reservar (Calendario) -->
