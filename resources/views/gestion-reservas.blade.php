@@ -150,7 +150,7 @@
             @if(isset($reservas) && $reservas->isNotEmpty())
             @foreach($reservas as $reserva)
             <div class="relative hover:bg-slate-100/85 h-[160.6px] w-[300px] cursor-default shadow rounded-xl transition duration-250 ease-in-out hover:shadow-lg" tabindex="0">
-                <div class="rounded-xl p-3 border-t-4 border-[--color-primario] opacity-0 translate-y-4 animate-fade-in-up">
+                <div class="rounded-xl p-3 border-t-4 border-[--color-primario]">
                     <div>
                         <div class="flex justify-between gap-4 items-center">
                             <h4 class="text-lg font-semibold text-[--color-primario] items-center justify-between truncate">
@@ -199,7 +199,7 @@
                             </span>
                         </p>
                     </div>
-                    <div class="mt-3 flex gap-2">
+                    <div class="mt-3 flex justify-end gap-2">
                         <!--Botón editar reserva-->
                         <form action="{{ route('editar-reserva', ['id' => $reserva->idreservas]) }}" method="GET">
                             <button type="submit" class="button-primary-auto w-[55.95] h-[40] flex justify-center items-center" title="Editar">
