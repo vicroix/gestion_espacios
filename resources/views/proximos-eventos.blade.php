@@ -10,7 +10,7 @@
 @section("main")
 <div>
     <!--Documentación del calendario: https://fullcalendar.io/docs -->
-    <div id="calendario" class="flex align-center min-w-[320px] w-auto lg:max-w-[460px] xl:max-w-[680px] 2xl:max-w-[820] 3xl:max-w-[960px]"></div>
+    <div id="calendario" class="flex align-center min-w-[320px] w-auto lg:max-w-[460px] xl:max-w-[680px] 2xl:max-w-[530px] 3xl:max-w-[640px] 4xl:max-w-[960px]"></div>
     <div id="detalles">
         <div id="x-cerrar">
             <button onclick="cerrarPopup()" class="button-x-cerrar"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" viewBox="0 0 24 24">
