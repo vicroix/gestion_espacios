@@ -217,8 +217,7 @@ h5 {
     -webkit-text-stroke-color: 0px 0px 1.8px 0.2px var(--color-secundario);
 }
 .button-logout {
-    background-color: var(--color-secundario);
-    color: var(--color-general);
+    color: var(--color-secundario);
     padding-top: 4px;
     padding-bottom: 4px;
     padding-left: 9px;
@@ -228,11 +227,10 @@ h5 {
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: transform 1.5s cubic-bezier(0.42, 0, 0.58, 1), background-color 1.5s ease;
 }
 .button-logout:hover {
-    transform: scale(1.05); /* Escala al 115% */
-    transition: transform 0.15s ease-in-out;
+   transform: translateX(10px) scale(1.10);
 }
 .button-logout:active {
     -webkit-text-stroke-color: 0px 0px 1.8px 0.2px var(--color-secundario);
