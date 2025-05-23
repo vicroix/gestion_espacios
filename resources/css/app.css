@@ -401,8 +401,6 @@ h5 {
 /* PROXIMOS-EVENTOS */
 #calendario {
     width: 90%;
-    max-width: 540px;
-    min-width: 320px;
     margin: 20px auto; /* Centrar el calendario */
 }
 

@@ -8,9 +8,9 @@
 <link rel="icon" type="image/png" href="/img/Logo.png">
 
 @section("main")
-<main class="flex content-center md:block">
+<div>
     <!--Documentación del calendario: https://fullcalendar.io/docs -->
-    <div id="calendario" class="flex align-center"></div>
+    <div id="calendario" class="flex align-center min-w-[320px] w-auto lg:max-w-[460px] xl:max-w-[680px] 2xl:max-w-[820] 3xl:max-w-[960px]"></div>
     <div id="detalles">
         <div id="x-cerrar">
             <button onclick="cerrarPopup()" class="button-x-cerrar"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" viewBox="0 0 24 24">
@@ -23,7 +23,8 @@
         <p id="direccion"></p>
         <p id="hora"></p>
     </div>
-</main>
+</div>
+
 <script>
     // Asignar las rutas relativas
     window.rutaFestivos = "{{ asset('fullCalendar/calendario-2025.json') }}";
