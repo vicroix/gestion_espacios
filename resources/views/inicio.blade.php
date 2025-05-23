@@ -12,7 +12,7 @@
 
 @section('main')
 <!-- Modal -->
-<div id="loginModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+<div id="loginModal" class="fixed inset-0 bg-black/30 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
     <div class="bg-white rounded-lg p-6 shadow-lg w-full max-w-xl relative">
        <!-- Botón de cierre (X) -->
         <button id="closeBtn" class="absolute top-4 right-4 text-[#990000] hover:text-gray-800 text-4xl font-bold">&times;</button>
