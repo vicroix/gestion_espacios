@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+window.cargaFormularioReservarSala = function () {
     // Referencias a los botones del DOM
     const btnInfo = document.getElementById("btnInfo");
     const btnMapa = document.getElementById("btnMapa");
@@ -10,13 +10,41 @@ document.addEventListener("DOMContentLoaded", function () {
     const panelMapa = document.getElementById("panelMapa");
     const panelGaleria = document.getElementById("panelGaleria");
 
+    const elementosSelect = document.getElementById("grupos");
     // Crear selected de grupos
-    new Choices("#grupos", {
+    const choices = new Choices(elementosSelect, {
         removeItemButton: true,
         placeholderValue: "Selecciona grupos...",
         noResultsText: "No se encontraron resultados",
         noChoicesText: "No hay opciones disponibles",
     });
+    //Mirar si supera el espacio los grupos seleccionados y avisar
+    document
+        .getElementById("formularioReservarSala")
+        .addEventListener("submit", (event) => {
+            const capacidadEspacio = parseInt(document.getElementById("capacidadEspacio").value);
+            const selectedSeleccionados = document.querySelectorAll(
+                "#grupos option:checked"
+            );
+
+            let sumaGroupSize = 0;
+            selectedSeleccionados.forEach((option) => {
+                sumaGroupSize += parseInt(option.dataset.groupsize);
+            });
+
+            if (sumaGroupSize > capacidadEspacio) {
+                const confirmar = confirm(
+                    "¡Superaste la capacidad del espacio! ¿Seguro que quieres reservar?"
+                );
+                if (!confirmar) {
+                    event.preventDefault();
+                }
+            }
+        });
+
+    // Antes de enviar formulario
+    const formulario = document.getElementById("formularioReservarSala");
+    formulario.addEventListener("submit", () => {});
 
     // Variable para llevar el control del panel que está abierto actualmente
     let panelActivo = null;
@@ -99,4 +127,4 @@ document.addEventListener("DOMContentLoaded", function () {
     btnGaleria.addEventListener("click", function () {
         mostrarPanel("galeria");
     });
-});
+};

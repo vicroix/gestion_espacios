@@ -18,15 +18,16 @@ const form = document.getElementById("formGestionSalas");
         const tipo_sala = document.getElementById("tipo_sala").value;
         const aforo = document.getElementById("aforo").value;
         const equipamiento = document.getElementById("equipamiento").value;
+        const capacidadEspacio = document.getElementById("capacidadEspacio").value;
 //Impedir que se puedan dejar los campos vacios
-        if (nombre_teatro === "" || nombre_sala === "" || telefono === "" || 
+        if (nombre_teatro === "" || nombre_sala === "" || telefono === "" ||
             localidad === "" || codigo_postal === "" || direccion === "" ||
             email === "" || tipo_sala === "" || aforo === ""
         ) {
             alert("El campo es obligatorio.");
             event.preventDefault(); // Detiene el envío
         }
-       
+
     });
     //Validación para no permitir letras y limitar el numero de caracteres
     const inputCodigoPostal = document.getElementById("codigo_postal");

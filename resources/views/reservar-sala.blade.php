@@ -37,6 +37,7 @@
                     <p>Tel: {{ $espacio->telefono }}</p>
                     <p>Tipo: {{ $espacio->tipo }}</p>
                     <p>Capacidad: {{ $espacio->capacidad }}</p>
+                    <input type="hidden"  id="capacidadEspacio" value="{{ $espacio->capacidad }}">
                     <p>Equipamiento: {{ $espacio->equipamiento }}</p>
                 </div>
 
@@ -45,6 +46,7 @@
                     <h4 class="font-semibold text-[#990000] mb-2">Mapa</h4>
                     <div id="contenedor-del-mapa" class="w-full h-60 bg-gray-200" data-direccion="{{ $espacio->direccion }}"></div>
                 </div>
+
 
                 <!-- Panel galería -->
                 <div id="panelGaleria" class="hidden  sm:w-full h-60">
@@ -132,7 +134,7 @@
 
             <!-- Contenedor principal-->
             <div id="mainFormCont" class="transition-all duration-500 flex justify-center items-center w-full">
-                <form action="{{ route('reservar') }}" method="POST" class="flex flex-col gap-1 max-w-md w-full lg:w-3/4">
+                <form action="{{ route('reservar') }}" x-init="$nextTick(() => cargaFormularioReservarSala())" id="formularioReservarSala" method="POST" class="flex flex-col gap-1 max-w-md w-full lg:w-3/4">
                     @csrf
                     <input type="hidden" name="nombre_teatro" value="{{ $espacio->nombre }}">
                     <input type="hidden" name="localidad" id="inputLocalidad" data-localidad="{{ $espacio->localidad }}" value="{{ $espacio->localidad }}">
@@ -219,7 +221,7 @@
                                     <div class="w-[245px] h-[120px] overflow-y-auto">
                                         <select name="grupos[]" multiple id="grupos">
                                             @foreach(session('grupos', []) as $grupo)
-                                            <option value="{{ $grupo['id_grupo'] }}">{{ $grupo['nombre_grupo'] }} ({{ $grupo['groupsize'] }} alms)</option>
+                                            <option value="{{ $grupo['id_grupo'] }}" data-groupsize="{{ $grupo['groupsize'] }}">{{ $grupo['nombre_grupo'] }} ({{ $grupo['groupsize'] }} alms)</option>
                                             @endforeach
                                         </select>
                                     </div>

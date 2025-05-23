@@ -71,20 +71,6 @@ class GestionReservas extends Controller
                 ->with('error', 'Hora no disponible');
         }
 
-        // Comprobar si el grupo/os del profesor, no excede el máximo de capacidad del Espacio
-        $espacio = Espacio::where('idespacios', $validar['id_espacio'])->first();
-        $gruposSeleccionados = Grupo::whereIn('id_grupo', $validar['grupos'])->get();
-        if ($espacio && $gruposSeleccionados) {
-            $totalAlmsSeleccionados = 0;
-            foreach ($gruposSeleccionados as $grupoSeleccionado) {
-                $totalAlmsSeleccionados = $totalAlmsSeleccionados + $grupoSeleccionado['groupsize'];
-            };
-            if ($totalAlmsSeleccionados > $espacio->capacidad) {
-                return redirect()->route('detalle-espacio', ['id' => $validar['id_espacio']])
-                    ->with('advertencia', 'Advertencia: El tamaño del grupo/os seleccionados supera la capacidad del espacio');
-            }
-        };
-
         // Insertar datos en la tabla reserva
         try {
             $idUsuario = session('idusuarios');

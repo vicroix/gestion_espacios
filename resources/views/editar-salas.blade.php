@@ -108,8 +108,8 @@
                         <select name="acceso_discapacitados" id="acceso_discapacitados"
                             class="inputs-text border text-black invalid:text-gray-400 invalid:focus:ring-red-400 peer w-full" required>
                             <option value="" disabled selected hidden>Acceso para discapacitados</option>
-                            <option value="Si" class="text-black" @selected($espacio->acceso_discapacitados == 'Si')>Sí</option>
-                            <option value="No" class="text-black" @selected($espacio->acceso_discapacitados == 'No')>No</option>
+                            <option value="Si" class="text-black" @selected($espacio->acceso_discapacitados == 'Si')>Discapacitados - Sí</option>
+                            <option value="No" class="text-black" @selected($espacio->acceso_discapacitados == 'No')>Discapacitados - No</option>
                         </select>
                     </div>
                     <!-- TEXTAREA EQUIPAMIENTO -->

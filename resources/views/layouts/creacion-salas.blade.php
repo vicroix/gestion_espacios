@@ -117,8 +117,8 @@
                         <select name="acceso_discapacitados" id="acceso_discapacitados"
                             class="inputs-text border border-gray-300 invalid:text-gray-400 invalid:focus:ring-red-400 peer w-full" required>
                             <option value="" disabled selected hidden>Acceso para discapacitados</option>
-                            <option value="Si" class="text-black">Sí</option>
-                            <option value="No" class="text-black">No</option>
+                            <option value="Si" class="text-black">Discapacitado - Sí</option>
+                            <option value="No" class="text-black">Discapacitado - No</option>
                         </select>
                     </div>
                     <div class="flex items-center">
