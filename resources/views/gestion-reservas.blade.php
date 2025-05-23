@@ -11,7 +11,7 @@
 <div class="flex flex-col">
     <div class="flex justify-center mb-5">
         <div class="titulo-main w-full flex justify-center md:mx-[70px]">
-            <h3 class="md:text-2xl text-2xl">GESTIÓN DE RESERVAS</h3>
+            <h3 class="text-2xl">GESTIÓN DE RESERVAS</h3>
         </div>
     </div>
     <!-- Mensaje de error o ok si funciona -->
@@ -49,7 +49,7 @@
                     <input type="time" name="hora" class="inputs-filtros w-[40%]" value="{{ old('hora') }}">
                     <!-- Botón para resetear filtro -->
                     <button type="reset" class="absolute right-0 -translate-y-[54px] w-[30px]" title="Limpiar">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 16 16" class="mb-4 p-1 w-full items-center hover:shadow-around border-2 hover:shadow-gray-400 rounded-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 16 16" class="mb-4 p-1 w-full items-cente hover:shadow-around border-2 hover:shadow-gray-300 hover:bg-gray-200 rounded-md">
                             <g fill="none">
                                 <g clip-path="url(#IconifyId196d9d8a7b2e9fd2d1)">
                                     <path fill="currentColor" fill-rule="evenodd" d="M11.995.667a.75.75 0 1 0-1.49.166L11.19 7h-.867c-1.64 0-2.896 1.449-3.197 3.06a12.6 12.6 0 0 1-1.2 3.44C5.434 14.448 5 15 5 15h8.5s2.08-1.734 2.488-5.49C16.14 8.094 14.91 7 13.488 7H12.7zM3.75 2.5a.75.75 0 1 0 0 1.5h4.5a.75.75 0 0 0 0-1.5zM.75 6a.75.75 0 1 0 0 1.5h5.5a.75.75 0 0 0 0-1.5zM1 10.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75m6.593 3.25c.393-.866.78-1.94 1.008-3.165C8.819 9.167 9.646 8.5 10.322 8.5h3.167c.332 0 .618.13.797.303a.63.63 0 0 1 .21.545c-.175 1.622-.708 2.779-1.173 3.514a6 6 0 0 1-.461.638h-.999c.539-.706.887-1.728.887-2.75H12c-.351 1.229-1.072 2.088-2.162 2.75z" clip-rule="evenodd" />
@@ -82,14 +82,12 @@
                     <div x-show="openFiltros" x-transition class="flex flex-col gap-2">
                         <!-- Nombre del teatro -->
                         <div>
-                            <!-- <h3 id="h3">Nombre del teatro</h3> -->
                             <input type="text" name="nombre" value="{{ request()->input('nombre') }}"
                                 class="inputs-filtros w-full" placeholder="Nombre del teatro">
                         </div>
 
                         <!-- Dirección -->
                         <div>
-                            <!-- <h3 id="h3">Dirección</h3> -->
                             <input type="text" name="direccion" value="{{ request()->input('direccion') }}"
                                 class="inputs-filtros w-full border rounded" placeholder="Dirección">
                         </div>
@@ -131,7 +129,7 @@
                 </div>
                 <div class="w-full text-center">
                     <!-- Botón de búsqueda -->
-                    <button type="submit" class="button-primary-auto mt-2 w-[61.97] mb-2" title="Buscar">
+                    <button type="submit" class="button-primary-auto mt-2 w-[100px] mb-2" title="Buscar">
                         <div class="flex justify-center">
                             <svg width="50" height="18" viewBox="0 0 40 40" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -149,7 +147,7 @@
         <section class="grid w-[80%] xl:gap-12 place-items-center grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-4 4xl:grid-cols-5">
             @if(isset($reservas) && $reservas->isNotEmpty())
             @foreach($reservas as $reserva)
-            <div class="relative hover:bg-slate-100/85 h-[160.6px] w-[300px] cursor-default shadow rounded-xl transition duration-250 ease-in-out hover:shadow-lg" tabindex="0">
+            <div class="relative hover:bg-slate-100/85 h-[160px] w-[300px] cursor-default shadow rounded-xl transition duration-250 ease-in-out hover:shadow-lg" tabindex="0">
                 <div class="rounded-xl p-3 border-t-4 border-[--color-primario]">
                     <div>
                         <div class="flex justify-between gap-4 items-center">
@@ -174,7 +172,7 @@
                                 </svg>
                                 <!-- Detalle aparece al hover/focus -->
                                 <div
-                                    class="contenedor-mas-detalles absolute p-3 rounded-xl shadow-lg left-1/2 -translate-x-1/2 top-[100%] w-[300px] pointer-events-none opacity-0 group-hover:opacity-100 transition duration-300">
+                                    class="contenedor-mas-detalles absolute p-3 font-text  rounded-xl shadow-lg left-1/2 -translate-x-1/2 top-[100%] w-[300px] pointer-events-none opacity-0 group-hover:opacity-100 transition duration-300">
                                     <p><strong>Nombre:</strong> {{ $reserva->nombre }}</p>
                                     <p><strong>Localidad:</strong> {{ $reserva->localidad }}</p>
                                     <p><strong>Dirección:</strong> {{ $reserva->direccion }}</p>

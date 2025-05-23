@@ -1,17 +1,24 @@
-<div class="flex border-2 border-[--color-primario] rounded-3xl relative h-[40px] items-center">
-
-    <a href="{{ url('gestion-reservas') }}" class="px-3 py-1 hover:bg-[--color-primario] border group-hover:bg-[--color-primario] group-hover:text-[--color-general] border-[--color-general] hover:text-[--color-general] rounded-l-3xl transition-all duration-300 ease-out">
+<div class="flex gap-1 justify-center">
+    <a href="{{ url('gestion-reservas') }}"
+        class="relative px-4 py-1.5 text-sm font-medium text-[--color-primario] transition hover:bg-gray-200/75 rounded-md duration-300 ease-in-out group">
         Reservas
+        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[3px] bg-[--color-primario] rounded-full transition-all duration-300 ease-in-out group-hover:w-3/4"></span>
     </a>
-    <a href="{{ url('gestion-salas') }}" class="px-3 py-1 hover:bg-[--color-primario] border border-[--color-general] group-hover:bg-[--color-primario] group-hover:text-[--color-general] hover:text-[--color-general] transition-all duration-300 ease-out">
+    <a href="{{ url('gestion-salas') }}"
+        class="relative px-4 py-1.5 text-sm font-medium text-[--color-primario] transition hover:bg-gray-200/75 rounded-md duration-300 ease-in-out group">
         Gestión Salas
+        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[3px] bg-[--color-primario] rounded-full transition-all duration-300 ease-in-out group-hover:w-3/4"></span>
     </a>
     <a href="{{ url('proximos-eventos') }}"
-        class="hover:bg-[--color-primario] px-3 border border-[--color-general] hover:text-[--color-general] p-1 transition-all duration-300 ease-out">
+        class="relative px-4 py-1.5 text-sm font-medium text-[--color-primario] transition hover:bg-gray-200/75 rounded-md duration-300 ease-in-out group">
         Próximos eventos
+        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[3px] bg-[--color-primario] rounded-full transition-all duration-300 ease-in-out group-hover:w-3/4"></span>
     </a>
     <a href="{{ url('faq') }}"
-        class="hover:bg-[--color-primario] px-3 border border-[--color-general] hover:text-[--color-general] rounded-r-3xl p-1 transition-all duration-300 ease-out">
+        class="relative px-4 py-1.5 text-sm font-medium text-[--color-primario] transition hover:bg-gray-200/75 rounded-md duration-300 ease-in-out group">
         FAQ
+        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[3px] bg-[--color-primario] rounded-full transition-all duration-300 ease-in-out group-hover:w-3/4"></span>
     </a>
 </div>
+
+
