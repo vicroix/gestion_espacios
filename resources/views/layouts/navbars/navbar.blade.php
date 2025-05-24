@@ -2,7 +2,7 @@
 @php
 $homeSvg = file_get_contents(resource_path('svg/home.svg'))
 @endphp
-<nav class="sticky bg-white/50 w-full shadow-sm shadow-[#990000] backdrop-blur-xl mb-5 rounded-b-3xl md:h-[100px]">
+<nav class="sticky w-full shadow-sm shadow-[#990000] mb-5 rounded-b-3xl md:h-[100px]">
      <!-- Navbar vista rol visitante -->
     @if(!session('idusuarios'))
     @include('layouts.navbars.navbar-visitante')

@@ -26,18 +26,14 @@
     <!-- Menú Escritorio -->
     <div class="hidden md:flex gap-4 items-center">
         <a href="{{ url('/') }}" class="animation-scale svg-home-navbar" title="Inicio">
-            <svg width="25" height="25" viewBox="0 0 42 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path d="M16.6667 35.4167V22.9167H25V35.4167H35.4167V18.75H41.6667L20.8333 0L0 18.75H6.25V35.4167H16.6667Z" fill="#990000" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M20 10a1 1 0 1 0-2 0zM6 10a1 1 0 0 0-2 0zm14.293 2.707a1 1 0 0 0 1.414-1.414zM12 3l.707-.707a1 1 0 0 0-1.414 0zm-9.707 8.293a1 1 0 1 0 1.414 1.414zM7 22h10v-2H7zm13-3v-9h-2v9zM6 19v-9H4v9zm15.707-7.707l-9-9l-1.414 1.414l9 9zm-10.414-9l-9 9l1.414 1.414l9-9zM17 22a3 3 0 0 0 3-3h-2a1 1 0 0 1-1 1zM7 20a1 1 0 0 1-1-1H4a3 3 0 0 0 3 3z" />
             </svg>
         </a>
         <!-- Menú próximos eventos y FAQ -->
         @include('layouts.navbars.navbars-menu.navbars-menu-visiante.navbar-menu-escritorio-visitante')
 
         <div class="flex items-center gap-3">
-            <!-- Botón registro -->
-            <a href="{{ url('form-registro') }}"
-                class="button-secundary-auto">Registro
-            </a>
             <!-- Botón inicio sesión -->
             <button id="openLoginBtn"
                 class="button-primary-login flex items-center" title="Iniciar sesión">

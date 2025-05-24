@@ -17,22 +17,29 @@
 
     --texto-filtros: 1.15rem;
 }
-.texto-filtros{
+.texto-filtros {
     font-size: var(--texto-filtros);
 }
 /* Para ocultar el elemento hasta que se evalúe el x-show de Alpine (View Gestion-salas) */
-[x-cloak] { display: none !important; }
+[x-cloak] {
+    display: none !important;
+}
 
 .svg-home-navbar {
     display: flex;
     align-items: center;
-    width: 30px;
-    height: 30px;
-    color: var(--color-primario);
+    justify-content: center; /* Centra el ícono */
+    width: 40px;
+    height: 40px;
+    color: var(--color-secundario);
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.15s ease-in-out;
 }
+
 .svg-home-navbar:hover {
-    transform: scale(1.15); /* Escala al 115% */
-    transition: transform 0.15s ease-in-out;
+    background-color: rgb(209 213 219 / 0.5);
+    transform: scale(1.05);
+    transition: transform 0.4s ease-in-out;
 }
 .svg-botones {
     width: 18px;
@@ -56,6 +63,9 @@ nav {
     height: 53px;
     z-index: 50;
     top: 0;
+    background-color: rgba(229, 231, 235, 0.3);
+    backdrop-filter: blur(20px);
+    border-radius: 0 0 1rem 1rem;
 }
 .list-style-circle::before {
     content: "•";
@@ -88,7 +98,7 @@ h3 {
     font-size: 20px;
     font-family: "Playfair Display";
 }
-h4{
+h4 {
     font-size: 18px;
     font-family: "Playfair Display";
 }
@@ -99,8 +109,8 @@ h5 {
     color: #990000;
 }
 
-.font-text{
-    font-family:'Roboto';
+.font-text {
+    font-family: "Roboto";
     font-size: 1.15rem;
 }
 
@@ -131,14 +141,14 @@ h5 {
     height: 35px;
     padding: 10px;
 }
-.inputs-filtros{
+.inputs-filtros {
     border: 1px solid rgb(215, 215, 215);
     border-radius: 4px;
     padding: 4px;
     height: 30px;
     font-size: var(--texto-filtros);
 }
-.inputs-filtros:hover{
+.inputs-filtros:hover {
     border: 1px solid rgb(171, 171, 171);
 }
 .gestion-reservas-select {
@@ -200,17 +210,19 @@ h5 {
 }
 
 .button-primary-login {
-    color: var(--color-primario);
-    border: none;
-    border-radius: 2rem;
+    color: var(--color-general);
+    background-color: var(--color-primario);
+    border-radius: 50%;
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.5s ease, transform 0.5s ease;
 }
 .button-primary-login:hover {
-    transform: scale(1.05); /* Escala al 115% */
-    transition: transform 0.15s ease-in-out;
+    background-color: rgba(229, 231, 235, 0.75);
+    color: var(--color-primario);
+    transform: scale(1.05);
+    transition: transform 0.4s ease-in-out;
 }
 .button-primary-login:active {
     color: var(--color-primario-active);
@@ -227,10 +239,11 @@ h5 {
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
-    transition: transform 1.5s cubic-bezier(0.42, 0, 0.58, 1), background-color 1.5s ease;
+    transition: transform 1.5s cubic-bezier(0.42, 0, 0.58, 1),
+        background-color 1.5s ease;
 }
 .button-logout:hover {
-   transform: translateX(10px) scale(1.10);
+    transform: translateX(10px) scale(1.1);
 }
 .button-logout:active {
     -webkit-text-stroke-color: 0px 0px 1.8px 0.2px var(--color-secundario);
