@@ -9,7 +9,7 @@
 
 @section("main")
 <div class="flex flex-col w-full p-10 h-full items-center justi fondo-editar-reservas">
-    <div class="flex flex-col md:w-[600px] md:h-[400px] bg-white/60 backdrop-blur-sm items-center gap-4 mt-8 lg:gap-8">
+    <div class="flex flex-col md:w-[600px] md:h-[400px] p-4 bg-white/80 rounded-md backdrop-blur-sm items-center gap-4 mt-8 lg:gap-8">
         <div class="flex justify-center">
             <div class="titulo-main w-full flex justify-center md:w-[550px]">
                 <h3 class="text-xl  md:text-4xl text-stroke">Editar reservas</h3>
