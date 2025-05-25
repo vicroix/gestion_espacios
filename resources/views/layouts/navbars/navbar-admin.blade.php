@@ -26,24 +26,24 @@
     <!-- Menú Escritorio -->
     <div class="hidden md:flex flex-col items-end self-end gap-2 mt-2 md:gap-2">
         <div class="flex gap-4 items-center">
-            <span class="navbar-text flex mr-2">
-                <span>Bienvenido</span>
-                <span class="mx-2 font-semibold">{{ session('nombre_rol') }}</span>
-                <span class="text-[--color-primario]">{{ session('usuario') }}</span>
-            </span>
             <!--Icono HOME-->
-            <a href="{{ url('/') }}" class="animation-scale svg-home-navbar" title="Inicio">
-                <svg width="25" height="25" viewBox="0 0 42 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M16.6667 35.4167V22.9167H25V35.4167H35.4167V18.75H41.6667L20.8333 0L0 18.75H6.25V35.4167H16.6667Z" fill="#990000" />
+            <a href="{{ url('/') }}" class="animation-scale svg-home-navbar {{ Request::is('/') ? 'bg-[--color-eventos]' : '' }}" title="Inicio">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M20 10a1 1 0 1 0-2 0zM6 10a1 1 0 0 0-2 0zm14.293 2.707a1 1 0 0 0 1.414-1.414zM12 3l.707-.707a1 1 0 0 0-1.414 0zm-9.707 8.293a1 1 0 1 0 1.414 1.414zM7 22h10v-2H7zm13-3v-9h-2v9zM6 19v-9H4v9zm15.707-7.707l-9-9l-1.414 1.414l9 9zm-10.414-9l-9 9l1.414 1.414l9-9zM17 22a3 3 0 0 0 3-3h-2a1 1 0 0 1-1 1zM7 20a1 1 0 0 1-1-1H4a3 3 0 0 0 3 3z" />
                 </svg>
             </a>
             <!-- Reservas, Salas, Próximos eventos y Faq -->
             @include('layouts.navbars.navbars-menu.navbars-menu-admin.navbar-menu-escritorio-admin')
             <!-- Botón cerrar sesión -->
-            <a href="{{ route('salir') }}" class="button-logout cursor-pointer md:text-base" title="Cerrar sesión">
-                <svg xmlns="http://www.w3.org/2000/svg" width="34" height="32" class="pr-[2px]" viewBox="0 0 24 24">
-                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m12 15l3-3m0 0l-3-3m3 3H4m5-4.751V7.2c0-1.12 0-1.68.218-2.108c.192-.377.497-.682.874-.874C10.52 4 11.08 4 12.2 4h4.6c1.12 0 1.68 0 2.107.218c.377.192.683.497.875.874c.218.427.218.987.218 2.105v9.607c0 1.118 0 1.677-.218 2.104a2 2 0 0 1-.875.874c-.427.218-.986.218-2.104.218h-4.606c-1.118 0-1.678 0-2.105-.218a2 2 0 0 1-.874-.874C9 18.48 9 17.92 9 16.8v-.05" />
-                </svg>
+            <a href="{{ route('salir') }}" class="flex gap-2 group cursor-pointer w-[120px] md:text-base justify-center items-center rounded-xl p-1 hover:bg-[--color-eventos] transition duration-300 ease-in-out">
+                <span class="text-[--color-primario] font-medium ml-2 truncate" title="Cerrar sesión">
+                    {{ session('usuario') }}
+                </span>
+                <p class="transform transition-all duration-[500ms] ease-[cubic-bezier(0.42,0,0.58,1)] group-hover:translate-x-1 group-hover:scale-105">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="30" class="pr-[2px]" viewBox="0 0 24 24">
+                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m12 15l3-3m0 0l-3-3m3 3H4m5-4.751V7.2c0-1.12 0-1.68.218-2.108c.192-.377.497-.682.874-.874C10.52 4 11.08 4 12.2 4h4.6c1.12 0 1.68 0 2.107.218c.377.192.683.497.875.874c.218.427.218.987.218 2.105v9.607c0 1.118 0 1.677-.218 2.104a2 2 0 0 1-.875.874c-.427.218-.986.218-2.104.218h-4.606c-1.118 0-1.678 0-2.105-.218a2 2 0 0 1-.874-.874C9 18.48 9 17.92 9 16.8v-.05" />
+                    </svg>
+                </p>
             </a>
         </div>
     </div>

@@ -12,6 +12,8 @@
     --color-secundario-hover: #282828;
     --color-secundario-active: #141414;
 
+    --color-eventos: rgba(225, 177, 44, 0.2);
+
     /* Color general blanco */
     --color-general: #ffffff;
 
@@ -29,17 +31,17 @@
     display: flex;
     align-items: center;
     justify-content: center; /* Centra el ícono */
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 32px;
     color: var(--color-secundario);
     border-radius: 50%;
     transition: background-color 0.3s ease, transform 0.15s ease-in-out;
 }
 
 .svg-home-navbar:hover {
-    background-color: rgb(209 213 219 / 0.5);
-    transform: scale(1.05);
-    transition: transform 0.4s ease-in-out;
+    background-color: var(--color-eventos);
+    /* transform: scale(1.05); */
+    transition: transform 0.2s ease-in-out;
 }
 .svg-botones {
     width: 18px;
@@ -210,8 +212,8 @@ h5 {
 }
 
 .button-primary-login {
-    color: var(--color-general);
-    background-color: var(--color-primario);
+    color: var(--color-primario);
+    background-color: var(--color-general);
     border-radius: 50%;
     font-size: 0.9rem;
     font-weight: 600;
@@ -219,31 +221,13 @@ h5 {
     transition: background-color 0.5s ease, transform 0.5s ease;
 }
 .button-primary-login:hover {
-    background-color: rgba(229, 231, 235, 0.75);
-    color: var(--color-primario);
-    transform: scale(1.05);
-    transition: transform 0.4s ease-in-out;
+    background-color: var(--color-primario);
+    color: var(--color-general);
+    /* transform: scale(1.05); */
+    transition: transform 0.2s ease-in-out;
 }
 .button-primary-login:active {
-    color: var(--color-primario-active);
-    -webkit-text-stroke-color: 0px 0px 1.8px 0.2px var(--color-secundario);
-}
-.button-logout {
-    color: var(--color-secundario);
-    padding-top: 4px;
-    padding-bottom: 4px;
-    padding-left: 9px;
-    padding-right: 9px;
-    border: none;
-    border-radius: 2rem;
-    font-size: 0.9rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform 1.5s cubic-bezier(0.42, 0, 0.58, 1),
-        background-color 1.5s ease;
-}
-.button-logout:hover {
-    transform: translateX(10px) scale(1.1);
+    background-color: var(--color-primario-active);
 }
 .button-logout:active {
     -webkit-text-stroke-color: 0px 0px 1.8px 0.2px var(--color-secundario);
