@@ -30,7 +30,8 @@
 .svg-home-navbar {
     display: flex;
     align-items: center;
-    justify-content: center; /* Centra el ícono */
+    justify-content: center;
+    padding: 5;
     width: 35px;
     height: 32px;
     color: var(--color-secundario);
