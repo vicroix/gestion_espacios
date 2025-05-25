@@ -73,7 +73,7 @@
                                 <path d="M4 4h16v16H4z" />
                                 <path d="M22 6l-10 7L2 6" />
                             </svg>
-                            <input class="border rounded-lg border-gray-300 w-full pl-10 pr-4 py-2" type="text"
+                            <input class="border rounded-lg border-gray-300 w-full pl-10 pr-4 py-2" type="email"
                                 name="email" placeholder="Correo electrónico*" required>
                         </div>
                         <!--Teléfono-->
