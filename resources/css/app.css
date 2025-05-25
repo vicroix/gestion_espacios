@@ -364,9 +364,9 @@ h5 {
 
 /* Gestión reservas */
 .titulo-main {
-    border-bottom: gray solid 1px;
+    border-bottom: #808080 solid 1px;
     width: 800px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 .gestion-reservas-contenedor-time {
     width: 89px;
