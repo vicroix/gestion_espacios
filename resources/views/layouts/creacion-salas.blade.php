@@ -112,13 +112,13 @@
                             </select>
                         </div>
                     </div>
-                    <!-- Input acceso discapacitados -->
+                    <!-- Input acceso  -->
                     <div class="w-[60%]">
                         <select name="movilidad_reducida" id="movilidad_reducida"
                             class="inputs-text border border-gray-300 invalid:text-gray-400 invalid:focus:ring-red-400 peer w-full" required>
-                            <option value="" disabled selected hidden>Acceso para discapacitados</option>
-                            <option value="Si" class="text-black">Discapacitado - Sí</option>
-                            <option value="No" class="text-black">Discapacitado - No</option>
+                            <option value="" disabled selected hidden>Movilidad reducida</option>
+                            <option value="Si" class="text-black">Mov. reducida - Sí</option>
+                            <option value="No" class="text-black">Mov. reducida - No</option>
                         </select>
                     </div>
                     <div class="flex items-center">

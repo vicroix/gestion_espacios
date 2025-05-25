@@ -19,6 +19,13 @@
 
     --texto-filtros: 1.15rem;
 }
+@layer utilities {
+  .text-stroke {
+    -webkit-text-stroke: 0.1px var(--color-primario);
+     font-weight: 600;
+    color: var(--color-general);
+  }
+}
 .texto-filtros {
     font-size: var(--texto-filtros);
 }
@@ -38,10 +45,11 @@
     border-radius: 50%;
     transition: background-color 0.3s ease, transform 0.15s ease-in-out;
 }
-
+.fondo-editar-reservas{
+background-image: url('/public/img/fondo-2k.jpg');
+}
 .svg-home-navbar:hover {
     background-color: var(--color-eventos);
-    /* transform: scale(1.05); */
     transition: transform 0.2s ease-in-out;
 }
 .svg-botones {

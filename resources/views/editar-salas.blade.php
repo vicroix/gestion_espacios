@@ -95,12 +95,11 @@
                             invalid:text-gray-400 invalid:focus:ring-red-400 peer w-full"
                             type="text" name="aforo" id="aforo" required>
                             <option value="" class="text-gray-500" disabled selected hidden>Aforo</option>
-                            <option value="10" class="text-black" @selected($espacio->capacidad == 10)>Hasta 10 personas
+                            @foreach (['10' => '10 pers', '20' => '20 pers', '30' => '30 pers', '50' => '50 pers', '75' => '75 pers', '100' => '100 pers', '150' => '150 pers', '200' => '200 pers'] as $clave => $valor)
+                            <option value="{{ $clave }}" class="text-black" @selected($espacio->capacidad == $clave)>
+                                {{ $valor }}
                             </option>
-                            <option value="20" class="text-black" @selected($espacio->capacidad == 20)>Hasta 20 personas
-                            </option>
-                            <option value="50" class="text-black" @selected($espacio->capacidad == 50)>Hasta 50 personas
-                            </option>
+                            @endforeach
                         </select>
                     </div>
                     <!-- Input acceso discapacitados -->

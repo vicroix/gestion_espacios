@@ -65,7 +65,7 @@
                 </div>
                 <!-- + Filtros -->
                 <div>
-                    <h3 id="h3" class="flex justify-between items-center border rounded-md p-1" @click="openFiltros = !openFiltros">
+                    <h3 id="h3" class="flex justify-between items-center border-b p-1" @click="openFiltros = !openFiltros">
                         Filtro avanzado
                         <span x-show="!openFiltros" class="text-[--color-primario]"><svg
                                 xmlns="http://www.w3.org/2000/svg" width="15" height="15"
@@ -91,13 +91,13 @@
                             <input type="text" name="direccion" value="{{ request()->input('direccion') }}"
                                 class="inputs-filtros w-full border rounded" placeholder="Dirección">
                         </div>
-                        <div class="flex justify-between gap-1 items-center border rounded-md p-1">
+                        <div class="flex justify-between gap-1 items-center border-b p-1">
                             <p class="texto-filtros">Mostrar reservas pasadas</p>
                             <input type="checkbox" name="fechasPasadas" value="1" class="cursor-pointer">
                         </div>
                         <!-- Ciudades -->
                         <div class="flex flex-col my-3">
-                            <h3 id="h3" class="flex justify-between gap-1 items-center border rounded-md p-1" @click="openCiudades = !openCiudades">
+                            <h3 id="h3" class="flex justify-between gap-1 items-center border-b p-1" @click="openCiudades = !openCiudades">
                                 Ciudades
                                 <span x-show="!openCiudades" class="text-[--color-primario]"><svg
                                         xmlns="http://www.w3.org/2000/svg" width="15" height="15"
@@ -129,7 +129,7 @@
                 </div>
                 <div class="w-full text-center">
                     <!-- Botón de búsqueda -->
-                    <button type="submit" class="button-primary-auto mt-2 w-[100px] mb-2" title="Buscar">
+                    <button type="submit" class="button-primary-auto mt-2 w-[75px] mb-2" title="Buscar">
                         <div class="flex justify-center">
                             <svg width="50" height="18" viewBox="0 0 40 40" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
