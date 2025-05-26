@@ -131,8 +131,8 @@
                     <!-- Botón de búsqueda -->
                     <button type="submit" class="button-primary-auto mt-2 w-[75px] mb-2" title="Buscar">
                         <div class="flex justify-center">
-                            <svg width="50" height="18" viewBox="0 0 40 40" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
+                            <svg viewBox="0 0 40 40" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" class="icono-svg">
                                 <path
                                     d="M35 35L27.75 27.75M31.6667 18.3333C31.6667 25.6971 25.6971 31.6667 18.3333 31.6667C10.9695 31.6667 5 25.6971 5 18.3333C5 10.9695 10.9695 5 18.3333 5C25.6971 5 31.6667 10.9695 31.6667 18.3333Z"
                                     stroke=var(--color-general) stroke-width="2.56" stroke-linecap="round"
@@ -155,7 +155,7 @@
                                 {{ $reserva->nombre }}
                             </h4>
                             @if ($reserva->espacio->movilidad_reducida === 'Si')
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 512 512" class="rounded-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="rounded-md" aria-colspan="icono-svg">
                                 <path fill="#00B1FF" d="M508.333 32.666C508.333 16.35 494.984 3 478.668 3H29.032C14.348 3 2.333 15.015 2.333 29.699v452.602C2.333 496.985 14.348 509 29.032 509h449.635c16.316 0 29.666-13.35 29.666-29.666z" />
                                 <path fill="#0096D1" d="M478.668 488.915H29.032c-14.684 0-26.699-12.015-26.699-26.699v20.085C2.333 496.985 14.348 509 29.032 509h449.635c16.316 0 29.666-13.35 29.666-29.666v-20.085c0 16.316-13.349 29.666-29.665 29.666" />
                                 <circle cx="221.736" cy="92.69" r="40.87" fill="#FFF" />
@@ -163,11 +163,11 @@
                                 <path fill="#FFF" d="M446.968 319.8c-8.322-8.321-21.814-8.323-30.137 0l-4.128 4.128l-45.308-45.307a21.3 21.3 0 0 0-15.068-6.241H265.78v-44.029h63.098c11.769 0 21.31-9.541 21.31-21.31s-9.541-21.31-21.31-21.31H265.78v-6.467c0-16.621-13.474-30.095-30.095-30.095h-27.897c-16.621 0-30.095 13.474-30.095 30.095v105.429c0 16.621 13.474 30.095 30.095 30.095h4.233c.93.124 1.872.21 2.837.21h128.644l54.134 54.134c4.161 4.161 9.615 6.241 15.068 6.241s10.907-2.08 15.068-6.241l19.196-19.196c8.322-8.322 8.322-21.814 0-30.136" />
                             </svg>
                             @endif
-                            <div class="group w-[40px] flex justify-center cursor-pointer items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="text-gray-800 w-full group-hover:hidden rounded-xl shadow-around shadow-gray-400" viewBox="0 0 24 24">
+                            <div class="group flex justify-center cursor-pointer items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icono-svg text-gray-800 w-full group-hover:hidden rounded-md shadow-around shadow-gray-400" viewBox="0 0 24 24">
                                     <path fill="currentColor" d="m16.577 20l-5.767-5.766a5.035 5.035 0 0 1-6.336-7.76a5.035 5.035 0 0 1 7.761 6.335L18 18.576L16.577 20ZM8.034 7.014a3.02 3.02 0 1 0-.004 6.04a3.02 3.02 0 0 0 .004-6.04ZM19 11h-2V9h-2V7h2V5h2v2h2v2h-2v2Z" />
                                 </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="text-gray-500 w-full hidden group-hover:block rounded-xl shadow-around shadow-[--color-primario]" viewBox="0 0 24 24">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icono-svg text-gray-500 w-full hidden group-hover:block rounded-md shadow-around shadow-[--color-primario]" viewBox="0 0 24 24">
                                     <path fill="currentColor" d="m16.577 20l-5.767-5.766a5.035 5.035 0 0 1-6.336-7.76a5.035 5.035 0 0 1 7.761 6.335L18 18.576L16.577 20ZM8.034 7.014a3.02 3.02 0 1 0-.004 6.04a3.02 3.02 0 0 0 .004-6.04ZM21 9h-6V7h6v2Z" />
                                 </svg>
                                 <!-- Detalle aparece al hover/focus -->
@@ -201,8 +201,8 @@
                         <!--Botón editar reserva-->
                         <form action="{{ route('editar-reserva', ['id' => $reserva->idreservas]) }}" method="GET">
                             <button type="submit" class="button-primary-auto w-[55.95] h-[40] flex justify-center items-center" title="Editar">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24" class="icono-svg">
                                     <g fill="none" stroke="currentColor" stroke-linecap="round"
                                         stroke-linejoin="round" stroke-width="2">
                                         <path d="M7 7H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-1" />
@@ -216,8 +216,8 @@
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="button-secundary-auto w-[55.95] h-[40] flex justify-center items-center" title="Eliminar">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
-                                    viewBox="0 0 24 24">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24" class="icono-svg">
                                     <path fill="none" stroke="currentColor" stroke-linecap="round"
                                         stroke-linejoin="round" stroke-width="2"
                                         d="M4 7h16m-10 4v6m4-6v6M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3" />
