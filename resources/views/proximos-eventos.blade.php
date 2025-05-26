@@ -1,4 +1,5 @@
 @extends("layouts.plantilla")
+@extends("layouts.inicio-sesion")
 
 @vite(['resources/css/app.css', 'resources/css/proximos-eventos.css'])
 @section('title', 'Proximos eventos')
