@@ -16,12 +16,12 @@
 
     /* Color general blanco */
     --color-general: #ffffff;
-
+    --color-transparencia-cartas:rgba(255,248,231,0.5);
     --texto-filtros: 1.15rem;
 }
 @layer utilities {
   .text-stroke {
-    -webkit-text-stroke: 0.1px var(--color-primario);
+    -webkit-text-stroke: 0.5px var(--color-primario);
      font-weight: 600;
     color: var(--color-general);
   }
@@ -57,17 +57,24 @@ background-image: url('/public/img/fondo-2k.jpg');
     height: 18px;
     color: var(--color-general);
 }
-@font-face {
-    font-family: "Playfair Display";
-    src: url("../font/PlayfairDisplay-Regular.ttf") format("truetype");
-    font-weight: normal;
+@font-face { /* Titulo */
+    font-family: "Gloock";
+    src: url("../font/Gloock-Regular.ttf") format("truetype");
+    font-weight: 400;
     font-style: normal;
 }
-@font-face {
+@font-face { /* General */
     line-height: 1px;
-    font-family: "Montserrat";
-    src: url("../font/Montserrat-Regular.ttf") format("truetype");
-    font-weight: normal;
+    font-family: "NationalPark";
+    src: url("../font/NationalPark-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face { /* General semibold */
+    line-height: 1px;
+    font-family: "NationalPark";
+    src: url("../font/NationalPark-SemiBold.ttf") format("truetype");
+    font-weight: 600;
     font-style: normal;
 }
 nav {
@@ -121,7 +128,7 @@ h5 {
 }
 
 .font-text {
-    font-family: "Roboto";
+    font-family: "NationalPark";
     font-size: 1.15rem;
 }
 

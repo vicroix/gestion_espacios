@@ -5,7 +5,7 @@ window.onload = function () {
     var rutaFestivos = window.rutaFestivos;
     var rutaReservas = window.rutaReservas;
     var calendario = new FullCalendar.Calendar(contenedorCalendario, {
-        initialView: "dayGridMonth",
+        initialView: "dayGridWeek",
         locale: "es",
 
         // Configuración de eventos
