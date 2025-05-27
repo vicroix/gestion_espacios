@@ -9,7 +9,7 @@
 
 @section("main")
 <div class="flex flex-col w-full p-10 h-full items-center fondo-editar-reservas">
-    <div class="flex justify-center w-[90%] h-[90%] bg-black/45 backdrop-blur-sm">
+    <div class="flex justify-center w-[90%] h-[100%] bg-black/45 backdrop-blur-sm">
         <div class="flex flex-col md:w-[600px] md:h-[300px] bg-[--color-transparencia-cartas] p-4 border-t-4 border-[--color-primario] rounded-md backdrop-blur-sm items-center gap-4 mt-12 lg:gap-8">
             <div class="flex justify-center">
                 <div class="titulo-main w-full text-stroke items-center flex justify-center md:w-[550px]">
