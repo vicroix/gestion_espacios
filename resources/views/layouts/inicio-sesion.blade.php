@@ -17,6 +17,7 @@
                     <!-- Formulario -->
                     <form id="loginForm" action="{{ route('login') }}" method="POST" class="bg-[--color-general] w-80 rounded-lg  flex flex-col items-center gap-4">
                         @csrf
+
                         <!--Correo electrónico-->
                         <div class="relative w-full">
                             <svg class="absolute left-4 top-2.5 w-5 h-5 text-gray-700" fill="none" stroke="currentColor"

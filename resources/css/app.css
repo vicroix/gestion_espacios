@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 :root {
-    --transparencia-50: 0.4;
     /* Color primario */
     --color-primario: #990000;
     --color-primario-hover: #b30000;
@@ -12,28 +11,20 @@
     --color-secundario: #000000;
     --color-secundario-hover: #282828;
     --color-secundario-active: #141414;
-    --color-secundario-transparencia: rgb(0, 0, 0, var(--transparencia-50));
 
     --color-eventos: rgba(225, 177, 44, 0.2);
 
     /* Color general blanco */
     --color-general: #ffffff;
-    --color-transparencia-cartas: rgba(255, 248, 231, 0.5);
-    --texto-filtros: 1rem;
-
-    /* Botones */
-    --boton-radius: 6px;
-    --boton-anchura: 70px;
-    --boton-altura: 35px;
-    --boton-padding: 6px;
-    --boton-svg: 20px;
+    --color-transparencia-cartas:rgba(255,248,231,0.5);
+    --texto-filtros: 1.15rem;
 }
 @layer utilities {
-    .text-stroke {
-        -webkit-text-stroke: 0.6px var(--color-secundario-transparencia);
-        font-weight: 600;
-        color: var(--color-primario-active);
-    }
+  .text-stroke {
+    -webkit-text-stroke: 0.5px var(--color-primario);
+     font-weight: 600;
+    color: var(--color-general);
+  }
 }
 .texto-filtros {
     font-size: var(--texto-filtros);
@@ -54,8 +45,8 @@
     border-radius: 50%;
     transition: background-color 0.3s ease, transform 0.15s ease-in-out;
 }
-.fondo-editar-reservas {
-    background-image: url("/public/img/fondo-2k.jpg");
+.fondo-editar-reservas{
+background-image: url('/public/img/fondo-2k.jpg');
 }
 .svg-home-navbar:hover {
     background-color: var(--color-eventos);
@@ -66,23 +57,20 @@
     height: 18px;
     color: var(--color-general);
 }
-@font-face {
-    /* Titulo */
+@font-face { /* Titulo */
     font-family: "Gloock";
     src: url("../font/Gloock-Regular.ttf") format("truetype");
     font-weight: 400;
     font-style: normal;
 }
-@font-face {
-    /* General */
+@font-face { /* General */
     line-height: 1px;
     font-family: "NationalPark";
     src: url("../font/NationalPark-Regular.ttf") format("truetype");
     font-weight: 400;
     font-style: normal;
 }
-@font-face {
-    /* General semibold */
+@font-face { /* General semibold */
     line-height: 1px;
     font-family: "NationalPark";
     src: url("../font/NationalPark-SemiBold.ttf") format("truetype");
@@ -193,17 +181,17 @@ h5 {
 }
 /* BOTONES */
 /* BOTON PRIMARY */
-.icono-svg {
-    width: var(--boton-svg);
-    height: var(--boton-svg);
-}
 .button-primary-auto {
     background-color: var(--color-primario);
     color: var(--color-general);
-    padding: var(--boton-padding);
-    width: var(--boton-anchura);
-    height: var(--boton-altura);
-    border-radius: var(--boton-radius);
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 9px;
+    padding-right: 9px;
+    border: none;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
@@ -219,11 +207,12 @@ h5 {
 .button-secundary-auto {
     background-color: var(--color-secundario);
     color: var(--color-general);
-    padding: var(--boton-padding);
-    width: var(--boton-anchura);
-    height: var(--boton-altura);
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 9px;
+    padding-right: 9px;
     border: none;
-    border-radius: var(--boton-radius);
+    border-radius: 2rem;
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
@@ -263,11 +252,9 @@ h5 {
 .button-filtro-a-reserva {
     background-color: var(--color-primario);
     color: var(--color-general);
-    padding: var(--boton-padding);
-    width: var(--boton-anchura);
-    height: var(--boton-altura);
+    padding: 10px;
     border: none;
-    border-radius: var(--boton-radius);
+    border-radius: 2rem;
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
@@ -285,11 +272,9 @@ h5 {
 .button-filtro-a-editar-sala {
     background-color: var(--color-secundario);
     color: var(--color-general);
-    padding: var(--boton-padding);
-    width: var(--boton-anchura);
-    height: var(--boton-altura);
+    padding: 10px;
     border: none;
-    border-radius: var(--boton-radius);
+    border-radius: 2rem;
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
@@ -307,11 +292,9 @@ h5 {
 .button-reserva-a-filtro {
     background-color: var(--color-secundario);
     color: var(--color-general);
-    padding: var(--boton-padding);
-    width: var(--boton-anchura);
-    height: var(--boton-altura);
+    padding: 10px;
     border: none;
-    border-radius: var(--boton-radius);
+    border-radius: 2rem;
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
@@ -328,11 +311,9 @@ h5 {
 .button-confirmar-reserva {
     background-color: var(--color-primario);
     color: var(--color-general);
-    padding: var(--boton-padding);
-    width: var(--boton-anchura);
-    height: var(--boton-altura);
+    padding: 10px;
     border: none;
-    border-radius: var(--boton-radius);
+    border-radius: 2rem;
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
@@ -390,8 +371,9 @@ h5 {
 
 /* Gestión reservas */
 .titulo-main {
-    border-bottom: #575757 solid 1px;
+    border-bottom: #808080 solid 1px;
     width: 800px;
+    /* margin-bottom: 20px; */
 }
 .gestion-reservas-contenedor-time {
     width: 89px;
