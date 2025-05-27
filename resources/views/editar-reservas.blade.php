@@ -13,13 +13,13 @@
         <div class="flex flex-col md:w-[600px] md:h-[300px] bg-[--color-transparencia-cartas] p-4 border-t-4 border-[--color-primario] rounded-md backdrop-blur-sm items-center gap-4 mt-12 lg:gap-8">
             <div class="flex justify-center">
                 <div class="titulo-main w-full text-stroke items-center flex justify-center md:w-[550px]">
-                    <h3 class="text-3xl  md:text-4xl">Editar: </h3>
+                    <h3 class="text-3xl md:text-3xl">Editar: </h3>
                     <h3 class="text-center flex md:text-3xl justify-center items-center p-3 w-auto max-w-[250px] h-[40px] bg-cover bg-center">{{ $reserva->nombre }}</h3>
                 </div>
             </div>
             <div class="flex flex-col items-center gap-4 p-3 h-full">
 
-                <form method="POST" action="{{ route('actualizar-reserva', ['id' => $reserva->idreservas]) }}" class="flex flex-col h-full justify-between">
+                <form method="POST" action="{{ route('actualizar-reserva', ['id' => $reserva->idreservas]) }}" class="flex flex-col m-0 h-full justify-between">
                     @csrf
                     <input type="hidden" id="modoEditarReserva" value="true">
                     <div class="flex flex-col items-center justify-center md:flex md:flex-row md:items-end gap-3">
