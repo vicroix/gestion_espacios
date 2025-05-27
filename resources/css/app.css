@@ -16,16 +16,17 @@
 
     /* Color general blanco */
     --color-general: #ffffff;
-    --color-transparencia-cartas:rgba(255,248,231,0.5);
+    --color-transparencia-cartas: rgba(255, 248, 231, 0.7);
     --texto-filtros: 1.15rem;
 }
 @layer utilities {
-  .text-stroke {
-    -webkit-text-stroke: 0.5px var(--color-secundario-active);
-     font-weight: 600;
-    color: var(--color-primario-active);
-  }
+    .text-stroke {
+        -webkit-text-stroke: 0.5px var(--color-secundario-active);
+        font-weight: 600;
+        color: var(--color-primario-active);
+    }
 }
+
 .texto-filtros {
     font-size: var(--texto-filtros);
 }
@@ -45,8 +46,8 @@
     border-radius: 50%;
     transition: background-color 0.3s ease, transform 0.15s ease-in-out;
 }
-.fondo-editar-reservas{
-background-image: url('/public/img/fondo-2k.jpg');
+.fondo-editar-reservas {
+    background-image: url("/public/img/fondo-2k.jpg");
 }
 .svg-home-navbar:hover {
     background-color: var(--color-eventos);
@@ -57,20 +58,23 @@ background-image: url('/public/img/fondo-2k.jpg');
     height: 18px;
     color: var(--color-general);
 }
-@font-face { /* Titulo */
+@font-face {
+    /* Titulo */
     font-family: "Gloock";
     src: url("../font/Gloock-Regular.ttf") format("truetype");
     font-weight: 400;
     font-style: normal;
 }
-@font-face { /* General */
+@font-face {
+    /* General */
     line-height: 1px;
     font-family: "NationalPark";
     src: url("../font/NationalPark-Regular.ttf") format("truetype");
     font-weight: 400;
     font-style: normal;
 }
-@font-face { /* General semibold */
+@font-face {
+    /* General semibold */
     line-height: 1px;
     font-family: "NationalPark";
     src: url("../font/NationalPark-SemiBold.ttf") format("truetype");
@@ -370,11 +374,6 @@ h5 {
 }
 
 /* Gestión reservas */
-.titulo-main {
-    border-bottom: #808080 solid 1px;
-    width: 800px;
-    /* margin-bottom: 20px; */
-}
 .gestion-reservas-contenedor-time {
     width: 89px;
 }
@@ -433,6 +432,13 @@ h5 {
         font-size: 22px;
     }
     /* Home */
+    .contenido {
+        position: relative;
+        z-index: 1;
+        /* color: white; */
+        text-align: center;
+        padding-top: 30vh;
+    }
     .home-texto-bienvenida {
         line-height: 1.6rem;
     }

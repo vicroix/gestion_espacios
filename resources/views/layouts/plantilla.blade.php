@@ -3,7 +3,7 @@
 <body class="flex flex-col over min-h-screen font-text">
   @include("layouts.navbars.navbar")
 
-  <main class="flex-grow bg-[--color-general]">
+  <main>
     @yield("main")
   </main>
 

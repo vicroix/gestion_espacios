@@ -9,16 +9,13 @@
 
 @section("main")
 <div class="flex flex-col w-full p-10 h-full items-center fondo-editar-reservas">
-    <div class="flex justify-center w-[90%] h-[90%] bg-black/45 backdrop-blur-sm">
-        <div class="flex flex-col md:w-[600px] md:h-[300px] bg-[--color-transparencia-cartas] p-4 border-t-4 border-[--color-primario] rounded-md backdrop-blur-sm items-center gap-4 mt-12 lg:gap-8">
+        <div class="flex flex-col w-[300px] sm:w-[500px] sm:h-[300px] bg-[--color-transparencia-cartas] p-4 border-t-4 border-[--color-primario] rounded-md backdrop-blur-sm items-center gap-4 mt-12 lg:gap-8">
             <div class="flex justify-center">
-                <div class="titulo-main w-full text-stroke items-center flex justify-center md:w-[550px]">
-                    <h3 class="text-3xl md:text-3xl">Editar: </h3>
-                    <h3 class="text-center flex md:text-3xl justify-center items-center p-3 w-auto max-w-[250px] h-[40px] bg-cover bg-center">{{ $reserva->nombre }}</h3>
+                <div class="text-stroke sm:border-b sm:border-[#808080] items-center sm:w-[450px] flex justify-center">
+                    <h3 class="text-center flex md:text-2xl">Editar: {{ $reserva->nombre }}</h3>
                 </div>
             </div>
             <div class="flex flex-col items-center gap-4 p-3 h-full">
-
                 <form method="POST" action="{{ route('actualizar-reserva', ['id' => $reserva->idreservas]) }}" class="flex flex-col m-0 h-full justify-between">
                     @csrf
                     <input type="hidden" id="modoEditarReserva" value="true">
@@ -60,7 +57,6 @@
             <p class="text-red-500">{{ session('error') }}</p>
             @endif
         </div>
-    </div>
 </div>
 @vite('resources/js/inputsDateTime.js')
 @endsection

@@ -24,8 +24,8 @@
         <!-- Contenedor derecho footer - contacto-->
         <div class="contenedor-contacto flex flex-col ml-14 items-end">
             <h3 class="font-semibold text-[--color-primario]">Contacto</h3>
-            <p class="m-0">956666666</p>
-            <p class="m-0">appteatro@teatro.com</p>
+            <p class="m-0">+34 954 437 219</p>
+            <p class="m-0">teatro_gest@teatro.com</p>
             <p class="m-0">C. Canal, 20, 41006 Sevilla</p>
         </div>
     </div>
