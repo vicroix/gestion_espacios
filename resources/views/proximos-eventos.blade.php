@@ -10,6 +10,18 @@
 
 @section("main")
 <div>
+   <!-- Leyenda calendario -->
+    <div class="flex justify-center gap-4 mb-4 text-sm flex-wrap px-4">
+        <div class="flex items-center gap-2">
+            <span class="w-4 h-4 bg-[#990000] inline-block rounded-sm"></span>
+            <span>Festivo</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span class="w-4 h-4 bg-[#e1b12c] inline-block rounded-sm"></span>
+            <span>Reserva</span>
+        </div>
+    </div>
+
     <!--Documentación del calendario: https://fullcalendar.io/docs -->
     <div id="calendario" class="flex align-center min-w-[320px] lg:max-w-[460px] xl:max-w-[680px] 2xl:max-w-[530px] 3xl:max-w-[640px] 4xl:max-w-[960px]"></div>
     <div id="detalles">
