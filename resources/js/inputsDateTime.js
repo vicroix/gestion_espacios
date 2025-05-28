@@ -51,6 +51,18 @@ function actualizarRestricciones() {
         hoy.setMinutes(hoy.getMinutes() + NEGAR_MINUTOS); //Suma a los minutos actuales los 30 minutos
         const ahoraM = hoy.getHours() * 60 + hoy.getMinutes(); //Ahora convierte las horas y minutos en minutos totales
         minInicioM = Math.max(aperturaM, ahoraM); //saca el valor más grande (si la de apertura o la de ahora)
+        const horaInicioM = aMinutos(horaInicioInput.value); // convierte "HH:MM" a minutos
+
+        const advertencia = document.getElementById("advertencia-30min");
+
+        if (horaInicioM < ahoraM) {
+            advertencia.innerText =
+                "*Se deben hacerse con al menos 30 min de antelación.";
+            advertencia.style.display = "block";
+        } else {
+            advertencia.innerText = "";
+            advertencia.style.display = "none";
+        }
     }
 
     // Si o la hora de apertura o la hora actual + los 30 min es mayor a la de cierre menos una hora (21:59 - 1h), deshabilita los inputs y los vacía

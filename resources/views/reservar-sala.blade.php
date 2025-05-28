@@ -37,7 +37,7 @@
                     <p>Tel: {{ $espacio->telefono }}</p>
                     <p>Tipo: {{ $espacio->tipo }}</p>
                     <p>Capacidad: {{ $espacio->capacidad }}</p>
-                    <input type="hidden"  id="capacidadEspacio" value="{{ $espacio->capacidad }}">
+                    <input type="hidden" id="capacidadEspacio" value="{{ $espacio->capacidad }}">
                     <p>Equipamiento: {{ $espacio->equipamiento }}</p>
                 </div>
 
@@ -213,6 +213,8 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <p class="text-sm text-yellow-600 mt-2" id="advertencia-30min">
+                                    </p>
                                 </div>
 
                                 <!-- Selección de GRUPOS del profesor -->

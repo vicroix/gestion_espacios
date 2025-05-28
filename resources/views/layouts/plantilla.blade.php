@@ -3,7 +3,7 @@
 <body class="flex flex-col over min-h-screen font-text">
   @include("layouts.navbars.navbar")
 
-  <main>
+  <main class="flex-grow">
     @yield("main")
   </main>
 

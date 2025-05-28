@@ -32,7 +32,6 @@
             <!-- Reservas, Próximos eventos y Faq -->
             @include('layouts.navbars.navbars-menu.navbars-menu-profe.navbar-menu-escritorio-profe')
             <!-- Botón cerrar sesión -->
-            <span class="text-[--color-primario] font-semibold">|</span>
             <a method="POST" action="{{ route('salir') }}" href="{{ route('salir') }}" class="flex items-center gap-2 px-4 py-1 text-sm text-red-700 transition hover:bg-[--color-eventos] rounded-md duration-300 ease-in-out group">
                 <span class="text-[--color-primario] font-medium ml-2 truncate" title="Cerrar sesión">
                     {{ session('usuario') }}
