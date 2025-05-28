@@ -17,7 +17,7 @@
     /* Color general blanco */
     --color-general: #ffffff;
     --color-transparencia-cartas: rgba(255, 248, 231, 0.7);
-    --texto-filtros: 1.15rem;
+    --texto-filtros: 0.9rem;
 }
 @layer utilities {
     .text-stroke {
