@@ -41,6 +41,13 @@
                                 </g>
                             </svg>
                         </button>
+                        <!-- Movilidad reducida -->
+                        <div>
+                            <div class="flex justify-between gap-1 items-center border-b p-1">
+                                <h3 class="texto-filtros flex items-center">Movilidad reducida</h3>
+                                <input type="checkbox" name="movilidad_reducida" value="true">
+                            </div>
+                        </div>
                         <!-- Ciudades -->
                         <div>
                             <h3 id="h3" class="flex justify-between gap-1 items-center border-b p-1" @click="openCiudades = !openCiudades">
@@ -138,7 +145,6 @@
                         <div x-show="openFiltros" x-transition class="pl flex flex-col gap-1">
                             <!-- Equipamiento -->
                             <div>
-                                <!-- <h3 id="h3">Equipamiento</h3> -->
                                 <input type="text" name="equipamiento"
                                     value="{{ request()->input('equipamiento') }}"
                                     class="inputs-filtros w-full border rounded mr-2" placeholder="Equipamiento">
@@ -146,21 +152,18 @@
 
                             <!-- Nombre del teatro -->
                             <div>
-                                <!-- <h3 id="h3">Nombre del teatro</h3> -->
                                 <input type="text" name="nombre" value="{{ request()->input('nombre') }}"
                                     class="inputs-filtros w-full border rounded" placeholder="Nombre del teatro">
                             </div>
 
                             <!-- Dirección -->
                             <div>
-                                <!-- <h3 id="h3">Dirección</h3> -->
                                 <input type="text" name="direccion" value="{{ request()->input('direccion') }}"
                                     class="inputs-filtros w-full border rounded" placeholder="Dirección">
                             </div>
 
                             <!-- Nombre de sala -->
                             <div>
-                                <!-- <h3 id="h3">Nombre de sala</h3> -->
                                 <input type="text" name="nombre_sala"
                                     value="{{ request()->input('nombre_sala') }}" class="inputs-filtros w-full border rounded"
                                     placeholder="Nombre de sala">

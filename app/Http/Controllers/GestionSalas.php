@@ -122,6 +122,10 @@ class GestionSalas extends Controller
             $query->where('nombre_sala', 'like', '%' . $respuesta->input('nombre_sala') . '%');
         }
 
+        if($respuesta->filled('movilidad_reducida')){
+            $query->where('movilidad_reducida', 'Si');
+        }
+
         $espacios = $query->limit(12)->get();
 
         return view('gestion-salas', compact('espacios', 'mostrarFiltroEspacios')); // *** CAMBIAR LUEGO LA VIEW A gestion-salas ***
