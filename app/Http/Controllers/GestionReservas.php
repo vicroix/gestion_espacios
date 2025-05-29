@@ -120,7 +120,8 @@ class GestionReservas extends Controller
         ->where('fecha', '>=', $fechaActual)
         ->orderBy('fecha', 'asc')
         ->orderBy('hora', 'asc')
-        ->get();
+        ->paginate(9);
+
         // dd($reservas);
         return view('gestion-reservas', compact('reservas'));
     }

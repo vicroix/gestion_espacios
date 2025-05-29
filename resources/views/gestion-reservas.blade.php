@@ -228,6 +228,10 @@
                 </div>
             </div>
             @endforeach
+            <!-- Paginación de las reservas -->
+            <div class="pagination mt-8 col-span-full">
+                {{ $reservas->links() }}
+            </div>
             @else
             <div class="col-span-full flex flex-col gap-2 justify-center lg:absolute lg:left-1/2 lg:top-[5%] lg:-translate-x-1/2">
                 <p class="text-center">No tienes ninguna reserva pendiente, ve a
