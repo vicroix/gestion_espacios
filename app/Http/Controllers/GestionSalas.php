@@ -122,10 +122,10 @@ class GestionSalas extends Controller
             $query->where('nombre_sala', 'like', '%' . $respuesta->input('nombre_sala') . '%');
         }
 
-        if($respuesta->filled('movilidad_reducida')){
-            $query->where('movilidad_reducida', 'Si');
+        //Accesibilidad
+        if ($respuesta->has('movilidad_reducida')) {
+            $query->where('movilidad_reducida', true);
         }
-
         $espacios = $query->limit(12)->get();
 
         return view('gestion-salas', compact('espacios', 'mostrarFiltroEspacios')); // *** CAMBIAR LUEGO LA VIEW A gestion-salas ***
@@ -176,8 +176,8 @@ class GestionSalas extends Controller
         // Eliminar fotos seleccionadas
         if (!empty($datos['fotos_borrar'])) {
             $fotosABorrar = Foto::whereIn('id_fotos', $datos['fotos_borrar'])
-            ->where('espacio_id', $editarespacio->idespacios)
-            ->get();
+                ->where('espacio_id', $editarespacio->idespacios)
+                ->get();
 
             foreach ($fotosABorrar as $foto) {
                 // dd('Ruta de la foto a eliminar: ' . $foto->ruta);
@@ -223,10 +223,11 @@ class GestionSalas extends Controller
         return view('reservar-sala', compact('espacio'));
     }
 
-    public function eliminarEspacio($id){
+    public function eliminarEspacio($id)
+    {
         $espacio = Espacio::find($id);
 
-        if($espacio) {
+        if ($espacio) {
             $espacio->delete();
             return redirect()->back()->with('eliminado', $espacio->nombre);
         } else {

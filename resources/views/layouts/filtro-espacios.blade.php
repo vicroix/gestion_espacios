@@ -41,13 +41,7 @@
                                 </g>
                             </svg>
                         </button>
-                        <!-- Movilidad reducida -->
-                        <div>
-                            <div class="flex justify-between gap-1 items-center border-b p-1">
-                                <h3 class="texto-filtros flex items-center">Movilidad reducida</h3>
-                                <input type="checkbox" name="movilidad_reducida" value="true">
-                            </div>
-                        </div>
+                       
                         <!-- Ciudades -->
                         <div>
                             <h3 id="h3" class="flex justify-between gap-1 items-center border-b p-1" @click="openCiudades = !openCiudades">
@@ -168,6 +162,13 @@
                                     value="{{ request()->input('nombre_sala') }}" class="inputs-filtros w-full border rounded"
                                     placeholder="Nombre de sala">
                             </div>
+                             <!-- Movilidad reducida -->
+                        <div>
+                            <div class="flex justify-between gap-1 items-center border-b p-1">
+                                <h3 class="texto-filtros flex items-center">Movilidad reducida</h3>
+                                <input type="checkbox" name="movilidad_reducida" value="true">
+                            </div>
+                        </div>
                         </div>
                     </div>
                     <div class="w-full text-center">
