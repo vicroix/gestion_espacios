@@ -165,7 +165,7 @@
                              <!-- Movilidad reducida -->
                         <div>
                             <div class="flex justify-between gap-1 items-center border-b p-1">
-                                <h3 class="texto-filtros flex items-center">Movilidad reducida</h3>
+                                <h3 class="texto-filtros flex items-center text-[14px]  text-[#374151] font-bold">Movilidad reducida</h3>
                                 <input type="checkbox" name="movilidad_reducida" value="true">
                             </div>
                         </div>
