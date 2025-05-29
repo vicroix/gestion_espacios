@@ -18,6 +18,7 @@
     --color-general: #ffffff;
     --color-transparencia-cartas: rgba(255, 248, 231, 0.7);
     --texto-filtros: 0.9rem;
+    --text-general: 1rem;
 }
 @layer utilities {
     .text-stroke {
@@ -102,8 +103,6 @@ main {
 }
 /* FOOTER */
 footer {
-    padding-inline: 3rem;
-    padding-block: 0.8rem;
     background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
     border-top: 1px solid #d1d5dc;
 }
@@ -468,9 +467,10 @@ h5 {
     .contenedor-svg,
     .contenedor-svg {
         align-items: center;
-        margin-left: 0;
         text-align: center;
         justify-content: center;
+        font-size: var(--texto-filtros);
+        padding: 12px;
     }
     .contenedor-contacto-redes-footer {
         display: flex;

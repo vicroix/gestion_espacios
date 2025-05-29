@@ -1,7 +1,7 @@
-<footer class="w-full mx-auto relative mt-12 py-6">
+<footer class="w-full relative mt-12 py-6">
     <div class="contenedor-contacto-redes-footer flex justify-between items-center h-full">
         <!-- Contenedor izquierdo footer -->
-        <div class="contenedor-redes space-y-3">
+        <div class="contenedor-redes space-y-3 ml-4">
             <h3 class="text-[--color-primario] font-semibold">TeatroGest</h3>
             <p>Redes sociales</p>
             <!-- Iconos de redes sociales -->
@@ -22,7 +22,7 @@
         </div>
 
         <!-- Contenedor derecho footer - contacto-->
-        <div class="contenedor-contacto flex flex-col ml-14 items-end">
+        <div class="contenedor-contacto flex flex-col mr-4 items-end">
             <h3 class="font-semibold text-[--color-primario]">Contacto</h3>
             <p class="m-0">+34 954 437 219</p>
             <p class="m-0">teatro_gest@teatro.com</p>

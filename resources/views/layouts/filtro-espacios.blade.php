@@ -12,7 +12,7 @@
             @endif
         </div>
     </div>
-    <div class="flex">
+    <div class="flex flex-col xl:flex-row">
         <div x-data="{ openCiudades: false, openTipo: false, openFiltros: false, openAforo: false }" class="flex flex-col items-center min-w-[320px] gap-4 lg:items-start lg:flex-row">
             <div class="flex flex-col gap-2">
                 <!-- Sidebar de filtros -->

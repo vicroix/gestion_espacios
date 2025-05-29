@@ -126,7 +126,7 @@ class GestionSalas extends Controller
         if ($respuesta->has('movilidad_reducida')) {
             $query->where('movilidad_reducida', true);
         }
-        $espacios = Espacio::paginate(8);
+        $espacios = Espacio::paginate(10);
 
         return view('gestion-salas', compact('espacios', 'mostrarFiltroEspacios')); // *** CAMBIAR LUEGO LA VIEW A gestion-salas ***
     }
