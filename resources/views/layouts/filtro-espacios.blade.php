@@ -41,7 +41,7 @@
                                 </g>
                             </svg>
                         </button>
-                       
+
                         <!-- Ciudades -->
                         <div>
                             <h3 id="h3" class="flex justify-between gap-1 items-center border-b p-1" @click="openCiudades = !openCiudades">
@@ -162,13 +162,13 @@
                                     value="{{ request()->input('nombre_sala') }}" class="inputs-filtros w-full border rounded"
                                     placeholder="Nombre de sala">
                             </div>
-                             <!-- Movilidad reducida -->
-                        <div>
-                            <div class="flex justify-between gap-1 items-center border-b p-1">
-                                <h3 class="texto-filtros flex items-center text-[14px]  text-[#374151] font-bold">Movilidad reducida</h3>
-                                <input type="checkbox" name="movilidad_reducida" value="true">
+                            <!-- Movilidad reducida -->
+                            <div>
+                                <div class="flex justify-between gap-1 items-center border-b p-1">
+                                    <h3 class="texto-filtros flex items-center text-[14px]  text-[#374151] font-bold">Movilidad reducida</h3>
+                                    <input type="checkbox" name="movilidad_reducida" value="true">
+                                </div>
                             </div>
-                        </div>
                         </div>
                     </div>
                     <div class="w-full text-center">
@@ -218,28 +218,32 @@
                                 class="text-lg font-semibold text-[--color-primario] items-center justify-between truncate">
                                 {{ $espacio->nombre }}
                             </h4>
-                            <div class="group w-[60px] flex gap-2 justify-center items-center cursor-pointer">
-                                @if ($espacio->movilidad_reducida === 'Si')
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" viewBox="0 0 512 512" class="rounded-md">
-                                    <path fill="#00B1FF" d="M508.333 32.666C508.333 16.35 494.984 3 478.668 3H29.032C14.348 3 2.333 15.015 2.333 29.699v452.602C2.333 496.985 14.348 509 29.032 509h449.635c16.316 0 29.666-13.35 29.666-29.666z" />
-                                    <path fill="#0096D1" d="M478.668 488.915H29.032c-14.684 0-26.699-12.015-26.699-26.699v20.085C2.333 496.985 14.348 509 29.032 509h449.635c16.316 0 29.666-13.35 29.666-29.666v-20.085c0 16.316-13.349 29.666-29.665 29.666" />
-                                    <circle cx="221.736" cy="92.69" r="40.87" fill="#FFF" />
-                                    <path fill="#FFF" d="M194.156 449.052c-11.593 0-23.184-1.522-34.315-4.548c-17.688-4.809-34.539-13.548-48.729-25.274c-14.164-11.705-25.927-26.579-34.018-43.015c-8.333-16.925-12.939-35.892-13.321-54.851c-.384-19.083 3.483-38.317 11.185-55.625c7.424-16.684 18.564-31.962 32.217-44.186a131 131 0 0 1 17.229-13.026c9.941-6.298 23.106-3.344 29.405 6.598s3.344 23.107-6.598 29.405a88 88 0 0 0-11.606 8.773c-9.207 8.243-16.713 18.534-21.71 29.763c-5.173 11.626-7.771 24.573-7.512 37.44c.257 12.763 3.351 25.518 8.947 36.884c5.45 11.069 13.379 21.092 22.931 28.985c9.551 7.893 20.879 13.771 32.76 17.001c12.542 3.41 25.964 3.983 38.814 1.662c12.209-2.207 24.068-7.131 34.292-14.24c10.147-7.056 18.874-16.376 25.236-26.954a87 87 0 0 0 4.726-9.016c4.843-10.726 17.463-15.497 28.191-10.65c10.726 4.843 15.494 17.465 10.65 28.191a130 130 0 0 1-7.047 13.444c-9.437 15.689-22.379 29.514-37.426 39.977c-15.209 10.575-32.86 17.901-51.044 21.188a131 131 0 0 1-23.257 2.074" />
-                                    <path fill="#FFF" d="M446.968 319.8c-8.322-8.321-21.814-8.323-30.137 0l-4.128 4.128l-45.308-45.307a21.3 21.3 0 0 0-15.068-6.241H265.78v-44.029h63.098c11.769 0 21.31-9.541 21.31-21.31s-9.541-21.31-21.31-21.31H265.78v-6.467c0-16.621-13.474-30.095-30.095-30.095h-27.897c-16.621 0-30.095 13.474-30.095 30.095v105.429c0 16.621 13.474 30.095 30.095 30.095h4.233c.93.124 1.872.21 2.837.21h128.644l54.134 54.134c4.161 4.161 9.615 6.241 15.068 6.241s10.907-2.08 15.068-6.241l19.196-19.196c8.322-8.322 8.322-21.814 0-30.136" />
-                                </svg>
-                                @endif
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                    class="text-gray-800 w-full group-hover:hidden rounded-xl shadow-around shadow-gray-400"
-                                    viewBox="0 0 24 24">
-                                    <path fill="currentColor"
-                                        d="m16.577 20l-5.767-5.766a5.035 5.035 0 0 1-6.336-7.76a5.035 5.035 0 0 1 7.761 6.335L18 18.576L16.577 20ZM8.034 7.014a3.02 3.02 0 1 0-.004 6.04a3.02 3.02 0 0 0 .004-6.04ZM19 11h-2V9h-2V7h2V5h2v2h2v2h-2v2Z" />
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                    class="text-gray-500 w-full hidden group-hover:block rounded-xl shadow-around shadow-[--color-primario]"
-                                    viewBox="0 0 24 24">
-                                    <path fill="currentColor"
-                                        d="m16.577 20l-5.767-5.766a5.035 5.035 0 0 1-6.336-7.76a5.035 5.035 0 0 1 7.761 6.335L18 18.576L16.577 20ZM8.034 7.014a3.02 3.02 0 1 0-.004 6.04a3.02 3.02 0 0 0 .004-6.04ZM21 9h-6V7h6v2Z" />
-                                </svg>
+                            <div class="group w-[80px] flex gap-1 justify-center items-center cursor-pointer">
+                                <div class="w-[40px]">
+                                    @if ($espacio->movilidad_reducida === 'Si')
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="20" viewBox="0 0 512 512" class="rounded-md">
+                                        <path fill="#00B1FF" d="M508.333 32.666C508.333 16.35 494.984 3 478.668 3H29.032C14.348 3 2.333 15.015 2.333 29.699v452.602C2.333 496.985 14.348 509 29.032 509h449.635c16.316 0 29.666-13.35 29.666-29.666z" />
+                                        <path fill="#0096D1" d="M478.668 488.915H29.032c-14.684 0-26.699-12.015-26.699-26.699v20.085C2.333 496.985 14.348 509 29.032 509h449.635c16.316 0 29.666-13.35 29.666-29.666v-20.085c0 16.316-13.349 29.666-29.665 29.666" />
+                                        <circle cx="221.736" cy="92.69" r="40.87" fill="#FFF" />
+                                        <path fill="#FFF" d="M194.156 449.052c-11.593 0-23.184-1.522-34.315-4.548c-17.688-4.809-34.539-13.548-48.729-25.274c-14.164-11.705-25.927-26.579-34.018-43.015c-8.333-16.925-12.939-35.892-13.321-54.851c-.384-19.083 3.483-38.317 11.185-55.625c7.424-16.684 18.564-31.962 32.217-44.186a131 131 0 0 1 17.229-13.026c9.941-6.298 23.106-3.344 29.405 6.598s3.344 23.107-6.598 29.405a88 88 0 0 0-11.606 8.773c-9.207 8.243-16.713 18.534-21.71 29.763c-5.173 11.626-7.771 24.573-7.512 37.44c.257 12.763 3.351 25.518 8.947 36.884c5.45 11.069 13.379 21.092 22.931 28.985c9.551 7.893 20.879 13.771 32.76 17.001c12.542 3.41 25.964 3.983 38.814 1.662c12.209-2.207 24.068-7.131 34.292-14.24c10.147-7.056 18.874-16.376 25.236-26.954a87 87 0 0 0 4.726-9.016c4.843-10.726 17.463-15.497 28.191-10.65c10.726 4.843 15.494 17.465 10.65 28.191a130 130 0 0 1-7.047 13.444c-9.437 15.689-22.379 29.514-37.426 39.977c-15.209 10.575-32.86 17.901-51.044 21.188a131 131 0 0 1-23.257 2.074" />
+                                        <path fill="#FFF" d="M446.968 319.8c-8.322-8.321-21.814-8.323-30.137 0l-4.128 4.128l-45.308-45.307a21.3 21.3 0 0 0-15.068-6.241H265.78v-44.029h63.098c11.769 0 21.31-9.541 21.31-21.31s-9.541-21.31-21.31-21.31H265.78v-6.467c0-16.621-13.474-30.095-30.095-30.095h-27.897c-16.621 0-30.095 13.474-30.095 30.095v105.429c0 16.621 13.474 30.095 30.095 30.095h4.233c.93.124 1.872.21 2.837.21h128.644l54.134 54.134c4.161 4.161 9.615 6.241 15.068 6.241s10.907-2.08 15.068-6.241l19.196-19.196c8.322-8.322 8.322-21.814 0-30.136" />
+                                    </svg>
+                                    @endif
+                                </div>
+                                <div class="w-[40px]">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                        class="text-gray-800 w-full group-hover:hidden rounded-xl shadow-around shadow-gray-400"
+                                        viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="m16.577 20l-5.767-5.766a5.035 5.035 0 0 1-6.336-7.76a5.035 5.035 0 0 1 7.761 6.335L18 18.576L16.577 20ZM8.034 7.014a3.02 3.02 0 1 0-.004 6.04a3.02 3.02 0 0 0 .004-6.04ZM19 11h-2V9h-2V7h2V5h2v2h2v2h-2v2Z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                        class="text-gray-500 w-full hidden group-hover:block rounded-xl shadow-around shadow-[--color-primario]"
+                                        viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="m16.577 20l-5.767-5.766a5.035 5.035 0 0 1-6.336-7.76a5.035 5.035 0 0 1 7.761 6.335L18 18.576L16.577 20ZM8.034 7.014a3.02 3.02 0 1 0-.004 6.04a3.02 3.02 0 0 0 .004-6.04ZM21 9h-6V7h6v2Z" />
+                                    </svg>
+                                </div>
                                 <!-- Detalle aparece abajo, ligeramente a la derecha -->
                                 <div
                                     class="contenedor-mas-detalles absolute p-3 rounded-xl shadow-lg left-1/2 -translate-x-1/2 top-[100%] w-[300px] pointer-events-none opacity-0 group-hover:opacity-100 transition duration-300">
