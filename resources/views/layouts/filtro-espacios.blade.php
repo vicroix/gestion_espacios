@@ -227,7 +227,7 @@
                                     {{ $espacio->nombre }}
                                 </h4>
                                 <div class="group w-[80px] flex gap-1 justify-center items-center cursor-pointer">
-                                    <div class="w-[40px]">
+                                    <div class="w-[40px] flex justify-center">
                                         @if ($espacio->movilidad_reducida === 'Si')
                                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="20" viewBox="0 0 512 512" class="rounded-md">
                                             <path fill="#00B1FF" d="M508.333 32.666C508.333 16.35 494.984 3 478.668 3H29.032C14.348 3 2.333 15.015 2.333 29.699v452.602C2.333 496.985 14.348 509 29.032 509h449.635c16.316 0 29.666-13.35 29.666-29.666z" />
