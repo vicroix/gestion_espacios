@@ -129,9 +129,7 @@ h5 {
     font-family: "Playfair Display";
     color: #990000;
 }
-.pagination , a, span{
-    margin-left: 1rem;
-}
+
 .font-text {
     font-family: "NationalPark";
     font-size: 1.15rem;
