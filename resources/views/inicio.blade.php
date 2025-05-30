@@ -13,9 +13,9 @@
 
 @section('main')
 
-<div class="relative w-full max-h-90 flex">
+<div class="relative w-[90%] max-h-90 flex justify-between">
     <!-- Columna izquierda: contenido -->
-    <div class="w-1/2 flex flex-col items-center z-10 bg-transparent p-6">
+    <div class="w-1/2 flex md:flex-col items-center z-10 bg-transparent p-6">
         <div class="w-full max-w-[90%]">
             <!-- Sección principal de presentación de la aplicación -->
             <section class="section-presentacion 4xl:w-[50vw]">
@@ -46,19 +46,17 @@
 
                 <!-- Elfsight Google Reviews | Untitled Google Reviews -->
                 <section class="flex">
-                    <!--
+
                     <script src="https://static.elfsight.com/platform/platform.js" async></script>
                     <div class="elfsight-app-3f894ccc-f643-4019-935b-cff19c55c358" data-elfsight-app-lazy></div>
                 </section>
             </div>
         </div>
-    </div> 
--->
+    </div>
+
     <!-- Columna derecha: fondo borroso -->
-    <div class="w-1/2 relative mr-10">
-        <div class="absolute inset-0 bg-cover bg-center"
-            style="background-image: url('{{ asset('img/fondo-inicio.jpg') }}');">
-        </div>
+    <div class=" h-full relative overflow-hidden">
+        <img src="{{ asset('/img/fondo-inicio.jpg') }}" alt="Teatro" class="min-w-[300px] xl:max-w-[700px] h-full object-cover" />
     </div>
 </div>
 
