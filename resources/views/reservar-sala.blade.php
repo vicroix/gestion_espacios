@@ -281,9 +281,5 @@
 <script src="{{ asset('mapa/mapa.js') }}">
 </script>
 <script src="{{ asset('choice/choices.min.js') }}"></script>
-<script>
 
-
-
-</script>
 @endsection

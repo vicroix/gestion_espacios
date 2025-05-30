@@ -43,7 +43,7 @@ class AuthController extends Controller
             // Validación de los campos del registro de usuarios
             $validar = Validator::make($respuesta->all(), [
                 'nombre' => 'required|string|max:255',
-                'apellidos' => 'required|string|max:255',
+                'apellidos' => 'nullable|string|max:255',
                 'telefono' => 'nullable|string|max:15',
                 'email' => 'required|email|unique:usuarios,email',
                 'usuario' => 'required|string|max:255|unique:usuarios,usuario',

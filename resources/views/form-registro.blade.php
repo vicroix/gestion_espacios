@@ -45,7 +45,7 @@
                                 <path d="M4 6h16M4 12h16M4 18h16" />
                             </svg>
                             <input class="border rounded-lg border-gray-300 w-full pl-10 pr-4 py-2" type="text"
-                                name="apellidos" placeholder="Apellidos*" required>
+                                name="apellidos" placeholder="Apellidos">
                         </div>
                         <!--Usuario-->
                         <div class="relative w-[75%]">
@@ -85,7 +85,7 @@
                                     d="M3 5a2 2 0 012-2h1.3a1 1 0 01.95.7l1.1 3.2a1 1 0 01-.25 1L7.1 10a15.9 15.9 0 006 6l1.9-1.9a1 1 0 011-.25l3.2 1.1a1 1 0 01.7.95V19a2 2 0 01-2 2h0C9.3 21 3 14.7 3 7.1V7a2 2 0 010-2z" />
                             </svg>
                             <input class="border rounded-lg border-gray-300 w-full pl-10 pr-4 py-2" type="text"
-                                name="telefono" placeholder="Teléfono*" maxlength="9" required>
+                                name="telefono" placeholder="Teléfono" maxlength="9">
                         </div>
 
                         <p>*Campo obligatorio</p>
