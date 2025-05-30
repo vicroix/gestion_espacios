@@ -1,4 +1,4 @@
-@vite(['resources/css/app.css'])
+@vite(['resources/css/app.css', 'resources/js/app.js'])
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <body class="flex flex-col over min-h-screen font-text">
   @include("layouts.navbars.navbar")
@@ -9,3 +9,6 @@
 
   @include("layouts.footer")
 </body>
+<div id="carga-global">
+  <div class="spinner"></div>
+</div>

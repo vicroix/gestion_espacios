@@ -221,7 +221,7 @@
                                 <div>
                                     <label for="grupos">Selecciona grupos:</label>
                                     <div class="w-[245px] h-[120px] overflow-y-auto">
-                                        <select name="grupos[]" multiple id="grupos">
+                                        <select name="grupos[]" multiple id="grupos" class="carga-selected">
                                             @foreach(session('grupos', []) as $grupo)
                                             <option value="{{ $grupo['id_grupo'] }}" data-groupsize="{{ $grupo['groupsize'] }}">{{ $grupo['nombre_grupo'] }} ({{ $grupo['groupsize'] }} alms)</option>
                                             @endforeach
@@ -277,7 +277,7 @@
     </p>
     @endif
 </main>
-@vite(['resources/js/reservar-sala.js', 'resources/js/inputsDateTime.js'])
+@vite(['resources/js/reservar-sala.js', 'resources/js/inputsDateTime.js', 'resources/js/choices.js'])
 <script src="{{ asset('mapa/mapa.js') }}">
 </script>
 <script src="{{ asset('choice/choices.min.js') }}"></script>
