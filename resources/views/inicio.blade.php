@@ -13,12 +13,12 @@
 
 @section('main')
 
-<div class="relative w-[90%] max-h-90 flex justify-between">
+<div class="relative w-[90%] h-full flex flex-col items-center md:flex-row justify-between">
     <!-- Columna izquierda: contenido -->
-    <div class="w-1/2 flex md:flex-col items-center z-10 bg-transparent p-6">
-        <div class="w-full max-w-[90%]">
+    <div class="w-1/2 flex-row md:flex-col justify-center items-center z-10 bg-transparent p-6">
+        <div class="w-full min-w-[300px]">
             <!-- Sección principal de presentación de la aplicación -->
-            <section class="section-presentacion 4xl:w-[50vw]">
+            <section class="section-presentacion 4xl:w-full">
                 <div class="flex justify-start">
                     <h2 class="text-[--color-primario]">TeatroGest</h2>
                 </div>
@@ -37,7 +37,7 @@
             </section>
         </div>
 
-        <div class="contenedor-reseñas mt-[20px] w-full max-w-[90%] 2xl:mt-10 xl:w-[1000px]">
+        <div class="contenedor-reseñas mt-[20px] w-full min-w-[300px] max-w-[800px] 2xl:mt-10">
             <div>
                 <!-- Reseñas BUSCAR API -->
                 <div class="flex items-start ml-5">
@@ -55,8 +55,8 @@
     </div>
 
     <!-- Columna derecha: fondo borroso -->
-    <div class=" h-full relative overflow-hidden">
-        <img src="{{ asset('/img/fondo-inicio.jpg') }}" alt="Teatro" class="min-w-[300px] md:w-[650px] 3xl:max-w-[700px] h-full object-cover" />
+    <div class="flex h-full relative overflow-hidden items-center p-6 min-w-[300px] mr-8">
+        <img src="{{ asset('/img/fondo-inicio.jpg') }}" alt="Teatro" class="min-w-[300px] 3xl:h-[800px] h-full object-cover" />
     </div>
 </div>
 
