@@ -56,7 +56,7 @@
 
     <!-- Columna derecha: fondo borroso -->
     <div class=" h-full relative overflow-hidden">
-        <img src="{{ asset('/img/fondo-inicio.jpg') }}" alt="Teatro" class="min-w-[300px] xl:max-w-[700px] h-full object-cover" />
+        <img src="{{ asset('/img/fondo-inicio.jpg') }}" alt="Teatro" class="min-w-[300px] md:w-[650px] 3xl:max-w-[700px] h-full object-cover" />
     </div>
 </div>
 
