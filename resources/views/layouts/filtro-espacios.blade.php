@@ -215,7 +215,7 @@
             <!-- Resultados -->
             @if(isset($espacios) && $espacios->isNotEmpty())
             <section
-                class="grid w-[95%] h-full xl:gap-12 place-items-center grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-4 4xl:grid-cols-5">
+                class="grid w-[95%] h-full xl:gap-12 place-items-center items-start grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-4 4xl:grid-cols-5">
                 @foreach ($espacios as $espacio)
                 <div class="relative hover:bg-slate-100/85 h-[165px] w-[300px] cursor-default shadow rounded-xl transition duration-250 ease-in-out hover:shadow-lg"
                     tabindex="0">
