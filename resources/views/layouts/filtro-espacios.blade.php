@@ -312,10 +312,6 @@
                     </div>
                 </div>
                 @endforeach
-                <!-- Paginación de los espacios -->
-                <div class="pagination mt-8 col-span-full">
-                    {{ $espacios->links() }}
-                </div>
             </section>
             @else
             <div class="col-span-full flex flex-col gap-2 justify-center lg:absolute lg:left-1/2 lg:-translate-x-1/2">
