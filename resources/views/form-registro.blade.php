@@ -7,6 +7,7 @@
 <link rel="icon" type="image/png" href="/img/Logo.png">
 
 @section('main')
+@include("layouts.inicio-sesion")
     <main class="w-full justify-center flex flex-col">
         <div class="flex justify-center">
             <div class="titulo-main w-full flex justify-center md:mx-[70px]">
