@@ -37,7 +37,7 @@
             </section>
         </div>
 
-        <div class="contenedor-reseñas mt-[20px] w-full min-w-[300px] max-w-[1200px] 2xl:mt-10">
+        <div class="contenedor-reseñas mt-[20px] min-w-[300px] h-[280px] max-w-[1200px] 2xl:mt-10 overflow-hidden">
             <div>
                 <!-- Reseñas BUSCAR API -->
                 <div class="flex items-start ml-5">
@@ -46,7 +46,6 @@
 
                 <!-- Elfsight Google Reviews | Untitled Google Reviews -->
                 <section class="flex">
-
                     <!-- <script src="https://static.elfsight.com/platform/platform.js" async></script>
                     <div class="elfsight-app-3f894ccc-f643-4019-935b-cff19c55c358" data-elfsight-app-lazy></div> -->
                 </section>
@@ -55,7 +54,7 @@
     </div>
 
     <!-- Columna derecha: fondo borroso -->
-    <div class="flex w-1/2 h-full relative overflow-hidden items-center px-8 xl:px-0 min-w-[300px] max-w-[1000px] mr-8">
+    <div class="flex w-1/2 h-full relative overflow-hidden items-center pl-8 xl:px-4 min-w-[300px] max-w-[1000px] max-h-[500px]">
         <img src="{{ asset('/img/fondo-inicio.jpg') }}" alt="Teatro" class="min-w-[300px] 3xl:h-[800px] h-full object-cover" />
     </div>
 </div>
