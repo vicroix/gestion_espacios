@@ -1,4 +1,4 @@
-<div class="relative lg:max-h-screen flex flex-col">
+<div class="relative flex flex-col">
     <div class="text-center">
         <div class="flex justify-center mb-5">
             <div class="titulo-main w-full flex justify-center md:mx-[70px]">
