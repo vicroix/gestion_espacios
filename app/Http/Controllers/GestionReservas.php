@@ -164,7 +164,7 @@ class GestionReservas extends Controller
         }
 
         // Ejecutar query (si hay algún filtro aplicado, o traer todos si no) y en limit() pon el número de datos que quieres traer de máximo
-        $reservas = $query->limit(12)->get();
+        $reservas = $query->limit(8)->get();
 
         return view('gestion-reservas', compact('reservas')); // *** CAMBIAR LUEGO LA VIEW A gestion-salas ***
     }

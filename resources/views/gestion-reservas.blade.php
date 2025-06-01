@@ -118,7 +118,7 @@
                                         class="inputs-filtros w-full mr-2 my-1" placeholder="Localidad">
                                 </div>
                                 @foreach (['Madrid', 'Barcelona', 'Sevilla', 'Málaga', 'Granada', 'Huelva', 'Valencia', 'Cádiz', 'Tarragona', 'Cádiz', 'Salamanca', 'León'] as $ciudad)
-                                <label class="block text-gray-600">
+                                <label class="block text-gray-600 texto-filtros">
                                     <input type="checkbox" name="ciudades[]" value="{{ $ciudad }}" class="mr-2">
                                     {{ $ciudad }}
                                 </label>
@@ -147,9 +147,9 @@
         <section class="grid w-[80%] xl:gap-12 mb-4 place-items-center grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-4 4xl:grid-cols-5">
             @if(isset($reservas) && $reservas->isNotEmpty())
             @foreach($reservas as $reserva)
-            <div class="relative hover:bg-slate-100/85 h-[165px] w-[300px] cursor-default shadow rounded-xl transition duration-250 ease-in-out hover:shadow-lg" tabindex="0">
+            <div class="relative hover:bg-slate-100/85 h-[145px] w-[300px] cursor-default shadow rounded-xl transition duration-250 ease-in-out hover:shadow-lg" tabindex="0">
                 <div class="rounded-xl p-3 border-t-4 border-[--color-primario]">
-                    <div>
+                    <div class="contenedor-texto-cartas">
                         <div class="flex justify-between gap-4 items-center">
                             <h4 class="text-lg font-semibold text-[--color-primario] items-center justify-between truncate">
                                 {{ $reserva->nombre }}
@@ -204,7 +204,7 @@
                     <div class="mt-3 flex justify-end gap-2">
                         <!--Botón editar reserva-->
                         <form action="{{ route('editar-reserva', ['id' => $reserva->idreservas]) }}" method="GET">
-                            <button type="submit" class="button-primary-auto w-[55.95] h-[40] flex justify-center items-center" title="Editar">
+                            <button type="submit" class="button-primary-auto w-[55.95] h-[35] flex justify-center items-center" title="Editar">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                     viewBox="0 0 24 24">
                                     <g fill="none" stroke="currentColor" stroke-linecap="round"
@@ -219,7 +219,7 @@
                         <form method="POST" action="{{ route('eliminar-reserva', ['id' => $reserva->idreservas]) }}" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta reserva?')">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="button-secundary-auto w-[55.95] h-[40] flex justify-center items-center" title="Eliminar">
+                            <button type="submit" class="button-secundary-auto w-[55.95] h-[35] flex justify-center items-center" title="Eliminar">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                                     viewBox="0 0 24 24">
                                     <path fill="none" stroke="currentColor" stroke-linecap="round"
