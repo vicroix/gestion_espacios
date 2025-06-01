@@ -13,10 +13,10 @@
 
 @section('main')
 
-<div class="relative w-[90%] h-full flex flex-col items-center md:flex-row justify-between">
+<div class="relative h-full flex flex-col items-center md:flex-row justify-between">
     <!-- Columna izquierda: contenido -->
     <div class="w-1/2 flex-row md:flex-col justify-center items-center z-10 bg-transparent p-6">
-        <div class="w-full min-w-[300px]">
+        <div class="w-full min-w-[300px] max-w-[1200px]">
             <!-- Sección principal de presentación de la aplicación -->
             <section class="section-presentacion 4xl:w-full">
                 <div class="flex justify-start">
@@ -37,7 +37,7 @@
             </section>
         </div>
 
-        <div class="contenedor-reseñas mt-[20px] w-full min-w-[300px] max-w-[800px] 2xl:mt-10">
+        <div class="contenedor-reseñas mt-[20px] w-full min-w-[300px] max-w-[1200px] 2xl:mt-10">
             <div>
                 <!-- Reseñas BUSCAR API -->
                 <div class="flex items-start ml-5">
@@ -47,15 +47,15 @@
                 <!-- Elfsight Google Reviews | Untitled Google Reviews -->
                 <section class="flex">
 
-                    <script src="https://static.elfsight.com/platform/platform.js" async></script>
-                    <div class="elfsight-app-3f894ccc-f643-4019-935b-cff19c55c358" data-elfsight-app-lazy></div>
+                    <!-- <script src="https://static.elfsight.com/platform/platform.js" async></script>
+                    <div class="elfsight-app-3f894ccc-f643-4019-935b-cff19c55c358" data-elfsight-app-lazy></div> -->
                 </section>
             </div>
         </div>
     </div>
 
     <!-- Columna derecha: fondo borroso -->
-    <div class="flex h-full relative overflow-hidden items-center p-6 min-w-[300px] mr-8">
+    <div class="flex w-1/2 h-full relative overflow-hidden items-center px-8 xl:px-0 min-w-[300px] max-w-[1000px] mr-8">
         <img src="{{ asset('/img/fondo-inicio.jpg') }}" alt="Teatro" class="min-w-[300px] 3xl:h-[800px] h-full object-cover" />
     </div>
 </div>

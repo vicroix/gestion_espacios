@@ -1,4 +1,4 @@
-<footer class="w-full relative py-6">
+<footer class="w-full relative py-7">
     <div class="contenedor-contacto-redes-footer flex justify-between items-center h-full">
         <!-- Contenedor izquierdo footer -->
         <div class="contenedor-redes space-y-3 ml-4">
