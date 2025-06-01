@@ -104,7 +104,7 @@ main {
 footer {
     background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
     border-top: 1px solid #d1d5dc;
-    font-size: var(--text-general);
+    font-size: var(--texto-general);
 }
 /* Estilos titulos */
 h1 {
