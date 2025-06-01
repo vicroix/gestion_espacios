@@ -13,19 +13,22 @@
 
 @section('main')
 
-<div class="relative h-full flex flex-col items-center md:flex-row justify-between">
+<div class="h-full flex flex-col items-center md:flex-row justify-between p-4">
     <!-- Columna izquierda: contenido -->
-    <div class="w-1/2 flex-row md:flex-col justify-center items-center z-10 bg-transparent p-6">
+    <div class="flex-row md:flex-col justify-center items-center z-10 md:p-6">
         <div class="w-full min-w-[300px] max-w-[1200px]">
             <!-- Sección principal de presentación de la aplicación -->
-            <section class="section-presentacion 4xl:w-full">
+            <section class="section-presentacion w-full">
                 <div class="flex justify-start">
                     <h2 class="text-[--color-primario]">TeatroGest</h2>
                 </div>
                 <div>
                     <!-- Imagen de sillones de teatro (se puede modificar por la que desee el cliente) pendiente de alinear con texto -->
                     <!-- Texto introductorio -->
-                    <p class="home-texto-bienvenida leading-relaxed p-5">
+                    <p class="home-texto-bienvenida leading-relaxed p-1">
+                        <div class="xl:hidden h-full py-2 relative overflow-hidden md:float-right items-center md:pl-8 xl:px-4 min-w-[300px] max-w-[450px]">
+                            <img src="{{ asset('/img/fondo-inicio.jpg') }}" alt="Teatro"/>
+                        </div>
                         Bienvenidos a <b>TeatroGest</b> 🎭
 
                         Aplicación para la gestión de reservas de espacios teatrales, dedicado a la magia del
@@ -54,7 +57,7 @@
     </div>
 
     <!-- Columna derecha: fondo borroso -->
-    <div class="flex w-1/2 h-full relative overflow-hidden items-center pl-8 xl:px-4 min-w-[300px] max-w-[1000px] max-h-[500px]">
+    <div class="hidden xl:flex h-full relative items-center justify-center pl-8 xl:px-4 min-w-[300px] max-w-[1000px]">
         <img src="{{ asset('/img/fondo-inicio.jpg') }}" alt="Teatro" class="min-w-[300px] 3xl:h-[800px] h-full object-cover" />
     </div>
 </div>
