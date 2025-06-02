@@ -160,6 +160,7 @@ class GestionSalas extends Controller
             'fotos.*'       => 'nullable|image|mimes:jpeg,png,jpg,webp|max:12248',
             'fotos_borrar' => 'sometimes|array',
             'fotos_borrar.*' => 'nullable|integer|exists:fotos,id_fotos',
+            'movilidad_reducida' => 'nullable|string|max:2'
         ]);
 
         if ($validar->fails()) {
@@ -197,6 +198,7 @@ class GestionSalas extends Controller
         $editarespacio->tipo         = $datos['tipo_sala'];
         $editarespacio->capacidad    = $datos['aforo'];
         $editarespacio->equipamiento = $datos['equipamiento'];
+        $editarespacio->movilidad_reducida = $datos['movilidad_reducida'];
         $editarespacio->save();
 
         // Subir fotos nuevas
