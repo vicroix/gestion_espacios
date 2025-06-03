@@ -47,7 +47,6 @@
                     <div id="contenedor-del-mapa" class="w-full h-60 bg-gray-200" data-direccion="{{ $espacio->direccion }}"></div>
                 </div>
 
-
                 <!-- Panel galería -->
                 <div id="panelGaleria" class="hidden  sm:w-full h-auto">
                     <h4 class="w-full font-semibold text-[#990000] mb-2">Galería</h4>

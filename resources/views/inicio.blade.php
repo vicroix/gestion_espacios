@@ -58,7 +58,7 @@
 
     <!-- Columna derecha: fondo borroso -->
     <div class="hidden xl:flex h-full relative items-center justify-center pl-8 xl:px-4 min-w-[300px] max-w-[1000px]">
-        <img src="{{ asset('/img/fondo-inicio.jpg') }}" alt="Teatro" class="min-w-[300px] 3xl:h-[800px] h-full object-cover" />
+        <img src="{{ asset('/img/fondo-inicio.jpg') }}" alt="Teatro" class="min-w-[300px] xl:h-[500px] 3xl:h-[800px] h-full object-cover" />
     </div>
 </div>
 
