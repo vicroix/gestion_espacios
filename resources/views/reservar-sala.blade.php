@@ -49,7 +49,7 @@
 
 
                 <!-- Panel galería -->
-                <div id="panelGaleria" class="hidden  sm:w-full h-60">
+                <div id="panelGaleria" class="hidden  sm:w-full h-auto">
                     <h4 class="w-full font-semibold text-[#990000] mb-2">Galería</h4>
                     <!-- FOTOS con Alpine.js -->
                     @if (!empty($espacio->fotos) && $espacio->fotos->isNotEmpty())
