@@ -49,6 +49,9 @@
 .fondo-editar-reservas {
     background-image: url("/public/img/fondo-2k.jpg");
 }
+.fondo-editar-salas {
+    background-image: url("/public/img/fondo-2k.jpg");
+}
 .svg-home-navbar:hover {
     background-color: var(--color-eventos);
     transition: transform 0.2s ease-in-out;
